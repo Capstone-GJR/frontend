@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: 10px;
+  width: 80%;
+  background: #23303d;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  font-family: serif;
+  margin: 0;
+  padding: .5em;
+}

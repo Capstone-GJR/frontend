@@ -1,11 +1,13 @@
-import React from 'react'
-import Button from '../buttons/Button'
+import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Button from '../buttons/Button';
 
 function Home() {
   return (
-    <div>Welcome Page
-      <Button title="test me" />
-    </div>
+    <Container>
+        <Button title="LOGIN" />
+        <Button title="NEW ACCOUNT?" />
+    </Container>
   )
 }
 

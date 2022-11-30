@@ -1,17 +1,14 @@
-import React from 'react'
+import React from 'react';
+import buttonStyles from './buttonStyles.module.css';
 
 function Button(props) {
 
-  const btnStyle = {
-    
-  }
-
   return (
-    <div>
-      <button style={btnStyle}>
-        {props.title}
-      </button>
-    </div>    
+    <div className={buttonStyles.container}>
+      <button className={buttonStyles.btn}>
+          <p className={buttonStyles.title}>{props.title}</p>
+        </button>
+    </div>     
   )
 }
 
