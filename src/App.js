@@ -4,13 +4,13 @@ import {
   Routes,
   Route, 
 } from 'react-router-dom'
-import Home from './components/pages/Welcome';
+import Welcome from './components/pages/Welcome';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Home />}/> 
+        <Route path='/' element={<Welcome />}/> 
       </Routes>
     </Router>
   );
