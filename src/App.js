@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 import Welcome from './components/pages/Welcome';
 import Register from './components/pages/Register';
+import Login from './components/pages/Login';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Welcome />}/> 
         <Route path='/register' element={<Register />}/> 
+        <Route path='/login' element={<Login />}/> 
       </Routes>
     </Router>
   );

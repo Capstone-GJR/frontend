@@ -12,7 +12,9 @@ function Home() {
       </div>
       <div className='row justify-content-center my-5'>
         <div className='col col-lg-6'>
-          <Button title="LOGIN" />
+          <Link to='/login'>
+            <Button title="LOGIN" />
+          </Link>
         </div>
       </div>
       <div className='row justify-content-center'>
