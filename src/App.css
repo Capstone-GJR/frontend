@@ -6,3 +6,10 @@ h1 {
     font-size: 3.75rem;
     margin-top: .75em;
 }
+
+/* Placeholder font */
+.inputText::placeholder {
+    font-family: 'Barlow Condensed', serif;
+    font-size: 1.15rem;
+    opacity: .8;
+}
