@@ -1,13 +1,18 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import Button from '../buttons/Button';
+import welcome from './welcome.module.css';
 
 function Home() {
   return (
-    <Container>
-      <Button title="LOGIN" />
-      <Button title="NEW ACCOUNT?" />
-    </Container>
+    <div>
+      <div className={welcome.container}>
+        <h1>TRAQURA</h1>
+        <div className={welcome.btnContainer}>
+          <Button title="LOGIN" />
+          <Button title="NEW ACCOUNT?" />
+        </div>
+      </div> 
+    </div>
   )
 }
 
