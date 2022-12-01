@@ -5,8 +5,8 @@ import Button from '../buttons/Button';
 function Home() {
   return (
     <Container>
-        <Button title="LOGIN" />
-        <Button title="NEW ACCOUNT?" />
+      <Button title="LOGIN" />
+      <Button title="NEW ACCOUNT?" />
     </Container>
   )
 }
