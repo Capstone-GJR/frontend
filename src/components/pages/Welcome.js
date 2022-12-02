@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../buttons/Button';
 
-function Home() {
+function Welcome() {
   return (
     <div className='container'>
       <div className='row' style={{marginBottom:"25em"}}>
@@ -12,7 +12,9 @@ function Home() {
       </div>
       <div className='row justify-content-center my-5'>
         <div className='col col-lg-6'>
-          <Button title="LOGIN" />
+          <Link to='/login'>
+            <Button title="LOGIN" />
+          </Link>
         </div>
       </div>
       <div className='row justify-content-center'>
@@ -26,4 +28,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Welcome;

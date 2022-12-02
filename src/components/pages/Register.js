@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import RegisterForm from "../forms/RegisterForm";
 
 function Register() {
@@ -17,7 +18,9 @@ function Register() {
             </div>
             <div className="row">
                 <div className="col text-center">
-                    <p className="my-5">ALREADY HAVE AN ACCOUNT? SIGN IN</p>
+                    <Link to='/login' className="customLink">
+                        <p className="my-5">ALREADY HAVE AN ACCOUNT? SIGN IN</p>
+                    </Link>
                 </div>
             </div>
         </div>
