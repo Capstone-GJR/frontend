@@ -80,7 +80,7 @@ function RegisterForm() {
           onChange={(e) => setField("lastName", e.target.value)}
           isInvalid={!!errors.lastName}
           />
-        <Form.Control.Feedback type="invalid">
+        <Form.Control.Feedback type="invalid" className="text-center">
           {errors.lastName}
         </Form.Control.Feedback>
       </Form.Group>
@@ -95,7 +95,7 @@ function RegisterForm() {
           onChange={(e) => setField("email", e.target.value)}
           isInvalid={!!errors.email}
           />
-        <Form.Control.Feedback type="invalid">
+        <Form.Control.Feedback type="invalid" className="text-center">
           {errors.email}
         </Form.Control.Feedback>
       </Form.Group>
@@ -110,7 +110,7 @@ function RegisterForm() {
           onChange={(e) => setField("password", e.target.value)}
           isInvalid={!!errors.password}
           />
-        <Form.Control.Feedback type="invalid">
+        <Form.Control.Feedback type="invalid" className="text-center">
           {errors.password}
         </Form.Control.Feedback>
       </Form.Group>
@@ -125,7 +125,7 @@ function RegisterForm() {
           onChange={(e) => setField("password2", e.target.value)}
           isInvalid={!!errors.password2}
           />
-        <Form.Control.Feedback type="invalid">
+        <Form.Control.Feedback type="invalid" className="text-center">
           {errors.password2}
         </Form.Control.Feedback>
       </Form.Group>
