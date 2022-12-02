@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../buttons/Button';
 
-function Home() {
+function Welcome() {
   return (
     <div className='container'>
       <div className='row' style={{marginBottom:"25em"}}>
@@ -28,4 +28,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Welcome;
