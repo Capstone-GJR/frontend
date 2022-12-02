@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "../buttons/Button";
+import axios from "axios";
 
 function RegisterForm() {
   const [form, setForm] = useState({});
@@ -40,7 +41,7 @@ function RegisterForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
     // Get new erros
     const formErrors = validateForm()
 
@@ -49,7 +50,18 @@ function RegisterForm() {
       setErrors(formErrors)
     } else {
       // Submit post request if no errors
-      console.log('submit form ',form);
+      axios.post('/localhost:8080/user/register', {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        email: form.email,
+        password: form.password
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
   }
 
