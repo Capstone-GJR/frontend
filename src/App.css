@@ -9,20 +9,15 @@ body {
 .customLink {
     color: black;
     text-decoration: none;
-    font-size: 1.15rem;
+    text-align: center;
+    font-size: 1.25rem;
 }
 
-.mb-1em {
-    margin-bottom: 1em;
-}
-
-.mt-6em {
-    margin-top: 6em;
-}
-
+/* Main header */
 h1 {
     font-size: 3.75rem;
-    margin-top: .75em;
+    margin-top: .5em;
+    text-align: center;
 }
 
 /* Placeholder font */
@@ -30,4 +25,21 @@ h1 {
     font-family: 'Barlow Condensed', serif;
     font-size: 1.15rem;
     opacity: .8;
+}
+
+/* Input font */
+input[type=text] {
+    font-family: 'Barlow Condensed', serif;
+    font-size: 1.15rem;
+}
+
+/* Main page container */
+.pageContainer{
+    min-height: 100vh;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

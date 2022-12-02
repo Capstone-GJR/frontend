@@ -10,12 +10,12 @@ function LoginForm() {
             <Form.Control className="p-3 inputText" type="text" placeholder="Username" />
         </Form.Group>
 
-        <Form.Group className="mb-5" controlId="formBasicPassword">
+        <Form.Group className="mb-4" controlId="formBasicPassword">
             <Form.Control className="p-3 inputText" type="password" placeholder="Password" />
         </Form.Group>
 
-        <Link to='#' style={{textDecoration: 'none'}}>
-            <p className='grayText text-center my-4'>Forgot password?</p>
+        <Link to='#' className='customLink'>
+            <p className='grayText'>Forgot password?</p>
         </Link>
 
         <Button title="LOGIN" />
