@@ -73,7 +73,6 @@ function RegisterForm() {
           className="p-3 inputText" 
           type="text" 
           placeholder="first name" 
-          value={form.firstName}
           onChange={(e) => setField("firstName", e.target.value)}
           isInvalid={!!errors.firstName}
           />
@@ -88,7 +87,6 @@ function RegisterForm() {
           className="p-3 inputText" 
           type="text" 
           placeholder="last name" 
-          value={form.lastName}
           onChange={(e) => setField("lastName", e.target.value)}
           isInvalid={!!errors.lastName}
           />
@@ -103,7 +101,6 @@ function RegisterForm() {
           className="p-3 inputText" 
           type="email" 
           placeholder="email@email.com" 
-          value={form.email}
           onChange={(e) => setField("email", e.target.value)}
           isInvalid={!!errors.email}
           />
@@ -118,7 +115,6 @@ function RegisterForm() {
           className="p-3 inputText" 
           type="password" 
           placeholder="enter password" 
-          value={form.password}
           onChange={(e) => setField("password", e.target.value)}
           isInvalid={!!errors.password}
           />
@@ -133,7 +129,6 @@ function RegisterForm() {
           className="p-3 inputText" 
           type="password" 
           placeholder="password" 
-          value={form.password2}
           onChange={(e) => setField("password2", e.target.value)}
           isInvalid={!!errors.password2}
           />
