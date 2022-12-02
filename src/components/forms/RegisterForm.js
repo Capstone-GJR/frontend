@@ -24,7 +24,19 @@ function RegisterForm() {
     })
   }
 
+  const validateForm = () => {
+    const { firstName, lastName, email, password, password2 } = form;
+    const newErrors = {}
 
+    if(!firstName || firstName === '') newErrors.firstName = blankErrorMsg
+    else if (!lastName || lastName === '') newErrors.lastName = blankErrorMsg
+    else if (!email || email === '' || !regex.test(email)) newErrors.email = emailErrorMsg
+    else if (!password || password === '') newErrors.password = blankErrorMsg
+    else if (!password2 || password2 === '') newErrors.password2 = blankErrorMsg
+    else if (password !== password2) newErrors.password2 = "Passwords do not match"
+
+    return newErrors
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
