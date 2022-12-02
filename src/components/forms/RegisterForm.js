@@ -3,6 +3,12 @@ import Form from "react-bootstrap/Form";
 import Button from "../buttons/Button";
 
 function RegisterForm() {
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log("btn clicked");
+  }
+
   return (
     <Form>
 
@@ -21,7 +27,7 @@ function RegisterForm() {
         <Form.Control className="p-3 inputText" type="password" placeholder="password" />
       </Form.Group>
 
-      <Button title="SIGN UP" />
+      <Button title="SIGN UP" onClick={handleClick} />
 
     </Form>
   );
