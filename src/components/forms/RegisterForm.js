@@ -50,7 +50,7 @@ function RegisterForm() {
       setErrors(formErrors)
     } else {
       // Submit post request if no errors
-      axios.post('/localhost:8080/user/register', {
+      axios.post('http://localhost:8080/user/register', {
         firstName: form.firstName,
         lastName: form.lastName,
         email: form.email,
