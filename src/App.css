@@ -2,6 +2,10 @@ body {
     font-family: 'Playfair Display', serif;
 }
 
+.lightGrey {
+    color: #999;
+}
+
 h1 {
     font-size: 3.75rem;
     margin-top: .75em;
