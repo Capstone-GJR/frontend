@@ -18,8 +18,8 @@ function Register() {
             </div>
             <div className="row">
                 <div className="col text-center">
-                    <Link to='/login'>
-                        <p className="my-5">ALREADY HAVE AN ACCOUNT? SIGN IN</p>
+                    <Link to='/login' style={{textDecoration: 'none'}}>
+                        <p className="my-5 customLink">ALREADY HAVE AN ACCOUNT? SIGN IN</p>
                     </Link>
                 </div>
             </div>
