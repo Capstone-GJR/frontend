@@ -4,7 +4,16 @@ import Button from "../buttons/Button";
 import axios from "axios";
 
 function RegisterForm() {
-  const [form, setForm] = useState({});
+
+  const [form, setForm] = 
+  useState({
+    firstName:'', 
+    lastName:'', 
+    email:'', 
+    password:'', 
+    password2:''
+  });
+
   const [errors, setErrors] = useState({});
 
   const regex = /\S+@\S+\.\S+/;
@@ -17,14 +26,13 @@ function RegisterForm() {
       ...form,
       [field]:value
     })
-
     // Check and see if errors exist, and remove them from the error object
     if(!!errors[field]) setErrors({
       ...errors,
       [field]:null
     })
   }
-
+  
   const validateForm = () => {
     const { firstName, lastName, email, password, password2 } = form;
     const newErrors = {}
@@ -41,7 +49,6 @@ function RegisterForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     // Get new erros
     const formErrors = validateForm()
 
@@ -49,14 +56,22 @@ function RegisterForm() {
     if(Object.keys(formErrors).length > 0) {
       setErrors(formErrors)
     } else {
-      // Submit post request if no errors
-      axios.post('http://localhost:8080/user/register', {
+      // Submit post request if no errors 
+      // For testing post request online 'https://jsonplaceholder.typicode.com/posts'
+      axios.post('user/register', {
         firstName: form.firstName,
         lastName: form.lastName,
         email: form.email,
         password: form.password
       })
       .then(function (response) {
+        setForm({
+          firstName:'',
+          lastName:'', 
+          email:'', 
+          password:'', 
+          password2:''
+      })
         console.log(response);
       })
       .catch(function (error) {
@@ -141,7 +156,6 @@ function RegisterForm() {
           {errors.password2}
         </Form.Control.Feedback>
       </Form.Group>
-
       <Button title="SIGN UP" onClick={handleSubmit} />
     </Form>
   );
