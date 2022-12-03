@@ -4,7 +4,16 @@ import Button from "../buttons/Button";
 import axios from "axios";
 
 function RegisterForm() {
-  const [form, setForm] = useState({});
+
+  const [form, setForm] = 
+  useState({
+    firstName:'', 
+    lastName:'', 
+    email:'', 
+    password:'', 
+    password2:''
+  });
+
   const [errors, setErrors] = useState({});
 
   const regex = /\S+@\S+\.\S+/;
@@ -17,14 +26,13 @@ function RegisterForm() {
       ...form,
       [field]:value
     })
-
     // Check and see if errors exist, and remove them from the error object
     if(!!errors[field]) setErrors({
       ...errors,
       [field]:null
     })
   }
-
+  
   const validateForm = () => {
     const { firstName, lastName, email, password, password2 } = form;
     const newErrors = {}
@@ -41,7 +49,6 @@ function RegisterForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     // Get new erros
     const formErrors = validateForm()
 
@@ -49,14 +56,22 @@ function RegisterForm() {
     if(Object.keys(formErrors).length > 0) {
       setErrors(formErrors)
     } else {
-      // Submit post request if no errors
-      axios.post('http://localhost:8080/user/register', {
+      // Submit post request if no errors 
+      // http://localhost:8080/user/register
+      axios.post('https://jsonplaceholder.typicode.com/posts', {
         firstName: form.firstName,
         lastName: form.lastName,
         email: form.email,
         password: form.password
       })
       .then(function (response) {
+        setForm({
+          firstName:'',
+          lastName:'', 
+          email:'', 
+          password:'', 
+          password2:''
+      })
         console.log(response);
       })
       .catch(function (error) {
@@ -73,6 +88,7 @@ function RegisterForm() {
           className="p-3 inputText" 
           type="text" 
           placeholder="first name" 
+          value={form.firstName}
           onChange={(e) => setField("firstName", e.target.value)}
           isInvalid={!!errors.firstName}
           />
@@ -87,6 +103,7 @@ function RegisterForm() {
           className="p-3 inputText" 
           type="text" 
           placeholder="last name" 
+          value={form.lastName}
           onChange={(e) => setField("lastName", e.target.value)}
           isInvalid={!!errors.lastName}
           />
@@ -101,6 +118,7 @@ function RegisterForm() {
           className="p-3 inputText" 
           type="email" 
           placeholder="email@email.com" 
+          value={form.email}
           onChange={(e) => setField("email", e.target.value)}
           isInvalid={!!errors.email}
           />
@@ -115,6 +133,7 @@ function RegisterForm() {
           className="p-3 inputText" 
           type="password" 
           placeholder="enter password" 
+          value={form.password}
           onChange={(e) => setField("password", e.target.value)}
           isInvalid={!!errors.password}
           />
@@ -129,6 +148,7 @@ function RegisterForm() {
           className="p-3 inputText" 
           type="password" 
           placeholder="password" 
+          value={form.password2}
           onChange={(e) => setField("password2", e.target.value)}
           isInvalid={!!errors.password2}
           />
@@ -136,7 +156,6 @@ function RegisterForm() {
           {errors.password2}
         </Form.Control.Feedback>
       </Form.Group>
-
       <Button title="SIGN UP" onClick={handleSubmit} />
     </Form>
   );
