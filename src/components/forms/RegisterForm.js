@@ -57,7 +57,7 @@ function RegisterForm() {
       setErrors(formErrors)
     } else {
       // Submit post request if no errors 
-      // http://localhost:8080/user/register
+      // 'user/register'
       axios.post('https://jsonplaceholder.typicode.com/posts', {
         firstName: form.firstName,
         lastName: form.lastName,
