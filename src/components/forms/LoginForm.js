@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import Form from "react-bootstrap/Form";
 import { Link } from 'react-router-dom';
+// import { useLocalState } from '../../util/useLocalState';
 import Button from '../buttons/Button';
 
 function LoginForm() {
+
+  // const [jwt, setJwt] = useLocalState("", "jwt");
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
