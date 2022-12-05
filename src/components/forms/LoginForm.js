@@ -1,20 +1,34 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import Form from "react-bootstrap/Form";
 import { Link } from 'react-router-dom';
-// import { useLocalState } from '../../util/useLocalState';
 import Button from '../buttons/Button';
+import { useLocalState } from '../util/useLocalState';
 
 function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // const [jwt, setJwt] = useLocalState("", "jwt");
+  const [jwt, setJwt] = useLocalState("", "jwt");
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('email: ', email);
-    console.log('password: ', password);
+    if (!jwt) {
+      try {
+        const response = await axios.post
+        ('authenticate', {
+            "email": email,
+            "password": password
+        });
+          console.log(response);
+          setJwt(response.headers.authorization);
+      } catch (e) {
+          console.log(e);
+          console.log(e.response.data);
+        }
+    }
+    setEmail("");
+    setPassword("");
   }
 
   return (
