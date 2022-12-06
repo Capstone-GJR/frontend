@@ -5,26 +5,43 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from '../buttons/Button';
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const [emailError, setEmailError] = useState("");
+  const [passError, setPassError] = useState("");
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ 
+    email:'', 
+    password:'', 
+  });
+
+  // Function to set form values from user input
+  const setField = (field, value) => {
+    setForm({
+      ...form,
+      [field]:value
+    })
+    // Check for errors, and remove when user types new input
+    setEmailError("");
+    setPassError("");
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
       axios
         .post
           ('authenticate', {
-            "email": email,
-            "password": password
+            "email": form.email,
+            "password": form.password
           })
           .then((res) => {
             localStorage.setItem("access_token", res.headers.authorization);
             navigate("/userlanding");
+            setForm({email: "", password: ""});
           })
-          .catch((error) => console.log(error))
-      
-    setEmail("");
-    setPassword("");
+          .catch((error) => {
+            const errorMsg = error.response.data;
+            if(errorMsg === "Username not found") setEmailError(errorMsg)
+            if(errorMsg === "Incorrect password provided") setPassError(errorMsg)
+          })
   }
 
   return (
@@ -34,9 +51,13 @@ function LoginForm() {
               className="p-3 inputText" 
               type="text" 
               placeholder="Username (Email)" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={form.email}
+              onChange={(e) => setField("email", e.target.value)}
+              isInvalid={!!emailError}
               />
+              <Form.Control.Feedback type="invalid" className="text-center">
+                {emailError}
+              </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="mb-4" controlId="password">
@@ -44,9 +65,13 @@ function LoginForm() {
               className="p-3 inputText" 
               type="password" 
               placeholder="Password" 
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={form.password}
+              onChange={(e) => setField("password", e.target.value)}
+              isInvalid={!!passError}
               />
+              <Form.Control.Feedback type="invalid" className="text-center">
+                {passError}
+              </Form.Control.Feedback>
         </Form.Group>
 
         <Link to='#' className='customLink'>
