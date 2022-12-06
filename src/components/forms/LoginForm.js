@@ -17,8 +17,8 @@ function LoginForm() {
             "email": email,
             "password": password
           })
-          .then((response) => {
-            localStorage.setItem("access_token", response.headers.authorization);
+          .then((res) => {
+            localStorage.setItem("access_token", res.headers.authorization);
             navigate("/userlanding");
           })
           .catch((error) => console.log(error))
