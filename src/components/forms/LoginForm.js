@@ -1,32 +1,28 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import Form from "react-bootstrap/Form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../buttons/Button';
-import { useLocalState } from '../util/useLocalState';
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
-  const [jwt, setJwt] = useLocalState("", "jwt");
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!jwt) {
-      try {
-        const response = await axios.post
-        ('authenticate', {
+      axios
+        .post
+          ('authenticate', {
             "email": email,
             "password": password
-        });
-          console.log(response);
-          setJwt(response.headers.authorization);
-      } catch (e) {
-          console.log(e);
-          console.log(e.response.data);
-        }
-    }
+          })
+          .then((res) => {
+            localStorage.setItem("access_token", res.headers.authorization);
+            navigate("/userlanding");
+          })
+          .catch((error) => console.log(error))
+      
     setEmail("");
     setPassword("");
   }

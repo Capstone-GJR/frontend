@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "../buttons/Button";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
-
+  const navigate = useNavigate();
   const [form, setForm] = 
   useState({
     firstName:'', 
@@ -57,24 +58,24 @@ function RegisterForm() {
       setErrors(formErrors)
     } else {
       // Submit post request if no errors 
-      // For testing post request online 'https://jsonplaceholder.typicode.com/posts'
       axios.post('user/register', {
         firstName: form.firstName,
         lastName: form.lastName,
         email: form.email,
         password: form.password
       })
-      .then(function (response) {
+      .then((res) => {
         setForm({
           firstName:'',
           lastName:'', 
           email:'', 
           password:'', 
           password2:''
+      });
+        navigate("/login")
+        console.log(res);
       })
-        console.log(response);
-      })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
     }
