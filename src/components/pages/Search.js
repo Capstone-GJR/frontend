@@ -2,7 +2,7 @@ import React from 'react';
 import TopNavbar from "../navbar/TopNavbar";
 import BottomNavbar from "../navbar/BottomNavbar";
 
-function Scan(props){
+function Search(props){
     return (
         <div>
             <TopNavbar/>
@@ -13,4 +13,4 @@ function Scan(props){
     )
 }
 
-export default Scan
+export default Search
