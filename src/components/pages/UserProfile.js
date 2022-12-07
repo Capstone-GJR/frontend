@@ -25,16 +25,11 @@ function Profile(){
         }, [])
 
     return (
-
         <div>
-            <LargeNavbar />
-            <TopNavbar/>
             profile page
             <div>
                HELLO {profile.firstName}!!
             </div>
-            <BottomNavbar/>
-
         </div>
     )
 } // Profile function

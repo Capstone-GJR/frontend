@@ -8,7 +8,7 @@ import Welcome from './components/pages/welcome/Welcome';
 import Register from './components/pages/welcome/Register';
 import Login from './components/pages/welcome/Login';
 import PrivateRoute from './components/private_route/PrivateRoute';
-import AllSpaces from './components/pages/user-crud/AllSpaces';
+import UserLanding from './components/pages/user-crud/UserLanding';
 import AboutUs from "./components/pages/welcome/AboutUs";
 import Items from "./components/pages/Items";
 import Scan from "./components/pages/Scan";
@@ -28,29 +28,14 @@ function App() {
         <Route path='/login' element={<Login />}/> 
         <Route path='/aboutus' element={<AboutUs />}/>
 
-        <Route path='/allSpaces' element={
+        <Route path='/userlanding' element={
           <PrivateRoute>
-            <AllSpaces />
+            <UserLanding />
           </PrivateRoute> }>
         </Route>
         <Route path='/profile' element={
           <PrivateRoute>
             <Profile />
-          </PrivateRoute> }>
-        </Route>
-        <Route path='/spaceLanding' element={
-          <PrivateRoute>
-            <SpaceLanding />
-          </PrivateRoute> }>
-        </Route>
-        <Route path='/toteLanding' element={
-          <PrivateRoute>
-            <ToteLanding />
-          </PrivateRoute> }>
-        </Route>
-        <Route path='/itemLanding' element={
-          <PrivateRoute>
-            <ItemLanding />
           </PrivateRoute> }>
         </Route>
 
