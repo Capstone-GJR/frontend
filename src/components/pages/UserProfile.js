@@ -1,7 +1,9 @@
 import axios from "axios";
-import { useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
+import TopNavbar from "../navbar/TopNavbar";
+import BottomNavbar from "../navbar/BottomNavbar";
 
-function Profile(){
+function UserProfile(){
 
     const [profile, setProfile] = useState({})
     useEffect(() => {
@@ -23,12 +25,14 @@ function Profile(){
 
     return (
         <div>
+            <TopNavbar/>
             profile page
             <div>
                HELLO {profile.firstName}!!
             </div>
+            <BottomNavbar/>
         </div>
     )
-} // Profile function
+} // UserProfile function
 
-export default Profile
+export default UserProfile

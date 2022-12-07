@@ -13,7 +13,7 @@ import AboutUs from "./components/pages/welcome/AboutUs";
 import Items from "./components/pages/Items";
 import Scan from "./components/pages/Scan";
 import Search from "./components/pages/Search";
-import Profile from "./components/pages/Profile";
+import UserProfile from "./components/pages/UserProfile";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
         </Route>
         <Route path='/profile' element={
           <PrivateRoute>
-            <Profile />
+            <UserProfile />
           </PrivateRoute> }>
         </Route>
 
