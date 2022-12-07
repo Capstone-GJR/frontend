@@ -33,7 +33,10 @@ function LoginForm() {
             "password": form.password
           })
           .then((res) => {
+            // Private route to access private pages
             localStorage.setItem("access_token", res.headers.authorization);
+            // Global axios defaults
+            axios.defaults.headers.common['Authorization'] = res.headers.authorization;
             navigate("/userlanding");
             setForm({email: "", password: ""});
           })
