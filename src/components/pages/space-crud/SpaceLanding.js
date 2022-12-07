@@ -4,6 +4,7 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link, useLocation} from "react-router-dom";
 import axios from 'axios';
 import { AuthZHeader } from '../../util/HelperFunctions';
+import LargeNavbar from "../../navbar/LargeNavbar";
 
 function SpaceLanding(){
     const [totes, setTotes] = useState([]);
@@ -25,6 +26,8 @@ function SpaceLanding(){
 
     return (
         <div>
+            <LargeNavbar />
+
             <TopNavbar/>
             <h1>{location.state.space_name}</h1>
             <div>

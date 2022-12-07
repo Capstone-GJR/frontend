@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link} from "react-router-dom";
+import LargeNavbar from "../../navbar/LargeNavbar";
 
 function AllSpaces() {
     const [spaces, setSpaces] = useState([]);
@@ -26,6 +27,7 @@ function AllSpaces() {
 
     return (
         <div>
+            <LargeNavbar />
             <TopNavbar/>
             <div>
                 {spaces.map((space) => (

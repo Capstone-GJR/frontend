@@ -4,6 +4,7 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { AuthZHeader } from '../../util/HelperFunctions';
+import LargeNavbar from "../../navbar/LargeNavbar";
 
 function ToteLanding(){
 
@@ -26,6 +27,8 @@ function ToteLanding(){
 
     return (
         <div>
+            <LargeNavbar />
+
             <TopNavbar/>
             <h1>{location.state.tote_name}</h1>
             <div>

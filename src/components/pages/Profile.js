@@ -1,5 +1,8 @@
 import axios from "axios";
-import { useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
+import LargeNavbar from "../navbar/LargeNavbar";
+import TopNavbar from "../navbar/TopNavbar";
+import BottomNavbar from "../navbar/BottomNavbar";
 
 function Profile(){
 
@@ -22,11 +25,16 @@ function Profile(){
         }, [])
 
     return (
+
         <div>
+            <LargeNavbar />
+            <TopNavbar/>
             profile page
             <div>
                HELLO {profile.firstName}!!
             </div>
+            <BottomNavbar/>
+
         </div>
     )
 } // Profile function
