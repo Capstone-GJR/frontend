@@ -5,7 +5,7 @@ import {AiOutlineAppstoreAdd} from "react-icons/ai";
 function TopNavbar(props){
     return(
         <>
-            <Navbar bg="dark" variant="dark" className="p-0">
+            <Navbar bg="dark" variant="dark" className="p-0 d-block d-sm-none d-md-none">
                 <Container className="p-1">
                     <Navbar.Brand href="#home" className="m-0">Traqura</Navbar.Brand>
                     <Nav className="me-0">
