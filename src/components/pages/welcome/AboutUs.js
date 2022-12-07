@@ -1,7 +1,7 @@
 import React from 'react'
-import BottomNavbar from "../navbar/BottomNavbar";
+import BottomNavbar from "../../navbar/BottomNavbar";
 
-import TopNavbar from "../navbar/TopNavbar";
+import TopNavbar from "../../navbar/TopNavbar";
 
 function AboutUs() {
     return (

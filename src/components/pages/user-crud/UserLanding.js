@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import TopNavbar from "../navbar/TopNavbar";
-import BottomNavbar from "../navbar/BottomNavbar";
+import TopNavbar from "../../navbar/TopNavbar";
+import BottomNavbar from "../../navbar/BottomNavbar";
 
 function UserLanding() {
   const [spaces, setSpaces] = useState([]);
