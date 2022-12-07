@@ -28,11 +28,6 @@ function App() {
           </PrivateRoute> }>
         </Route>
 
-        <Route path='/profile' element={
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute> }>
-        </Route>
 
       </Routes>
     </Router>

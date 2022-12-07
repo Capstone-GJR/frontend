@@ -8,7 +8,7 @@ function Profile(){
         const getProfile = async () => {
             try {
                 // TODO: Need to pass in the user_id via local storage after Jenny figures out how to pass the user_id in the authentication response body
-                const res = await axios.get('user/1', {
+                const res = await axios.get('user/', {
                     headers: {
                         Authorization: localStorage.getItem("access_token")
                     }
