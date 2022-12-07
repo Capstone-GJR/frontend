@@ -13,6 +13,7 @@ import AboutUs from "./components/pages/AboutUs";
 import Items from "./components/pages/Items";
 import Scan from "./components/pages/Scan";
 import Search from "./components/pages/Search";
+import Profile from "./components/pages/profile";
 
 function App() {
   return (
@@ -23,12 +24,6 @@ function App() {
         <Route path='/register' element={<Register />}/> 
         <Route path='/login' element={<Login />}/> 
         <Route path='/aboutus' element={<AboutUs />}/>
-
-        <Route path='/items' element={<Items />}/>
-        <Route path='/scan' element={<Scan />}/>
-        <Route path='/search' element={<Search />}/>
-        <Route path='/profile' element={<Profile />}/>
-
 
         <Route path='/userlanding' element={
           <PrivateRoute>
