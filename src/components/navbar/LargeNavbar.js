@@ -55,6 +55,12 @@ function LargeNavbar(props){
                                            <p className="fs-6">Profile</p>
                                    </Link>
                                </li>
+                               <li>
+                                   <Link to="/logout" className="text-decoration-none text-black">
+                                       <CiUser size={20}/>
+                                       <p className="fs-6">Logout</p>
+                                   </Link>
+                               </li>
                            </ul>
                        </div>
                    </div>
