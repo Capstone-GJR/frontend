@@ -10,7 +10,7 @@ import { MdQrCodeScanner } from 'react-icons/md';
 function BottomNavbar(props) {
 
     return (
-       <div className="container p-0 fixed-bottom">
+       <div className="container p-0 fixed-bottom d-sm-none">
                <div className="container-fluid p-0 border border-dark bg-dark d-flex justify-content-evenly">
                    <div className="row row-cols-auto">
                        <div className="col p-0 m-auto  border-start">
@@ -29,9 +29,9 @@ function BottomNavbar(props) {
                            </button>
                            </Link>
                        </div>
-                       <div className="col ps-2 pe-2 m-auto border-start ">
+                       <div className="col border-start">
                            <Link to="/scan">
-                           <button className="btn btn-dark m-auto ">
+                           <button className="btn btn-dark ">
                                <MdQrCodeScanner size={20}/>
                                <p className="fs-6">Scan</p>
                            </button>

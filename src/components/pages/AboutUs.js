@@ -1,12 +1,14 @@
 import React from 'react'
 import BottomNavbar from "../navbar/BottomNavbar";
-import {Carousel} from "react-bootstrap";
+
+import TopNavbar from "../navbar/TopNavbar";
 
 function AboutUs() {
     return (
         <>
+        <TopNavbar title="User"/>
         <div>About Us</div>
-        <Carousel />
+
         <BottomNavbar />
         </>
 
