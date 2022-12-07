@@ -1,8 +1,8 @@
 import React from 'react';
-import TopNavbar from "../navbar/TopNavbar";
-import BottomNavbar from "../navbar/BottomNavbar";
+import TopNavbar from "../../navbar/TopNavbar";
+import BottomNavbar from "../../navbar/BottomNavbar";
 
-function ResetPassword(props){
+function DeleteBox(props){
     return (
         <div>
             <TopNavbar/>
@@ -13,4 +13,4 @@ function ResetPassword(props){
     )
 }
 
-export default ResetPassword
+export default DeleteBox

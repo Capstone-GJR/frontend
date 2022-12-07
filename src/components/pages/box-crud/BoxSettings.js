@@ -1,8 +1,8 @@
 import React from 'react';
-import TopNavbar from "../navbar/TopNavbar";
-import BottomNavbar from "../navbar/BottomNavbar";
+import TopNavbar from "../../navbar/TopNavbar";
+import BottomNavbar from "../../navbar/BottomNavbar";
 
-function AddBox(props){
+function BoxSettings(props){
     return (
         <div>
             <TopNavbar/>
@@ -13,4 +13,4 @@ function AddBox(props){
     )
 }
 
-export default AddBox
+export default BoxSettings

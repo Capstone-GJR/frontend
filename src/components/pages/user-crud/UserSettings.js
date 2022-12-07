@@ -1,8 +1,8 @@
 import React from 'react';
-import TopNavbar from "../navbar/TopNavbar";
-import BottomNavbar from "../navbar/BottomNavbar";
+import TopNavbar from "../../navbar/TopNavbar";
+import BottomNavbar from "../../navbar/BottomNavbar";
 
-function ItemSettings(props){
+function UserSettings(props){
     return (
         <div>
             <TopNavbar/>
@@ -13,4 +13,4 @@ function ItemSettings(props){
     )
 }
 
-export default ItemSettings
+export default UserSettings

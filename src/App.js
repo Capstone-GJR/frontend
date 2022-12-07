@@ -4,12 +4,12 @@ import {
   Routes,
   Route, 
 } from 'react-router-dom'
-import Welcome from './components/pages/Welcome';
-import Register from './components/pages/Register';
-import Login from './components/pages/Login';
+import Welcome from './components/pages/welcome/Welcome';
+import Register from './components/pages/welcome/Register';
+import Login from './components/pages/welcome/Login';
 import PrivateRoute from './components/private_route/PrivateRoute';
-import UserLanding from './components/pages/UserLanding';
-import AboutUs from "./components/pages/AboutUs";
+import UserLanding from './components/pages/user-crud/UserLanding';
+import AboutUs from "./components/pages/welcome/AboutUs";
 import Items from "./components/pages/Items";
 import Scan from "./components/pages/Scan";
 import Search from "./components/pages/Search";
