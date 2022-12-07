@@ -7,7 +7,11 @@ function UserLanding() {
   useEffect(() => {
     const getUserSpaces = async () => {
       try {
-        const response = await axios.get('4/space/all')
+        const response = await axios.get('4/space/all', {
+          headers: {
+            Authorization: localStorage.getItem("access_token")
+          }
+        })
         setSpaces(response.data);
         console.log(response.data);
       } catch (error) {
