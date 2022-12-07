@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import TopNavbar from "../navbar/TopNavbar";
+import BottomNavbar from "../navbar/BottomNavbar";
 
 function UserLanding() {
   const [spaces, setSpaces] = useState([]);
@@ -23,16 +25,21 @@ function UserLanding() {
   
   return (
     <div>
-      {spaces.map((space) => (
-        <div 
-          className='card w-50 p-4 m-4' 
-          key={space.id}
-          onClick={(e)=> {console.log(space.id)}}
-        >
-          {space.name}
-        </div>
-      ))}
+      <TopNavbar />
+      <div>
+        {spaces.map((space) => (
+            <div
+                className='card w-50 p-4 m-4'
+                key={space.id}
+                onClick={(e)=> {console.log(space.id)}}
+            >
+              {space.name}
+            </div>
+        ))}
+      </div>
+      <BottomNavbar />
     </div>
+
   )
 }
 

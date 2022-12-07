@@ -10,6 +10,7 @@ import Login from './components/pages/Login';
 import PrivateRoute from './components/private_route/PrivateRoute';
 import UserLanding from './components/pages/UserLanding';
 import AboutUs from "./components/pages/AboutUs";
+import Items from "./components/pages/Items";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/register' element={<Register />}/> 
         <Route path='/login' element={<Login />}/> 
         <Route path='/aboutus' element={<AboutUs />}/>
+        <Route path='/items' element={<Items />}/>
 
         <Route path='/userlanding' element={
           <PrivateRoute>
