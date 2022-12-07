@@ -27,8 +27,6 @@ function App() {
             <UserLanding />
           </PrivateRoute> }>
         </Route>
-
-
       </Routes>
     </Router>
   );
