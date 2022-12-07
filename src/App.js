@@ -27,10 +27,17 @@ function App() {
         <Route path='/items' element={<Items />}/>
         <Route path='/scan' element={<Scan />}/>
         <Route path='/search' element={<Search />}/>
+        <Route path='/profile' element={<Profile />}/>
+
 
         <Route path='/userlanding' element={
           <PrivateRoute>
             <UserLanding />
+          </PrivateRoute> }>
+        </Route>
+        <Route path='/profile' element={
+          <PrivateRoute>
+            <Profile />
           </PrivateRoute> }>
         </Route>
 

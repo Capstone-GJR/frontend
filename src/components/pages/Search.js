@@ -6,7 +6,7 @@ function Search(props){
     return (
         <div>
             <TopNavbar/>
-            <div>Items</div>
+            <div>Search</div>
             <BottomNavbar/>
         </div>
 

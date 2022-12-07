@@ -6,7 +6,7 @@ function Scan(props){
     return (
         <div>
             <TopNavbar/>
-            <div>Items</div>
+            <div>Scan</div>
             <BottomNavbar/>
         </div>
 
