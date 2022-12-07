@@ -13,7 +13,7 @@ import AboutUs from "./components/pages/AboutUs";
 import Items from "./components/pages/Items";
 import Scan from "./components/pages/Scan";
 import Search from "./components/pages/Search";
-import Profile from "./components/pages/profile";
+import Profile from "./components/pages/Profile";
 
 function App() {
   return (

@@ -2,15 +2,15 @@ import React from 'react';
 import TopNavbar from "../navbar/TopNavbar";
 import BottomNavbar from "../navbar/BottomNavbar";
 
-function ResetPassword(props){
+function SpaceLanding(props){
     return (
         <div>
             <TopNavbar/>
-            <div>Delete Box</div>
+            <div>Space Landing</div>
             <BottomNavbar/>
         </div>
 
     )
 }
 
-export default ResetPassword
+export default SpaceLanding
