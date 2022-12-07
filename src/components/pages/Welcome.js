@@ -24,6 +24,13 @@ function Welcome() {
           </Link>
         </div>
       </div>
+        <div className='row justify-content-center'>
+            <div className='col col-lg-6'>
+                <Link to='/aboutus'>
+                    <Button title="ABOUT US"  />
+                </Link>
+            </div>
+        </div>
     </div>
   )
 }
