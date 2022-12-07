@@ -10,6 +10,7 @@ import Login from './components/pages/Login';
 import PrivateRoute from './components/private_route/PrivateRoute';
 import UserLanding from './components/pages/UserLanding';
 import AboutUs from "./components/pages/AboutUs";
+import Profile from "./components/pages/profile";
 
 function App() {
   return (
@@ -24,6 +25,12 @@ function App() {
         <Route path='/userlanding' element={
           <PrivateRoute>
             <UserLanding />
+          </PrivateRoute> }>
+        </Route>
+
+        <Route path='/profile' element={
+          <PrivateRoute>
+            <Profile />
           </PrivateRoute> }>
         </Route>
 
