@@ -15,6 +15,8 @@ import Scan from "./components/pages/Scan";
 import Search from "./components/pages/Search";
 import Profile from "./components/pages/Profile";
 import SpaceLanding from "./components/pages/space-crud/SpaceLanding";
+import ToteLanding from './components/pages/box-crud/ToteLanding';
+import ItemLanding from './components/pages/item-crud/ItemLanding';
 
 function App() {
   return (
@@ -39,6 +41,16 @@ function App() {
         <Route path='/spaceLanding' element={
           <PrivateRoute>
             <SpaceLanding />
+          </PrivateRoute> }>
+        </Route>
+        <Route path='/toteLanding' element={
+          <PrivateRoute>
+            <ToteLanding />
+          </PrivateRoute> }>
+        </Route>
+        <Route path='/itemLanding' element={
+          <PrivateRoute>
+            <ItemLanding />
           </PrivateRoute> }>
         </Route>
 

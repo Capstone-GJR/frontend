@@ -37,7 +37,7 @@ function LoginForm() {
             localStorage.setItem("access_token", res.headers.authorization);
             // Global axios defaults
             axios.defaults.headers.common['Authorization'] = res.headers.authorization;
-            navigate("/userlanding");
+            navigate("/allSpaces");
             setForm({email: "", password: ""});
           })
           .catch((error) => {

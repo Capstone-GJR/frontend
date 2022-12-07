@@ -30,7 +30,10 @@ function AllSpaces() {
             <div>
                 {spaces.map((space) => (
                     <Link to='/spaceLanding'
-                          state={{space_id: `${space.id}`}}
+                        state={{
+                            space_id: `${space.id}`,
+                            space_name: `${space.name}`
+                        }}
                     >
                         <div
                             className='card w-50 p-4 m-4'
