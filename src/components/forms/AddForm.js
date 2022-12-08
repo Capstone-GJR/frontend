@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import NameField from "./input-fields/NameField";
 import ColorField from "./input-fields/ColorField";
 import KeywordsField from "./input-fields/KeywordsField";
+import ImageField from "./input-fields/ImageField";
 
 function AddForm(props){
     return (
@@ -18,6 +19,12 @@ function AddForm(props){
                 placeholder="Choose A Color"
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
+            />
+            <ImageField
+                type="file"
+                placeholder="Select An Image"
+                value={form.fileStackUrl}
+                onChange={(e) => setField("fileStackUrl", e.target.value)}
             />
             <KeywordsField
                 type="textarea"
