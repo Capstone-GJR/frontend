@@ -14,7 +14,7 @@ function BottomNavbar(props) {
                <div className="container-fluid p-0 border border-dark bg-dark d-flex justify-content-evenly">
                    <div className="row row-cols-auto">
                        <div className="col p-0 m-auto  border-start">
-                           <Link to="/spaces">
+                           <Link to="/allspaces">
                                <button className="btn btn-dark m-auto">
                                    <CiBoxes size={20}/>
                                    <p className="fs-6">Spaces</p>
