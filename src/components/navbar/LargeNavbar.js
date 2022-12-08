@@ -58,7 +58,9 @@ function LargeNavbar(props){
                                <li>
                                    <Link to="/logout" className="text-decoration-none text-black">
                                        <CiUser size={20}/>
-                                       <p className="fs-6">Logout</p>
+                                       <p className="fs-6" onClick={() => localStorage.removeItem("access_token")}>
+                                            Logout
+                                        </p>
                                    </Link>
                                </li>
                            </ul>
