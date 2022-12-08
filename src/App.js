@@ -16,7 +16,7 @@ import Search from "./components/pages/Search";
 import SpaceLanding from "./components/pages/space-crud/SpaceLanding";
 import ToteLanding from './components/pages/box-crud/ToteLanding';
 import ItemLanding from './components/pages/item-crud/ItemLanding';
-import UserProfile from "./components/pages/UserProfile";
+import UserProfile from "./components/pages/user-crud/UserProfile";
 
 function App() {
   return (

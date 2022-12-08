@@ -28,7 +28,6 @@ function ToteLanding(){
     return (
         <div>
             <LargeNavbar />
-
             <TopNavbar/>
             <h1>{location.state.tote_name}</h1>
             <div>
