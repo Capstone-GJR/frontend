@@ -10,7 +10,7 @@ import Login from './components/pages/welcome/Login';
 import PrivateRoute from './components/private_route/PrivateRoute';
 import AllSpaces from './components/pages/user-crud/AllSpaces';
 import AboutUs from "./components/pages/welcome/AboutUs";
-import Items from "./components/pages/Items";
+import AllItems from "./components/pages/AllItems";
 import Scan from "./components/pages/Scan";
 import Search from "./components/pages/Search";
 import SpaceLanding from "./components/pages/space-crud/SpaceLanding";

@@ -3,11 +3,12 @@ import TopNavbar from "../navbar/TopNavbar";
 import BottomNavbar from "../navbar/BottomNavbar";
 import LargeNavbar from "../navbar/LargeNavbar";
 
-function Items(props){
+function AllItems(props){
+
+
     return (
         <div>
             <LargeNavbar />
-
             <TopNavbar/>
             <div>Items</div>
             <BottomNavbar/>
@@ -16,4 +17,4 @@ function Items(props){
     )
 }
 
-export default Items
+export default AllItems
