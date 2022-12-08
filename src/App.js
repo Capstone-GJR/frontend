@@ -56,6 +56,11 @@ function App() {
               <ItemLanding />
             </PrivateRoute> }>
           </Route>
+          <Route path='/allItems' element={
+            <PrivateRoute>
+              <AllItems />
+            </PrivateRoute> }>
+          </Route>
 
         </Routes>
       </Router>
