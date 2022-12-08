@@ -26,7 +26,7 @@ function LargeNavbar(props){
                            </button>
                            <ul className="dropdown-menu dropdown-menu-lg-end text-center" aria-labelledby="dropdownMenuButton1">
                                <li >
-                                   <Link to="/spaces" className="text-decoration-none text-black">
+                                   <Link to="/allspaces" className="text-decoration-none text-black">
                                            <CiBoxes size={20}/>
                                            <p className="fs-6">Spaces</p>
                                    </Link>
