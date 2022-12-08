@@ -17,6 +17,7 @@ import SpaceLanding from "./components/pages/space-crud/SpaceLanding";
 import ToteLanding from './components/pages/box-crud/ToteLanding';
 import ItemLanding from './components/pages/item-crud/ItemLanding';
 import UserProfile from "./components/pages/UserProfile";
+import Logout from './components/pages/Logout';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/' element={<Welcome />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login />}/>
+          <Route path='/logout' element={<Logout />}/>
           <Route path='/aboutus' element={<AboutUs />}/>
 
           <Route path='/allSpaces' element={
