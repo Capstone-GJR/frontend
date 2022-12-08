@@ -27,7 +27,6 @@ function SpaceLanding(){
     return (
         <div>
             <LargeNavbar />
-
             <TopNavbar/>
             <h1>{location.state.space_name}</h1>
             <div>

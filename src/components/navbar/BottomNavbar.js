@@ -22,7 +22,7 @@ function BottomNavbar(props) {
                            </Link>
                        </div>
                        <div className="col p-0 m-auto border-start">
-                           <Link to="/items">
+                           <Link to="/allItems">
                            <button className="btn btn-dark m-auto">
                                <CiShoppingTag size={20}/>
                                <p className="fs-6">Items</p>
