@@ -19,6 +19,8 @@ function ItemLanding(props){
                 const response = await axios.get(endPoint, AuthZHeader())
                 setItemDetails(response.data);
                 console.log(response.data);
+                console.log(response.data.space.name)
+                console.log(response.data.tote.name)
             } catch (error) {
                 console.log(error);
             }
@@ -34,8 +36,8 @@ function ItemLanding(props){
             <div>
                 <div>Description: {itemDetails.keywords}</div>
                 <div>Value: ${itemDetails.value}</div>
-                <div>Space: {itemDetails.space.name}</div>
-                <div>Tote: {itemDetails.tote.name}</div>
+                {/*<div>Space: {itemDetails.space.name}</div>*/}
+                {/*<div>Tote: {itemDetails.tote.name}</div>*/}
             </div>
             <BottomNavbar/>
         </div>
