@@ -32,7 +32,7 @@ function LargeNavbar(props){
                                    </Link>
                                </li>
                                <li>
-                                   <Link to="/allitems" className="text-decoration-none text-black">
+                                   <Link to="/allItems" className="text-decoration-none text-black">
                                            <CiShoppingTag size={20}/>
                                            <p className="fs-6">Items</p>
                                    </Link>
