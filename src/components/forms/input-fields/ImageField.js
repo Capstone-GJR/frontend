@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 function ImageField(props){
     return (
         <Form.Group className="mb-4" controlId="color">
+            <Form.Label>Image</Form.Label>
             <Form.Control className="p-3 inputText"
                           type={props.type}
                           placeholder={props.placeholder}

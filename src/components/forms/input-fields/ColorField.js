@@ -4,8 +4,9 @@ import Form from "react-bootstrap/Form";
 
 function ColorField(props){
     return (
-        <Form.Group className="mb-4" controlId="color">
-            <Form.Control className="p-3 inputText"
+        <Form.Group className="mb-4 " controlId="color">
+            <Form.Label>Color</Form.Label>
+            <Form.Control className="p-3 inputText w-50"
                           type={props.type}
                           placeholder={props.placeholder}
                           value={props.value}
