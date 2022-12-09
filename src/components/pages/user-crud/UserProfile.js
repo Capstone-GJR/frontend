@@ -5,7 +5,7 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import Button from "../../buttons/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthZHeader } from "../../util/HelperFunctions";
+import { AuthZHeader, removeAuthZ } from "../../util/HelperFunctions";
 import DialogBox from "../../buttons/DialogBox";
 import { Alert } from "react-bootstrap";
 
@@ -31,7 +31,7 @@ function Profile(){
     const alertUser = () => {
         setShowAlert(true);
         setTimeout(()=> {
-            localStorage.removeItem("access_token")
+            removeAuthZ();
             navigate('/');
         }, 4000);
     }
@@ -62,7 +62,7 @@ function Profile(){
             </Alert>
 
             <Link to="/logout">
-                <Button title="Logout" onClick={()=> localStorage.removeItem("access_token")}/>
+                <Button title="Logout" onClick={removeAuthZ}/>
             </Link> 
 
             <DialogBox
