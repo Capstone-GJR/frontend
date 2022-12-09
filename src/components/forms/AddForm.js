@@ -4,8 +4,32 @@ import NameField from "./input-fields/NameField";
 import ColorField from "./input-fields/ColorField";
 import KeywordsField from "./input-fields/KeywordsField";
 import ImageField from "./input-fields/ImageField";
+import {useNavigate} from "react-router-dom";
+// import {useState} from "@types/react";
+import Button from "../buttons/Button";
+import {axiosPost} from "../util/HelperFunctions";
 
 function AddForm(props){
+    const navigate = useNavigate();
+    const [form, setForm] = useState({
+        name:'',
+        color:'',
+        // image:'',
+        keywords:'',
+    });
+
+    const setField = (field, value) => {
+        setForm({
+            ...form,
+            [field]:value
+        })
+    }
+
+    const handleSubmit = (e) => {
+        const response = axiosPost(e, '/space/add', form);
+        console.log(response)
+    }
+
     return (
         <Form>
             <NameField
@@ -20,18 +44,19 @@ function AddForm(props){
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
-            <ImageField
-                type="file"
-                placeholder="Select An Image"
-                value={form.fileStackUrl}
-                onChange={(e) => setField("fileStackUrl", e.target.value)}
-            />
+            {/*<ImageField*/}
+            {/*    type="file"*/}
+            {/*    placeholder="Select An Image"*/}
+            {/*    value={form.fileStackUrl}*/}
+            {/*    onChange={(e) => setField("fileStackUrl", e.target.value)}*/}
+            {/*/>*/}
             <KeywordsField
                 type="textarea"
                 placeholder="Add Keywords"
                 value={form.keywords}
                 onChange={(e) => setField("keywords", e.target.value)}
             />
+            <Button title="Submit" onClick={handleSubmit}></Button>
         </Form>
 
     )

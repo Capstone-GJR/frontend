@@ -1,4 +1,6 @@
-// Helper function returns setting the axios header with authZ JWT 
+// Helper function returns setting the axios header with authZ JWT
+
+import axios from "axios";
 
 export const AuthZHeader = () => {
         const header = {
@@ -7,4 +9,24 @@ export const AuthZHeader = () => {
             }
         };
     return header;
+}
+
+export const axiosPost = async (e, endPoint, obj) => {
+  e.preventDefault();
+    try {
+        return await
+            axios
+                .post
+                (`${endPoint}`, obj, {
+                    headers: {
+                        Authorization: localStorage.getItem("access_token")
+                    }
+                })
+
+    } catch (err) {
+        return err
+
+    }
+
+
 }

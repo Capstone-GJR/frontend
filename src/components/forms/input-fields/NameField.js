@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 function NameField(props){
     return (
         <Form.Group className="mb-4" controlId="name">
+            <Form.Label>Name</Form.Label>
             <Form.Control className="p-3 inputText"
                           type={props.type}
                           placeholder={props.placeholder}
