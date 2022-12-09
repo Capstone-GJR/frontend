@@ -1,5 +1,3 @@
-// Helper function returns setting the axios header with authZ JWT
-
 import axios from "axios";
 
 export const AuthZHeader = () => {
@@ -9,6 +7,10 @@ export const AuthZHeader = () => {
             }
         };
     return header;
+}
+
+export const removeAuthZ = () => {
+    return localStorage.removeItem("access_token");
 }
 
 export const axiosPost = async (e, endPoint, obj) => {
@@ -25,8 +27,5 @@ export const axiosPost = async (e, endPoint, obj) => {
 
     } catch (err) {
         return err
-
     }
-
-
 }
