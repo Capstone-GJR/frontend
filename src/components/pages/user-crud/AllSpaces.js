@@ -73,35 +73,6 @@ function AllSpaces() {
                     </Link>
                 ))}
             </div>
-
-            <Form>
-                <NameField
-                    type="text"
-                    placeholder="Give It A Name"
-                    value={form.name}
-                    onChange={(e) => setField("name", e.target.value)}
-                />
-                <ColorField
-                    type="color"
-                    placeholder="Choose A Color"
-                    value={form.color}
-                    onChange={(e) => setField("color", e.target.value)}
-                />
-                {/*<ImageField*/}
-                {/*    type="file"*/}
-                {/*    placeholder="Select An Image"*/}
-                {/*    value={form.fileStackUrl}*/}
-                {/*    onChange={(e) => setField("fileStackUrl", e.target.value)}*/}
-                {/*/>*/}
-                <KeywordsField
-                    type="textarea"
-                    placeholder="Add Keywords"
-                    value={form.keywords}
-                    onChange={(e) => setField("keywords", e.target.value)}
-                />
-                <Button title="Submit" onClick={handleSubmit}></Button>
-            </Form>
-
             <BottomNavbar/>
         </div>
 
