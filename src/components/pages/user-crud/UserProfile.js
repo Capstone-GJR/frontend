@@ -3,33 +3,32 @@ import React, { useEffect, useState} from "react";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
-import Button from "../../buttons/Button"
+import Button from "../../buttons/Button";
 import { Link } from "react-router-dom";
+import { AuthZHeader } from "../../util/HelperFunctions";
 
 function Profile(){
+    
+    const [profile, setProfile] = useState({});
 
-    const [profile, setProfile] = useState({})
-    useEffect(() => {
-        const getProfile = async () => {
-            try {
-                const res = await axios.get('user/', {
-                    headers: {
-                        Authorization: localStorage.getItem("access_token")
-                    }
-                })
-                console.log(res.data)
-                setProfile(res.data)
-            } catch (error) {
-                console.log(error);
-            }
+    const getProfile = async () => {
+        try {
+            const res = await axios.get('user/', AuthZHeader());
+            console.log(res.data);
+            setProfile(res.data);
+        } catch (error) {
+            console.log(error);
         }
+    }
+
+    useEffect(() => {
         getProfile();
-        }, [])
+    },[])
 
     const deleteProfile = () => {
         console.log('delete profile clicked');
     }
-
+    
     return (
         <div>
             <LargeNavbar />
@@ -47,7 +46,6 @@ function Profile(){
                 onClick={deleteProfile}
             />
             <BottomNavbar/>
-
         </div>
     )
 } // Profile function
