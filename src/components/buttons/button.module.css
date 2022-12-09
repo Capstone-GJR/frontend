@@ -1,6 +1,7 @@
 
 .button {
   width: 100%;
+  max-width: 600px;
   background: #23303d;
   border-radius: 10px;
 }
