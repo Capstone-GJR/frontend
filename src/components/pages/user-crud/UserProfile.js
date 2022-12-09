@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { AuthZHeader } from "../../util/HelperFunctions";
 
 function Profile(){
-    
+
     const [profile, setProfile] = useState({});
 
     const getProfile = async () => {
@@ -25,8 +25,13 @@ function Profile(){
         getProfile();
     },[])
 
-    const deleteProfile = () => {
-        console.log('delete profile clicked');
+    const deleteProfile = async () => {
+        try {
+            const res = await axios.delete(`user/delete/${profile.id}`,AuthZHeader());
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
     }
     
     return (
