@@ -26,6 +26,10 @@ function Profile(){
         getProfile();
         }, [])
 
+    const deleteProfile = () => {
+        console.log('delete profile clicked');
+    }
+
     return (
         <div>
             <LargeNavbar />
@@ -37,6 +41,11 @@ function Profile(){
             <Link to="/logout">
                 <Button title="Logout" onClick={()=> localStorage.removeItem("access_token")}/>
             </Link> 
+            <Button 
+                title="Delete Profile" 
+                color='#d9534f'
+                onClick={deleteProfile}
+            />
             <BottomNavbar/>
 
         </div>
