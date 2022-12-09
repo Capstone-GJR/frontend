@@ -4,12 +4,13 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import Button from "../../buttons/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthZHeader } from "../../util/HelperFunctions";
+import DialogBox from "../../buttons/DialogBox";
 
 function Profile(){
-
     const [profile, setProfile] = useState({});
+    const navigate = useNavigate();
 
     const getProfile = async () => {
         try {
@@ -32,6 +33,7 @@ function Profile(){
         } catch (error) {
             console.log(error);
         }
+        navigate('/login');
     }
     
     return (
@@ -45,10 +47,12 @@ function Profile(){
             <Link to="/logout">
                 <Button title="Logout" onClick={()=> localStorage.removeItem("access_token")}/>
             </Link> 
-            <Button 
-                title="Delete Profile" 
-                color='#d9534f'
-                onClick={deleteProfile}
+            <DialogBox
+                btnTitle="Delete Profile"
+                btnColor="#d9534f"
+                modalBody="Are you sure you want to delete your profile?" 
+                comfirmBtnVariant="danger"
+                confirmBtn={deleteProfile}
             />
             <BottomNavbar/>
         </div>
