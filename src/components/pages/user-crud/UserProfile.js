@@ -7,7 +7,7 @@ import Button from "../../buttons/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthZHeader, removeAuthZ } from "../../util/HelperFunctions";
 import DialogBox from "../../buttons/DialogBox";
-import { Alert } from "react-bootstrap";
+import CustomAlert from "../../buttons/CustomAlert";
 
 function Profile(){
     const [profile, setProfile] = useState({});
@@ -55,11 +55,11 @@ function Profile(){
             <div>Last Name: {profile.lastName}</div>
             <div>email: {profile.email}</div>
 
-            <Alert show={showAlert} variant="danger">
-                <Alert.Heading>
-                    Your profile has been deleted <br/> Goodbye {profile.firstName}!
-                </Alert.Heading>
-            </Alert>
+            <CustomAlert
+                showAlert={showAlert}
+                alertVariant="danger"
+                alertHeading={`Your profile has been deleted, goodbye ${profile.firstName}!`}
+            />
 
             <Link to="/logout">
                 <Button title="Logout" onClick={removeAuthZ}/>
