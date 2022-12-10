@@ -1,6 +1,7 @@
 import React from 'react';
+import Form from "react-bootstrap/Form"
 
-function FormControl(props) {
+function FormInput(props) {
   return (
     <Form.Group  className="mb-4" controlId={props.controlId}>
       <Form.Control className="p-3 inputText" 
@@ -17,4 +18,4 @@ function FormControl(props) {
   )
 }
 
-export default FormControl;
+export default FormInput;
