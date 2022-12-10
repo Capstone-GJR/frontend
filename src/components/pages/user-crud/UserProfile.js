@@ -6,8 +6,8 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import Button from "../../buttons/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthZHeader, removeAuthZ } from "../../util/HelperFunctions";
-import DialogBox from "../../buttons/DialogBox";
 import CustomAlert from "../../buttons/CustomAlert";
+import ConfirmBox from "../../buttons/ConfirmBox";
 
 function Profile(){
     const [profile, setProfile] = useState({});
@@ -61,17 +61,18 @@ function Profile(){
                 alertHeading={`Your profile has been deleted, goodbye ${profile.firstName}!`}
             />
 
-            <Link to="/logout">
-                <Button title="Logout" onClick={removeAuthZ}/>
-            </Link> 
-
-            <DialogBox
+            <ConfirmBox
                 btnTitle="Delete Profile"
                 btnColor="#d9534f"
                 modalBody="Are you sure you want to delete your profile?" 
                 comfirmBtnVariant="danger"
                 confirmBtn={deleteProfile}
             />
+
+            <Link to="/logout">
+                <Button title="Logout" onClick={removeAuthZ}/>
+            </Link> 
+            
             <BottomNavbar/>
         </div>
     )

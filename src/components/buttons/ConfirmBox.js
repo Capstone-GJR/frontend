@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import btn from './button.module.css';
 
-function DialogBox(props) {
+function ConfirmBox(props) {
 
     const [show, setShow] = useState(false);
     
@@ -65,4 +65,4 @@ function DialogBox(props) {
   )
 }
 
-export default DialogBox
+export default ConfirmBox
