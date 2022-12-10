@@ -40,10 +40,10 @@ function Profile(){
         try {
             const res = await axios.delete(`user/delete/${profile.id}`,AuthZHeader());
             console.log(res);
+            alertUser();
         } catch (error) {
             console.log(error);
         }
-        alertUser();
     }
 
     return (
