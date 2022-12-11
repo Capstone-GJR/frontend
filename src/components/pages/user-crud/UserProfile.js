@@ -17,7 +17,6 @@ function Profile(){
     const getProfile = async () => {
         try {
             const res = await axios.get('user/', AuthZHeader());
-            console.log(res.data);
             setProfile(res.data);
         } catch (error) {
             console.log(error);
@@ -38,8 +37,7 @@ function Profile(){
 
     const deleteProfile = async () => {
         try {
-            const res = await axios.delete(`user/delete/${profile.id}`,AuthZHeader());
-            console.log(res);
+            await axios.delete(`user/delete/${profile.id}`,AuthZHeader());
             alertUser();
         } catch (error) {
             console.log(error);
@@ -61,14 +59,16 @@ function Profile(){
                 alertHeading={`Your profile has been deleted, goodbye ${profile.firstName}!`}
             />
 
-            <Link to="/updateUser"
-                state={{ profile }}
-            >
-                <Button title="Edit Profile" />
+            <Link to="/updateUser" state={{ profile }}>
+                <Button title="EDIT PROFILE" />
+            </Link> 
+
+            <Link to="/updatePassword" state={{ profile }}>
+                <Button title="CHANGE PASSWORD" />
             </Link> 
 
             <ConfirmBox
-                btnTitle="Delete Profile"
+                btnTitle="DELETE PROFILE"
                 btnColor="#d9534f"
                 modalBody="Are you sure you want to delete your profile?" 
                 comfirmBtnVariant="danger"
@@ -76,7 +76,7 @@ function Profile(){
             />
 
             <Link to="/logout">
-                <Button title="Logout" onClick={removeAuthZ}/>
+                <Button title="LOGOUT" onClick={removeAuthZ}/>
             </Link> 
             
             <BottomNavbar/>

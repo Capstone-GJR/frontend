@@ -3,17 +3,15 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 
-function UserSettings(props){
+function UpdatePassword(){
     return (
         <div>
             <LargeNavbar />
-
             <TopNavbar/>
-            <div>Delete Box</div>
+            
             <BottomNavbar/>
         </div>
-
     )
 }
 
-export default UserSettings
+export default UpdatePassword

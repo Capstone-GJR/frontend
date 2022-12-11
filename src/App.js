@@ -19,6 +19,7 @@ import ItemLanding from './components/pages/item-crud/ItemLanding';
 import UserProfile from "./components/pages/user-crud/UserProfile";
 import Logout from './components/pages/Logout';
 import UpdateUser from './components/pages/user-crud/UpdateUser';
+import UpdatePassword from './components/pages/user-crud/UpdatePassword';
 
 
 function App() {
@@ -44,6 +45,10 @@ function App() {
           </Route>
           <Route path='/updateUser' element= {
             <PrivateRoute> <UpdateUser /> </PrivateRoute>
+          }>
+          </Route>
+          <Route path='/updatePassword' element= {
+            <PrivateRoute> <UpdatePassword /> </PrivateRoute>
           }>
           </Route>
           <Route path='/spaceLanding' element={

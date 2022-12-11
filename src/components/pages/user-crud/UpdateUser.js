@@ -8,31 +8,42 @@ import { useLocation } from 'react-router-dom';
 import Button from '../../buttons/Button';
 import axios from 'axios';
 import { AuthZHeader } from '../../util/HelperFunctions';
+import CustomAlert from '../../buttons/CustomAlert'
 
 function UpdateUser(){
+    const location = useLocation();
+    const [showAlert, setShowAlert] = useState(false);
+    const [showErrAlert, setShowErrAlert] = useState(false);
     const [form, setForm] = useState({
         firstName:'',
         lastName:'',
         email:''
     });
 
-    const location = useLocation();
-
     const setField = (field, value) => {
         setForm({
             ...form,
             [field]:value
         });
+        setShowErrAlert(false);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`user/edit/${location.state.profile.id}`, form , AuthZHeader())
+        axios.patch(`user/edit/${location.state.profile.id}`, form , AuthZHeader())
         .then((res) => {
             console.log(res); 
+            setForm({
+                firstName:'',
+                lastName:'',
+                email:''
+            })
+            setShowAlert(true);
+            setTimeout(()=> setShowAlert(false),4000);
         })
         .catch((error) => {
             console.log(error);
+            setShowErrAlert(true);
         });
     }
     
@@ -42,6 +53,16 @@ function UpdateUser(){
             <TopNavbar/>
             <div className='container'>
                 <h2 className='text-center m-3'>Update your Profile</h2>
+                <CustomAlert
+                    showAlert={showAlert}
+                    alertVariant="success"
+                    alertHeading="Your profile has been successfully updated!"
+                />
+                <CustomAlert
+                    showAlert={showErrAlert}
+                    alertVariant="danger"
+                    alertHeading="Something went wrong, please try again!"
+                />
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
                         <FormInput
@@ -67,14 +88,14 @@ function UpdateUser(){
                         <FormInput
                             id="test"
                             label="EMAIL"
-                            type= "text"
+                            type= "email"
                             placeholder= {location.state.profile.email}
                             value={form.email}
                             onChange={(e) => setField("email", e.target.value)}
                             // isInvalid=
                             // errorMsg=
                         />
-                        <Button title='Submit Edit' onClick={handleSubmit} />
+                        <Button title='SUBMIT EDIT' onClick={handleSubmit} />
                     </Form>
                 </div>
             </div>
