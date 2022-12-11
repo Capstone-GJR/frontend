@@ -5,17 +5,37 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 import FormInput from '../../forms/FormInput';
 import { Form } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
+import Button from '../../buttons/Button';
+import axios from 'axios';
+import { AuthZHeader } from '../../util/HelperFunctions';
 
 function UpdateUser(){
     const location = useLocation();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.put(`user/edit/${location.state.profile.id}`, { 
+            firstName: 'testFirstName',
+            lastName: 'testLastName',
+            email: 'testemail'
+        }, AuthZHeader())
+        .then((res) => {
+            console.log(res); 
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+    
+
     return (
         <>
             <LargeNavbar />
             <TopNavbar/>
             <h1>Update your Profile</h1>
-            <Form className='d-flex justify-content-center flex-wrap'>
+            <Form className='d-flex flex-column justify-items-center'>
                 <FormInput
-                    id="test"
+                    // id=
                     label="FIRST NAME"
                     type= "text"
                     placeholder= {location.state.profile.firstName}
@@ -25,7 +45,7 @@ function UpdateUser(){
                     // errorMsg=
                 />
                 <FormInput
-                    id="test"
+                    // id=
                     label="LAST NAME"
                     type= "text"
                     placeholder= {location.state.profile.lastName}
@@ -44,10 +64,10 @@ function UpdateUser(){
                     // isInvalid=
                     // errorMsg=
                 />
+                <Button title='Submit Edit' onClick={handleSubmit} />
             </Form>
             <BottomNavbar/>
         </>
-
     )
 }
 

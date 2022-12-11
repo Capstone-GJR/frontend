@@ -18,7 +18,7 @@ function FormInput(
       <Form.Group  
         className="my-2" 
         controlId={id}
-        style={{width:'95%', maxWidth:600}}
+        style={{maxWidth:600}}
       >
         <Form.Label className="p-1 mx-3">{label}</Form.Label>
         <Form.Control className="p-3 inputText" 
