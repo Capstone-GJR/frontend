@@ -66,7 +66,6 @@ function UpdateUser(){
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
                         <FormInput
-                            // id=
                             label="FIRST NAME"
                             type= "text"
                             placeholder= {location.state.profile.firstName}
@@ -76,7 +75,6 @@ function UpdateUser(){
                             // errorMsg=
                         />
                         <FormInput
-                            // id=
                             label="LAST NAME"
                             type= "text"
                             placeholder= {location.state.profile.lastName}
@@ -86,7 +84,6 @@ function UpdateUser(){
                             // errorMsg=
                         />
                         <FormInput
-                            id="test"
                             label="EMAIL"
                             type= "email"
                             placeholder= {location.state.profile.email}
