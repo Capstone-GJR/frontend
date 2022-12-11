@@ -5,13 +5,35 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 import { Form } from 'react-bootstrap';
 import FormInput from '../../forms/FormInput';
 import Button from '../../buttons/Button';
+import { checkPassword } from '../../util/HelperFunctions';
 
 function UpdatePassword(){
-    const [password, setPassword] = useState('');
-    const [password2, setPassword2] = useState('');
+    const [form, setForm] = useState({
+        password: '',
+        password2: '',
+    })
+    const [errors, setErrors] = useState({});
 
-    const handleSubmit = () => {
-        console.log("clicked submit");
+    const setField = (field, value) => {
+        setForm({
+          ...form,
+          [field]:value
+        })
+        if(!!errors[field]) setErrors({
+          ...errors,
+          [field]:null
+        })
+      }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formErrors = checkPassword(form.password, form.password2);
+
+        if(Object.keys(formErrors).length > 0) {
+            setErrors(formErrors)
+        } else {
+            console.log("no form errors");
+        }
     }
 
     return (
@@ -26,19 +48,19 @@ function UpdatePassword(){
                             label="Password"
                             type= "password"
                             placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            // isInvalid=
-                            // errorMsg=
+                            value={form.password}
+                            onChange={(e) => setField("password", e.target.value)}
+                            isInvalid={!!errors.password}
+                            errorMsg={errors.password}
                         />
                         <FormInput
                             label="Confirm Password"
                             type= "password"
                             placeholder="Confirm Password"
-                            value={password2}
-                            onChange={(e) => setPassword2(e.target.value)}
-                            // isInvalid=
-                            // errorMsg=
+                            value={form.password2}
+                            onChange={(e) => setField("password2", e.target.value)}
+                            isInvalid={!!errors.password2}
+                            errorMsg={errors.password2}
                         />
                         <Button title='SUBMIT' onClick={handleSubmit} />
                     </Form>
