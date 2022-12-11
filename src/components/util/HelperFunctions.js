@@ -44,3 +44,13 @@ export const validateForm = (form) => {
 
     return newErrors
 }
+
+export const checkPassword = (password, password2) => {
+    const newErrors = {};
+
+    if (!password || password === '') newErrors.password = "Field can not be blank";
+    else if (!password2 || password2 === '') newErrors.password2 = "Field can not be blank";
+    else if (password !== password2) newErrors.password2 = "Passwords do not match";
+
+    return newErrors;
+}
