@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form"
 function FormInput(
   {
     id, 
+    label,
     type, 
     placeholder, 
     value, 
@@ -15,10 +16,11 @@ function FormInput(
 
   return (
       <Form.Group  
-        className="my-3" 
+        className="my-2" 
         controlId={id}
         style={{width:'95%', maxWidth:600}}
       >
+        <Form.Label className="p-1 mx-3">{label}</Form.Label>
         <Form.Control className="p-3 inputText" 
           type={type} 
           placeholder={placeholder} 

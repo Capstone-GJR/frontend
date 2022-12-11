@@ -61,7 +61,9 @@ function Profile(){
                 alertHeading={`Your profile has been deleted, goodbye ${profile.firstName}!`}
             />
 
-            <Link to="/updateUser">
+            <Link to="/updateUser"
+                state={{ profile }}
+            >
                 <Button title="Edit Profile" />
             </Link> 
 

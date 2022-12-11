@@ -4,8 +4,10 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import FormInput from '../../forms/FormInput';
 import { Form } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
 
 function UpdateUser(){
+    const location = useLocation();
     return (
         <>
             <LargeNavbar />
@@ -14,12 +16,33 @@ function UpdateUser(){
             <Form className='d-flex justify-content-center flex-wrap'>
                 <FormInput
                     id="test"
-                    type= "test"
-                    placeholder= "test"
-                    value= "test"
-                    onChange= "test"
-                    isInvalid= {false}
-                    errorMsg= {null}
+                    label="FIRST NAME"
+                    type= "text"
+                    placeholder= {location.state.profile.firstName}
+                    // value=
+                    // onChange=
+                    // isInvalid=
+                    // errorMsg=
+                />
+                <FormInput
+                    id="test"
+                    label="LAST NAME"
+                    type= "text"
+                    placeholder= {location.state.profile.lastName}
+                    // value=
+                    // onChange=
+                    // isInvalid=
+                    // errorMsg=
+                />
+                <FormInput
+                    id="test"
+                    label="EMAIL"
+                    type= "text"
+                    placeholder= {location.state.profile.email}
+                    // value=
+                    // onChange=
+                    // isInvalid=
+                    // errorMsg=
                 />
             </Form>
             <BottomNavbar/>
