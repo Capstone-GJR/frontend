@@ -61,6 +61,10 @@ function Profile(){
                 alertHeading={`Your profile has been deleted, goodbye ${profile.firstName}!`}
             />
 
+            <Link to="/updateUser">
+                <Button title="Edit Profile" />
+            </Link> 
+
             <ConfirmBox
                 btnTitle="Delete Profile"
                 btnColor="#d9534f"

@@ -18,6 +18,7 @@ import ToteLanding from './components/pages/box-crud/ToteLanding';
 import ItemLanding from './components/pages/item-crud/ItemLanding';
 import UserProfile from "./components/pages/user-crud/UserProfile";
 import Logout from './components/pages/Logout';
+import UpdateUser from './components/pages/user-crud/UpdateUser';
 
 
 function App() {
@@ -40,6 +41,10 @@ function App() {
             <PrivateRoute>
               <UserProfile />
             </PrivateRoute> }>
+          </Route>
+          <Route path='/updateUser' element= {
+            <PrivateRoute> <UpdateUser /> </PrivateRoute>
+          }>
           </Route>
           <Route path='/spaceLanding' element={
             <PrivateRoute>

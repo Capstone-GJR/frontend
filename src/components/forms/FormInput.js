@@ -1,20 +1,35 @@
 import React from 'react';
 import Form from "react-bootstrap/Form"
 
-function FormInput(props) {
+function FormInput(
+  {
+    id, 
+    type, 
+    placeholder, 
+    value, 
+    onChange, 
+    isInvalid, 
+    errorMsg
+  }
+){
+
   return (
-    <Form.Group  className="mb-4" controlId={props.controlId}>
-      <Form.Control className="p-3 inputText" 
-        type={props.type} 
-        placeholder={props.placeholder} 
-        value={props.value}
-        onChange={props.onChange}
-        isInvalid={props.isInvalid}
-    />
-      <Form.Control.Feedback type="invalid" className="text-center">
-        {props.errorMsg}
-      </Form.Control.Feedback>
-    </Form.Group>
+      <Form.Group  
+        className="my-3" 
+        controlId={id}
+        style={{width:'95%', maxWidth:600}}
+      >
+        <Form.Control className="p-3 inputText" 
+          type={type} 
+          placeholder={placeholder} 
+          value={value}
+          onChange={onChange}
+          isInvalid={isInvalid}
+        />
+        <Form.Control.Feedback type="invalid" className="text-center">
+          {errorMsg}
+        </Form.Control.Feedback>
+      </Form.Group>
   )
 }
 
