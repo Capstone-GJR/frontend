@@ -46,3 +46,10 @@ input[type=text] {
     justify-content: space-between;
 }
 
+.margin-0-Auto {
+    margin: 0 auto;
+}
+
+.maxWidth600 {
+    max-width: 600px;
+}
