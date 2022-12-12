@@ -6,8 +6,10 @@ import { Form } from 'react-bootstrap';
 import FormInput from '../../forms/FormInput';
 import Button from '../../buttons/Button';
 import { checkPassword } from '../../util/HelperFunctions';
+import CustomAlert from '../../buttons/CustomAlert';
 
 function UpdatePassword(){
+    const [showAlert, setShowAlert] = useState(false);
     const [form, setForm] = useState({
         password: '',
         password2: '',
@@ -32,7 +34,9 @@ function UpdatePassword(){
         if(Object.keys(formErrors).length > 0) {
             setErrors(formErrors)
         } else {
-            console.log("no form errors");
+            console.log("no form errors, make axios request");
+            setShowAlert(true);
+            setTimeout(()=> setShowAlert(false),4000);
         }
     }
 
@@ -65,6 +69,11 @@ function UpdatePassword(){
                         <Button title='SUBMIT' onClick={handleSubmit} />
                     </Form>
                 </div>
+                <CustomAlert
+                    showAlert={showAlert}
+                    alertVariant="success"
+                    alertHeading="Password change successful!"
+                />
             </div>
             <BottomNavbar/>
         </div>
