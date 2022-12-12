@@ -45,42 +45,48 @@ function Profile(){
     }
 
     return (
-        <div>
+        <>
             <LargeNavbar />
             <TopNavbar/>
-            <h2>HELLO {profile.firstName}!!</h2>
-            <div>First Name: {profile.firstName}</div>
-            <div>Last Name: {profile.lastName}</div>
-            <div>email: {profile.email}</div>
+            <div className="container">
+                <h2 className="text-center">HELLO {profile.firstName}!!</h2>
+                <div className="d-flex justify-content-center"> 
+                    <div>
+                        <div>First Name: {profile.firstName}</div>
+                        <div>Last Name: {profile.lastName}</div>
+                        <div>email: {profile.email}</div>
+                    </div>    
+                </div>
+                <div className="maxWidth600 margin-0-Auto">
+                    <CustomAlert
+                        showAlert={showAlert}
+                        alertVariant="danger"
+                        alertHeading={`Your profile has been deleted, goodbye ${profile.firstName}!`}
+                    />
 
-            <CustomAlert
-                showAlert={showAlert}
-                alertVariant="danger"
-                alertHeading={`Your profile has been deleted, goodbye ${profile.firstName}!`}
-            />
+                    <Link to="/updateUser" state={{ profile }}>
+                        <Button title="EDIT PROFILE" />
+                    </Link> 
 
-            <Link to="/updateUser" state={{ profile }}>
-                <Button title="EDIT PROFILE" />
-            </Link> 
+                    <Link to="/updatePassword" state={{ profile }}>
+                        <Button title="CHANGE PASSWORD" />
+                    </Link> 
 
-            <Link to="/updatePassword" state={{ profile }}>
-                <Button title="CHANGE PASSWORD" />
-            </Link> 
+                    <Link to="/logout">
+                        <Button title="LOGOUT" onClick={removeAuthZ}/>
+                    </Link> 
 
-            <ConfirmBox
-                btnTitle="DELETE PROFILE"
-                btnColor="#d9534f"
-                modalBody="Are you sure you want to delete your profile?" 
-                comfirmBtnVariant="danger"
-                confirmBtn={deleteProfile}
-            />
-
-            <Link to="/logout">
-                <Button title="LOGOUT" onClick={removeAuthZ}/>
-            </Link> 
-            
+                    <ConfirmBox
+                        btnTitle="DELETE PROFILE"
+                        btnColor="#d9534f"
+                        modalBody="Are you sure you want to delete your profile?" 
+                        comfirmBtnVariant="danger"
+                        confirmBtn={deleteProfile}
+                    />
+                </div>
+            </div>
             <BottomNavbar/>
-        </div>
+        </>
     )
 } // Profile function
 
