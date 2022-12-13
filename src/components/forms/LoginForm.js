@@ -28,7 +28,7 @@ function LoginForm() {
     e.preventDefault();
       axios
         .post
-          ('api/authenticate', {
+          ('/authenticate', {
             "email": form.email,
             "password": form.password
           })

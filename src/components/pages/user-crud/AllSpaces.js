@@ -39,7 +39,7 @@ function AllSpaces() {
     useEffect(() => {
         const getUserSpaces = async () => {
             try {
-                const response = await axios.get('api/space/all', {
+                const response = await axios.get('/space/all', {
                     headers: {
                         Authorization: localStorage.getItem("access_token")
                     }

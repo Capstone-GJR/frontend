@@ -13,16 +13,19 @@ import AboutUs from "./components/pages/welcome/AboutUs";
 import AllItems from "./components/pages/AllItems";
 import Scan from "./components/pages/Scan";
 import Search from "./components/pages/Search";
-import SpaceLanding from "./components/pages/space-crud/SpaceLanding";
+import AllTotesBySpaceId from "./components/pages/space-crud/AllTotesBySpaceId";
 import ToteLanding from './components/pages/box-crud/ToteLanding';
 import ItemLanding from './components/pages/item-crud/ItemLanding';
 import UserProfile from "./components/pages/user-crud/UserProfile";
 import Logout from './components/pages/Logout';
 import UpdateUser from './components/pages/user-crud/UpdateUser';
 import UpdatePassword from './components/pages/user-crud/UpdatePassword';
-
+import axios from "axios";
 
 function App() {
+
+  axios.defaults.baseURL = "/api/";
+
   return (
       <Router>
         <Routes>
@@ -53,7 +56,7 @@ function App() {
           </Route>
           <Route path='/spaceLanding' element={
             <PrivateRoute>
-              <SpaceLanding />
+              <AllTotesBySpaceId />
             </PrivateRoute> }>
           </Route>
           <Route path='/toteLanding' element={
