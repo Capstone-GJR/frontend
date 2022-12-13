@@ -45,11 +45,6 @@ function App() {
               <AddSpace />
             </PrivateRoute> }>
           </Route>
-          <Route path='/space' element={
-            <PrivateRoute>
-              <AllTotesById />
-            </PrivateRoute> }>
-          </Route>
           <Route path='/profile' element={
             <PrivateRoute>
               <UserProfile />
