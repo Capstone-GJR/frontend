@@ -61,10 +61,19 @@ function UpdatePassword(){
                 <h2 className='text-center m-3'>Update your password</h2>
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
-                        <FormInput
-                            label="Password"
+                    <FormInput
+                            label="Current Password"
                             type= "password"
-                            placeholder="Password"
+                            placeholder="Current Password"
+                            // value={form.password}
+                            // onChange={(e) => setField("password", e.target.value)}
+                            // isInvalid={!!errors.password}
+                            // errorMsg={errors.password}
+                        />
+                        <FormInput
+                            label="New Password"
+                            type= "password"
+                            placeholder="New Password"
                             value={form.password}
                             onChange={(e) => setField("password", e.target.value)}
                             isInvalid={!!errors.password}
