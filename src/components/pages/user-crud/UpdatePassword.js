@@ -5,8 +5,9 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 import { Form } from 'react-bootstrap';
 import FormInput from '../../forms/FormInput';
 import Button from '../../buttons/Button';
-import { checkPassword } from '../../util/HelperFunctions';
+import { AuthZHeader, checkPassword } from '../../util/HelperFunctions';
 import CustomAlert from '../../buttons/CustomAlert';
+import axios from 'axios';
 
 function UpdatePassword(){
     const [showAlert, setShowAlert] = useState(false);
@@ -27,16 +28,21 @@ function UpdatePassword(){
         })
       }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formErrors = checkPassword(form.password, form.password2);
-
+        const newPass = form.password
         if(Object.keys(formErrors).length > 0) {
             setErrors(formErrors)
         } else {
-            console.log("no form errors, make axios request");
-            setShowAlert(true);
-            setTimeout(()=> setShowAlert(false),4000);
+            try {
+                const res = await axios.put('user/editPW', {newPass}, AuthZHeader)
+                console.log(res);
+                setShowAlert(true);
+                setTimeout(()=> setShowAlert(false),4000);  
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
