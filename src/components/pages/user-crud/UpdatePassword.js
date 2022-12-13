@@ -8,14 +8,17 @@ import Button from '../../buttons/Button';
 import { AuthZHeader, checkPassword } from '../../util/HelperFunctions';
 import CustomAlert from '../../buttons/CustomAlert';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function UpdatePassword(){
     const [showAlert, setShowAlert] = useState(false);
+    const [showErrAlert, setShowErrAlert] = useState(false);
     const [form, setForm] = useState({
         password: '',
         password2: '',
     })
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
     const setField = (field, value) => {
         setForm({
@@ -31,17 +34,21 @@ function UpdatePassword(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formErrors = checkPassword(form.password, form.password2);
-        const newPass = form.password
+        const password = form.password
         if(Object.keys(formErrors).length > 0) {
             setErrors(formErrors)
         } else {
             try {
-                const res = await axios.put('user/editPW', {newPass}, AuthZHeader)
-                console.log(res);
+                await axios.put('user/editPW', {password}, AuthZHeader);
+                setForm({
+                    password:'', 
+                    password2: ''
+                });
                 setShowAlert(true);
-                setTimeout(()=> setShowAlert(false),4000);  
+                setTimeout(()=> navigate('/profile'), 4000);  
             } catch (error) {
-                console.log(error);
+                setShowErrAlert(true);
+                setTimeout(()=> setShowErrAlert(false),4000); 
             }
         }
     }
@@ -79,6 +86,11 @@ function UpdatePassword(){
                     showAlert={showAlert}
                     alertVariant="success"
                     alertHeading="Password change successful!"
+                />
+                <CustomAlert
+                    showAlert={showErrAlert}
+                    alertVariant="danger"
+                    alertHeading="Password change unsuccessful, try again!"
                 />
             </div>
             <BottomNavbar/>
