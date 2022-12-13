@@ -21,6 +21,7 @@ import Logout from './components/pages/Logout';
 import UpdateUser from './components/pages/user-crud/UpdateUser';
 import UpdatePassword from './components/pages/user-crud/UpdatePassword';
 import AddForm from "./components/forms/AddForm";
+import AddSpace from "./components/pages/space-crud/AddSpace";
 
 
 function App() {
@@ -41,7 +42,12 @@ function App() {
           </Route>
           <Route path='/space/add' element={
             <PrivateRoute>
-              <AddForm />
+              <AddSpace />
+            </PrivateRoute> }>
+          </Route>
+          <Route path='/space' element={
+            <PrivateRoute>
+              <AllTotesById />
             </PrivateRoute> }>
           </Route>
           <Route path='/profile' element={

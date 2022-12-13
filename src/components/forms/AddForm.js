@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import NameField from "./input-fields/NameField";
 import ColorField from "./input-fields/ColorField";
@@ -12,12 +12,7 @@ import axios from "axios";
 
 function AddForm(props){
     const navigate = useNavigate();
-    const [form, setForm] = useState({
-        name:'',
-        color:'',
-        // image:'',
-        keywords:'',
-    });
+    const [form, setForm] = useState({});
 
     const setField = (field, value) => {
         setForm({
@@ -26,9 +21,20 @@ function AddForm(props){
         })
     }
 
-    const handleSubmit = (e) => {
-        const response =  axios.post(`/space/add`, form, AuthZHeader);
-        console.log(response)
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try{
+            const response =  await axios.post(`/space/add`, form, AuthZHeader)
+            console.log(response)
+            setForm({})
+            navigate("/allSpaces")
+        }
+        catch(err){
+            console.log(err)
+        }
+
+
+
     }
 
     return (

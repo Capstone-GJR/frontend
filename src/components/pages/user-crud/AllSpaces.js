@@ -2,20 +2,15 @@ import axios from 'axios';
 import {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
-// import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import LargeNavbar from "../../navbar/LargeNavbar";
-import Form from "react-bootstrap/Form";
-import NameField from "../../forms/input-fields/NameField";
-import ColorField from "../../forms/input-fields/ColorField";
-import KeywordsField from "../../forms/input-fields/KeywordsField";
 import Button from "../../buttons/Button";
 // import React from "@types/react";
-import {axiosPost} from "../../util/HelperFunctions";
-import {Link} from "react-router-dom";
+
+
 
 function AllSpaces() {
     const [spaces, setSpaces] = useState([]);
-
 
     useEffect(() => {
         const getUserSpaces = async () => {
@@ -44,7 +39,7 @@ function AllSpaces() {
             <div>
 
                 {spaces.map((space) => (
-                    <Link to='/spaceLanding'
+                    <Link to='/allTotesBySpace'
                         state={{
                             space_id: `${space.id}`,
                             space_name: `${space.name}`
