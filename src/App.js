@@ -20,7 +20,13 @@ import UserProfile from "./components/pages/user-crud/UserProfile";
 import Logout from './components/pages/Logout';
 import UpdateUser from './components/pages/user-crud/UpdateUser';
 import UpdatePassword from './components/pages/user-crud/UpdatePassword';
+
+import AddForm from "./components/forms/AddForm";
+import AddSpace from "./components/pages/space-crud/AddSpace";
+
+
 import axios from "axios";
+
 
 function App() {
 
@@ -41,6 +47,11 @@ function App() {
               <AllSpaces />
             </PrivateRoute> }>
           </Route>
+          <Route path='/space/add' element={
+            <PrivateRoute>
+              <AddSpace />
+            </PrivateRoute> }>
+          </Route>
           <Route path='/profile' element={
             <PrivateRoute>
               <UserProfile />
@@ -54,9 +65,11 @@ function App() {
             <PrivateRoute> <UpdatePassword /> </PrivateRoute>
           }>
           </Route>
-          <Route path='/spaceLanding' element={
+          <Route path='/allTotesBySpace' element={
             <PrivateRoute>
+
               <AllTotesBySpaceId />
+
             </PrivateRoute> }>
           </Route>
           <Route path='/toteLanding' element={
