@@ -11,14 +11,18 @@ import { AuthZHeader } from '../../util/HelperFunctions';
 import CustomAlert from '../../buttons/CustomAlert'
 
 function UpdateUser(){
-    const location = useLocation();
     const [showAlert, setShowAlert] = useState(false);
     const [showErrAlert, setShowErrAlert] = useState(false);
+    const [inputErrors, setInputErrors] = useState(false);
     const [form, setForm] = useState({
         firstName:'',
         lastName:'',
         email:''
     });
+    const location = useLocation();
+    const defaultFname = location.state.profile.firstName;
+    const defaultLname = location.state.profile.lastName;
+    const defaultEmail = location.state.profile.email;
 
     const setField = (field, value) => {
         setForm({
@@ -26,25 +30,37 @@ function UpdateUser(){
             [field]:value
         });
         setShowErrAlert(false);
+        setInputErrors(false);
+    }
+
+    const setDefaultValues = () => {
+        if(form.firstName === '') form.firstName = defaultFname;
+        if(form.lastName === '') form.lastName = defaultLname;
+        if(form.email === '') form.email = defaultEmail;
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`user/edit/${location.state.profile.id}`, form , AuthZHeader())
-        .then((res) => {
-            console.log(res); 
-            setForm({
-                firstName:'',
-                lastName:'',
-                email:''
+        if (form.firstName === '' && form.lastName === '' && form.email === '') {
+            setInputErrors(true)
+        } else {
+            setDefaultValues();
+            axios.put(`user/edit/${location.state.profile.id}`, form , AuthZHeader())
+            .then((res) => {
+                console.log(res);
+                setForm({
+                    firstName:'',
+                    lastName:'',
+                    email:''
+                })
+                setShowAlert(true);
+                setTimeout(()=> setShowAlert(false),4000);
             })
-            setShowAlert(true);
-            setTimeout(()=> setShowAlert(false),4000);
-        })
-        .catch((error) => {
-            console.log(error);
-            setShowErrAlert(true);
-        });
+            .catch((error) => {
+                console.log(error);
+                setShowErrAlert(true);
+            });
+        }
     }
     
     return (
@@ -58,29 +74,27 @@ function UpdateUser(){
                         <FormInput
                             label="FIRST NAME"
                             type= "text"
-                            placeholder= {location.state.profile.firstName}
+                            placeholder= {defaultFname}
                             value={form.firstName}
                             onChange={(e) => setField("firstName", e.target.value)}
-                            // isInvalid=
-                            // errorMsg=
+                            isInvalid={!!inputErrors}
+                            errorMsg="All fields can not be blank"
                         />
                         <FormInput
                             label="LAST NAME"
                             type= "text"
-                            placeholder= {location.state.profile.lastName}
+                            placeholder= {defaultLname}
                             value={form.lastName}
                             onChange={(e) => setField("lastName", e.target.value)}
-                            // isInvalid=
-                            // errorMsg=
+                            isInvalid={!!inputErrors}
                         />
                         <FormInput
                             label="EMAIL"
                             type= "email"
-                            placeholder= {location.state.profile.email}
+                            placeholder= {defaultEmail}
                             value={form.email}
                             onChange={(e) => setField("email", e.target.value)}
-                            // isInvalid=
-                            // errorMsg=
+                            isInvalid={!!inputErrors}
                         />
                         <Button title='SUBMIT EDIT' onClick={handleSubmit} />
                     </Form>
