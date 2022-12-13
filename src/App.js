@@ -20,7 +20,7 @@ import UserProfile from "./components/pages/user-crud/UserProfile";
 import Logout from './components/pages/Logout';
 import UpdateUser from './components/pages/user-crud/UpdateUser';
 import UpdatePassword from './components/pages/user-crud/UpdatePassword';
-import axios from "axios";
+import AddForm from "./components/forms/AddForm";
 
 
 function App() {
@@ -37,6 +37,11 @@ function App() {
           <Route path='/allSpaces' element={
             <PrivateRoute>
               <AllSpaces />
+            </PrivateRoute> }>
+          </Route>
+          <Route path='/space/add' element={
+            <PrivateRoute>
+              <AddForm />
             </PrivateRoute> }>
           </Route>
           <Route path='/profile' element={

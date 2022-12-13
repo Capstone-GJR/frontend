@@ -38,7 +38,11 @@ function AllSpaces() {
         <div>
             <LargeNavbar />
             <TopNavbar/>
+            <Link to="/space/add">
+                <Button title="Add"/>
+            </Link>
             <div>
+
                 {spaces.map((space) => (
                     <Link to='/spaceLanding'
                         state={{
