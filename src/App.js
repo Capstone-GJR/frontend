@@ -13,7 +13,7 @@ import AboutUs from "./components/pages/welcome/AboutUs";
 import AllItems from "./components/pages/AllItems";
 import Scan from "./components/pages/Scan";
 import Search from "./components/pages/Search";
-import SpaceLanding from "./components/pages/space-crud/SpaceLanding";
+import AllTotesById from "./components/pages/space-crud/AllTotesById";
 import ToteLanding from './components/pages/box-crud/ToteLanding';
 import ItemLanding from './components/pages/item-crud/ItemLanding';
 import UserProfile from "./components/pages/user-crud/UserProfile";
@@ -51,9 +51,9 @@ function App() {
             <PrivateRoute> <UpdatePassword /> </PrivateRoute>
           }>
           </Route>
-          <Route path='/spaceLanding' element={
+          <Route path='/allTotesBySpace' element={
             <PrivateRoute>
-              <SpaceLanding />
+              <AllTotesById />
             </PrivateRoute> }>
           </Route>
           <Route path='/toteLanding' element={
