@@ -16,30 +16,11 @@ import {Link} from "react-router-dom";
 function AllSpaces() {
     const [spaces, setSpaces] = useState([]);
 
-    // const navigate = useNavigate();
-    const [form, setForm] = useState({
-        name:'',
-        color:'',
-        // image:'',
-        keywords:'',
-    });
-
-    const setField = (field, value) => {
-        setForm({
-            ...form,
-            [field]:value
-        })
-    }
-
-    const handleSubmit = (e) => {
-        const response = axiosPost(e, '/space/add', form);
-        console.log(response)
-    }
 
     useEffect(() => {
         const getUserSpaces = async () => {
             try {
-                const response = await axios.get('space/all', {
+                const response = await axios.get('/space/all', {
                     headers: {
                         Authorization: localStorage.getItem("access_token")
                     }

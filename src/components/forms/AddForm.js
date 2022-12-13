@@ -7,7 +7,8 @@ import ImageField from "./input-fields/ImageField";
 import {useNavigate} from "react-router-dom";
 // import {useState} from "@types/react";
 import Button from "../buttons/Button";
-import {axiosPost} from "../util/HelperFunctions";
+import {AuthZHeader, axiosPost} from "../util/HelperFunctions";
+import axios from "axios";
 
 function AddForm(props){
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ function AddForm(props){
     }
 
     const handleSubmit = (e) => {
-        const response = axiosPost(e, '/space/add', form);
+        const response =  axios.post(`/space/add`, form, AuthZHeader);
         console.log(response)
     }
 

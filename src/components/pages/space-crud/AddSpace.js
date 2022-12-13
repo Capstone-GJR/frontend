@@ -2,6 +2,7 @@ import React from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
+import AddForm from "../../forms/AddForm";
 
 function AddSpace(props){
     return (
@@ -10,6 +11,7 @@ function AddSpace(props){
 
             <TopNavbar/>
             <div>Add Space</div>
+            <AddForm/>
             <BottomNavbar/>
         </div>
 
