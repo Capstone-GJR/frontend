@@ -23,6 +23,7 @@ import UpdatePassword from './components/pages/user-crud/UpdatePassword';
 
 
 function App() {
+  console.log(process.env.NODE_ENV)
   return (
       <Router>
         <Routes>
