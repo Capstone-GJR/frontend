@@ -6,10 +6,10 @@ import axios from 'axios';
 import { AuthZHeader } from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
 
-function SpaceLanding(){
+function AllTotesBySpaceId(){
     const [totes, setTotes] = useState([]);
     const location = useLocation();
-    const endPoint = `${location.state.space_id}/tote/all`;
+    const endPoint = `/tote/all/${location.state.space_id}`;
 
     useEffect(() => {
         const getTotes = async () => {
@@ -45,6 +45,6 @@ function SpaceLanding(){
     )
 }
 
-export default SpaceLanding;
+export default AllTotesBySpaceId;
 
 // ADD item or tote btn //
