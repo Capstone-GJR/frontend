@@ -13,6 +13,7 @@ export const removeAuthZ = () => {
     return localStorage.removeItem("access_token");
 }
 
+
 export const axiosPost = async (e, endPoint, obj) => {
   e.preventDefault();
     try {
