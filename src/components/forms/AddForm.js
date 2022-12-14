@@ -70,7 +70,6 @@ function AddForm(props){
                                 onUploadDone={ (res) => setField("fileStackUrl", res.filesUploaded[0].url)}
                                 onSuccess={(res) => console.log(res)}
                             />
-                            {/*<Button title='consoleLog' onClick={()=>console.log(imageUrl)}/>*/}
                             {/*    ------------------------------------*/}
                         </div>
                     </div>
