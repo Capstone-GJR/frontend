@@ -29,7 +29,6 @@ import axios from "axios";
 
 
 function App() {
-  console.log(process.env.NODE_ENV)
 
   axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
 
