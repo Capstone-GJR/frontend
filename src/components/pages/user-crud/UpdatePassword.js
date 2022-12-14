@@ -39,7 +39,7 @@ function UpdatePassword(){
             setErrors(formErrors)
         } else {
             try {
-                await axios.put('user/editPW', {password}, AuthZHeader);
+                await axios.put('user/editPW', {password}, AuthZHeader());
                 setForm({
                     password:'', 
                     password2: ''
