@@ -4,7 +4,7 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import FormInput from '../../forms/FormInput';
 import { Form } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../../buttons/Button';
 import axios from 'axios';
 import { AuthZHeader } from '../../util/HelperFunctions';
@@ -23,6 +23,7 @@ function UpdateUser(){
     const defaultFname = location.state.profile.firstName;
     const defaultLname = location.state.profile.lastName;
     const defaultEmail = location.state.profile.email;
+    const navigate = useNavigate();
 
     const setField = (field, value) => {
         setForm({
@@ -39,30 +40,27 @@ function UpdateUser(){
         if(form.email === '') form.email = defaultEmail;
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (form.firstName === '' && form.lastName === '' && form.email === '') {
             setInputErrors(true)
         } else {
-            setDefaultValues();
-            axios.put(`user/edit/${location.state.profile.id}`, form , AuthZHeader())
-                .then((res) => {
-                    console.log(res);
-                    setForm({
-                        firstName:'',
-                        lastName:'',
-                        email:''
-                    })
-                    setShowAlert(true);
-                    setTimeout(()=> setShowAlert(false),4000);
+            try {
+                setDefaultValues();
+                await axios.put(`user/edit/`, form , AuthZHeader());
+                setForm({
+                    firstName:'',
+                    lastName:'',
+                    email:''
                 })
-                .catch((error) => {
-                    console.log(error);
-                    setShowErrAlert(true);
-                });
+                setShowAlert(true);
+                setTimeout(()=> navigate('/profile'),4000);
+            } catch (error) {
+                setShowErrAlert(true);
+            }
         }
     }
-
+    
     return (
         <>
             <LargeNavbar />
