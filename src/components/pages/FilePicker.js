@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import {PickerInline, PickerOverlay} from 'filestack-react';
-
+import login from "./welcome/Login";
+import { client } from 'filestack-react';
+import Button from "../buttons/Button";
 function FilePicker(props) {
     const [imageUrl, setImageUrl] = useState('')
-
 
     return (
         <div>
@@ -20,15 +21,12 @@ function FilePicker(props) {
             {/*                        aria-label="Close"></button>*/}
             {/*            </div>*/}
                         {/*----------PICKER----------------*/}
-                        <PickerOverlay
+                        <PickerInline
                             apikey={'A2vZPoGIoRiePhI4DbTFcz'}
-                            onUploadDone={ (res) => {
-                                console.log(res.filesUploaded[0].url)
-                                setImageUrl(res.filesUploaded[0].url)
-                                console.log(imageUrl)
-                            }}
+                            onUploadDone={ (res) => setImageUrl(res.filesUploaded[0].url)}
                             onSuccess={(res) => console.log(res)}
                         />
+            <Button title='consoleLog' onClick={()=>console.log(imageUrl)}/>
                     {/*    ------------------------------------*/}
             {/*        </div>*/}
             {/*    </div>*/}
@@ -37,5 +35,6 @@ function FilePicker(props) {
     )
 
 }
-
+// setImageUrl(res.filesUploaded[0].url)
+// console.log(imageUrl)
 export default FilePicker;

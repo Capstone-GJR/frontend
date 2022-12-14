@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
 import {AuthZHeader, axiosPost} from "../util/HelperFunctions";
 import axios from "axios";
+import {PickerInline} from "filestack-react";
 
 function AddForm(props){
     const navigate = useNavigate();
@@ -51,6 +52,15 @@ function AddForm(props){
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
+            {/*<PickerInline*/}
+            {/*    apikey={'A2vZPoGIoRiePhI4DbTFcz'}*/}
+            {/*    onUploadDone={ (res) => {*/}
+            {/*        console.log(res.filesUploaded[0].url)*/}
+            {/*        // setImageUrl(res.filesUploaded[0].url)*/}
+
+            {/*    }}*/}
+            {/*    onSuccess={(res) => console.log(res)}*/}
+            {/*/>*/}
             {/*<ImageField*/}
             {/*    type="file"*/}
             {/*    placeholder="Select An Image"*/}

@@ -4,7 +4,7 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import AddForm from "../../forms/AddForm";
 import FilePicker from "../FilePicker";
-import Button from "react-bootstrap/Button";
+import Button from "../../buttons/Button";
 
 
 function AddSpace(props){
@@ -13,8 +13,8 @@ function AddSpace(props){
         <div>
             <LargeNavbar />
             <TopNavbar/>
-            {/*<FilePicker />*/}
-            <Button title='PICKER' onClick={()=><FilePicker/>}/>
+            <FilePicker />
+
             <div>Add Space</div>
             <AddForm/>
             <BottomNavbar/>
