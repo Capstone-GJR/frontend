@@ -30,7 +30,7 @@ import axios from "axios";
 
 function App() {
 
-  axios.defaults.baseURL = "/api/";
+  axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
 
   return (
       <Router>
