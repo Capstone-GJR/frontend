@@ -1,6 +1,5 @@
 import React from 'react'
 import BottomNavbar from "../../navbar/BottomNavbar";
-
 import TopNavbar from "../../navbar/TopNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import axios from "axios";
