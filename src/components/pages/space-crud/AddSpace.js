@@ -13,8 +13,6 @@ function AddSpace(props){
         <div>
             <LargeNavbar />
             <TopNavbar/>
-            <FilePicker />
-
             <div>Add Space</div>
             <AddForm/>
             <BottomNavbar/>

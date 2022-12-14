@@ -52,21 +52,39 @@ function AddForm(props){
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
-            {/*<PickerInline*/}
-            {/*    apikey={'A2vZPoGIoRiePhI4DbTFcz'}*/}
-            {/*    onUploadDone={ (res) => {*/}
-            {/*        console.log(res.filesUploaded[0].url)*/}
-            {/*        // setImageUrl(res.filesUploaded[0].url)*/}
+            <div>
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filePicker">
+                    File picker
+                </button>
+                <div className="modal fade" id="filePicker" tabIndex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h1 className="modal-title fs-5" id="exampleModalLabel">Choose an image</h1>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            {/*----------PICKER----------------*/}
+                            <PickerInline
+                                apikey={'A2vZPoGIoRiePhI4DbTFcz'}
+                                onUploadDone={ (res) => setField("fileStackUrl", res.filesUploaded[0].url)}
+                                onSuccess={(res) => console.log(res)}
+                            />
+                            {/*<Button title='consoleLog' onClick={()=>console.log(imageUrl)}/>*/}
+                            {/*    ------------------------------------*/}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            {/*    }}*/}
-            {/*    onSuccess={(res) => console.log(res)}*/}
-            {/*/>*/}
             {/*<ImageField*/}
             {/*    type="file"*/}
             {/*    placeholder="Select An Image"*/}
             {/*    value={form.fileStackUrl}*/}
             {/*    onChange={(e) => setField("fileStackUrl", e.target.value)}*/}
             {/*/>*/}
+
             <KeywordsField
                 type="textarea"
                 placeholder="Add Keywords"
