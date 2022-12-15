@@ -11,8 +11,6 @@ import PrivateRoute from './components/private_route/PrivateRoute';
 import AllSpaces from './components/pages/user-crud/AllSpaces';
 import AboutUs from "./components/pages/welcome/AboutUs";
 import AllItems from "./components/pages/AllItems";
-import Scan from "./components/pages/Scan";
-import Search from "./components/pages/Search";
 import AllTotesBySpaceId from "./components/pages/space-crud/AllTotesBySpaceId";
 import ToteLanding from './components/pages/box-crud/ToteLanding';
 import ItemLanding from './components/pages/item-crud/ItemLanding';
@@ -20,11 +18,7 @@ import UserProfile from "./components/pages/user-crud/UserProfile";
 import Logout from './components/pages/Logout';
 import UpdateUser from './components/pages/user-crud/UpdateUser';
 import UpdatePassword from './components/pages/user-crud/UpdatePassword';
-
-import AddForm from "./components/forms/AddForm";
 import AddSpace from "./components/pages/space-crud/AddSpace";
-
-
 import axios from "axios";
 
 

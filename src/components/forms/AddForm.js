@@ -58,7 +58,7 @@ function AddForm(props) {
 
             {pickerIsOpen &&
                 <PickerOverlay
-                apikey={'A2vZPoGIoRiePhI4DbTFcz'}
+                apikey={process.env.REACT_APP_FILESTACK_API_KEY}
                 onUploadDone={(res) => setField("fileStackUrl", res.filesUploaded[0].url)}
                 onSuccess={(res) => console.log(res)}
                 />
