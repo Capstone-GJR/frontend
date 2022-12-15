@@ -28,7 +28,10 @@ function SpaceDetails(props){
                 <p>{props.space.keywords}</p>
                 <p>{props.space.fileStackUrl}</p>
                 <p>{props.space.id}</p>
-                <button onClick={()=> {props.setShowSettings(false)}}>Back to Space</button>
+                <button 
+                    onClick={()=> props.setShowSettings(false)}>
+                    Back to Spaces
+                </button>
             </div>
             <button onClick={handleClick}>Delete</button>
             <BottomNavbar/>

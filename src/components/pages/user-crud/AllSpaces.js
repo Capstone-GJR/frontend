@@ -5,40 +5,42 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link} from "react-router-dom";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
-import SpaceSettings from '../space-crud/SpaceDetails';
+import SpaceDetails from '../space-crud/SpaceDetails';
+import { AuthZHeader } from '../../util/HelperFunctions';
 // import React from "@types/react";
+
 function AllSpaces() {
+
     const [spaces, setSpaces] = useState([]);
     const [space, setSpace] = useState({});
     const [ShowSettings, setShowSettings] = useState(false);
 
-    useEffect(() => {
-        const getUserSpaces = async () => {
-            try {
-                const response = await axios.get('/space/all', {
-                    headers: {
-                        Authorization: localStorage.getItem("access_token")
-                    }
-                })
-                setSpaces(response.data);
-            } catch (error) {
-                console.log(error);
-            }
+    const getUserSpaces = async () => {
+        try {
+            const response = await axios.get('/space/all', AuthZHeader())
+            setSpaces(response.data);
+        } catch (error) {
+            console.log(error);
         }
+    }
+
+    useEffect(() => {
         getUserSpaces();
     }, [])
+    console.log(spaces)
 
     const handleClick = (space) => {
         setSpace(space);
         setShowSettings(true);
     }
+
     if (ShowSettings) {
         return (
-            <SpaceSettings 
+            <SpaceDetails 
                 showSettings={ShowSettings} 
                 setShowSettings={setShowSettings}
                 space={space}
-                // getUserSpaces={getUserSpaces}
+                getUserSpaces={getUserSpaces}
             />
         )
     } else {
@@ -65,7 +67,7 @@ function AllSpaces() {
                             </Link>
                             <button 
                                 onClick={()=> handleClick(space)}>
-                                Settings for id:  {space.id}
+                                Details for id:  {space.id}
                             </button>
                         </div>
                     ))}
@@ -76,5 +78,4 @@ function AllSpaces() {
     }
 }
     
-
-export default AllSpaces
+export default AllSpaces;
