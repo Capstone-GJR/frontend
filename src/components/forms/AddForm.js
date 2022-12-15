@@ -7,14 +7,13 @@ import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
 import {AuthZHeader, axiosPost} from "../util/HelperFunctions";
 import axios from "axios";
-import FilePickerModal from "../pages/FilePickerModal";
 import Backdrop from "../Modals/Backdrop";
-import {PickerOverlay} from "filestack-react";
+import {PickerInline, PickerOverlay} from "filestack-react";
+import FilePickerModal from "../pages/FilePickerModal";
 
 function AddForm(props) {
     const navigate = useNavigate();
     const [form, setForm] = useState({});
-    const [showPicker, setsShowPicker] = useState(false)
 
     const setField = (field, value) => {
         setForm({
@@ -35,14 +34,11 @@ function AddForm(props) {
             console.log(err)
         }
     }
+    const [pickerIsOpen, setPickerIsOpen] = useState(true)
+    const closePicker =() => setPickerIsOpen(false)
+    const OpenPicker = () => {setPickerIsOpen(true)
+        console.log(pickerIsOpen)}
 
-    function OpenPicker() {
-        setsShowPicker(true);
-    }
-
-    function closePicker() {
-        setsShowPicker(false)
-    }
 
     return (
         <Form>
@@ -59,12 +55,14 @@ function AddForm(props) {
                 onChange={(e) => setField("color", e.target.value)}
             />
             <Button title='Choose Image' onClick={OpenPicker}/>
-            {showPicker && <PickerOverlay
+            {pickerIsOpen ?
+                <PickerOverlay
                 apikey={'A2vZPoGIoRiePhI4DbTFcz'}
                 onUploadDone={(res) => setField("fileStackUrl", res.filesUploaded[0].url)}
                 onSuccess={(res) => console.log(res)}
-            />}
-            {showPicker && <Backdrop onClick={closePicker}/>}
+                /> : null
+            }
+            {/*{showPicker && <Backdrop onClick={closePicker}/>}*/}
 
             <KeywordsField
                 type="textarea"

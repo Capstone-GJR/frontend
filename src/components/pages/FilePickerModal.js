@@ -11,7 +11,7 @@ function FilePickerModal(props) {
         <div className='fpModal' >
             <PickerOverlay
                 apikey={'A2vZPoGIoRiePhI4DbTFcz'}
-                onUploadDone={ (res) => setField("fileStackUrl", res.filesUploaded[0].url)}
+                // onUploadDone={ (res) => setField("fileStackUrl", res.filesUploaded[0].url)}
                 onSuccess={(res) => console.log(res)}
             />
         </div>
