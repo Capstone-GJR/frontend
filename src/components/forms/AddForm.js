@@ -7,34 +7,41 @@ import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
 import {AuthZHeader, axiosPost} from "../util/HelperFunctions";
 import axios from "axios";
-import {PickerInline} from "filestack-react";
+import FilePickerModal from "../pages/FilePickerModal";
+import Backdrop from "../Modals/Backdrop";
+import {PickerOverlay} from "filestack-react";
 
-function AddForm(props){
+function AddForm(props) {
     const navigate = useNavigate();
     const [form, setForm] = useState({});
+    const [showPicker, setsShowPicker] = useState(false)
 
     const setField = (field, value) => {
         setForm({
             ...form,
-            [field]:value
+            [field]: value
         })
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        try{
-            const response =  await axios.post(`/space/add`, form, AuthZHeader())
+        try {
+            const response = await axios.post(`/space/add`, form, AuthZHeader())
             console.log(AuthZHeader)
             console.log(response)
             setForm({})
             navigate("/allSpaces")
-        }
-        catch(err){
+        } catch (err) {
             console.log(err)
         }
+    }
 
+    function OpenPicker() {
+        setsShowPicker(true);
+    }
 
-
+    function closePicker() {
+        setsShowPicker(false)
     }
 
     return (
@@ -51,37 +58,13 @@ function AddForm(props){
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
-            <div>
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filePicker">
-                    File picker
-                </button>
-                <div className="modal fade" id="filePicker" tabIndex="-1" aria-labelledby="filePicker"
-                     aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h1 className="modal-title fs-5" id="filePickerLabel">Choose an image</h1>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            {/*----------PICKER----------------*/}
-                            <PickerInline
-                                apikey={'A2vZPoGIoRiePhI4DbTFcz'}
-                                onUploadDone={ (res) => setField("fileStackUrl", res.filesUploaded[0].url)}
-                                onSuccess={(res) => console.log(res)}
-                            />
-                            {/*    ------------------------------------*/}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/*<ImageField*/}
-            {/*    type="file"*/}
-            {/*    placeholder="Select An Image"*/}
-            {/*    value={form.fileStackUrl}*/}
-            {/*    onChange={(e) => setField("fileStackUrl", e.target.value)}*/}
-            {/*/>*/}
+            <Button title='Choose Image' onClick={OpenPicker}/>
+            {showPicker && <PickerOverlay
+                apikey={'A2vZPoGIoRiePhI4DbTFcz'}
+                onUploadDone={(res) => setField("fileStackUrl", res.filesUploaded[0].url)}
+                onSuccess={(res) => console.log(res)}
+            />}
+            {showPicker && <Backdrop onClick={closePicker}/>}
 
             <KeywordsField
                 type="textarea"
