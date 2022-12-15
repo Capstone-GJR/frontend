@@ -31,7 +31,7 @@ import axios from "axios";
 function App() {
 
   axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
-  axios.defaults.headers.post['Content-Type'] = '*';
+  axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
   return (
       <Router>
