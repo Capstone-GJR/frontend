@@ -21,7 +21,7 @@ function SpaceDetails(props){
         <>
             <LargeNavbar />
             <TopNavbar/>
-            <div>
+            <div className='p-3'>
                 <h2>Space Settings</h2>
                 <p>{props.space.name}</p>
                 <p>{props.space.color}</p>
@@ -32,8 +32,8 @@ function SpaceDetails(props){
                     onClick={()=> props.setShowSettings(false)}>
                     Back to Spaces
                 </button>
+                <button onClick={handleClick}>Delete</button>
             </div>
-            <button onClick={handleClick}>Delete</button>
             <BottomNavbar/>
         </>
     )

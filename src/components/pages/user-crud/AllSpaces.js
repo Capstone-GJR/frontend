@@ -43,39 +43,39 @@ function AllSpaces() {
                 getUserSpaces={getUserSpaces}
             />
         )
-    } else {
-        return (
+    } 
+    return (
+        <div>
+            <LargeNavbar />
+            <TopNavbar/>
+            <Link to="/space/add">
+                <Button title="Add"/>
+            </Link>
             <div>
-                <LargeNavbar />
-                <TopNavbar/>
-                <Link to="/space/add">
-                    <Button title="Add"/>
-                </Link>
-                <div>
-                    {spaces.map((space) => (
-                        <div>
-                            <Link to='/allTotesBySpace'
-                                state={{
-                                    space_id: `${space.id}`,
-                                    space_name: `${space.name}`
-                                }}>
-                                <div
-                                    className='card w-50 p-4 m-4'
-                                    key={space.id}>
-                                    {space.name}
-                                </div>
-                            </Link>
-                            <button 
-                                onClick={()=> handleClick(space)}>
-                                Details for id:  {space.id}
-                            </button>
-                        </div>
-                    ))}
-                </div>
-                <BottomNavbar/>
+                {spaces.map((space) => (
+                    <div>
+                        <Link to='/allTotesBySpace'
+                            state={{
+                                space_id: `${space.id}`,
+                                space_name: `${space.name}`
+                            }}>
+                            <div
+                                className='card w-50 p-4 m-4'
+                                key={space.id}>
+                                {space.name}
+                            </div>
+                        </Link>
+                        <button 
+                            onClick={()=> handleClick(space)}>
+                            Details for id:  {space.id}
+                        </button>
+                    </div>
+                ))}
             </div>
-        )
-    }
+            <BottomNavbar/>
+        </div>
+    )
+    
 }
     
 export default AllSpaces;

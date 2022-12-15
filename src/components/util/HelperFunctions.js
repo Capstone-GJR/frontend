@@ -20,8 +20,10 @@ export const axiosPost = async (url) => {
             url, 
             AuthZHeader()
         )
+        console.log(res);
         return res;
     } catch (err) {
+        console.log(err);
         return err
     }
 }
@@ -32,8 +34,10 @@ export const axiosDelete = async (url) => {
             url,
             AuthZHeader()
         )
+        console.log(res);
         return res;
     } catch (err) {
+        console.log(err);
         return err;
     }
 }
