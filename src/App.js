@@ -21,6 +21,7 @@ import Logout from './components/pages/Logout';
 import UpdateUser from './components/pages/user-crud/UpdateUser';
 import UpdatePassword from './components/pages/user-crud/UpdatePassword';
 import AddSpace from "./components/pages/space-crud/AddSpace";
+import UpdateTote from './components/pages/box-crud/UpdateTote'
 
 
 import axios from "axios";
@@ -64,11 +65,10 @@ function App() {
           }>
           </Route>
           <Route path='/allTotesBySpace' element={
-            <PrivateRoute>
-
-              <AllTotesBySpaceId />
-
-            </PrivateRoute> }>
+            <PrivateRoute> <AllTotesBySpaceId /> </PrivateRoute> }>
+          </Route>
+          <Route path='/updateTote' element={
+            <PrivateRoute> <UpdateTote /> </PrivateRoute> }>
           </Route>
           <Route path='/toteLanding' element={
             <PrivateRoute>

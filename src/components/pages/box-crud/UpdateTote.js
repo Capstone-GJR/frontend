@@ -9,7 +9,7 @@ function UpdateBox(props){
             <LargeNavbar />
 
             <TopNavbar/>
-            <div>Update Box</div>
+            <div>Update Tote</div>
             <BottomNavbar/>
         </div>
 

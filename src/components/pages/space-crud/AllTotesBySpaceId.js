@@ -8,21 +8,27 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 
 function AllTotesBySpaceId(){
     const [totes, setTotes] = useState([]);
+    const [tote, setTote] = useState([]);
     const location = useLocation();
     const endPoint = `/tote/all/${location.state.space_id}`;
 
-    useEffect(() => {
-        const getTotes = async () => {
-            try {
-                const response = await axios.get(endPoint, AuthZHeader())
-                setTotes(response.data);
-                console.log(response.data);
-            } catch (error) {
-                console.log(error);
-            }
+    const getTotes = async () => {
+        try {
+            const response = await axios.get(endPoint, AuthZHeader())
+            setTotes(response.data);
+        } catch (error) {
+            console.log(error);
         }
+    }
+
+    useEffect(() => {
         getTotes();
     },[])
+
+    const handleClick = (tote) => {
+        setTote(tote);
+        console.log(tote);
+    }
 
     return (
         <div>
@@ -31,13 +37,16 @@ function AllTotesBySpaceId(){
             <h1>{location.state.space_name}</h1>
             <div>
                 {totes.map((tote) => (
-                    <Link to='/toteLanding' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
-                        <div
-                            className='card w-50 p-4 m-4'
-                            key={tote.id}>
-                            {tote.name}
-                        </div>
-                    </Link>
+                    <div>
+                        <Link to='/toteLanding' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
+                            <div
+                                className='card w-50 p-4 m-4'
+                                key={tote.id}>
+                                {tote.name}
+                            </div>
+                        </Link>
+                        <button onClick={()=> handleClick(tote)}>Edit/Delete tote</button>
+                    </div>
                 ))}
             </div>
             <BottomNavbar/>
