@@ -5,16 +5,20 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 import { Form } from 'react-bootstrap';
 import FormInput from '../../forms/FormInput';
 import Button from '../../buttons/Button';
-import { checkPassword } from '../../util/HelperFunctions';
+import { AuthZHeader, checkPassword } from '../../util/HelperFunctions';
 import CustomAlert from '../../buttons/CustomAlert';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function UpdatePassword(){
     const [showAlert, setShowAlert] = useState(false);
+    const [showErrAlert, setShowErrAlert] = useState(false);
     const [form, setForm] = useState({
         password: '',
         password2: '',
     })
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
     const setField = (field, value) => {
         setForm({
@@ -27,16 +31,25 @@ function UpdatePassword(){
         })
       }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formErrors = checkPassword(form.password, form.password2);
-
+        const password = form.password
         if(Object.keys(formErrors).length > 0) {
             setErrors(formErrors)
         } else {
-            console.log("no form errors, make axios request");
-            setShowAlert(true);
-            setTimeout(()=> setShowAlert(false),4000);
+            try {
+                await axios.put('user/editPW', {password}, AuthZHeader());
+                setForm({
+                    password:'', 
+                    password2: ''
+                });
+                setShowAlert(true);
+                setTimeout(()=> navigate('/profile'), 4000);  
+            } catch (error) {
+                setShowErrAlert(true);
+                setTimeout(()=> setShowErrAlert(false),4000); 
+            }
         }
     }
 
@@ -48,10 +61,19 @@ function UpdatePassword(){
                 <h2 className='text-center m-3'>Update your password</h2>
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
-                        <FormInput
-                            label="Password"
+                    <FormInput
+                            label="Current Password"
                             type= "password"
-                            placeholder="Password"
+                            placeholder="Current Password"
+                            // value={form.password}
+                            // onChange={(e) => setField("password", e.target.value)}
+                            // isInvalid={!!errors.password}
+                            // errorMsg={errors.password}
+                        />
+                        <FormInput
+                            label="New Password"
+                            type= "password"
+                            placeholder="New Password"
                             value={form.password}
                             onChange={(e) => setField("password", e.target.value)}
                             isInvalid={!!errors.password}
@@ -73,6 +95,11 @@ function UpdatePassword(){
                     showAlert={showAlert}
                     alertVariant="success"
                     alertHeading="Password change successful!"
+                />
+                <CustomAlert
+                    showAlert={showErrAlert}
+                    alertVariant="danger"
+                    alertHeading="Password change unsuccessful, try again!"
                 />
             </div>
             <BottomNavbar/>

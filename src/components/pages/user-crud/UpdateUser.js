@@ -4,21 +4,26 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import FormInput from '../../forms/FormInput';
 import { Form } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../../buttons/Button';
 import axios from 'axios';
 import { AuthZHeader } from '../../util/HelperFunctions';
 import CustomAlert from '../../buttons/CustomAlert'
 
 function UpdateUser(){
-    const location = useLocation();
     const [showAlert, setShowAlert] = useState(false);
     const [showErrAlert, setShowErrAlert] = useState(false);
+    const [inputErrors, setInputErrors] = useState(false);
     const [form, setForm] = useState({
         firstName:'',
         lastName:'',
         email:''
     });
+    const location = useLocation();
+    const defaultFname = location.state.profile.firstName;
+    const defaultLname = location.state.profile.lastName;
+    const defaultEmail = location.state.profile.email;
+    const navigate = useNavigate();
 
     const setField = (field, value) => {
         setForm({
@@ -26,25 +31,34 @@ function UpdateUser(){
             [field]:value
         });
         setShowErrAlert(false);
+        setInputErrors(false);
     }
 
-    const handleSubmit = (e) => {
+    const setDefaultValues = () => {
+        if(form.firstName === '') form.firstName = defaultFname;
+        if(form.lastName === '') form.lastName = defaultLname;
+        if(form.email === '') form.email = defaultEmail;
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.put(`user/edit/${location.state.profile.id}`, form , AuthZHeader())
-        .then((res) => {
-            console.log(res); 
-            setForm({
-                firstName:'',
-                lastName:'',
-                email:''
-            })
-            setShowAlert(true);
-            setTimeout(()=> setShowAlert(false),4000);
-        })
-        .catch((error) => {
-            console.log(error);
-            setShowErrAlert(true);
-        });
+        if (form.firstName === '' && form.lastName === '' && form.email === '') {
+            setInputErrors(true)
+        } else {
+            try {
+                setDefaultValues();
+                await axios.put(`user/edit/`, form , AuthZHeader());
+                setForm({
+                    firstName:'',
+                    lastName:'',
+                    email:''
+                })
+                setShowAlert(true);
+                setTimeout(()=> navigate('/profile'),4000);
+            } catch (error) {
+                setShowErrAlert(true);
+            }
+        }
     }
     
     return (
@@ -58,29 +72,27 @@ function UpdateUser(){
                         <FormInput
                             label="FIRST NAME"
                             type= "text"
-                            placeholder= {location.state.profile.firstName}
+                            placeholder= {defaultFname}
                             value={form.firstName}
                             onChange={(e) => setField("firstName", e.target.value)}
-                            // isInvalid=
-                            // errorMsg=
+                            isInvalid={!!inputErrors}
+                            errorMsg="All fields can not be blank"
                         />
                         <FormInput
                             label="LAST NAME"
                             type= "text"
-                            placeholder= {location.state.profile.lastName}
+                            placeholder= {defaultLname}
                             value={form.lastName}
                             onChange={(e) => setField("lastName", e.target.value)}
-                            // isInvalid=
-                            // errorMsg=
+                            isInvalid={!!inputErrors}
                         />
                         <FormInput
                             label="EMAIL"
                             type= "email"
-                            placeholder= {location.state.profile.email}
+                            placeholder= {defaultEmail}
                             value={form.email}
                             onChange={(e) => setField("email", e.target.value)}
-                            // isInvalid=
-                            // errorMsg=
+                            isInvalid={!!inputErrors}
                         />
                         <Button title='SUBMIT EDIT' onClick={handleSubmit} />
                     </Form>
