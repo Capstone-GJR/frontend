@@ -14,20 +14,27 @@ export const removeAuthZ = () => {
 }
 
 
-export const axiosPost = async (e, endPoint, obj) => {
-  e.preventDefault();
+export const axiosPost = async (url) => {
     try {
-        return await
-            axios
-                .post
-                (`${endPoint}`, obj, {
-                    headers: {
-                        Authorization: localStorage.getItem("access_token")
-                    }
-                })
-
+        const res = await axios.post(
+            url, 
+            AuthZHeader()
+        )
+        return res;
     } catch (err) {
         return err
+    }
+}
+
+export const axiosDelete = async (url) => {
+    try {
+        const res = await axios.delete(
+            url,
+            AuthZHeader()
+        )
+        return res;
+    } catch (err) {
+        return err;
     }
 }
 
