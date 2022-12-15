@@ -7,7 +7,6 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
 import SpaceDetails from '../space-crud/SpaceDetails';
 import { AuthZHeader } from '../../util/HelperFunctions';
-// import React from "@types/react";
 
 function AllSpaces() {
 
@@ -26,8 +25,7 @@ function AllSpaces() {
 
     useEffect(() => {
         getUserSpaces();
-    }, [])
-    console.log(spaces)
+    }, [ShowSettings])
 
     const handleClick = (space) => {
         setSpace(space);
@@ -37,45 +35,44 @@ function AllSpaces() {
     if (ShowSettings) {
         return (
             <SpaceDetails 
-                showSettings={ShowSettings} 
                 setShowSettings={setShowSettings}
                 space={space}
                 getUserSpaces={getUserSpaces}
             />
         )
-    } 
-    return (
-        <div>
-            <LargeNavbar />
-            <TopNavbar/>
-            <Link to="/space/add">
-                <Button title="Add"/>
-            </Link>
+    } else {
+        return (
             <div>
-                {spaces.map((space) => (
-                    <div>
-                        <Link to='/allTotesBySpace'
-                            state={{
-                                space_id: `${space.id}`,
-                                space_name: `${space.name}`
-                            }}>
-                            <div
-                                className='card w-50 p-4 m-4'
-                                key={space.id}>
-                                {space.name}
-                            </div>
-                        </Link>
-                        <button 
-                            onClick={()=> handleClick(space)}>
-                            Details for id:  {space.id}
-                        </button>
-                    </div>
-                ))}
+                <LargeNavbar/>
+                <TopNavbar/>
+                <Link to="/space/add">
+                    <Button title="Add"/>
+                </Link>
+                <div>
+                    {spaces.map((space) => (
+                        <div>
+                            <Link to='/allTotesBySpace'
+                                state={{
+                                    space_id: `${space.id}`,
+                                    space_name: `${space.name}`
+                                }}>
+                                <div
+                                    className='card w-50 p-4 m-4'
+                                    key={space.id}>
+                                    {space.name}
+                                </div>
+                            </Link>
+                            <button 
+                                onClick={()=> handleClick(space)}>
+                                Settings for id:  {space.id}
+                            </button>
+                        </div>
+                    ))}
+                </div>
+                <BottomNavbar/>
             </div>
-            <BottomNavbar/>
-        </div>
-    )
-    
+        )
+    }
 }
     
 export default AllSpaces;

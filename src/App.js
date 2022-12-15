@@ -20,8 +20,6 @@ import UserProfile from "./components/pages/user-crud/UserProfile";
 import Logout from './components/pages/Logout';
 import UpdateUser from './components/pages/user-crud/UpdateUser';
 import UpdatePassword from './components/pages/user-crud/UpdatePassword';
-
-import AddForm from "./components/forms/AddForm";
 import AddSpace from "./components/pages/space-crud/AddSpace";
 
 

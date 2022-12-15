@@ -1,21 +1,23 @@
-import React from 'react';
+import React from "react";
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
-import AddForm from "../../forms/AddForm";
+import AddEditForm from "../../forms/AddEditForm";
+import { axiosPost } from "../../util/HelperFunctions";
 
-function AddSpace(props){
-    return (
-        <div>
-            <LargeNavbar />
-
-            <TopNavbar/>
-            <div>Add Space</div>
-            <AddForm/>
-            <BottomNavbar/>
-        </div>
-
-    )
+function AddSpace() {
+  return (
+    <div>
+      <LargeNavbar />
+      <TopNavbar />
+      <div>Add Space</div>
+      <AddEditForm 
+        request={axiosPost} 
+        url="/space/add" 
+    />
+      <BottomNavbar />
+    </div>
+  );
 }
 
-export default AddSpace
+export default AddSpace;

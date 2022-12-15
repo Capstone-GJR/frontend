@@ -5,12 +5,9 @@ import ColorField from "./input-fields/ColorField";
 import KeywordsField from "./input-fields/KeywordsField";
 import ImageField from "./input-fields/ImageField";
 import {useNavigate} from "react-router-dom";
-// import {useState} from "@types/react";
 import Button from "../buttons/Button";
-import {AuthZHeader, axiosPost} from "../util/HelperFunctions";
-import axios from "axios";
 
-function AddForm(props){
+function AddEditForm(props){
     const navigate = useNavigate();
     const [form, setForm] = useState({});
 
@@ -24,17 +21,13 @@ function AddForm(props){
     const handleSubmit = async (e) => {
         e.preventDefault()
         try{
-            const response =  await axios.post(`/space/add`, form, AuthZHeader)
-            console.log(response)
-            setForm({})
-            navigate("/allSpaces")
+            const response =  await props.request(props.url, form);
+            navigate('/allSpaces')
+            props.setShowSettings(false)
         }
         catch(err){
             console.log(err)
         }
-
-
-
     }
 
     return (
@@ -69,4 +62,4 @@ function AddForm(props){
     )
 }
 
-export default AddForm
+export default AddEditForm

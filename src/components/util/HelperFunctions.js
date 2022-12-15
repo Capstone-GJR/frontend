@@ -14,10 +14,26 @@ export const removeAuthZ = () => {
 }
 
 
-export const axiosPost = async (url) => {
+export const axiosPost = async (url,form) => {
     try {
         const res = await axios.post(
             url, 
+            form,
+            AuthZHeader()
+        )
+        console.log(res);
+        return res;
+    } catch (err) {
+        console.log(err);
+        return err
+    }
+}
+
+export const axiosPut = async (url, form) => {
+    try {
+        const res = await axios.put(
+            url, 
+            form,
             AuthZHeader()
         )
         console.log(res);
