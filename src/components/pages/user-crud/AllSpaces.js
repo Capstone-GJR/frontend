@@ -64,7 +64,7 @@ function AllSpaces() {
                             </Link>
                             <button 
                                 onClick={()=> handleClick(space)}>
-                                Settings for id:  {space.id}
+                                Edit/Delete:  {space.name}
                             </button>
                         </div>
                     ))}
