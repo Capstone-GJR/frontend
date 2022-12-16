@@ -8,7 +8,7 @@ import Button from "../../buttons/Button";
 import Backdrop from "../../modals/Backdrop";
 import SideNavbar from "../../navbar/SideNavbar";
 
-function UpdateItems(props) {
+function UpdateItem(props) {
 
     const handleDeleteSubmit = async () => {
         const res = await axiosDelete(`/item/delete/${props.item.id}`);
@@ -19,8 +19,8 @@ function UpdateItems(props) {
             console.log(res);
         }
     };
-    const [editorIsOpen, setEditorIsOpen] = useState(false)
 
+    const [editorIsOpen, setEditorIsOpen] = useState(false)
     const closeEditor = () => setEditorIsOpen(false)
 
     return (
