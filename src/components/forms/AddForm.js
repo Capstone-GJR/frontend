@@ -9,7 +9,6 @@ import {AuthZHeader, axiosPost} from "../util/HelperFunctions";
 import axios from "axios";
 import Backdrop from "../Modals/Backdrop";
 import {PickerInline, PickerOverlay} from "filestack-react";
-import FilePickerModal from "../pages/FilePickerModal";
 
 function AddForm(props) {
     const navigate = useNavigate();
@@ -35,9 +34,15 @@ function AddForm(props) {
         }
     }
     const [pickerIsOpen, setPickerIsOpen] = useState(false)
-    const closePicker =() => setPickerIsOpen(false)
-    const OpenPicker = () => {setPickerIsOpen(true)
-        console.log(pickerIsOpen)}
+    const closePicker =(e) => {
+        e.preventDefault()
+        setPickerIsOpen(false)
+    }
+    function openPicker (e)  {
+        e.preventDefault()
+        setPickerIsOpen(true)
+        console.log(pickerIsOpen)
+    }
 
 
     return (
@@ -54,16 +59,18 @@ function AddForm(props) {
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
-            <Button title='Choose Image' onClick={OpenPicker}/>
-
+            <Button title='Choose Image' onClick={openPicker}/>
             {pickerIsOpen &&
                 <PickerOverlay
                 apikey={process.env.REACT_APP_FILESTACK_API_KEY}
-                onUploadDone={(res) => setField("fileStackUrl", res.filesUploaded[0].url)}
+                onUploadDone={(res) => {
+                    setField("fileStackUrl", res.filesUploaded[0].url)
+                    console.log(res)}
+                }
                 onSuccess={(res) => console.log(res)}
                 />
             }
-            {pickerIsOpen && <Backdrop onClick={closePicker}/>}
+            {/*{pickerIsOpen && <Backdrop onClick={closePicker}/>}*/}
 
             <KeywordsField
                 type="textarea"
