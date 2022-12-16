@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import axios from "axios";
 import {AuthZHeader} from "../../util/HelperFunctions";
+import Button from "../../buttons/Button";
+import ConfirmBox from "../../buttons/ConfirmBox";
 
 function ItemDetails(props) {
 
@@ -37,14 +39,30 @@ function ItemDetails(props) {
             <LargeNavbar/>
             <TopNavbar/>
             <div className="pageContainer">
-                <h1>{location.state.item_name}</h1>
-                <div>
+                <div className="pageContainer d-flex justify-content-center">
+                    <h1 className="text-center mb-5">{location.state.item_name}</h1>
                     <div>
-                        <img className="detailsImg" src={itemDetails.fileStackUrl} alt="image here"/>
+                        <div><img className="detailsImg" src={itemDetails.fileStackUrl} alt="image here"/>
+                        </div>
+                        <div className="h5 pt-2 text-center">Description: {itemDetails.keywords}</div>
+                        <div className="h5 pt-2 text-center">Value: ${itemDetails.value}</div>
+                        <div className="h5 pt-2 text-center">Location: {itemDetails.tote.name} inside
+                            of {itemDetails.tote.space.name}</div>
                     </div>
-                    <div className="pt-2 text-center">Description: {itemDetails.keywords}</div>
-                    <div className="pt-2 text-center">Value: ${itemDetails.value}</div>
-                    <div className="pt-2 text-center">Location: {toteDetails.name} inside of {spaceDetails.name}</div>
+                    <div>
+                        {/*TODO: Have these buttons like to UpdateItem*/}
+                        <Link to="/updateItem" state={{ itemDetails }}>
+                            <Button title="EDIT ITEM" />
+                        </Link>
+                        <ConfirmBox
+                            btnTitle="DELETE ITEM"
+                            btnColor="#d9534f"
+                            modalBody="Are you sure you want to delete this tote?"
+                            comfirmBtnVariant="danger"
+                            // confirmBtn={}
+                        />
+                    </div>
+
                 </div>
             </div>
             <BottomNavbar/>
