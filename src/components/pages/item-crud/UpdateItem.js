@@ -20,16 +20,23 @@ function UpdateItems(props){
         <div>
             <LargeNavbar />
             <TopNavbar/>
-            <h1>Update Items</h1>
+            <div className="p-3">
+                <h1>Update Item</h1>
+                <p>{props.item.name}</p>
+                <p>{props.item.color}</p>
+                <p>{props.item.keywords}</p>
+                <p>{props.item.fileStackUrl}</p>
+                <p>{props.item.id}</p>
             <AddEditForm
                 request={axiosPut}
-                url={`/tote/${props.item.id}/edit`}
+                url={`/item//edit/${props.item.id}/${props.item.tote.id}`}
                 setShowSettings={props.setShowSettings}
             />
             <button onClick={() => props.setShowSettings(false)}>
                 Back to Items
             </button>
             <button onClick={handleClick}>Delete</button>
+            </div>
             <BottomNavbar/>
         </div>
 
