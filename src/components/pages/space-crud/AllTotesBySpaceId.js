@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import axios from 'axios';
 import { AuthZHeader } from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
+import { Button } from 'react-bootstrap';
 
 function AllTotesBySpaceId(){
     const [totes, setTotes] = useState([]);
     const [tote, setTote] = useState([]);
     const location = useLocation();
+    const navigate = useNavigate();
     const endPoint = `/tote/all/${location.state.space_id}`;
 
     const getTotes = async () => {
@@ -28,6 +30,7 @@ function AllTotesBySpaceId(){
     const handleClick = (tote) => {
         setTote(tote);
         console.log(tote);
+        navigate('/updateTote')
     }
 
     return (
@@ -35,6 +38,15 @@ function AllTotesBySpaceId(){
             <LargeNavbar />
             <TopNavbar/>
             <h1>{location.state.space_name}</h1>
+            <Link 
+                to='/addTote'
+                state={{
+                    space_id:location.state.space_id
+                }}
+            >
+                <Button>Add Tote</Button>
+            </Link>
+            
             <div>
                 {totes.map((tote) => (
                     <div>
@@ -45,7 +57,7 @@ function AllTotesBySpaceId(){
                                 {tote.name}
                             </div>
                         </Link>
-                        <button onClick={()=> handleClick(tote)}>Edit/Delete tote</button>
+                        <button onClick={()=> handleClick(tote)}>Edit/Delete: {tote.name}</button>
                     </div>
                 ))}
             </div>

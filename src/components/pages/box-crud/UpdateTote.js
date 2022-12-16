@@ -3,7 +3,7 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 
-function UpdateBox(props){
+function UpdateTote(props){
     return (
         <div>
             <LargeNavbar />
@@ -16,4 +16,4 @@ function UpdateBox(props){
     )
 }
 
-export default UpdateBox
+export default UpdateTote

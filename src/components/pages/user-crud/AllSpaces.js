@@ -46,7 +46,7 @@ function AllSpaces() {
                 <LargeNavbar/>
                 <TopNavbar/>
                 <Link to="/space/add">
-                    <Button title="Add"/>
+                    <Button title="ADD SPACE"/>
                 </Link>
                 <div>
                     {spaces.map((space) => (

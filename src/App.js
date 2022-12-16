@@ -25,6 +25,7 @@ import UpdateTote from './components/pages/box-crud/UpdateTote'
 
 
 import axios from "axios";
+import AddTote from './components/pages/box-crud/AddTote';
 
 
 function App() {
@@ -66,6 +67,9 @@ function App() {
           </Route>
           <Route path='/allTotesBySpace' element={
             <PrivateRoute> <AllTotesBySpaceId /> </PrivateRoute> }>
+          </Route>
+          <Route path='/addTote' element={
+            <PrivateRoute> <AddTote /> </PrivateRoute> }>
           </Route>
           <Route path='/updateTote' element={
             <PrivateRoute> <UpdateTote /> </PrivateRoute> }>

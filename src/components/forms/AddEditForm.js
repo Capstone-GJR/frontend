@@ -20,14 +20,10 @@ function AddEditForm(props){
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        try{
-            const response =  await props.request(props.url, form);
-            navigate('/allSpaces')
-            props.setShowSettings(false)
-        }
-        catch(err){
-            console.log(err)
-        }
+        await props.request(props.url, form);
+        // FIXME!! Need to route to AllTotesBySpaceID, space ID is not being passed so axios cant fullfill promise
+        navigate('/allSpaces');
+        props.setShowSettings(false);
     }
 
     return (
@@ -58,7 +54,6 @@ function AddEditForm(props){
             />
             <Button title="Submit" onClick={handleSubmit}></Button>
         </Form>
-
     )
 }
 

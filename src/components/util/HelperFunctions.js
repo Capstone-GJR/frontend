@@ -22,10 +22,8 @@ export const axiosPost = async (url,form) => {
             AuthZHeader()
         )
         console.log(res);
-        return res;
     } catch (err) {
         console.log(err);
-        return err
     }
 }
 
