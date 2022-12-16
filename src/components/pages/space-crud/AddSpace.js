@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
@@ -11,10 +11,12 @@ function AddSpace() {
       <LargeNavbar />
       <TopNavbar />
       <div>Add Space</div>
-      <AddEditForm 
-        request={axiosPost} 
-        url="/space/add" 
+        <div className="pageContainer">
+      <AddEditForm
+        request={axiosPost}
+        url="/space/add"
     />
+        </div>
       <BottomNavbar />
     </div>
   );

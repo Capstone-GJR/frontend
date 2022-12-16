@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import axios from 'axios';
 import { AuthZHeader } from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
 import { Button } from 'react-bootstrap';
 import UpdateTote from '../box-crud/UpdateTote';
+import Button from "../../buttons/Button";
 
 function AllTotesBySpaceId(){
     const [totes, setTotes] = useState([]);
@@ -36,7 +37,7 @@ function AllTotesBySpaceId(){
 
     if(ShowSettings) {
         return (
-            <UpdateTote 
+            <UpdateTote
                 setShowSettings={setShowSettings}
                 tote={tote}
                 // getUserSpaces={getUserSpaces}
@@ -48,7 +49,7 @@ function AllTotesBySpaceId(){
                 <LargeNavbar />
                 <TopNavbar/>
                 <h1>{location.state.space_name}</h1>
-                <Link 
+                <Link
                     to='/addTote'
                     state={{
                         space_id:location.state.space_id
@@ -56,11 +57,15 @@ function AllTotesBySpaceId(){
                 >
                     <Button>Add Tote</Button>
                 </Link>
-                
-                <div>
+
+                <div className="pageContainer" >
+            <Link to='/tote/add'>
+                <Button title="ADD A TOTE"/>
+            </Link>
+            <div>
                     {totes.map((tote) => (
                         <div>
-                            <Link to='/toteLanding' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
+                            <Link to='/allItemsByToteId' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
                                 <div
                                     className='card w-50 p-4 m-4'
                                     key={tote.id}>
@@ -70,6 +75,7 @@ function AllTotesBySpaceId(){
                             <button onClick={()=> handleClick(tote)}>Edit/Delete tote: {tote.name}</button>
                         </div>
                     ))}
+            </div>
                 </div>
                 <BottomNavbar/>
             </div>

@@ -6,8 +6,19 @@ import KeywordsField from "./input-fields/KeywordsField";
 import ImageField from "./input-fields/ImageField";
 import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
+import {PickerOverlay} from "filestack-react";
+import Backdrop from "../Modals/Backdrop";
 
 function AddEditForm(props){
+import {useNavigate} from "react-router-dom";
+import Button from "../buttons/Button";
+function AddEditForm(props){
+import {AuthZHeader, axiosPost} from "../util/HelperFunctions";
+import axios from "axios";
+import Backdrop from "../Modals/Backdrop";
+import {PickerInline, PickerOverlay} from "filestack-react";
+
+function AddForm(props) {
     const navigate = useNavigate();
     const [form, setForm] = useState({});
 
@@ -25,7 +36,17 @@ function AddEditForm(props){
         navigate('/allSpaces');
         props.setShowSettings(false);
     }
-
+    const [pickerIsOpen, setPickerIsOpen] = useState(false)
+    const closePicker =() => {
+        setPickerIsOpen(false)
+    }
+    function openPicker (e)  {
+        e.preventDefault()
+        setPickerIsOpen(true)
+        console.log(pickerIsOpen)
+    }
+    const [uploadComplete, setUploadComplete] = useState(false)
+    const hidePicker = () => {setUploadComplete(true)}
     return (
         <Form>
             <NameField
@@ -40,7 +61,30 @@ function AddEditForm(props){
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
-
+            {!uploadComplete ?
+                <div className="picker">
+                    <Button title='Choose Image' onClick={openPicker}/>
+                    {pickerIsOpen &&
+                        <PickerOverlay
+                            apikey={process.env.REACT_APP_FILESTACK_API_KEY}
+                            onUploadDone={(res) => {
+                                setField("fileStackUrl", res.filesUploaded[0].url)
+                                closePicker()
+                            }}
+                            onSuccess={(res) => {
+                                console.log(res)
+                                hidePicker()
+                            }}
+                        />
+                    }
+                    {/*FIXME: When closing the filePicker via it's built X button the backdrop does not close. Without the backdrop to run "closePicker," if you click the X instead of upload the useState does not change to false so picker keeps reshowing. */}
+                    {pickerIsOpen && <Backdrop onClick={closePicker}/>}
+                </div>
+                :
+                <div>
+                    <img className="detailsImg" src={form.fileStackUrl} alt="image here"/>
+                </div>
+            }
             <KeywordsField
                 type="textarea"
                 placeholder="Add Keywords"

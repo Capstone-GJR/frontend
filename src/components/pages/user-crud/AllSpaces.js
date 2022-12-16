@@ -34,7 +34,7 @@ function AllSpaces() {
 
     if (ShowSettings) {
         return (
-            <SpaceDetails 
+            <SpaceDetails
                 setShowSettings={setShowSettings}
                 space={space}
                 getUserSpaces={getUserSpaces}
@@ -62,7 +62,7 @@ function AllSpaces() {
                                     {space.name}
                                 </div>
                             </Link>
-                            <button 
+                            <button
                                 onClick={()=> handleClick(space)}>
                                 Edit/Delete:  {space.name}
                             </button>
@@ -74,5 +74,4 @@ function AllSpaces() {
         )
     }
 }
-    
-export default AllSpaces;
+export default AllSpaces

@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export const AuthZHeader = () => {
-        const header = {
-            headers: {
-                Authorization: localStorage.getItem("access_token")
-            }
-        };
+    const header = {
+        headers: {
+            Authorization: localStorage.getItem("access_token")
+        }
+    };
     return header;
 }
 
@@ -17,7 +17,7 @@ export const removeAuthZ = () => {
 export const axiosPost = async (url,form) => {
     try {
         const res = await axios.post(
-            url, 
+            url,
             form,
             AuthZHeader()
         )
@@ -30,7 +30,7 @@ export const axiosPost = async (url,form) => {
 export const axiosPut = async (url, form) => {
     try {
         const res = await axios.put(
-            url, 
+            url,
             form,
             AuthZHeader()
         )
