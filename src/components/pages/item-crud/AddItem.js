@@ -9,11 +9,12 @@ import {useLocation} from "react-router-dom";
 function AddItem(props){
     const location = useLocation();
     console.log("tote id: ",location.state.tote_id);
+
     return (
         <div>
             <LargeNavbar />
             <TopNavbar/>
-            <h1>Add Tote</h1>
+            <h1>Add Item</h1>
             <AddEditForm
                 request={axiosPost}
                 url={`/item/add/${location.state.tote_id}`}

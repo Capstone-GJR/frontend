@@ -31,12 +31,16 @@ function AllItemsByToteId() {
             <LargeNavbar/>
             <TopNavbar/>
             <h1>{location.state.tote_name}</h1>
-            <Link to="/item/add">
+            <Link to="/item/add"
+                  state={{
+                      tote_id:location.state.tote_id
+                  }}
+            >
                 <Button title="ADD AN ITEM"/>
             </Link>
             <div>
                 {items.map((item) => (
-                    <Link to='/allItemsByToteId' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>
+                    <Link to='/itemDetails' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>
                         <div
                             className='card w-50 p-4 m-4'
                             key={item.id}>

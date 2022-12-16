@@ -20,6 +20,7 @@ import AddSpace from "./components/pages/space-crud/AddSpace";
 import axios from "axios";
 import AllItemsByToteId from "./components/pages/box-crud/AllItemsByToteId";
 import AddItem from "./components/pages/item-crud/AddItem";
+import ItemDetails from "./components/pages/item-crud/ItemDetails";
 
 
 function App() {
@@ -36,21 +37,7 @@ function App() {
                 <Route path='/logout' element={<Logout/>}/>
                 <Route path='/aboutus' element={<AboutUs/>}/>
 
-                <Route path='/allSpaces' element={
-                    <PrivateRoute>
-                        <AllSpaces/>
-                    </PrivateRoute>}>
-                </Route>
-                <Route path='/space/add' element={
-                    <PrivateRoute>
-                        <AddSpace/>
-                    </PrivateRoute>}>
-                </Route>
-                <Route path='/item/add' element={
-                    <PrivateRoute>
-                        <AddItem/>
-                    </PrivateRoute>}>
-                </Route>
+                {/*----User Related Paths----*/}
                 <Route path='/profile' element={
                     <PrivateRoute>
                         <UserProfile/>
@@ -66,19 +53,42 @@ function App() {
                     </PrivateRoute>
                 }>
                 </Route>
+                {/*---- Spaces Paths ----*/}
+                <Route path='/allSpaces' element={
+                    <PrivateRoute>
+                        <AllSpaces/>
+                    </PrivateRoute>}>
+                </Route>
+                <Route path='/space/add' element={
+                    <PrivateRoute>
+                        <AddSpace/>
+                    </PrivateRoute>}>
+                </Route>
+                {/*---- Totes Paths ----*/}
                 <Route path='/allTotesBySpace' element={
                     <PrivateRoute>
                         <AllTotesBySpaceId/>
                     </PrivateRoute>}>
                 </Route>
+                {/*---- Item Paths ----*/}
                 <Route path='/allItemsByToteId' element={
                     <PrivateRoute>
-                        <AllItemsByToteId/>
+                        <AllItemsByToteId />
+                    </PrivateRoute>}>
+                </Route>
+                <Route path='/itemDetails' element={
+                    <PrivateRoute>
+                        <ItemDetails />
+                    </PrivateRoute>}>
+                </Route>
+                <Route path='/item/add' element={
+                    <PrivateRoute>
+                        <AddItem />
                     </PrivateRoute>}>
                 </Route>
                 <Route path='/allItems' element={
                     <PrivateRoute>
-                        <AllItems/>
+                        <AllItems />
                     </PrivateRoute>}>
                 </Route>
 

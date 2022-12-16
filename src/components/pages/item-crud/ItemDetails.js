@@ -6,7 +6,7 @@ import {useLocation} from "react-router-dom";
 import axios from "axios";
 import {AuthZHeader} from "../../util/HelperFunctions";
 
-function ItemLanding(props){
+function ItemDetails(props){
 
     const [itemDetails, setItemDetails] = useState({});
     const location = useLocation();
@@ -19,8 +19,6 @@ function ItemLanding(props){
                 const response = await axios.get(endPoint, AuthZHeader())
                 setItemDetails(response.data);
                 console.log(response.data);
-                console.log(response.data.space.name)
-                console.log(response.data.tote.name)
             } catch (error) {
                 console.log(error);
             }
@@ -45,4 +43,4 @@ function ItemLanding(props){
     )
 }
 
-export default ItemLanding
+export default ItemDetails
