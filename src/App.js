@@ -4,94 +4,78 @@ import {
   Routes,
   Route,
 } from 'react-router-dom'
-import Welcome from './components/pages/welcome/Welcome';
-import Register from './components/pages/welcome/Register';
-import Login from './components/pages/welcome/Login';
-import PrivateRoute from './components/private_route/PrivateRoute';
-import AllSpaces from './components/pages/user-crud/AllSpaces';
-import AboutUs from "./components/pages/welcome/AboutUs";
-import AllItems from "./components/pages/AllItems";
-import Scan from "./components/pages/Scan";
-import Search from "./components/pages/Search";
-import AllTotesBySpaceId from "./components/pages/space-crud/AllTotesBySpaceId";
-import ToteLanding from './components/pages/box-crud/ToteLanding';
-import ItemLanding from './components/pages/item-crud/ItemLanding';
-import UserProfile from "./components/pages/user-crud/UserProfile";
-import Logout from './components/pages/Logout';
-import UpdateUser from './components/pages/user-crud/UpdateUser';
-import UpdatePassword from './components/pages/user-crud/UpdatePassword';
-
-import AddForm from "./components/forms/AddForm";
-import AddSpace from "./components/pages/space-crud/AddSpace";
-
-
+import Welcome from './components/pages/general/Welcome';
+import Register from './components/pages/general/Register';
+import Login from './components/pages/general/Login';
+import PrivateRoutes from './components/private_route/PrivateRoutes';
+import AllSpaces from './components/pages/read/AllSpaces';
+import AboutUs from "./components/pages/general/AboutUs";
+import AllItems from "./components/pages/read/AllItems";
+import AllTotesBySpaceId from "./components/pages/read/AllTotesBySpaceId";
+import UserProfile from "./components/pages/read/UserProfile";
+import Logout from './components/pages/general/Logout';
+import UpdateUser from './components/pages/update/user/UpdateUser';
+import UpdatePassword from './components/pages/update/user/UpdatePassword';
+import AddSpace from "./components/pages/create/AddSpace";
+import AllItemsByToteId from "./components/pages/read/AllItemsByToteId";
+import AddItem from "./components/pages/create/AddItem";
+import ItemDetails from "./components/pages/read/ItemDetails";
+import AddTote from './components/pages/create/AddTote';
+import Scan from "./components/pages/FUTURE USE/Scan";
+import Search from "./components/pages/FUTURE USE/Search";
 import axios from "axios";
-
+import UpdateItem from "./components/pages/update/UpdateItem";
 
 function App() {
 
   axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
-  axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
-  return (
-      <Router>
-        <Routes>
+    return (
+        <Router>
+            <Routes>
+                {/*TODO: QUESTION  -- whats the difference between defining the page as element vs */}
+                {/*
+                <Route path='/'>
+                    <AllMeetupsPage />
+                </Route
+                */}
+                {/* Public Routes */}
+                <Route path='/' element={<Welcome/>}/>
+                <Route path='/register' element={<Register/>}/>
+                <Route path='/login' element={<Login/>}/>
+                <Route path='/logout' element={<Logout/>}/>
+                <Route path='/aboutUs' element={<AboutUs/>}/>
 
-          <Route path='/' element={<Welcome />}/>
-          <Route path='/register' element={<Register />}/>
-          <Route path='/login' element={<Login />}/>
-          <Route path='/logout' element={<Logout />}/>
-          <Route path='/aboutus' element={<AboutUs />}/>
+                {/* Private Routes */}
+                <Route element={<PrivateRoutes />}>
+                    {/*----User Related Paths----*/}
+                    <Route path='/profile' element={<UserProfile/>}/>
+                    <Route path='/updateUser' element={<UpdateUser/>}/>
+                    <Route path='/updatePassword' element={<UpdatePassword/>}/>
 
-          <Route path='/allSpaces' element={
-            <PrivateRoute>
-              <AllSpaces />
-            </PrivateRoute> }>
-          </Route>
-          <Route path='/space/add' element={
-            <PrivateRoute>
-              <AddSpace />
-            </PrivateRoute> }>
-          </Route>
-          <Route path='/profile' element={
-            <PrivateRoute>
-              <UserProfile />
-            </PrivateRoute> }>
-          </Route>
-          <Route path='/updateUser' element= {
-            <PrivateRoute> <UpdateUser /> </PrivateRoute>
-          }>
-          </Route>
-          <Route path='/updatePassword' element= {
-            <PrivateRoute> <UpdatePassword /> </PrivateRoute>
-          }>
-          </Route>
-          <Route path='/allTotesBySpace' element={
-            <PrivateRoute>
+                    {/*---- Spaces Paths ----*/}
+                    <Route path='/allSpaces' element={<AllSpaces/>}/>
+                    <Route path='/space/add' element={<AddSpace/>}/>
 
-              <AllTotesBySpaceId />
+                    {/*---- Totes Paths ----*/}
+                    <Route path='/allTotesBySpace' element={<AllTotesBySpaceId/>}/>
+                    <Route path='/tote/add' element={<AddTote />}/>
 
-            </PrivateRoute> }>
-          </Route>
-          <Route path='/toteLanding' element={
-            <PrivateRoute>
-              <ToteLanding />
-            </PrivateRoute> }>
-          </Route>
-          <Route path='/itemLanding' element={
-            <PrivateRoute>
-              <ItemLanding />
-            </PrivateRoute> }>
-          </Route>
-          <Route path='/allItems' element={
-            <PrivateRoute>
-              <AllItems />
-            </PrivateRoute> }>
-          </Route>
+                    {/*---- Item Paths ----*/}
+                    <Route path='/allItemsByToteId' element={<AllItemsByToteId />}/>
+                    <Route path='/itemDetails' element={<ItemDetails />}/>
+                    <Route path='/item/add' element={<AddItem />}/>
+                    <Route path='/allItems' element={<AllItems />}/>
+                    <Route path='/updateItem' element={<UpdateItem />}/>
 
-        </Routes>
-      </Router>
-  );
-}
+                    {/*---- Extra Features Path ----*/}
+                    <Route path='/scan' element={<Scan />}/>
+                    <Route path='/search' element={<Search />}/>
+                </Route>
+
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
