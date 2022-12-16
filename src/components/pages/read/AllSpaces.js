@@ -61,11 +61,10 @@ function AllSpaces() {
                 <div className="row ">
                     {spaces.map((space) => (
                         <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 ">
-                            <Link to='/allTotesBySpace'
-                                state={{
-                                    space_id: `${space.id}`,
-                                    space_name: `${space.name}`
-                                }}>
+                            <Link 
+                                to='/allTotesBySpace'
+                                state={{ space:space }}
+                            >
                                 <div className="pt-2 text-center">{space.name}</div>
                                 <div  key={space.id}>
                                     {/*TODO: Adjust the image to be mobile responsive with card*/}

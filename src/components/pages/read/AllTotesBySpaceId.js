@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import axios from 'axios';
 import {AuthZHeader} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
@@ -14,8 +14,7 @@ function AllTotesBySpaceId() {
     const [tote, setTote] = useState([]);
     const [ShowSettings, setShowSettings] = useState(false);
     const location = useLocation();
-    const navigate = useNavigate();
-    const endPoint = `/tote/all/${location.state.space_id}`;
+    const endPoint = `/tote/all/${location.state.space.id}`;
 
     const getTotes = async () => {
         try {
@@ -30,7 +29,7 @@ function AllTotesBySpaceId() {
         getTotes();
     }, [ShowSettings])
 
-    const handleClick = (tote) => {
+    const handleClickEdit = (tote) => {
         setTote(tote);
         setShowSettings(true);
     }
@@ -49,23 +48,27 @@ function AllTotesBySpaceId() {
                 <LargeNavbar pageName="All Totes"/>
                 <TopNavbar pageName="All Totes"/>
                 <SideNavbar/>
-                <h1 className="mt-5 pt-5">{location.state.space_name}</h1>
+                <h1 className="mt-5 pt-5">{location.state.space.name}</h1>
                 <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
-                    <Link to='/tote/add' state={{
-                        space_id:location.state.space_id
-                    }}>
+                    <Link 
+                        to='/tote/add' 
+                        state={{ space:location.state.space }}
+                    >
                         <Button title="ADD A TOTE"/>
                     </Link>
                     <div className="row">
 
                             {totes.map((tote) => (
                                 <div className="card shadow-lg bg-body rounded p-3 mb-5 w-50 mt-4 p-2">
-                                    <Link to='/allItemsByToteId' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
+                                    <Link 
+                                        to='/allItemsByToteId' 
+                                        state={{ tote:tote }}
+                                    >
                                         <div className="pt-2 text-center">{tote.name}</div>
                                         <div  key={tote.id}>
                                             <img className="detailsImg img-fluid" src={tote.fileStackUrl} alt='image not available'/>                                    </div>
                                     </Link>
-                                    <Button onClick={()=> handleClick(tote)} title={`EDIT: ` + tote.name} />
+                                    <Button onClick={()=> handleClickEdit(tote)} title={`EDIT: ` + tote.name} />
                                 </div>
                             ))}
 

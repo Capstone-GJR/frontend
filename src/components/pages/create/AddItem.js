@@ -6,9 +6,8 @@ import AddEditForm from "../../forms/AddEditForm";
 import {axiosPost} from "../../util/HelperFunctions";
 import {useLocation} from "react-router-dom";
 
-function AddItem(props){
+function AddItem(){
     const location = useLocation();
-    console.log("tote id: ",location.state.tote_id);
 
     return (
         <div>
@@ -18,7 +17,7 @@ function AddItem(props){
             <h1>Add Item</h1>
             <AddEditForm
                 request={axiosPost}
-                url={`/item/add/${location.state.tote_id}`}
+                url={`/item/add/${location.state.tote.id}`}
             />
             </div>
             <BottomNavbar/>

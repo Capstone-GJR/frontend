@@ -15,7 +15,7 @@ function AllItemsByToteId() {
     const [ShowSettings, setShowSettings] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
-    const endPoint = `/item/all/tote/${location.state.tote_id}`;
+    const endPoint = `/item/all/tote/${location.state.tote.id}`;
 
     const getItems = async () => {
         try {
@@ -46,10 +46,11 @@ function AllItemsByToteId() {
                     <LargeNavbar/>
                     <TopNavbar/>
                     <div className="pageContainer">
-                        <h1>{location.state.tote_name}</h1>
-                        <Link to='/item/add' state={{
-                            tote_id:location.state.tote_id
-                        }}>
+                        <h1>{location.state.tote.name}</h1>
+                        <Link 
+                            to='/item/add' 
+                            state={{ tote:location.state.tote }}
+                        >
                             <Button title="ADD A ITEM"/>
                         </Link>
                     <div className="row">

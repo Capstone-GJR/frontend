@@ -8,7 +8,7 @@ import {useLocation} from 'react-router-dom';
 
 function AddTote() {
     const location = useLocation();
-    // console.log("space id: ",location.state.space_id);
+    
     return (
         <div>
             <LargeNavbar/>
@@ -17,7 +17,7 @@ function AddTote() {
                 <h1>Add Tote</h1>
                 <AddEditForm
                     request={axiosPost}
-                    url={`/tote/add/${location.state.space_id}`}
+                    url={`/tote/add/${location.state.space.id}`}
                 />
             </div>
             <BottomNavbar/>
