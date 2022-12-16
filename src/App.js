@@ -7,7 +7,7 @@ import {
 import Welcome from './components/pages/general/Welcome';
 import Register from './components/pages/general/Register';
 import Login from './components/pages/general/Login';
-import PrivateRoute from './components/private_route/PrivateRoute';
+import PrivateRoutes from './components/private_route/PrivateRoutes';
 import AllSpaces from './components/pages/read/AllSpaces';
 import AboutUs from "./components/pages/general/AboutUs";
 import AllItems from "./components/pages/read/AllItems";
@@ -17,7 +17,6 @@ import Logout from './components/pages/general/Logout';
 import UpdateUser from './components/pages/update/user/UpdateUser';
 import UpdatePassword from './components/pages/update/user/UpdatePassword';
 import AddSpace from "./components/pages/create/AddSpace";
-import UpdateTote from './components/pages/update/UpdateTote'
 import AllItemsByToteId from "./components/pages/read/AllItemsByToteId";
 import AddItem from "./components/pages/create/AddItem";
 import ItemDetails from "./components/pages/read/ItemDetails";
@@ -26,7 +25,6 @@ import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
 import axios from "axios";
 import UpdateItem from "./components/pages/update/UpdateItem";
-
 
 function App() {
 
@@ -41,90 +39,43 @@ function App() {
                     <AllMeetupsPage />
                 </Route
                 */}
+                {/* Public Routes */}
                 <Route path='/' element={<Welcome/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/logout' element={<Logout/>}/>
                 <Route path='/aboutUs' element={<AboutUs/>}/>
+                
+                {/* Private Routes */}
+                <Route element={<PrivateRoutes />}>
+                    {/*----User Related Paths----*/}
+                    <Route path='/profile' element={<UserProfile/>}/>
+                    <Route path='/updateUser' element={<UpdateUser/>}/>
+                    <Route path='/updatePassword' element={<UpdatePassword/>}/>
 
-                {/*----User Related Paths----*/}
-                <Route path='/profile' element={
-                    <PrivateRoute>
-                        <UserProfile/>
-                    </PrivateRoute>}>
-                </Route>
-                <Route path='/updateUser' element={
-                    <PrivateRoute> <UpdateUser/> </PrivateRoute>
-                }>
-                </Route>
-                <Route path='/updatePassword' element={
-                    <PrivateRoute>
-                        <UpdatePassword/>
-                    </PrivateRoute>
-                }>
-                </Route>
-                {/*---- Spaces Paths ----*/}
-                <Route path='/allSpaces' element={
-                    <PrivateRoute>
-                        <AllSpaces/>
-                    </PrivateRoute>}>
-                </Route>
-                <Route path='/space/add' element={
-                    <PrivateRoute>
-                        <AddSpace/>
-                    </PrivateRoute>}>
-                </Route>
-                {/*---- Totes Paths ----*/}
-                <Route path='/allTotesBySpace' element={
-                    <PrivateRoute>
-                        <AllTotesBySpaceId/>
-                    </PrivateRoute>}>
-                </Route>
-                <Route path='/tote/add' element={
-                    <PrivateRoute>
-                        <AddTote />
-                    </PrivateRoute>}>
-                </Route>
-                {/*---- Item Paths ----*/}
-                <Route path='/allItemsByToteId' element={
-                    <PrivateRoute>
-                        <AllItemsByToteId />
-                    </PrivateRoute>}>
-                </Route>
-                <Route path='/itemDetails' element={
-                    <PrivateRoute>
-                        <ItemDetails />
-                    </PrivateRoute>}>
-                </Route>
-                <Route path='/item/add' element={
-                    <PrivateRoute>
-                        <AddItem />
-                    </PrivateRoute>}>
-                </Route>
-                <Route path='/allItems' element={
-                    <PrivateRoute>
-                        <AllItems />
-                    </PrivateRoute>}>
-                </Route>
-                <Route path='/updateItem' element={
-                    <PrivateRoute>
-                        <UpdateItem />
-                    </PrivateRoute>}>
-                </Route>
-                {/*---- Extra Features Path ----*/}
-                <Route path='/scan' element={
-                    <PrivateRoute>
-                        <Scan />
-                    </PrivateRoute>}>
-                </Route>
-                <Route path='/search' element={
-                    <PrivateRoute>
-                        <Search />
-                    </PrivateRoute>}>
-                </Route>
+                    {/*---- Spaces Paths ----*/}
+                    <Route path='/allSpaces' element={<AllSpaces/>}/>
+                    <Route path='/space/add' element={<AddSpace/>}/>
+
+                    {/*---- Totes Paths ----*/}
+                    <Route path='/allTotesBySpace' element={<AllTotesBySpaceId/>}/>
+                    <Route path='/tote/add' element={<AddTote />}/>
+
+                    {/*---- Item Paths ----*/}
+                    <Route path='/allItemsByToteId' element={<AllItemsByToteId />}/>
+                    <Route path='/itemDetails' element={<ItemDetails />}/>
+                    <Route path='/item/add' element={<AddItem />}/>
+                    <Route path='/allItems' element={<AllItems />}/>
+                    <Route path='/updateItem' element={<UpdateItem />}/>
+
+                    {/*---- Extra Features Path ----*/}
+                    <Route path='/scan' element={<Scan />}/>
+                    <Route path='/search' element={<Search />}/>
+                </Route>  
+
             </Routes>
         </Router>
     );
-}
+};
 
 export default App;
