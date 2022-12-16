@@ -5,7 +5,7 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link} from "react-router-dom";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
-import SpaceDetails from '../space-crud/SpaceDetails';
+import UpdateSpace from '../update/UpdateSpace';
 import { AuthZHeader } from '../../util/HelperFunctions';
 
 function AllSpaces() {
@@ -34,7 +34,7 @@ function AllSpaces() {
 
     if (ShowSettings) {
         return (
-            <SpaceDetails
+            <UpdateSpace
                 setShowSettings={setShowSettings}
                 space={space}
                 getUserSpaces={getUserSpaces}

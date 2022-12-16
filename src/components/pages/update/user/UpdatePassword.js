@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import TopNavbar from "../../navbar/TopNavbar";
-import BottomNavbar from "../../navbar/BottomNavbar";
-import LargeNavbar from "../../navbar/LargeNavbar";
+import TopNavbar from "../../../navbar/TopNavbar";
+import BottomNavbar from "../../../navbar/BottomNavbar";
+import LargeNavbar from "../../../navbar/LargeNavbar";
 import { Form } from 'react-bootstrap';
-import FormInput from '../../forms/FormInput';
-import Button from '../../buttons/Button';
-import { AuthZHeader, checkPassword } from '../../util/HelperFunctions';
-import CustomAlert from '../../buttons/CustomAlert';
+import FormInput from '../../../forms/FormInput';
+import Button from '../../../buttons/Button';
+import { AuthZHeader, checkPassword } from '../../../util/HelperFunctions';
+import CustomAlert from '../../../buttons/CustomAlert';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 

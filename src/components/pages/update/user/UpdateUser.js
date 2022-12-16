@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import TopNavbar from "../../navbar/TopNavbar";
-import BottomNavbar from "../../navbar/BottomNavbar";
-import LargeNavbar from "../../navbar/LargeNavbar";
-import FormInput from '../../forms/FormInput';
+import TopNavbar from "../../../navbar/TopNavbar";
+import BottomNavbar from "../../../navbar/BottomNavbar";
+import LargeNavbar from "../../../navbar/LargeNavbar";
+import FormInput from '../../../forms/FormInput';
 import { Form } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Button from '../../buttons/Button';
+import Button from '../../../buttons/Button';
 import axios from 'axios';
-import { AuthZHeader } from '../../util/HelperFunctions';
-import CustomAlert from '../../buttons/CustomAlert'
+import { AuthZHeader } from '../../../util/HelperFunctions';
+import CustomAlert from '../../../buttons/CustomAlert'
 
 function UpdateUser(){
     const [showAlert, setShowAlert] = useState(false);

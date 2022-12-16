@@ -5,7 +5,7 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 import { axiosDelete, axiosPut } from "../../util/HelperFunctions";
 import AddEditForm from "../../forms/AddEditForm";
 
-function SpaceDetails(props) {
+function UpdateSpace(props) {
   const handleClick = async () => {
     const res = await axiosDelete(`/space/delete/${props.space.id}`);
     if (res.status === 204) {
@@ -43,4 +43,4 @@ function SpaceDetails(props) {
   );
 }
 
-export default SpaceDetails;
+export default UpdateSpace;

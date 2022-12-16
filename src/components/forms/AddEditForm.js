@@ -9,7 +9,6 @@ import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
 import Backdrop from "../Modals/Backdrop";
 
-
 function AddEditForm(props){
 
     const navigate = useNavigate();

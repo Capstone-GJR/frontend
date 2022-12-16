@@ -6,7 +6,7 @@ import axios from 'axios';
 import {AuthZHeader} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
-import UpdateItem from "../item-crud/UpdateItem";
+import UpdateItem from "../update/UpdateItem";
 
 function AllItemsByToteId() {
 

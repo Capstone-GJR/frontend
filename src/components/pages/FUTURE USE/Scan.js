@@ -3,17 +3,17 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 
-function ResetPassword(props){
+function Scan(props){
     return (
         <div>
             <LargeNavbar />
 
             <TopNavbar/>
-            <div>Delete Box</div>
+            <div>Scan</div>
             <BottomNavbar/>
         </div>
 
     )
 }
 
-export default ResetPassword
+export default Scan

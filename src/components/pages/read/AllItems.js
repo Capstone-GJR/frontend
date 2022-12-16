@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import TopNavbar from "../navbar/TopNavbar";
-import BottomNavbar from "../navbar/BottomNavbar";
-import LargeNavbar from "../navbar/LargeNavbar";
+import TopNavbar from "../../navbar/TopNavbar";
+import BottomNavbar from "../../navbar/BottomNavbar";
+import LargeNavbar from "../../navbar/LargeNavbar";
 import {Link, useLocation} from "react-router-dom";
 import axios from "axios";
-import {AuthZHeader} from "../util/HelperFunctions";
+import {AuthZHeader} from "../../util/HelperFunctions";
 
 function AllItems(props){
 

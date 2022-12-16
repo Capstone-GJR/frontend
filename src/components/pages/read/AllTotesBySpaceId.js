@@ -5,7 +5,7 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import axios from 'axios';
 import {AuthZHeader} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
-import UpdateTote from '../box-crud/UpdateTote';
+import UpdateTote from '../update/UpdateTote';
 import Button from "../../buttons/Button";
 
 function AllTotesBySpaceId() {

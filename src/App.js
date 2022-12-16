@@ -4,27 +4,27 @@ import {
   Routes,
   Route,
 } from 'react-router-dom'
-import Welcome from './components/pages/welcome/Welcome';
-import Register from './components/pages/welcome/Register';
-import Login from './components/pages/welcome/Login';
+import Welcome from './components/pages/general/Welcome';
+import Register from './components/pages/general/Register';
+import Login from './components/pages/general/Login';
 import PrivateRoute from './components/private_route/PrivateRoute';
-import AllSpaces from './components/pages/user-crud/AllSpaces';
-import AboutUs from "./components/pages/welcome/AboutUs";
-import AllItems from "./components/pages/AllItems";
-import AllTotesBySpaceId from "./components/pages/space-crud/AllTotesBySpaceId";
-import UserProfile from "./components/pages/user-crud/UserProfile";
-import Logout from './components/pages/Logout';
-import UpdateUser from './components/pages/user-crud/UpdateUser';
-import UpdatePassword from './components/pages/user-crud/UpdatePassword';
-import AddSpace from "./components/pages/space-crud/AddSpace";
-import UpdateTote from './components/pages/box-crud/UpdateTote'
+import AllSpaces from './components/pages/read/AllSpaces';
+import AboutUs from "./components/pages/general/AboutUs";
+import AllItems from "./components/pages/read/AllItems";
+import AllTotesBySpaceId from "./components/pages/read/AllTotesBySpaceId";
+import UserProfile from "./components/pages/general/UserProfile";
+import Logout from './components/pages/general/Logout';
+import UpdateUser from './components/pages/update/user/UpdateUser';
+import UpdatePassword from './components/pages/update/user/UpdatePassword';
+import AddSpace from "./components/pages/create/AddSpace";
+import UpdateTote from './components/pages/update/UpdateTote'
 
 
 import axios from "axios";
-import AllItemsByToteId from "./components/pages/box-crud/AllItemsByToteId";
-import AddItem from "./components/pages/item-crud/AddItem";
-import ItemDetails from "./components/pages/item-crud/ItemDetails";
-import AddTote from './components/pages/box-crud/AddTote';
+import AllItemsByToteId from "./components/pages/read/AllItemsByToteId";
+import AddItem from "./components/pages/create/AddItem";
+import ItemDetails from "./components/pages/read/ItemDetails";
+import AddTote from './components/pages/create/AddTote';
 
 
 function App() {

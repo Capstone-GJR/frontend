@@ -3,17 +3,17 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 
-function DeleteItem(props){
+function Search(props){
     return (
         <div>
             <LargeNavbar />
 
             <TopNavbar/>
-            <div>Delete Item</div>
+            <div>Search</div>
             <BottomNavbar/>
         </div>
 
     )
 }
 
-export default DeleteItem
+export default Search
