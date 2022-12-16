@@ -12,7 +12,7 @@ import AllSpaces from './components/pages/read/AllSpaces';
 import AboutUs from "./components/pages/general/AboutUs";
 import AllItems from "./components/pages/read/AllItems";
 import AllTotesBySpaceId from "./components/pages/read/AllTotesBySpaceId";
-import UserProfile from "./components/pages/general/UserProfile";
+import UserProfile from "./components/pages/read/UserProfile";
 import Logout from './components/pages/general/Logout';
 import UpdateUser from './components/pages/update/user/UpdateUser';
 import UpdatePassword from './components/pages/update/user/UpdatePassword';
@@ -25,6 +25,8 @@ import AllItemsByToteId from "./components/pages/read/AllItemsByToteId";
 import AddItem from "./components/pages/create/AddItem";
 import ItemDetails from "./components/pages/read/ItemDetails";
 import AddTote from './components/pages/create/AddTote';
+import Scan from "./components/pages/FUTURE USE/Scan";
+import Search from "./components/pages/FUTURE USE/Search";
 
 
 function App() {
@@ -74,6 +76,11 @@ function App() {
                         <AllTotesBySpaceId/>
                     </PrivateRoute>}>
                 </Route>
+                <Route path='/tote/add' element={
+                    <PrivateRoute>
+                        <AddTote />
+                    </PrivateRoute>}>
+                </Route>
                 {/*---- Item Paths ----*/}
                 <Route path='/allItemsByToteId' element={
                     <PrivateRoute>
@@ -90,17 +97,22 @@ function App() {
                         <AddItem />
                     </PrivateRoute>}>
                 </Route>
-                <Route path='/tote/add' element={
-                    <PrivateRoute>
-                        <AddTote />
-                    </PrivateRoute>}>
-                </Route>
                 <Route path='/allItems' element={
                     <PrivateRoute>
                         <AllItems />
                     </PrivateRoute>}>
                 </Route>
-
+                {/*---- Extra Features Path ----*/}
+                <Route path='/scan' element={
+                    <PrivateRoute>
+                        <Scan />
+                    </PrivateRoute>}>
+                </Route>
+                <Route path='/search' element={
+                    <PrivateRoute>
+                        <Search />
+                    </PrivateRoute>}>
+                </Route>
             </Routes>
         </Router>
     );

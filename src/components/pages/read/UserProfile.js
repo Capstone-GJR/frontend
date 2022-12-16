@@ -49,13 +49,12 @@ function Profile(){
             <LargeNavbar />
             <TopNavbar/>
             <div className="container">
-                <h2 className="text-center">HELLO {profile.firstName}!!</h2>
-                <div className="d-flex justify-content-center"> 
-                    <div>
-                        <div>First Name: {profile.firstName}</div>
-                        <div>Last Name: {profile.lastName}</div>
-                        <div>email: {profile.email}</div>
-                    </div>    
+                <h1 className="text-center">HELLO {profile.firstName}!!</h1>
+                <div className="pageContainer d-flex justify-content-center">
+                <div className="row mb-5 gy-4">
+                        <div className="h3 m3">First Name: {profile.firstName}</div>
+                        <div className="h3 m3">Last Name: {profile.lastName}</div>
+                        <div className="h3 m3">email: {profile.email}</div>
                 </div>
                 <div className="maxWidth600 margin-0-Auto">
                     <CustomAlert
@@ -63,7 +62,6 @@ function Profile(){
                         alertVariant="danger"
                         alertHeading={`Your profile has been deleted, goodbye ${profile.firstName}!`}
                     />
-
                     <Link to="/updateUser" state={{ profile }}>
                         <Button title="EDIT PROFILE" />
                     </Link> 
@@ -84,6 +82,7 @@ function Profile(){
                         confirmBtn={deleteProfile}
                     />
                 </div>
+            </div>
             </div>
             <BottomNavbar/>
         </>
