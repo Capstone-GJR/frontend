@@ -22,7 +22,10 @@ h1 {
     text-align: center;
 }
 a {
+    text-align: center;
+    font-size: 1.25rem;
     text-decoration: none;
+    color: black;
 }
 
 /* Placeholder font */

@@ -25,6 +25,7 @@ import AddTote from './components/pages/create/AddTote';
 import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
 import axios from "axios";
+import UpdateItem from "./components/pages/update/UpdateItem";
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/logout' element={<Logout/>}/>
-                <Route path='/aboutus' element={<AboutUs/>}/>
+                <Route path='/aboutUs' element={<AboutUs/>}/>
 
                 {/*----User Related Paths----*/}
                 <Route path='/profile' element={
@@ -103,6 +104,11 @@ function App() {
                 <Route path='/allItems' element={
                     <PrivateRoute>
                         <AllItems />
+                    </PrivateRoute>}>
+                </Route>
+                <Route path='/updateItem' element={
+                    <PrivateRoute>
+                        <UpdateItem />
                     </PrivateRoute>}>
                 </Route>
                 {/*---- Extra Features Path ----*/}

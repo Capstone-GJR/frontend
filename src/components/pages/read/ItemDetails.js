@@ -46,8 +46,8 @@ function ItemDetails(props) {
                         </div>
                         <div className="h5 pt-2 text-center">Description: {itemDetails.keywords}</div>
                         <div className="h5 pt-2 text-center">Value: ${itemDetails.value}</div>
-                        <div className="h5 pt-2 text-center">Location: {itemDetails.tote.name} inside
-                            of {itemDetails.tote.space.name}</div>
+                        {/*<div className="h5 pt-2 text-center">Location: {itemDetails.tote.name} inside*/}
+                        {/*    of {itemDetails.tote.space.name}</div>*/}
                     </div>
                     <div>
                         {/*TODO: Have these buttons like to UpdateItem*/}
