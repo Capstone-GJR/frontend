@@ -9,16 +9,9 @@ import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
 import Backdrop from "../Modals/Backdrop";
 
-function AddEditForm(props){
-import {useNavigate} from "react-router-dom";
-import Button from "../buttons/Button";
-function AddEditForm(props){
-import {AuthZHeader, axiosPost} from "../util/HelperFunctions";
-import axios from "axios";
-import Backdrop from "../Modals/Backdrop";
-import {PickerInline, PickerOverlay} from "filestack-react";
 
-function AddForm(props) {
+function AddEditForm(props){
+
     const navigate = useNavigate();
     const [form, setForm] = useState({});
 

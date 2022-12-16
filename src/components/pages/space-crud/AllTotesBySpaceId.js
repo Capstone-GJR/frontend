@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import axios from 'axios';
-import { AuthZHeader } from '../../util/HelperFunctions';
+import {AuthZHeader} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
-import { Button } from 'react-bootstrap';
 import UpdateTote from '../box-crud/UpdateTote';
 import Button from "../../buttons/Button";
 
-function AllTotesBySpaceId(){
+function AllTotesBySpaceId() {
     const [totes, setTotes] = useState([]);
     const [tote, setTote] = useState([]);
     const [ShowSettings, setShowSettings] = useState(false);
@@ -28,14 +27,14 @@ function AllTotesBySpaceId(){
 
     useEffect(() => {
         getTotes();
-    },[ShowSettings])
+    }, [ShowSettings])
 
     const handleClick = (tote) => {
         setTote(tote);
         setShowSettings(true);
     }
 
-    if(ShowSettings) {
+    if (ShowSettings) {
         return (
             <UpdateTote
                 setShowSettings={setShowSettings}
@@ -46,36 +45,27 @@ function AllTotesBySpaceId(){
     } else {
         return (
             <div>
-                <LargeNavbar />
+                <LargeNavbar/>
                 <TopNavbar/>
                 <h1>{location.state.space_name}</h1>
-                <Link
-                    to='/addTote'
-                    state={{
-                        space_id:location.state.space_id
-                    }}
-                >
-                    <Button>Add Tote</Button>
-                </Link>
-
-                <div className="pageContainer" >
-            <Link to='/tote/add'>
-                <Button title="ADD A TOTE"/>
-            </Link>
-            <div>
-                    {totes.map((tote) => (
-                        <div>
-                            <Link to='/allItemsByToteId' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
-                                <div
-                                    className='card w-50 p-4 m-4'
-                                    key={tote.id}>
-                                    {tote.name}
-                                </div>
-                            </Link>
-                            <button onClick={()=> handleClick(tote)}>Edit/Delete tote: {tote.name}</button>
-                        </div>
-                    ))}
-            </div>
+                <div className="pageContainer">
+                    <Link to='/tote/add'>
+                        <Button title="ADD A TOTE"/>
+                    </Link>
+                    <div>
+                        {totes.map((tote) => (
+                            <div className="card">
+                                <Link to='/allItemsByToteId' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
+                                    <div
+                                        className='card w-50 p-4 m-4'
+                                        key={tote.id}>
+                                        {tote.name}
+                                    </div>
+                                </Link>
+                                <button onClick={() => handleClick(tote)}>Edit/Delete tote: {tote.name}</button>
+                            </div>
+                        ))}
+                    </div>
                 </div>
                 <BottomNavbar/>
             </div>

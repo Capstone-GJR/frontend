@@ -45,12 +45,14 @@ function AllSpaces() {
             <div>
                 <LargeNavbar/>
                 <TopNavbar/>
+                <h1>All Spaces</h1>
+                <div className="pageContainer">
                 <Link to="/space/add">
                     <Button title="ADD SPACE"/>
                 </Link>
                 <div>
                     {spaces.map((space) => (
-                        <div>
+                        <div className="card mt-4 p-2 w-70">
                             <Link to='/allTotesBySpace'
                                 state={{
                                     space_id: `${space.id}`,
@@ -68,6 +70,7 @@ function AllSpaces() {
                             </button>
                         </div>
                     ))}
+                </div>
                 </div>
                 <BottomNavbar/>
             </div>
