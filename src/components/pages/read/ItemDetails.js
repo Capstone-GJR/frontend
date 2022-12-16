@@ -38,7 +38,7 @@ function ItemDetails(props) {
         <div>
             <LargeNavbar/>
             <TopNavbar/>
-            <div className="pageContainer">
+            <div className="pageContainer mb-5 mb-lg-0">
                 <div className="pageContainer d-flex justify-content-center">
                     <h1 className="text-center mb-5">{location.state.item_name}</h1>
                     <div>

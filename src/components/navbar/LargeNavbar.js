@@ -6,28 +6,30 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
 import {Link} from "react-router-dom";
 import {MdQrCodeScanner} from "react-icons/md";
+import PageNameHeader from "./PageNameHeader";
 
 function LargeNavbar(props) {
     return (
 
-        <nav className="navbar d-none d-sm-block d-md-block navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar d-none d-sm-block d-md-block navbar-expand-md navbar-dark bg-dark fixed-top">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/allSpaces">
                     {/*TODO: Consider changing the route for this link. Should it go to the about us page maybe?*/}
                     Traqura
                 </Link>
+                <PageNameHeader pageName={props.pageName}/>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse"
                         aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse m-0" id="navCollapse">
                     <div className="dropdown ms-auto">
-                        <button className="btn btn-dark btn-outline-light dropdown-toggle me-0" type="button"
+                        <button className="btn btn-dark btn-outline-light dropdown-toggle" type="button"
                                 id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
-                        <ul className="dropdown-menu dropdown-menu-lg-end text-center"
+                        <ul className="dropdown-menu dropdown-menu-md-end text-center"
                             aria-labelledby="dropdownMenuButton1">
                             <li>
                                 <Link to="/allSpaces" className="text-decoration-none text-black">

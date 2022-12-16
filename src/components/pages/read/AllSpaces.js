@@ -7,6 +7,10 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
 import UpdateSpace from '../update/UpdateSpace';
 import { AuthZHeader } from '../../util/HelperFunctions';
+import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
+// import React from "@types/react";
+import {MdQrCodeScanner} from "react-icons/md";
+import SideNavbar from "../../navbar/SideNavbar";
 
 function AllSpaces() {
 
@@ -43,25 +47,29 @@ function AllSpaces() {
     } else {
         return (
             <div>
-                <LargeNavbar/>
-                <TopNavbar/>
-                <h1>All Spaces</h1>
-                <div className="pageContainer">
-                <Link to="/space/add">
+                <LargeNavbar pageName="All Spaces"/>
+                <TopNavbar pageName="All Spaces"/>
+                <SideNavbar/>
+
+
+                    {/*<h1 className="mt-5">All Spaces</h1>*/}
+
+                <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
+                <Link className="mt-lg-2" to="/space/add">
                     <Button title="ADD SPACE"/>
                 </Link>
-                <div>
+                <div className="row ">
                     {spaces.map((space) => (
-                        <div className="card mt-4 p-2 w-70">
+                        <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 ">
                             <Link to='/allTotesBySpace'
                                 state={{
                                     space_id: `${space.id}`,
                                     space_name: `${space.name}`
                                 }}>
                                 <div className="pt-2 text-center">{space.name}</div>
-                                <div className='p-4 m-3' key={space.id}>
+                                <div  key={space.id}>
                                     {/*TODO: Adjust the image to be mobile responsive with card*/}
-                                    <img className="detailsImg" src={space.fileStackUrl} alt='image not available'/>
+                                    <img className="detailsImg img-fluid" src={space.fileStackUrl} alt='image not available'/>
                                 </div>
                             </Link>
                             <Button onClick={()=> handleClick(space)} title={`EDIT: ` + space.name} />
