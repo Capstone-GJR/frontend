@@ -6,6 +6,7 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
 import {Link} from "react-router-dom";
 import {MdQrCodeScanner} from "react-icons/md";
+import PageNameHeader from "./PageNameHeader";
 
 function LargeNavbar(props) {
     return (
@@ -16,6 +17,7 @@ function LargeNavbar(props) {
                     {/*TODO: Consider changing the route for this link. Should it go to the about us page maybe?*/}
                     Traqura
                 </Link>
+                <PageNameHeader pageName={props.pageName}/>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse"
                         aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

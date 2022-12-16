@@ -46,13 +46,16 @@ function AllSpaces() {
     } else {
         return (
             <div>
-                <LargeNavbar/>
+                <LargeNavbar pageName="All Spaces"/>
                 <TopNavbar/>
-                <h1 className="mt-5">All Spaces</h1>
+
+
+                    {/*<h1 className="mt-5">All Spaces</h1>*/}
+
 
                 <div id="sidebarMenu" className="collapse d-lg-block sidebar collapse bg-white w-25 position-fixed">
                     <div className="position-sticky">
-                        <div className="list-group list-group-flush mx-3 mt-4">
+                        <div className="list-group list-group-flush mx-3 mt-5">
                             <Link to="/allSpaces" className="text-decoration-none text-black">
                                 <CiBoxes size={20}/>
                                 <p className="fs-6">Spaces</p>
@@ -83,8 +86,8 @@ function AllSpaces() {
                     </div>
                 </div>
 
-                <div className="pageContainer mb-5 pb-5 me-lg-0 ms-lg-auto mb-md-0">
-                <Link to="/space/add">
+                <div className="pageContainer mt-lg-5 pt-lg-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
+                <Link className="mt-lg-2" to="/space/add">
                     <Button title="ADD SPACE"/>
                 </Link>
                 <div className="row">

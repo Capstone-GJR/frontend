@@ -45,7 +45,7 @@ function AllTotesBySpaceId() {
     } else {
         return (
             <div>
-                <LargeNavbar/>
+                <LargeNavbar pageName=""/>
                 <TopNavbar/>
                 <h1>{location.state.space_name}</h1>
                 <div className="pageContainer">
