@@ -7,6 +7,7 @@ import {AuthZHeader} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
 import UpdateTote from '../update/UpdateTote';
 import Button from "../../buttons/Button";
+import SideNavbar from "../../navbar/SideNavbar";
 
 function AllTotesBySpaceId() {
     const [totes, setTotes] = useState([]);
@@ -47,8 +48,9 @@ function AllTotesBySpaceId() {
             <div>
                 <LargeNavbar pageName="All Totes"/>
                 <TopNavbar pageName="All Totes"/>
+                <SideNavbar/>
                 <h1 className="mt-5 pt-5">{location.state.space_name}</h1>
-                <div className="pageContainer">
+                <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
                     <Link to='/tote/add' state={{
                         space_id:location.state.space_id
                     }}>
