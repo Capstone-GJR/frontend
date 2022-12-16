@@ -1,0 +1,23 @@
+Functionality Test
+
+Start Point = all spaces
+
+SPACES
+- READ all spaces
+- CREATE a Space
+- UPDATE a Space
+- DELETE a Space
+    ~ ISSUE Space READ Details is sandwiched with the edit form....
+
+TOTES
+- READ
+- CREATE
+- EDIT
+- DELETE
+
+TOTES
+- READ
+- CREATE
+- EDIT
+- DELETE
+

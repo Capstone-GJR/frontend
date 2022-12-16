@@ -90,6 +90,11 @@ function App() {
                         <AddItem />
                     </PrivateRoute>}>
                 </Route>
+                <Route path='/tote/add' element={
+                    <PrivateRoute>
+                        <AddTote />
+                    </PrivateRoute>}>
+                </Route>
                 <Route path='/allItems' element={
                     <PrivateRoute>
                         <AllItems />
