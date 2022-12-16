@@ -54,12 +54,11 @@ function AllItemsByToteId() {
                     </Link>
                     <div>
                         {items.map((item) => (
-                            <div className="card">
+                            <div className="card mt-4 p-2 w-70">
                                 <Link to='/itemDetails' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>
-                                    <div
-                                        className='card w-50 p-4 m-4'
-                                        key={item.id}>
-                                        {item.name}
+                                    <div className="pt-2 text-center">{item.name}</div>
+                                    <div className='p-4 m-3' key={item.id}>
+                                        <img className="detailsImg" src={item.fileStackUrl} alt='image not available'/>
                                     </div>
                                 </Link>
                                 <button onClick={() => handleClick(item)}>Edit/Delete item: {item.name}</button>

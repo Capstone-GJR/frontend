@@ -58,10 +58,9 @@ function AllSpaces() {
                                     space_id: `${space.id}`,
                                     space_name: `${space.name}`
                                 }}>
-                                <div
-                                    className='card w-50 p-4 m-4'
-                                    key={space.id}>
-                                    {space.name}
+                                <div className="pt-2 text-center">{space.name}</div>
+                                <div className='p-4 m-3' key={space.id}>
+                                    <img className="detailsImg" src={space.fileStackUrl} alt='image not available'/>
                                 </div>
                             </Link>
                             <button
