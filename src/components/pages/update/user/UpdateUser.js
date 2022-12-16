@@ -66,7 +66,7 @@ function UpdateUser(){
             <LargeNavbar />
             <TopNavbar/>
             <div className='container'>
-                <h2 className='text-center m-3'>Update your Profile</h2>
+                <h1 className='text-center m-3 p-5'>Update your Profile</h1>
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
                         <FormInput
