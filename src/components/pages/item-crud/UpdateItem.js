@@ -8,7 +8,7 @@ import AddEditForm from "../../forms/AddEditForm";
 function UpdateItems(props){
 
     const handleClick = async () => {
-        const res = await axiosDelete(`/item/${props.item.id}/delete`);
+        const res = await axiosDelete(`/item/delete/${props.item.id}`);
         if (res.status === 204) {
             props.setShowSettings(false);
         } else {
