@@ -45,9 +45,9 @@ function AllTotesBySpaceId() {
     } else {
         return (
             <div>
-                <LargeNavbar pageName=""/>
+                <LargeNavbar pageName="All Totes"/>
                 <TopNavbar/>
-                <h1>{location.state.space_name}</h1>
+                <h1 className="">{location.state.space_name}</h1>
                 <div className="pageContainer">
                     <Link to='/tote/add' state={{
                         space_id:location.state.space_id

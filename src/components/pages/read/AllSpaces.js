@@ -47,7 +47,7 @@ function AllSpaces() {
         return (
             <div>
                 <LargeNavbar pageName="All Spaces"/>
-                <TopNavbar/>
+                <TopNavbar pageName="All Spaces"/>
 
 
                     {/*<h1 className="mt-5">All Spaces</h1>*/}
@@ -86,7 +86,7 @@ function AllSpaces() {
                     </div>
                 </div>
 
-                <div className="pageContainer mt-lg-5 pt-lg-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
+                <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
                 <Link className="mt-lg-2" to="/space/add">
                     <Button title="ADD SPACE"/>
                 </Link>
