@@ -9,7 +9,6 @@ function UpdateSpace(props){
             <LargeNavbar />
             <TopNavbar/>
             <div>Update Space</div>
-            
             <BottomNavbar/>
         </div>
 

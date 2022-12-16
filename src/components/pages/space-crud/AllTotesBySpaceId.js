@@ -49,7 +49,9 @@ function AllTotesBySpaceId() {
                 <TopNavbar/>
                 <h1>{location.state.space_name}</h1>
                 <div className="pageContainer">
-                    <Link to='/tote/add'>
+                    <Link to='/tote/add' state={{
+                        space_id:location.state.space_id
+                    }}>
                         <Button title="ADD A TOTE"/>
                     </Link>
                     <div>

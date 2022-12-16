@@ -3,7 +3,8 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 
-function BoxSettings(props){
+function BoxDetails(props){
+
     return (
         <div>
             <LargeNavbar />
@@ -16,4 +17,4 @@ function BoxSettings(props){
     )
 }
 
-export default BoxSettings
+export default BoxDetails

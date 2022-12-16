@@ -7,7 +7,7 @@ import AddEditForm from '../../forms/AddEditForm';
 
 function UpdateTote(props){
     const handleClick = async () => {
-        const res = await axiosDelete(`/tote/${props.tote.id}/delete`);
+        const res = await axiosDelete(`/tote/delete/${props.tote.id}/`);
         if (res.status === 204) {
           props.setShowSettings(false);
         } else {
@@ -19,17 +19,23 @@ function UpdateTote(props){
         <div>
             <LargeNavbar />
             <TopNavbar/>
-            <h1>Update Tote</h1>
-            <p>{props.tote.name}</p>
+            <div className="p-3">
+                <h1>Update Tote</h1>
+                <p>{props.tote.name}</p>
+                <p>{props.tote.color}</p>
+                <p>{props.tote.keywords}</p>
+                <p>{props.tote.fileStackUrl}</p>
+                <p>{props.tote.id}</p>
             <AddEditForm
                 request={axiosPut}
-                url={`/tote/${props.tote.id}/edit`}
+                url={`/tote/edit/${props.tote.id}/${props.tote.space.id}`}
                 setShowSettings={props.setShowSettings}
             />
             <button onClick={() => props.setShowSettings(false)}>
                 Back to Totes
             </button>
             <button onClick={handleClick}>Delete</button>
+            </div>
             <BottomNavbar/>
         </div>
 

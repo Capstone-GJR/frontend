@@ -6,7 +6,6 @@ import axios from 'axios';
 import {AuthZHeader} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
-import UpdateTote from "./UpdateTote";
 import UpdateItem from "../item-crud/UpdateItem";
 
 function AllItemsByToteId() {
@@ -41,13 +40,16 @@ function AllItemsByToteId() {
 
 
         <div>
-            <LargeNavbar/>
-            <TopNavbar/>
-            <h1>{location.state.tote_name}</h1>
             {ShowSettings ? <UpdateItem setShowSettings={setShowSettings} item={item}/>
                 :
+                <div>
+                    <LargeNavbar/>
+                    <TopNavbar/>
                 <div className="pageContainer">
-                    <Link to='/item/add'>
+                    <h1>{location.state.tote_name}</h1>
+                    <Link to='/item/add' state={{
+                        tote_id:location.state.tote_id
+                    }}>
                         <Button title="ADD A ITEM"/>
                     </Link>
                     <div>
@@ -65,8 +67,10 @@ function AllItemsByToteId() {
                         ))}
                     </div>
                 </div>
+                    <BottomNavbar/>
+                </div>
             }
-            <BottomNavbar/>
+
         </div>
 
     )
