@@ -30,12 +30,12 @@ function AllTotesBySpaceId(){
             <LargeNavbar />
             <TopNavbar/>
             <h1>{location.state.space_name}</h1>
-            <Link to='/item/add'>
+            <Link to='/tote/add'>
                 <Button title="ADD A TOTE"/>
             </Link>
             <div>
                 {totes.map((tote) => (
-                    <Link to='/toteLanding' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
+                    <Link to='/allItemsByToteId' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
                         <div
                             className='card w-50 p-4 m-4'
                             key={tote.id}>

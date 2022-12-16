@@ -34,10 +34,9 @@ function AllSpaces() {
             <LargeNavbar />
             <TopNavbar/>
             <Link to="/space/add">
-                <Button title="Add"/>
+                <Button title="ADD A SPACE"/>
             </Link>
             <div>
-
                 {spaces.map((space) => (
                     <Link to='/allTotesBySpace'
                         state={{

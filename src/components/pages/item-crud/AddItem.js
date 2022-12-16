@@ -16,7 +16,7 @@ function AddItem(props){
             <h1>Add Tote</h1>
             <AddEditForm
                 request={axiosPost}
-                url={`/tote/add/${location.state.tote_id}`}
+                url={`/item/add/${location.state.tote_id}`}
             />
             <BottomNavbar/>
         </div>
