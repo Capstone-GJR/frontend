@@ -18,12 +18,12 @@ function UpdateTote(props){
       };
     return (
         <div>
-            <LargeNavbar />
-            <TopNavbar/>
+            <LargeNavbar pageName="Update Tote" />
+            <TopNavbar pageName="Update Tote"/>
             <SideNavbar/>
             {/*<div className="pt-3 pb-5 mb-5 mt-5 mb-md-3 pb-md-3">*/}
             <div className="pageContainer p-3 me-lg-3 ms-lg-auto  pb-5 mb-5 mb-md-3 pb-md-3">
-                <h1>Update Tote</h1>
+
                 <p>{props.tote.name}</p>
                 <p>{props.tote.color}</p>
                 <p>{props.tote.keywords}</p>

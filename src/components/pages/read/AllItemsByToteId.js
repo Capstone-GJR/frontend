@@ -57,10 +57,10 @@ function AllItemsByToteId() {
                     </Link>
                     <div className="row">
                         {items.map((item) => (
-                            <div className="card mt-4 p-2 w-50">
+                            <div className="shadow bg-body rounded p-3 mb-5 card mt-4 p-2 w-50">
                                 <Link to='/itemDetails' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>
                                     <div className="pt-2 text-center">{item.name}</div>
-                                    <div className='p-4 m-3' key={item.id}>
+                                    <div key={item.id}>
                                         <img className="detailsImg img-fluid" src={item.fileStackUrl} alt='image not available'/>
                                     </div>
                                 </Link>

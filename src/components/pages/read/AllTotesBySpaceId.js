@@ -57,16 +57,18 @@ function AllTotesBySpaceId() {
                         <Button title="ADD A TOTE"/>
                     </Link>
                     <div className="row">
-                        {totes.map((tote) => (
-                            <div className="card w-50 mt-4 p-2">
-                                <Link to='/allItemsByToteId' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
-                                    <div className="pt-2 text-center">{tote.name}</div>
-                                    <div className='p-4 m-3' key={tote.id}>
-                                        <img className="detailsImg img-fluid" src={tote.fileStackUrl} alt='image not available'/>                                    </div>
-                                </Link>
-                                <Button onClick={()=> handleClick(tote)} title={`EDIT: ` + tote.name} />
-                            </div>
-                        ))}
+
+                            {totes.map((tote) => (
+                                <div className="card shadow-lg bg-body rounded p-3 mb-5 w-50 mt-4 p-2">
+                                    <Link to='/allItemsByToteId' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
+                                        <div className="pt-2 text-center">{tote.name}</div>
+                                        <div  key={tote.id}>
+                                            <img className="detailsImg img-fluid" src={tote.fileStackUrl} alt='image not available'/>                                    </div>
+                                    </Link>
+                                    <Button onClick={()=> handleClick(tote)} title={`EDIT: ` + tote.name} />
+                                </div>
+                            ))}
+
                     </div>
                 </div>
                 <BottomNavbar/>

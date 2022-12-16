@@ -58,16 +58,16 @@ function AllSpaces() {
                 <Link className="mt-lg-2" to="/space/add">
                     <Button title="ADD SPACE"/>
                 </Link>
-                <div className="row">
+                <div className="row ">
                     {spaces.map((space) => (
-                        <div className="card w-50 mt-4 p-2 ">
+                        <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 ">
                             <Link to='/allTotesBySpace'
                                 state={{
                                     space_id: `${space.id}`,
                                     space_name: `${space.name}`
                                 }}>
                                 <div className="pt-2 text-center">{space.name}</div>
-                                <div className='p-4 m-3' key={space.id}>
+                                <div  key={space.id}>
                                     {/*TODO: Adjust the image to be mobile responsive with card*/}
                                     <img className="detailsImg img-fluid" src={space.fileStackUrl} alt='image not available'/>
                                 </div>
