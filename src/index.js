@@ -12,3 +12,5 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+//TODO: QUESTION: What is the React.Strict? why do we use this instead of react-router-dom
