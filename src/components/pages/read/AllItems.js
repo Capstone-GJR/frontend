@@ -6,7 +6,7 @@ import {Link, useLocation} from "react-router-dom";
 import axios from "axios";
 import {AuthZHeader} from "../../util/HelperFunctions";
 
-function AllItems(props){
+function AllItems(props) {
 
     const [items, setItems] = useState([]);
     const location = useLocation();
@@ -23,27 +23,31 @@ function AllItems(props){
             }
         }
         getItems();
-    },[])
+    }, [])
 
     return (
         <div>
-            <LargeNavbar />
+            <LargeNavbar/>
             <TopNavbar/>
             <h1>ALL ITEMS </h1>
-            <div>
+            <div className="pageContainer">
+                <div className="card mt-4 p-2 w-70">
                 {items.map((item) => (
-                    <Link to='/itemLanding' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>
-                        <div
-                            className='card w-50 p-4 m-4'
-                            key={item.id}>
-                            {item.name}
+                    <Link to='/itemDetails' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>
+                        <div className="pt-2 text-center">{item.name}</div>
+                        <div className='p-4 m-3' key={item.id}>
+                            <img className="detailsImg" src={item.fileStackUrl} alt='image not available'/>
                         </div>
                     </Link>
                 ))}
-            </div>            <BottomNavbar/>
+                </div>
+            </div>
+            <BottomNavbar/>
         </div>
 
     )
 }
 
 export default AllItems
+
+//TODO: Double check backend SQL statement

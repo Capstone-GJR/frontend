@@ -4,7 +4,7 @@ import BottomNavbar from "../../../navbar/BottomNavbar";
 import LargeNavbar from "../../../navbar/LargeNavbar";
 import FormInput from '../../../forms/FormInput';
 import { Form } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import Button from '../../../buttons/Button';
 import axios from 'axios';
 import { AuthZHeader } from '../../../util/HelperFunctions';
@@ -95,6 +95,7 @@ function UpdateUser(){
                             isInvalid={!!inputErrors}
                         />
                         <Button title='SUBMIT EDIT' onClick={handleSubmit} />
+                        <Link to='/profile'><Button title='RETURN TO PROFILE' /></Link>
                     </Form>
                 </div>
                 <CustomAlert
