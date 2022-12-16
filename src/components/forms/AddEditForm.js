@@ -7,7 +7,7 @@ import ImageField from "./input-fields/ImageField";
 import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
-import Backdrop from "../Modals/Backdrop";
+import Backdrop from "../modals/Backdrop";
 
 function AddEditForm(props){
 
@@ -21,10 +21,10 @@ function AddEditForm(props){
         })
     }
 
-    const handleSubmit = async (e) => {
+    const handleAddEditSubmit = async (e) => {
         e.preventDefault()
         await props.request(props.url, form);
-        // FIXME!! Need to route to AllTotesBySpaceID, space ID is not being passed so axios cant fullfill promise
+        // FIXME!! --FOR NAVIGATE-- Need to route to AllTotesBySpaceID, space ID is not being passed so axios cant fulfill promise on AllTotesbySpace
         navigate('/allSpaces');
         props.setShowSettings(false);
     }
@@ -83,7 +83,7 @@ function AddEditForm(props){
                 value={form.keywords}
                 onChange={(e) => setField("keywords", e.target.value)}
             />
-            <Button title="Submit" onClick={handleSubmit}></Button>
+            <Button title="Submit" onClick={handleAddEditSubmit}></Button>
         </Form>
     )
 }
