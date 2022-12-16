@@ -18,15 +18,8 @@ function Logout() {
                 </div>
                 <div className='row justify-content-center my-2'>
                     <div className='col col-lg-6'>
-                        <Link to='/register'>
-                            <Button title="REGISTER"/>
-                        </Link>
-                    </div>
-                </div>
-                <div className='row justify-content-center my-2'>
-                    <div className='col col-lg-6'>
-                        <Link to='/aboutUs'>
-                            <Button title="ABOUT US "/>
+                        <Link to='/'>
+                            <Button title="HOME"/>
                         </Link>
                     </div>
                 </div>
