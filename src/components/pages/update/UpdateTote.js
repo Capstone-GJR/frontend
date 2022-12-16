@@ -4,6 +4,7 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import { axiosDelete, axiosPut } from '../../util/HelperFunctions';
 import AddEditForm from '../../forms/AddEditForm';
+import SideNavbar from "../../navbar/SideNavbar";
 
 function UpdateTote(props){
     const handleClick = async () => {
@@ -19,7 +20,9 @@ function UpdateTote(props){
         <div>
             <LargeNavbar />
             <TopNavbar/>
-            <div className="p-3">
+            <SideNavbar/>
+            {/*<div className="pt-3 pb-5 mb-5 mt-5 mb-md-3 pb-md-3">*/}
+            <div className="pageContainer p-3 me-lg-3 ms-lg-auto  pb-5 mb-5 mb-md-3 pb-md-3">
                 <h1>Update Tote</h1>
                 <p>{props.tote.name}</p>
                 <p>{props.tote.color}</p>

@@ -23,7 +23,7 @@ function UpdateSpace(props) {
       <LargeNavbar pageName="Update Space"/>
       <TopNavbar pageName="Update Space"/>
       <SideNavbar/>
-      <div className="p-3">
+      <div className="pageContainer me-lg-3 ms-lg-auto pt-3 pb-5 mb-5 mt-5 mb-md-3 pb-md-3">
 
         <p>{props.space.name}</p>
         <p>{props.space.color}</p>
