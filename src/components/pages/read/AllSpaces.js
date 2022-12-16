@@ -60,13 +60,12 @@ function AllSpaces() {
                                 }}>
                                 <div className="pt-2 text-center">{space.name}</div>
                                 <div className='p-4 m-3' key={space.id}>
+                                    {/*TODO: Adjust the image to be mobile responsive with card*/}
                                     <img className="detailsImg" src={space.fileStackUrl} alt='image not available'/>
                                 </div>
                             </Link>
-                            <button
-                                onClick={()=> handleClick(space)}>
-                                Edit/Delete:  {space.name}
-                            </button>
+                            <Button onClick={()=> handleClick(space)} title={`EDIT: ` + space.name} />
+
                         </div>
                     ))}
                 </div>

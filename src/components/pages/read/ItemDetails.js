@@ -6,7 +6,7 @@ import {useLocation} from "react-router-dom";
 import axios from "axios";
 import {AuthZHeader} from "../../util/HelperFunctions";
 
-function ItemDetails(props){
+function ItemDetails(props) {
 
     const [itemDetails, setItemDetails] = useState({});
     const [toteDetails, setToteDetails] = useState({});
@@ -30,22 +30,22 @@ function ItemDetails(props){
             }
         }
         getItemDetails();
-    },[])
+    }, [])
 
     return (
         <div>
-            <LargeNavbar />
+            <LargeNavbar/>
             <TopNavbar/>
-            <div className="pageContainer" >
-            <h1>{location.state.item_name}</h1>
+            <div className="pageContainer">
+                <h1>{location.state.item_name}</h1>
                 <div>
-                <div>
-                    <img className="detailsImg" src={itemDetails.fileStackUrl} alt="image here"/>
+                    <div>
+                        <img className="detailsImg" src={itemDetails.fileStackUrl} alt="image here"/>
+                    </div>
+                    <div className="pt-2 text-center">Description: {itemDetails.keywords}</div>
+                    <div className="pt-2 text-center">Value: ${itemDetails.value}</div>
+                    <div className="pt-2 text-center">Location: {toteDetails.name} inside of {spaceDetails.name}</div>
                 </div>
-                <div>Description: {itemDetails.keywords}</div>
-                <div>Value: ${itemDetails.value}</div>
-                <div>Location: {toteDetails.name} inside of {spaceDetails.name}</div>
-            </div>
             </div>
             <BottomNavbar/>
         </div>

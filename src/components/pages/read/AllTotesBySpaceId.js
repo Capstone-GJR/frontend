@@ -62,7 +62,7 @@ function AllTotesBySpaceId() {
                                     <div className='p-4 m-3' key={tote.id}>
                                         <img className="detailsImg" src={tote.fileStackUrl} alt='image not available'/>                                    </div>
                                 </Link>
-                                <button onClick={() => handleClick(tote)}>Edit/Delete tote: {tote.name}</button>
+                                <Button onClick={()=> handleClick(tote)} title={`EDIT: ` + tote.name} />
                             </div>
                         ))}
                     </div>
