@@ -34,8 +34,8 @@ function AddForm(props) {
         }
     }
     const [pickerIsOpen, setPickerIsOpen] = useState(false)
-    const closePicker =(e) => {
-        e.preventDefault()
+    const closePicker =() => {
+
         setPickerIsOpen(false)
     }
     function openPicker (e)  {
@@ -65,12 +65,14 @@ function AddForm(props) {
                 apikey={process.env.REACT_APP_FILESTACK_API_KEY}
                 onUploadDone={(res) => {
                     setField("fileStackUrl", res.filesUploaded[0].url)
-                    console.log(res)}
+                    closePicker()
+                    }
                 }
                 onSuccess={(res) => console.log(res)}
                 />
             }
-            {/*{pickerIsOpen && <Backdrop onClick={closePicker}/>}*/}
+            {/*FIXME: When closing the filePicker via it's built X button the backdrop does not close. Without the backdrop to run "closePicker," if you click the X instead of upload the useState does not change to false so picker keeps reshowing. */}
+            {pickerIsOpen && <Backdrop onClick={closePicker}/>}
 
             <KeywordsField
                 type="textarea"
