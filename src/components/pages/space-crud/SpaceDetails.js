@@ -22,7 +22,7 @@ function SpaceDetails(props) {
       <LargeNavbar />
       <TopNavbar />
       <div className="p-3">
-        <h2>Space Settings</h2>
+        <h1>Update Space</h1>
         <p>{props.space.name}</p>
         <p>{props.space.color}</p>
         <p>{props.space.keywords}</p>
