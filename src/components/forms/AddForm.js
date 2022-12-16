@@ -7,35 +7,43 @@ import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
 import {AuthZHeader, axiosPost} from "../util/HelperFunctions";
 import axios from "axios";
-import {PickerInline} from "filestack-react";
+import Backdrop from "../Modals/Backdrop";
+import {PickerInline, PickerOverlay} from "filestack-react";
 
-function AddForm(props){
+function AddForm(props) {
     const navigate = useNavigate();
     const [form, setForm] = useState({});
 
     const setField = (field, value) => {
         setForm({
             ...form,
-            [field]:value
+            [field]: value
         })
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        try{
-            const response =  await axios.post(`/space/add`, form, AuthZHeader())
+        try {
+            const response = await axios.post(`/space/add`, form, AuthZHeader())
             console.log(AuthZHeader)
             console.log(response)
             setForm({})
             navigate("/allSpaces")
-        }
-        catch(err){
+        } catch (err) {
             console.log(err)
         }
-
-
-
     }
+    const [pickerIsOpen, setPickerIsOpen] = useState(false)
+    const closePicker =() => {
+
+        setPickerIsOpen(false)
+    }
+    function openPicker (e)  {
+        e.preventDefault()
+        setPickerIsOpen(true)
+        console.log(pickerIsOpen)
+    }
+
 
     return (
         <Form>
@@ -51,37 +59,20 @@ function AddForm(props){
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
-            <div>
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filePicker">
-                    File picker
-                </button>
-                <div className="modal fade" id="filePicker" tabIndex="-1" aria-labelledby="filePicker"
-                     aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h1 className="modal-title fs-5" id="filePickerLabel">Choose an image</h1>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            {/*----------PICKER----------------*/}
-                            <PickerInline
-                                apikey={'A2vZPoGIoRiePhI4DbTFcz'}
-                                onUploadDone={ (res) => setField("fileStackUrl", res.filesUploaded[0].url)}
-                                onSuccess={(res) => console.log(res)}
-                            />
-                            {/*    ------------------------------------*/}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/*<ImageField*/}
-            {/*    type="file"*/}
-            {/*    placeholder="Select An Image"*/}
-            {/*    value={form.fileStackUrl}*/}
-            {/*    onChange={(e) => setField("fileStackUrl", e.target.value)}*/}
-            {/*/>*/}
+            <Button title='Choose Image' onClick={openPicker}/>
+            {pickerIsOpen &&
+                <PickerOverlay
+                apikey={process.env.REACT_APP_FILESTACK_API_KEY}
+                onUploadDone={(res) => {
+                    setField("fileStackUrl", res.filesUploaded[0].url)
+                    closePicker()
+                    }
+                }
+                onSuccess={(res) => console.log(res)}
+                />
+            }
+            {/*FIXME: When closing the filePicker via it's built X button the backdrop does not close. Without the backdrop to run "closePicker," if you click the X instead of upload the useState does not change to false so picker keeps reshowing. */}
+            {pickerIsOpen && <Backdrop onClick={closePicker}/>}
 
             <KeywordsField
                 type="textarea"

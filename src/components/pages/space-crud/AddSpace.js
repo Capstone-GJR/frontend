@@ -3,7 +3,6 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import AddForm from "../../forms/AddForm";
-import FilePicker from "../FilePicker";
 import Button from "../../buttons/Button";
 
 
