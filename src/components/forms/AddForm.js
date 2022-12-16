@@ -35,7 +35,6 @@ function AddForm(props) {
     }
     const [pickerIsOpen, setPickerIsOpen] = useState(false)
     const closePicker =() => {
-
         setPickerIsOpen(false)
     }
     function openPicker (e)  {
@@ -43,6 +42,8 @@ function AddForm(props) {
         setPickerIsOpen(true)
         console.log(pickerIsOpen)
     }
+    const [uploadComplete, setUploadComplete] = useState(false)
+    const hidePicker = () => {setUploadComplete(true)}
 
 
     return (
@@ -59,6 +60,8 @@ function AddForm(props) {
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
+            {!uploadComplete &&
+            <div className="picker">
             <Button title='Choose Image' onClick={openPicker}/>
             {pickerIsOpen &&
                 <PickerOverlay
@@ -68,12 +71,16 @@ function AddForm(props) {
                     closePicker()
                     }
                 }
-                onSuccess={(res) => console.log(res)}
+                onSuccess={(res) => {
+                    console.log(res)
+                    hidePicker()
+                }
+                }
                 />
             }
             {/*FIXME: When closing the filePicker via it's built X button the backdrop does not close. Without the backdrop to run "closePicker," if you click the X instead of upload the useState does not change to false so picker keeps reshowing. */}
             {pickerIsOpen && <Backdrop onClick={closePicker}/>}
-
+            </div>}
             <KeywordsField
                 type="textarea"
                 placeholder="Add Keywords"
