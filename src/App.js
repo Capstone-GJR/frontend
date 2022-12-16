@@ -18,15 +18,13 @@ import UpdateUser from './components/pages/update/user/UpdateUser';
 import UpdatePassword from './components/pages/update/user/UpdatePassword';
 import AddSpace from "./components/pages/create/AddSpace";
 import UpdateTote from './components/pages/update/UpdateTote'
-
-
-import axios from "axios";
 import AllItemsByToteId from "./components/pages/read/AllItemsByToteId";
 import AddItem from "./components/pages/create/AddItem";
 import ItemDetails from "./components/pages/read/ItemDetails";
 import AddTote from './components/pages/create/AddTote';
 import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
+import axios from "axios";
 
 
 function App() {
@@ -36,7 +34,12 @@ function App() {
     return (
         <Router>
             <Routes>
-
+                {/*TODO: QUESTION  -- whats the difference between defining the page as element vs */}
+                {/*
+                <Route path='/'>
+                    <AllMeetupsPage />
+                </Route
+                */}
                 <Route path='/' element={<Welcome/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/login' element={<Login/>}/>
