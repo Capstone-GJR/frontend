@@ -40,6 +40,7 @@ function UpdateItems(props) {
                         </div>
                     </div>
                     :
+                    <div>
                     <div className="editModal">
                         <h1>EDIT YOUR ITEM</h1>
                         <AddEditForm
@@ -51,8 +52,8 @@ function UpdateItems(props) {
                             <Button onClick={() => props.setShowSettings(false)} title="Back to Items"/>
                             <Button onClick={handleDeleteSubmit} title="DELETE"/>
                         </div>
-
-                        {editorIsOpen && <Backdrop onClick={closeEditor}/>}
+                    </div>
+                    <Backdrop onClick={closeEditor}/>
                     </div>
                 }
 

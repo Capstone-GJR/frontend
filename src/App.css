@@ -83,7 +83,7 @@ input[type=text] {
     top: 20vh;
     left: calc(50% - 15rem);
 }
-.modal {
+.editModal {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     background-color: white;
