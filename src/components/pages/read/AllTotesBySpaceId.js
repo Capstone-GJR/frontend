@@ -46,21 +46,21 @@ function AllTotesBySpaceId() {
         return (
             <div>
                 <LargeNavbar pageName="All Totes"/>
-                <TopNavbar/>
-                <h1 className="">{location.state.space_name}</h1>
+                <TopNavbar pageName="All Totes"/>
+                <h1 className="mt-5 pt-5">{location.state.space_name}</h1>
                 <div className="pageContainer">
                     <Link to='/tote/add' state={{
                         space_id:location.state.space_id
                     }}>
                         <Button title="ADD A TOTE"/>
                     </Link>
-                    <div>
+                    <div className="row">
                         {totes.map((tote) => (
-                            <div className="card mt-4 p-2 w-70">
+                            <div className="card w-50 mt-4 p-2">
                                 <Link to='/allItemsByToteId' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>
                                     <div className="pt-2 text-center">{tote.name}</div>
                                     <div className='p-4 m-3' key={tote.id}>
-                                        <img className="detailsImg" src={tote.fileStackUrl} alt='image not available'/>                                    </div>
+                                        <img className="detailsImg img-fluid" src={tote.fileStackUrl} alt='image not available'/>                                    </div>
                                 </Link>
                                 <Button onClick={()=> handleClick(tote)} title={`EDIT: ` + tote.name} />
                             </div>
