@@ -89,9 +89,12 @@ input[type=text] {
     background-color: white;
     padding: 1rem;
     text-align: center;
-    width: 30rem;
+    width: 50%;
+    max-width: 700px;
+    height: 70vh;
     z-index: 10;
     position: fixed;
-    top: 20vh;
-    left: calc(50% - 15rem);
+    top: 15vh;
+    margin: auto;
+    left: calc(25%);
 }

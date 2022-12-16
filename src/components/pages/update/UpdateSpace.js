@@ -6,7 +6,7 @@ import { axiosDelete, axiosPut } from "../../util/HelperFunctions";
 import AddEditForm from "../../forms/AddEditForm";
 
 function UpdateSpace(props) {
-  const handleClick = async () => {
+  const handleDeleteSubmit = async () => {
     const res = await axiosDelete(`/space/delete/${props.space.id}`);
     if (res.status === 204) {
       props.getUserSpaces();
@@ -36,7 +36,7 @@ function UpdateSpace(props) {
         <button onClick={() => props.setShowSettings(false)}>
           Back to Spaces
         </button>
-        <button onClick={handleClick}>Delete</button>
+        <button onClick={handleDeleteSubmit}>Delete</button>
       </div>
       <BottomNavbar />
     </>

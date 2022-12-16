@@ -42,10 +42,10 @@ function UpdateItems(props) {
                     :
                     <div>
                     <div className="editModal">
-                        <h1>EDIT YOUR ITEM</h1>
+                        <h3>EDIT YOUR ITEM</h3>
                         <AddEditForm
                             request={axiosPut}
-                            url={`/item//edit/${props.item.id}/${props.item.tote.id}`}
+                            url={`/item/edit/${props.item.id}/${props.item.tote.id}`}
                             setShowSettings={props.setShowSettings}
                         />
                         <div className='d-flex justify-content-around'>
