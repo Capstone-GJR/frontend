@@ -7,9 +7,10 @@ function AddBox(props){
     return (
         <div>
             <LargeNavbar />
-
             <TopNavbar/>
+            <div className="pageContainer" >
             <div>Add Box</div>
+            </div>
             <BottomNavbar/>
         </div>
 

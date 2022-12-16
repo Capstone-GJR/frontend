@@ -31,6 +31,7 @@ function AllItemsByToteId() {
             <LargeNavbar/>
             <TopNavbar/>
             <h1>{location.state.tote_name}</h1>
+            <div className="pageContainer" >
             <Link to="/item/add"
                   state={{
                       tote_id:location.state.tote_id
@@ -48,6 +49,7 @@ function AllItemsByToteId() {
                         </div>
                     </Link>
                 ))}
+            </div>
             </div>
             <BottomNavbar/>
         </div>

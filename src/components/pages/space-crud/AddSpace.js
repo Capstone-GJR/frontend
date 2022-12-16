@@ -12,8 +12,10 @@ function AddSpace(props){
         <div>
             <LargeNavbar />
             <TopNavbar/>
+            <div className="pageContainer" >
             <div>Add Space</div>
             <AddForm/>
+            </div>
             <BottomNavbar/>
         </div>
 

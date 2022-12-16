@@ -30,6 +30,7 @@ function AllTotesBySpaceId(){
             <LargeNavbar />
             <TopNavbar/>
             <h1>{location.state.space_name}</h1>
+            <div className="pageContainer" >
             <Link to='/tote/add'>
                 <Button title="ADD A TOTE"/>
             </Link>
@@ -43,6 +44,7 @@ function AllTotesBySpaceId(){
                         </div>
                     </Link>
                 ))}
+            </div>
             </div>
             <BottomNavbar/>
         </div>

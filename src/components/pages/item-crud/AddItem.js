@@ -14,11 +14,13 @@ function AddItem(props){
         <div>
             <LargeNavbar />
             <TopNavbar/>
+            <div className="pageContainer" >
             <h1>Add Item</h1>
             <AddEditForm
                 request={axiosPost}
                 url={`/item/add/${location.state.tote_id}`}
             />
+            </div>
             <BottomNavbar/>
         </div>
 
