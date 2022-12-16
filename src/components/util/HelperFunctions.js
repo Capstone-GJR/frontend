@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export const AuthZHeader = () => {
-        const header = {
-            headers: {
-                Authorization: localStorage.getItem("access_token")
-            }
-        };
+    const header = {
+        headers: {
+            Authorization: localStorage.getItem("access_token")
+        }
+    };
     return header;
 }
 
@@ -14,20 +14,45 @@ export const removeAuthZ = () => {
 }
 
 
-export const axiosPost = async (e, endPoint, obj) => {
-  e.preventDefault();
+export const axiosPost = async (url,form) => {
     try {
-        return await
-            axios
-                .post
-                (`${endPoint}`, obj, {
-                    headers: {
-                        Authorization: localStorage.getItem("access_token")
-                    }
-                })
-
+        const res = await axios.post(
+            url,
+            form,
+            AuthZHeader()
+        )
+        console.log(res);
     } catch (err) {
+        console.log(err);
+    }
+}
+
+export const axiosPut = async (url, form) => {
+    try {
+        const res = await axios.put(
+            url,
+            form,
+            AuthZHeader()
+        )
+        console.log(res);
+        return res;
+    } catch (err) {
+        console.log(err);
         return err
+    }
+}
+
+export const axiosDelete = async (url) => {
+    try {
+        const res = await axios.delete(
+            url,
+            AuthZHeader()
+        )
+        console.log(res);
+        return res;
+    } catch (err) {
+        console.log(err);
+        return err;
     }
 }
 

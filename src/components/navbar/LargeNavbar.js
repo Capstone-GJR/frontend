@@ -12,9 +12,9 @@ function LargeNavbar(props){
 
            <nav className="navbar d-none d-sm-block d-md-block navbar-expand-lg navbar-dark bg-dark">
                <div className="container-fluid">
-                   <a className="navbar-brand" href="#">
+                   <Link className="navbar-brand" to="/allSpaces">
                     Traqura
-                   </a>
+                   </Link>
                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
                        <span className="navbar-toggler-icon"></span>
                    </button>
@@ -26,9 +26,9 @@ function LargeNavbar(props){
                            </button>
                            <ul className="dropdown-menu dropdown-menu-lg-end text-center" aria-labelledby="dropdownMenuButton1">
                                <li >
-                                   <Link to="/allspaces" className="text-decoration-none text-black">
-                                           <CiBoxes size={20}/>
-                                           <p className="fs-6">Spaces</p>
+                                   <Link to="/allSpaces" className="text-decoration-none text-black">
+                                        <CiBoxes size={20}/>
+                                        <p className="fs-6">Spaces</p>
                                    </Link>
                                </li>
                                <li>

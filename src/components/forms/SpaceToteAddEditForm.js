@@ -5,33 +5,18 @@ import ColorField from "./input-fields/ColorField";
 import KeywordsField from "./input-fields/KeywordsField";
 import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
-import {AuthZHeader, axiosPost} from "../util/HelperFunctions";
-import axios from "axios";
+import {PickerOverlay} from "filestack-react";
 import Backdrop from "../Modals/Backdrop";
-import {PickerInline, PickerOverlay} from "filestack-react";
 
-function AddForm(props) {
+function AddEditForm(props){
     const navigate = useNavigate();
     const [form, setForm] = useState({});
 
     const setField = (field, value) => {
         setForm({
             ...form,
-            [field]: value
+            [field]:value
         })
-    }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        try {
-            const response = await axios.post(`/space/add`, form, AuthZHeader())
-            console.log(AuthZHeader)
-            console.log(response)
-            setForm({})
-            navigate("/allSpaces")
-        } catch (err) {
-            console.log(err)
-        }
     }
     const [pickerIsOpen, setPickerIsOpen] = useState(false)
     const closePicker =() => {
@@ -43,7 +28,13 @@ function AddForm(props) {
         setPickerIsOpen(true)
         console.log(pickerIsOpen)
     }
-
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        await props.request(props.url, form);
+        // FIXME!! Need to route to AllTotesBySpaceID, space ID is not being passed so axios cant fullfill promise
+        navigate('/allSpaces');
+        props.setShowSettings(false);
+    }
 
     return (
         <Form>
@@ -62,18 +53,17 @@ function AddForm(props) {
             <Button title='Choose Image' onClick={openPicker}/>
             {pickerIsOpen &&
                 <PickerOverlay
-                apikey={process.env.REACT_APP_FILESTACK_API_KEY}
-                onUploadDone={(res) => {
-                    setField("fileStackUrl", res.filesUploaded[0].url)
-                    closePicker()
+                    apikey={process.env.REACT_APP_FILESTACK_API_KEY}
+                    onUploadDone={(res) => {
+                        setField("fileStackUrl", res.filesUploaded[0].url)
+                        closePicker()
                     }
-                }
-                onSuccess={(res) => console.log(res)}
+                    }
+                    onSuccess={(res) => console.log(res)}
                 />
             }
             {/*FIXME: When closing the filePicker via it's built X button the backdrop does not close. Without the backdrop to run "closePicker," if you click the X instead of upload the useState does not change to false so picker keeps reshowing. */}
             {pickerIsOpen && <Backdrop onClick={closePicker}/>}
-
             <KeywordsField
                 type="textarea"
                 placeholder="Add Keywords"
@@ -82,8 +72,7 @@ function AddForm(props) {
             />
             <Button title="Submit" onClick={handleSubmit}></Button>
         </Form>
-
     )
 }
 
-export default AddForm
+export default AddEditForm

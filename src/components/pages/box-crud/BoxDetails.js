@@ -3,17 +3,18 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 
-function UpdateBox(props){
+function BoxDetails(props){
+
     return (
         <div>
             <LargeNavbar />
 
             <TopNavbar/>
-            <div>Update Box</div>
+            <div>Add Box</div>
             <BottomNavbar/>
         </div>
 
     )
 }
 
-export default UpdateBox
+export default BoxDetails
