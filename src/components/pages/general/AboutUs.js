@@ -15,6 +15,8 @@ function AboutUs() {
             console.log(error);
         }
     }
+    getTest();
+
     return (
         <>
             <h1>ABOUT US</h1>
