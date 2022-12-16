@@ -7,6 +7,9 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
 import UpdateSpace from '../update/UpdateSpace';
 import { AuthZHeader } from '../../util/HelperFunctions';
+import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
+// import React from "@types/react";
+import {MdQrCodeScanner} from "react-icons/md";
 
 function AllSpaces() {
 
@@ -45,14 +48,48 @@ function AllSpaces() {
             <div>
                 <LargeNavbar/>
                 <TopNavbar/>
-                <h1>All Spaces</h1>
-                <div className="pageContainer">
+                <h1 className="mt-5">All Spaces</h1>
+
+                <div id="sidebarMenu" className="collapse d-lg-block sidebar collapse bg-white w-25 position-fixed">
+                    <div className="position-sticky">
+                        <div className="list-group list-group-flush mx-3 mt-4">
+                            <Link to="/allSpaces" className="text-decoration-none text-black">
+                                <CiBoxes size={20}/>
+                                <p className="fs-6">Spaces</p>
+                            </Link>
+                            <Link to="/allItems" className="text-decoration-none text-black">
+                                <CiShoppingTag size={20}/>
+                                <p className="fs-6">Items</p>
+                            </Link>
+                            <Link to="/scan" className="text-decoration-none text-black">
+                                <MdQrCodeScanner size={20}/>
+                                <p className="fs-6">Scan</p>
+                            </Link>
+                            <Link to="/search" className="text-decoration-none text-black">
+                                <CiSearch size={20}/>
+                                <p className="fs-6">Search</p>
+                            </Link>
+                            <Link to="/profile" className="text-decoration-none text-black">
+                                <CiUser size={20}/>
+                                <p className="fs-6">Profile</p>
+                            </Link>
+                            <Link to="/logout" className="text-decoration-none text-black">
+                                <CiUser size={20}/>
+                                <p className="fs-6" onClick={() => localStorage.removeItem("access_token")}>
+                                    Logout
+                                </p>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="pageContainer mb-5 pb-5 me-lg-0 ms-lg-auto mb-md-0">
                 <Link to="/space/add">
                     <Button title="ADD SPACE"/>
                 </Link>
-                <div>
+                <div className="row">
                     {spaces.map((space) => (
-                        <div className="card mt-4 p-2 w-70">
+                        <div className="card w-50 mt-4 p-2 ">
                             <Link to='/allTotesBySpace'
                                 state={{
                                     space_id: `${space.id}`,

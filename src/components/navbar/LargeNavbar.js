@@ -10,7 +10,7 @@ import {MdQrCodeScanner} from "react-icons/md";
 function LargeNavbar(props) {
     return (
 
-        <nav className="navbar d-none d-sm-block d-md-block navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar d-none d-sm-block d-md-block navbar-expand-md navbar-dark bg-dark fixed-top">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/allSpaces">
                     {/*TODO: Consider changing the route for this link. Should it go to the about us page maybe?*/}
@@ -22,7 +22,7 @@ function LargeNavbar(props) {
                 </button>
                 <div className="collapse navbar-collapse m-0" id="navCollapse">
                     <div className="dropdown ms-auto">
-                        <button className="btn btn-dark btn-outline-light dropdown-toggle me-0" type="button"
+                        <button className="btn btn-dark btn-outline-light dropdown-toggle" type="button"
                                 id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
