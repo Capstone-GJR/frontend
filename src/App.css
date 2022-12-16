@@ -42,10 +42,14 @@ input[type=text] {
     font-size: 1.15rem;
 }
 
+h1,h2,h3,h4,h5 {
+    text-align: center;
+}
+
 /* Main page container */
 .pageContainer{
     min-height: 95vh;
-    max-width: 600px;
+    max-width: 750px;
     margin: 0 auto;
     padding: 1em;
     display: flex;

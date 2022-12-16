@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
@@ -6,6 +6,7 @@ import {axiosDelete, axiosPut} from "../../util/HelperFunctions";
 import AddEditForm from "../../forms/AddEditForm";
 import Button from "../../buttons/Button";
 import Backdrop from "../../modals/Backdrop";
+import SideNavbar from "../../navbar/SideNavbar";
 
 function UpdateItems(props) {
 
@@ -29,12 +30,12 @@ function UpdateItems(props) {
             <div className="pageContainer">
                 {/*-------Details-------*/}
                 {!editorIsOpen ?
-                    <div className="itemDetails">
+                    <div className="pageContainer me-lg-3 ms-lg-auto">
                         <h1>{props.item.name}</h1>
-                        <div className="p-3">
+                        <div className="p-3 mb-5 mb-md-3 pb-md-3">
                             <p className="pt-2 text-center">Color: {props.item.color}</p>
                             <p className="pt-2 text-center">Keywords: {props.item.keywords}</p>
-                            <img className="detailsImg" src={props.item.fileStackUrl} alt='image not available'/>
+                            <img className="detailsImg img-fluid text-center" src={props.item.fileStackUrl} alt='image not available'/>
                             <p>{props.item.id}</p>
                             <Button onClick={() => setEditorIsOpen(true)} title="EDIT ITEM"/>
                         </div>

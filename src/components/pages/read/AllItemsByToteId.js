@@ -68,7 +68,32 @@ function AllItemsByToteId() {
                             ))}
                         </div>
                     </div>
-                    <BottomNavbar/>
+                {/*    <LargeNavbar pageName="All Items"/>*/}
+                {/*    <TopNavbar pageName="All Items"/>*/}
+                {/*    <SideNavbar/>*/}
+                {/*    <h1 className="mt-5 pt-5">{location.state.tote_name}</h1>*/}
+                {/*<div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">*/}
+
+                {/*    <Link to='/item/add' state={{*/}
+                {/*        tote_id:location.state.tote_id*/}
+                {/*    }}>*/}
+                {/*        <Button title="ADD A ITEM"/>*/}
+                {/*    </Link>*/}
+                {/*    <div className="row">*/}
+                {/*        {items.map((item) => (*/}
+                {/*            <div className="shadow bg-body rounded p-3 mb-5 card mt-4 p-2 w-50">*/}
+                {/*                <Link to='/itemDetails' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>*/}
+                {/*                    <div className="pt-2 text-center">{item.name}</div>*/}
+                {/*                    <div key={item.id}>*/}
+                {/*                        <img className="detailsImg img-fluid" src={item.fileStackUrl} alt='image not available'/>*/}
+                {/*                    </div>*/}
+                {/*                </Link>*/}
+                {/*                <Button onClick={()=> handleClick(item)} title={`EDIT: ` + item.name} />*/}
+                {/*            </div>*/}
+                {/*        ))}*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+                {/*    <BottomNavbar/>*/}
                 </div>
             }
 
