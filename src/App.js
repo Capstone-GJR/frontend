@@ -12,14 +12,16 @@ import AllSpaces from './components/pages/user-crud/AllSpaces';
 import AboutUs from "./components/pages/welcome/AboutUs";
 import AllItems from "./components/pages/AllItems";
 import AllTotesBySpaceId from "./components/pages/space-crud/AllTotesBySpaceId";
-import ToteLanding from './components/pages/box-crud/ToteLanding';
-import ItemLanding from './components/pages/item-crud/ItemLanding';
+import ToteLanding from './components/pages/box-crud/AllItemsByToteId';
+// import ItemLanding from './components/pages/item-crud/ItemLanding';
 import UserProfile from "./components/pages/user-crud/UserProfile";
 import Logout from './components/pages/Logout';
 import UpdateUser from './components/pages/user-crud/UpdateUser';
 import UpdatePassword from './components/pages/user-crud/UpdatePassword';
 import AddSpace from "./components/pages/space-crud/AddSpace";
 import axios from "axios";
+import AllItemsByToteId from "./components/pages/box-crud/AllItemsByToteId";
+import AddItem from "./components/pages/item-crud/AddItem";
 
 
 function App() {
@@ -44,6 +46,11 @@ function App() {
           <Route path='/space/add' element={
             <PrivateRoute>
               <AddSpace />
+            </PrivateRoute> }>
+          </Route>
+          <Route path='/item/add' element={
+            <PrivateRoute>
+              <AddItem />
             </PrivateRoute> }>
           </Route>
           <Route path='/profile' element={
@@ -71,9 +78,9 @@ function App() {
               <ToteLanding />
             </PrivateRoute> }>
           </Route>
-          <Route path='/itemLanding' element={
+          <Route path='/allItemsBySpace' element={
             <PrivateRoute>
-              <ItemLanding />
+              <AllItemsByToteId />
             </PrivateRoute> }>
           </Route>
           <Route path='/allItems' element={

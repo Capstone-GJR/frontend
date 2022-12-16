@@ -5,6 +5,7 @@ import {Link, useLocation} from "react-router-dom";
 import axios from 'axios';
 import { AuthZHeader } from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
+import Button from "../../buttons/Button";
 
 function AllTotesBySpaceId(){
     const [totes, setTotes] = useState([]);
@@ -29,6 +30,9 @@ function AllTotesBySpaceId(){
             <LargeNavbar />
             <TopNavbar/>
             <h1>{location.state.space_name}</h1>
+            <Link to='/item/add'>
+                <Button title="ADD A TOTE"/>
+            </Link>
             <div>
                 {totes.map((tote) => (
                     <Link to='/toteLanding' state={{tote_id: `${tote.id}`, tote_name: `${tote.name}`}}>

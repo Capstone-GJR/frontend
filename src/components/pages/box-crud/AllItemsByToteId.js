@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
-import { Link, useLocation } from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import axios from 'axios';
-import { AuthZHeader } from '../../util/HelperFunctions';
+import {AuthZHeader} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
+import Button from "../../buttons/Button";
 
-function ToteLanding(){
+function AllItemsByToteId() {
 
     const [items, setItems] = useState([]);
     const location = useLocation();
@@ -23,11 +24,11 @@ function ToteLanding(){
             }
         }
         getItems();
-    },[])
+    }, [])
 
     return (
         <div>
-            <LargeNavbar />
+            <LargeNavbar/>
             <TopNavbar/>
             <h1>{location.state.tote_name}</h1>
             <div>
@@ -47,4 +48,4 @@ function ToteLanding(){
     )
 }
 
-export default ToteLanding
+export default AllItemsByToteId
