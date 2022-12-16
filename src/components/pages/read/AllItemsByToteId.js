@@ -61,7 +61,7 @@ function AllItemsByToteId() {
                                         <img className="detailsImg" src={item.fileStackUrl} alt='image not available'/>
                                     </div>
                                 </Link>
-                                <Button onClick={()=> handleClick(item)} title={`EDIT: ` + item.name} />
+                                <Button onClick={()=> handleClick(item)} title="VIEW DETAILS" />
                             </div>
                         ))}
                     </div>
