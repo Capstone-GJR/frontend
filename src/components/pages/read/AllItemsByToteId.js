@@ -47,8 +47,9 @@ function AllItemsByToteId() {
                     <LargeNavbar pageName="All Items"/>
                     <TopNavbar pageName="All Items"/>
                     <SideNavbar/>
-                <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
-                    <h1 className="">{location.state.tote_name}</h1>
+                    <h1 className="mt-5 pt-5">{location.state.tote_name}</h1>
+                <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
+
                     <Link to='/item/add' state={{
                         tote_id:location.state.tote_id
                     }}>

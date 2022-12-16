@@ -4,6 +4,7 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import { axiosDelete, axiosPut } from "../../util/HelperFunctions";
 import AddEditForm from "../../forms/AddEditForm";
+import SideNavbar from "../../navbar/SideNavbar";
 
 function UpdateSpace(props) {
   const handleClick = async () => {
@@ -19,10 +20,11 @@ function UpdateSpace(props) {
 
   return (
     <>
-      <LargeNavbar />
-      <TopNavbar />
+      <LargeNavbar pageName="Update Space"/>
+      <TopNavbar pageName="Update Space"/>
+      <SideNavbar/>
       <div className="p-3">
-        <h1>Update Space</h1>
+
         <p>{props.space.name}</p>
         <p>{props.space.color}</p>
         <p>{props.space.keywords}</p>
