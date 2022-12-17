@@ -33,12 +33,6 @@ function App() {
     return (
         <Router>
             <Routes>
-                {/*TODO: QUESTION  -- whats the difference between defining the page as element vs */}
-                {/*
-                <Route path='/'>
-                    <AllMeetupsPage />
-                </Route
-                */}
                 {/* Public Routes */}
                 <Route path='/' element={<Welcome/>}/>
                 <Route path='/register' element={<Register/>}/>
