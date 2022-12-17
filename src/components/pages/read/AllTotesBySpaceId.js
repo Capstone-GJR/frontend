@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link, useLocation} from "react-router-dom";
-import axios from 'axios';
-import {AuthZHeader} from '../../util/HelperFunctions';
+import {axiosRequest} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
 import UpdateTote from '../update/UpdateTote';
 import Button from "../../buttons/Button";
@@ -14,22 +13,23 @@ function AllTotesBySpaceId() {
     const [tote, setTote] = useState([]);
     const [ShowSettings, setShowSettings] = useState(false);
     const location = useLocation();
-    const endPoint = `/tote/all/${location.state.space.id}`;
 
-    const getTotes = async () => {
+    const getAllTotes = async () => {
         try {
-            const response = await axios.get(endPoint, AuthZHeader())
-            setTotes(response.data);
+            console.log(location.state.space);
+            console.log(location.state.space.id);
+            const res = await axiosRequest('GET', `/tote/all/${location.state.space.id}`)
+            setTotes(res.data);
         } catch (error) {
             console.log(error);
         }
     }
 
     useEffect(() => {
-        getTotes();
+        getAllTotes();
     }, [ShowSettings])
 
-    const handleClickEdit = (tote) => {
+    const handleEditClick = (tote) => {
         setTote(tote);
         setShowSettings(true);
     }
@@ -39,7 +39,6 @@ function AllTotesBySpaceId() {
             <UpdateTote
                 setShowSettings={setShowSettings}
                 tote={tote}
-                // getUserSpaces={getUserSpaces}
             />
         )
     } else {
@@ -68,10 +67,9 @@ function AllTotesBySpaceId() {
                                         <div  key={tote.id}>
                                             <img className="detailsImg img-fluid" src={tote.fileStackUrl} alt='image not available'/>                                    </div>
                                     </Link>
-                                    <Button onClick={()=> handleClickEdit(tote)} title={`EDIT: ` + tote.name} />
+                                    <Button onClick={()=> handleEditClick(tote)} title={`EDIT: ` + tote.name} />
                                 </div>
                             ))}
-
                     </div>
                 </div>
                 <BottomNavbar/>

@@ -10,10 +10,10 @@ import Backdrop from "../modals/Backdrop";
 import { axiosRequest } from "../util/HelperFunctions";
 
 function AddForm(data){
-    const navigate = useNavigate();
     const [pickerIsOpen, setPickerIsOpen] = useState(false)
     const [uploadComplete, setUploadComplete] = useState(false)
-    const [form, setForm] = useState({});     
+    const [form, setForm] = useState({});    
+    const navigate = useNavigate(); 
 
     const setField = (field, value) => {
         setForm({
@@ -43,7 +43,11 @@ function AddForm(data){
             try {
                 const res = await axiosRequest(data.method, data.url, form);
                 console.log(res);
-                navigate(data.navPath)
+                if(data.navPath === '/allTotesBySpace') {
+                    navigate('/allTotesBySpace', {state:{space:data.space}});
+                } else {
+                    navigate('/allSpaces');
+                }
             } catch (error) {
                 console.log(error);
             }

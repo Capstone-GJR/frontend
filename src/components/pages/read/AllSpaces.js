@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
@@ -6,7 +5,7 @@ import {Link} from "react-router-dom";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
 import UpdateSpace from '../update/UpdateSpace';
-import { AuthZHeader, axiosRequest } from '../../util/HelperFunctions';
+import { axiosRequest } from '../../util/HelperFunctions';
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
 import {MdQrCodeScanner} from "react-icons/md";
 import SideNavbar from "../../navbar/SideNavbar";
@@ -31,7 +30,7 @@ function AllSpaces() {
         getAllSpaces();
     }, [ShowSettings])
 
-    const handleClick = (space) => {
+    const handleEditClick = (space) => {
         setSpace(space);
         setShowSettings(true);
     }
@@ -51,7 +50,7 @@ function AllSpaces() {
                 <SideNavbar/>
 
 
-                    {/*<h1 className="mt-5">All Spaces</h1>*/}
+                <h1 className="mt-5">All Spaces</h1>
 
                 <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
                 <Link 
@@ -72,8 +71,7 @@ function AllSpaces() {
                                     <img className="detailsImg img-fluid" src={space.fileStackUrl} alt='image not available'/>
                                 </div>
                             </Link>
-                            <Button onClick={()=> handleClick(space)} title={`EDIT: ` + space.name} />
-
+                            <Button onClick={()=> handleEditClick(space)} title={`EDIT: ` + space.name} />
                         </div>
                     ))}
                 </div>
