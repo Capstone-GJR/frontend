@@ -8,7 +8,6 @@ import Button from "../../buttons/Button";
 import UpdateSpace from '../update/UpdateSpace';
 import { AuthZHeader, axiosRequest } from '../../util/HelperFunctions';
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
-// import React from "@types/react";
 import {MdQrCodeScanner} from "react-icons/md";
 import SideNavbar from "../../navbar/SideNavbar";
 
@@ -42,7 +41,6 @@ function AllSpaces() {
             <UpdateSpace
                 setShowSettings={setShowSettings}
                 space={space}
-                // getUserSpaces={getUserSpaces}
             />
         )
     } else {

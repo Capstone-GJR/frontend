@@ -3,14 +3,15 @@ import Form from "react-bootstrap/Form";
 import NameField from "./input-fields/NameField";
 import ColorField from "./input-fields/ColorField";
 import KeywordsField from "./input-fields/KeywordsField";
-import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
 import Backdrop from "../modals/Backdrop";
 import { axiosRequest } from "../util/HelperFunctions";
 
 function EditForm(data){
-    const navigate = useNavigate();
+
+    const [pickerIsOpen, setPickerIsOpen] = useState(false);
+    const [uploadComplete, setUploadComplete] = useState(false);
     const [form, setForm] = useState({
         name:'',
         color:'',
@@ -34,37 +35,33 @@ function EditForm(data){
         })
     }
 
-    const handleAddEditSubmit = async (e) => {
+    const handleEditSubmit = async (e) => {
         e.preventDefault()
         const values = Object.values(form);
         const allEmpty = values.every(val => val === '');
 
         if (allEmpty){
+            // TODO! handle error messaging
             console.log("all fields cant be left blank");
         } else {
             try {
                 setDefaultSpaceValues();
-                await data.request(data.url, form);
-                const res = await data.axiosRequest;
+                const res = await axiosRequest('PUT', data.url, form)
                 console.log(res);
-                // FIXME!! --FOR NAVIGATE-- Need to route to AllTotesBySpaceID, space ID is not being passed so axios cant fulfill promise on AllTotesbySpace
                 data.setShowSettings(false);
             } catch (error) {
                 console.log(error);
             }
         }
     }
-    const [pickerIsOpen, setPickerIsOpen] = useState(false)
-    const closePicker =() => {
-        setPickerIsOpen(false)
-    }
+    const closePicker =() => setPickerIsOpen(false);
+    const hidePicker = () => setUploadComplete(true);
+
     function openPicker (e)  {
         e.preventDefault()
         setPickerIsOpen(true)
-        console.log(pickerIsOpen)
     }
-    const [uploadComplete, setUploadComplete] = useState(false)
-    const hidePicker = () => {setUploadComplete(true)}
+
     return (
         <Form>
             <NameField
@@ -109,7 +106,7 @@ function EditForm(data){
                 value={form.keywords}
                 onChange={(e) => setField("keywords", e.target.value)}
             />
-            <Button title="Submit" onClick={handleAddEditSubmit}></Button>
+            <Button title="Submit" onClick={handleEditSubmit}></Button>
         </Form>
     )
 }

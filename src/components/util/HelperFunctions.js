@@ -22,7 +22,7 @@ export const axiosRequest = (method, url , form) => {
         case 'PUT':
             return axios.put(url, form, AuthZHeader());
         case 'DELETE':
-            return axios.delete(url, AuthZHeader);
+            return axios.delete(url, AuthZHeader());
         default:
             return Promise.reject(new Error(`Invalid HTTP method: ${method}`));
     }

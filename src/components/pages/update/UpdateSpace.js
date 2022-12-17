@@ -2,16 +2,16 @@ import React from "react";
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
-import { axiosDelete, axiosPut, axiosRequest } from "../../util/HelperFunctions";
-import AddEditForm from "../../forms/EditForm";
+import { axiosRequest } from "../../util/HelperFunctions";
 import SideNavbar from "../../navbar/SideNavbar";
+import EditForm from "../../forms/EditForm";
 
 function UpdateSpace(props) {
 
   const handleDeleteSubmit = async () => {
     try {
       const res = await axiosRequest('DELETE', `/space/delete/${props.space.id}`)
-      // props.getUserSpaces();
+      console.log(res);
       props.setShowSettings(false);
     } catch (error) {
       console.log(error);
@@ -20,7 +20,6 @@ function UpdateSpace(props) {
   // Send object as props to AddEdit dynamic form
   const data = {
     space: props.space,
-    request: axiosPut,
     url: `/space/edit/${props.space.id}`,
     setShowSettings: props.setShowSettings
   }
@@ -37,7 +36,7 @@ function UpdateSpace(props) {
         <p>{props.space.keywords}</p>
         <p>{props.space.fileStackUrl}</p>
         <p>{props.space.id}</p>
-        <AddEditForm data {...data}/>
+        <EditForm data {...data}/>
         <button onClick={() => props.setShowSettings(false)}>
           Back to Spaces
         </button>
