@@ -3,7 +3,7 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import { axiosDelete, axiosPut } from '../../util/HelperFunctions';
-import AddEditForm from '../../forms/AddEditForm';
+// import AddEditForm from '../../forms/AddEditForm';
 import SideNavbar from "../../navbar/SideNavbar";
 
 function UpdateTote(props){
@@ -29,11 +29,11 @@ function UpdateTote(props){
                 <p>{props.tote.keywords}</p>
                 <p>{props.tote.fileStackUrl}</p>
                 <p>{props.tote.id}</p>
-            <AddEditForm
+            {/* <AddEditForm
                 request={axiosPut}
                 url={`/tote/edit/${props.tote.id}/${props.tote.space.id}`}
                 setShowSettings={props.setShowSettings}
-            />
+            /> */}
             <button onClick={() => props.setShowSettings(false)}>
                 Back to Totes
             </button>

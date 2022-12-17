@@ -2,22 +2,21 @@ import React from "react";
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
-import { axiosDelete, axiosPut } from "../../util/HelperFunctions";
-import AddEditForm from "../../forms/AddEditForm";
+import { axiosDelete, axiosPut, axiosRequest } from "../../util/HelperFunctions";
+import AddEditForm from "../../forms/EditForm";
 import SideNavbar from "../../navbar/SideNavbar";
 
 function UpdateSpace(props) {
-  const handleDeleteSubmit = async () => {
-    const res = await axiosDelete(`/space/delete/${props.space.id}`);
-    if (res.status === 204) {
-      props.getUserSpaces();
-      props.setShowSettings(false);
-    } else {
-      // need to handle error with message
-      console.log(res);
-    }
-  };
 
+  const handleDeleteSubmit = async () => {
+    try {
+      const res = await axiosRequest('DELETE', `/space/delete/${props.space.id}`)
+      // props.getUserSpaces();
+      props.setShowSettings(false);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   // Send object as props to AddEdit dynamic form
   const data = {
     space: props.space,

@@ -4,7 +4,7 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import {axiosDelete, axiosPut} from "../../util/HelperFunctions";
-import AddEditForm from "../../forms/AddEditForm";
+// import AddEditForm from "../../forms/AddEditForm";
 import Button from "../../buttons/Button";
 import Backdrop from "../../modals/Backdrop";
 import SideNavbar from "../../navbar/SideNavbar";
@@ -45,11 +45,11 @@ function UpdateItem(props) {
                     <div>
                     <div className="editModal">
                         <h3>EDIT YOUR ITEM</h3>
-                        <AddEditForm
+                        {/* <AddEditForm
                             request={axiosPut}
                             url={`/item/edit/${props.item.id}/${props.item.tote.id}`}
                             setShowSettings={props.setShowSettings}
-                        />
+                        /> */}
                         <div className='d-flex justify-content-around'>
                             <Button onClick={() => props.setShowSettings(false)} title="Back to Items"/>
                             <Button onClick={handleDeleteSubmit} title="DELETE"/>

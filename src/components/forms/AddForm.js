@@ -3,30 +3,17 @@ import Form from "react-bootstrap/Form";
 import NameField from "./input-fields/NameField";
 import ColorField from "./input-fields/ColorField";
 import KeywordsField from "./input-fields/KeywordsField";
-import ImageField from "./input-fields/ImageField";
 import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
 import Backdrop from "../modals/Backdrop";
+import { axiosRequest } from "../util/HelperFunctions";
 
-function AddEditForm(data){
-
+function AddForm(data){
     const navigate = useNavigate();
-    const [form, setForm] = useState({
-        name:'',
-        color:'',
-        fileStackUrl:'',
-        keywords: ''
-    });
-
-    const setDefaultSpaceValues = () => {
-        const keys = Object.keys(form);
-        keys.forEach(key => {
-          if (form[key] === '') {
-            form[key] = data.space[key];
-          }
-        });
-      }      
+    const [pickerIsOpen, setPickerIsOpen] = useState(false)
+    const [uploadComplete, setUploadComplete] = useState(false)
+    const [form, setForm] = useState({});     
 
     const setField = (field, value) => {
         setForm({
@@ -35,43 +22,44 @@ function AddEditForm(data){
         })
     }
 
-    const handleAddEditSubmit = async (e) => {
-        e.preventDefault()
-        const values = Object.values(form);
-        const allEmpty = values.every(val => val === '');
+    const closePicker =() => setPickerIsOpen(false);
+    const hidePicker = () => setUploadComplete(true);
 
-        if (allEmpty){
-            console.log("all fields cant be left blank");
-        } else {
-            setDefaultSpaceValues();
-            await data.request(data.url, form);
-            // FIXME!! --FOR NAVIGATE-- Need to route to AllTotesBySpaceID, space ID is not being passed so axios cant fulfill promise on AllTotesbySpace
-            navigate('/allSpaces');
-            data.setShowSettings(false);
-        }
-    }
-    const [pickerIsOpen, setPickerIsOpen] = useState(false)
-    const closePicker =() => {
-        setPickerIsOpen(false)
-    }
     function openPicker (e)  {
         e.preventDefault()
         setPickerIsOpen(true)
         console.log(pickerIsOpen)
     }
-    const [uploadComplete, setUploadComplete] = useState(false)
-    const hidePicker = () => {setUploadComplete(true)}
+
+    const handleAddSubmit = async (e) => {
+        e.preventDefault()
+        const values = Object.values(form);
+        const allEmpty = values.every(val => val === '');
+
+        if (allEmpty){
+            // TODO error handling for trying to sumbit an empty add space form
+            console.log("all fields cant be left blank");
+        } else {
+            try {
+                const res = await axiosRequest(data.method, data.url, form);
+                console.log(res);
+                navigate(data.navPath)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }
+    
     return (
         <Form>
             <NameField
                 type="text"
-                placeholder={data.space.name}
+                placeholder='Name'
                 value={form.name}
                 onChange={(e) => setField("name", e.target.value)}
             />
             <ColorField
                 type="color"
-                placeholder={data.space.color}
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
@@ -101,13 +89,13 @@ function AddEditForm(data){
             }
             <KeywordsField
                 type="textarea"
-                placeholder={data.space.keywords}
+                placeholder='Keywords'
                 value={form.keywords}
                 onChange={(e) => setField("keywords", e.target.value)}
             />
-            <Button title="Submit" onClick={handleAddEditSubmit}></Button>
+            <Button title="Submit" onClick={handleAddSubmit}></Button>
         </Form>
     )
 }
 
-export default AddEditForm
+export default AddForm;
