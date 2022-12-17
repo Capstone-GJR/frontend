@@ -18,6 +18,14 @@ function UpdateSpace(props) {
     }
   };
 
+  // Send object as props to AddEdit dynamic form
+  const data = {
+    space: props.space,
+    request: axiosPut,
+    url: `/space/edit/${props.space.id}`,
+    setShowSettings: props.setShowSettings
+  }
+
   return (
     <>
       <LargeNavbar pageName="Update Space"/>
@@ -30,11 +38,7 @@ function UpdateSpace(props) {
         <p>{props.space.keywords}</p>
         <p>{props.space.fileStackUrl}</p>
         <p>{props.space.id}</p>
-        <AddEditForm
-          request={axiosPut}
-          url={`/space/edit/${props.space.id}`}
-          setShowSettings={props.setShowSettings}
-        />
+        <AddEditForm data {...data}/>
         <button onClick={() => props.setShowSettings(false)}>
           Back to Spaces
         </button>

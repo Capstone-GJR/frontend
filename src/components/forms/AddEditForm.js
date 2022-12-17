@@ -9,10 +9,24 @@ import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
 import Backdrop from "../modals/Backdrop";
 
-function AddEditForm(props){
+function AddEditForm(data){
 
     const navigate = useNavigate();
-    const [form, setForm] = useState({});
+    const [form, setForm] = useState({
+        name:'',
+        color:'',
+        fileStackUrl:'',
+        keywords: ''
+    });
+
+    const setDefaultSpaceValues = () => {
+        const keys = Object.keys(form);
+        keys.forEach(key => {
+          if (form[key] === '') {
+            form[key] = data.space[key];
+          }
+        });
+      }      
 
     const setField = (field, value) => {
         setForm({
@@ -23,10 +37,18 @@ function AddEditForm(props){
 
     const handleAddEditSubmit = async (e) => {
         e.preventDefault()
-        await props.request(props.url, form);
-        // FIXME!! --FOR NAVIGATE-- Need to route to AllTotesBySpaceID, space ID is not being passed so axios cant fulfill promise on AllTotesbySpace
-        navigate('/allSpaces');
-        props.setShowSettings(false);
+        const values = Object.values(form);
+        const allEmpty = values.every(val => val === '');
+
+        if (allEmpty){
+            console.log("all fields cant be left blank");
+        } else {
+            setDefaultSpaceValues();
+            await data.request(data.url, form);
+            // FIXME!! --FOR NAVIGATE-- Need to route to AllTotesBySpaceID, space ID is not being passed so axios cant fulfill promise on AllTotesbySpace
+            navigate('/allSpaces');
+            data.setShowSettings(false);
+        }
     }
     const [pickerIsOpen, setPickerIsOpen] = useState(false)
     const closePicker =() => {
@@ -43,13 +65,13 @@ function AddEditForm(props){
         <Form>
             <NameField
                 type="text"
-                placeholder="Give It A Name"
+                placeholder={data.space.name}
                 value={form.name}
                 onChange={(e) => setField("name", e.target.value)}
             />
             <ColorField
                 type="color"
-                placeholder="Choose A Color"
+                placeholder={data.space.color}
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
@@ -79,7 +101,7 @@ function AddEditForm(props){
             }
             <KeywordsField
                 type="textarea"
-                placeholder="Add Keywords"
+                placeholder={data.space.keywords}
                 value={form.keywords}
                 onChange={(e) => setField("keywords", e.target.value)}
             />

@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
 import UpdateSpace from '../update/UpdateSpace';
-import { AuthZHeader } from '../../util/HelperFunctions';
+import { AuthZHeader, axiosRequest } from '../../util/HelperFunctions';
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
 // import React from "@types/react";
 import {MdQrCodeScanner} from "react-icons/md";
@@ -18,17 +18,18 @@ function AllSpaces() {
     const [space, setSpace] = useState({});
     const [ShowSettings, setShowSettings] = useState(false);
 
-    const getUserSpaces = async () => {
+    const getAllSpaces = async () => {
         try {
-            const response = await axios.get('/space/all', AuthZHeader())
-            setSpaces(response.data);
-        } catch (error) {
-            console.log(error);
+            const res = await axiosRequest('GET','/space/all');
+            setSpaces(res.data);
+            console.log(res);
+        } catch (err) {
+            console.log(err);
         }
     }
 
     useEffect(() => {
-        getUserSpaces();
+        getAllSpaces();
     }, [ShowSettings])
 
     const handleClick = (space) => {
@@ -41,7 +42,7 @@ function AllSpaces() {
             <UpdateSpace
                 setShowSettings={setShowSettings}
                 space={space}
-                getUserSpaces={getUserSpaces}
+                // getUserSpaces={getUserSpaces}
             />
         )
     } else {
@@ -60,13 +61,13 @@ function AllSpaces() {
                 </Link>
                 <div className="row ">
                     {spaces.map((space) => (
-                        <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 ">
+                        <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 " key={space.id}>
                             <Link 
                                 to='/allTotesBySpace'
                                 state={{ space:space }}
                             >
                                 <div className="pt-2 text-center">{space.name}</div>
-                                <div  key={space.id}>
+                                <div>
                                     {/*TODO: Adjust the image to be mobile responsive with card*/}
                                     <img className="detailsImg img-fluid" src={space.fileStackUrl} alt='image not available'/>
                                 </div>

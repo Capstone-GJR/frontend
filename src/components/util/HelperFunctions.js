@@ -80,3 +80,19 @@ export const checkPassword = (password, password2) => {
 
     return newErrors;
 }
+
+export const axiosRequest = (method, url , form) => {
+    switch (method) {
+        case 'GET':
+          return axios.get(url, AuthZHeader());
+        case 'POST':
+          return axios.post(url, form, AuthZHeader());
+        case 'PUT':
+          return axios.put(url, form, AuthZHeader());
+        case 'DELETE':
+          return axios.delete(url, AuthZHeader);
+        default:
+          return Promise.reject(new Error(`Invalid HTTP method: ${method}`));
+      }
+      
+}
