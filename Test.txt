@@ -12,7 +12,7 @@ SPACES
 TOTES
 - READ all totes
 - CREATE a tote
-- EDIT edit tote!
+- EDIT tote!
        ~~~ MUST pass all fields or nulls will be saved on accident!
 - DELETE a tote success!
 
