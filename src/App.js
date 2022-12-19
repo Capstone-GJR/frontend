@@ -28,7 +28,7 @@ import UpdateItem from "./components/pages/update/UpdateItem";
 
 function App() {
 
-  axios.defaults.baseURL = "http://localhost:8080:8080/api/";
+  axios.defaults.baseURL = "/api/";
 
     return (
         <Router>
