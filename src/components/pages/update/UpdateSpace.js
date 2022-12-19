@@ -17,11 +17,12 @@ function UpdateSpace(props) {
       console.log(error);
     }
   }
-  // Send object as props to AddEdit dynamic form
+  // Send object as props to dynamic Edit form
   const data = {
     space: props.space,
     url: `/space/edit/${props.space.id}`,
-    setShowSettings: props.setShowSettings
+    setShowSettings: props.setShowSettings,
+    userObj: props.space
   }
 
   return (

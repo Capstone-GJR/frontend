@@ -19,11 +19,11 @@ function EditForm(data){
         keywords: ''
     });
 
-    const setDefaultSpaceValues = () => {
+    const setDefaultValues = () => {
         const keys = Object.keys(form);
         keys.forEach(key => {
           if (form[key] === '') {
-            form[key] = data.space[key];
+            form[key] = data.userObj[key];
           }
         });
       }      
@@ -45,7 +45,7 @@ function EditForm(data){
             console.log("all fields cant be left blank");
         } else {
             try {
-                setDefaultSpaceValues();
+                setDefaultValues();
                 const res = await axiosRequest('PUT', data.url, form)
                 console.log(res);
                 data.setShowSettings(false);
@@ -66,13 +66,13 @@ function EditForm(data){
         <Form>
             <NameField
                 type="text"
-                placeholder={data.space.name}
+                placeholder={data.userObj.name}
                 value={form.name}
                 onChange={(e) => setField("name", e.target.value)}
             />
             <ColorField
                 type="color"
-                placeholder={data.space.color}
+                placeholder={data.userObj.color}
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
@@ -102,7 +102,7 @@ function EditForm(data){
             }
             <KeywordsField
                 type="textarea"
-                placeholder={data.space.keywords}
+                placeholder={data.userObj.keywords}
                 value={form.keywords}
                 onChange={(e) => setField("keywords", e.target.value)}
             />
