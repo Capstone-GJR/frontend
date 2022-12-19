@@ -8,7 +8,7 @@ import {PickerOverlay} from "filestack-react";
 import Backdrop from "../modals/Backdrop";
 import { axiosRequest } from "../util/HelperFunctions";
 
-function EditForm(data){
+function EditForm(props){
 
     const [pickerIsOpen, setPickerIsOpen] = useState(false);
     const [uploadComplete, setUploadComplete] = useState(false);
@@ -23,7 +23,7 @@ function EditForm(data){
         const keys = Object.keys(form);
         keys.forEach(key => {
           if (form[key] === '') {
-            form[key] = data.userObj[key];
+            form[key] = props.spaceOrTote[key];
           }
         });
       }      
@@ -47,9 +47,9 @@ function EditForm(data){
         } else {
             try {
                 setDefaultValues();
-                const res = await axiosRequest('PUT', data.url, form)
+                const res = await axiosRequest('PUT', props.putUrl, form)
                 console.log(res);
-                data.setShowSettings(false);
+                props.setShowSettings(false);
             } catch (error) {
                 console.log(error);
             }
@@ -67,13 +67,13 @@ function EditForm(data){
         <Form>
             <NameField
                 type="text"
-                placeholder={data.userObj.name}
+                placeholder={props.spaceOrTote.name}
                 value={form.name}
                 onChange={(e) => setField("name", e.target.value)}
             />
             <ColorField
                 type="color"
-                placeholder={data.userObj.color}
+                placeholder={props.spaceOrTote.color}
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
@@ -103,7 +103,7 @@ function EditForm(data){
             }
             <KeywordsField
                 type="textarea"
-                placeholder={data.userObj.keywords}
+                placeholder={props.spaceOrTote.keywords}
                 value={form.keywords}
                 onChange={(e) => setField("keywords", e.target.value)}
             />

@@ -4,21 +4,21 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link, useLocation} from "react-router-dom";
 import {axiosRequest} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
-import UpdateTote from '../update/UpdateTote';
 import Button from "../../buttons/Button";
 import SideNavbar from "../../navbar/SideNavbar";
+import UpdateSpaceTote from '../update/UpdateSpaceTote';
 
 function AllTotesBySpaceId() {
     const [totes, setTotes] = useState([]);
-    const [tote, setTote] = useState([]);
+    const [props, setProps] = useState({});
     const [ShowSettings, setShowSettings] = useState(false);
     const location = useLocation();
 
     const getAllTotes = async () => {
         try {
-            console.log(location.state.space);
-            console.log(location.state.space.id);
-            const res = await axiosRequest('GET', `/tote/all/${location.state.space.id}`)
+            const res = await axiosRequest(
+                'GET', `/tote/all/${location.state.space.id}`
+            )
             setTotes(res.data);
         } catch (error) {
             console.log(error);
@@ -30,16 +30,20 @@ function AllTotesBySpaceId() {
     }, [ShowSettings])
 
     const handleEditClick = (tote) => {
-        setTote(tote);
+        // Props for update details/page and to pass state/urls/tote object to update form
+        setProps({
+            setShowSettings:()=> {setShowSettings()},
+            spaceOrTote:{tote},
+            deleteUrl:`/tote/delete/${tote.id}`,
+            putUrl:`/tote/edit/${tote.id}/${tote.space.id}`,
+            backBtn: 'Back to totes'
+        });
         setShowSettings(true);
     }
 
     if (ShowSettings) {
         return (
-            <UpdateTote
-                setShowSettings={setShowSettings}
-                tote={tote}
-            />
+            <UpdateSpaceTote props {...props} />
         )
     } else {
         return (
