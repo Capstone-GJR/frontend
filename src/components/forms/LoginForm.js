@@ -39,7 +39,7 @@ function LoginForm() {
             axios.defaults.headers.common['Authorization'] = res.headers.authorization;
             navigate("/allSpaces");
             setForm({email: "", password: ""});
-            console.log(data)
+            console.log(res.data)
           })
           .catch((error) => {
               console.log(error)
