@@ -9,7 +9,8 @@ import SideNavbar from "../../navbar/SideNavbar";
 import UpdateSpaceTote from '../update/UpdateSpaceTote';
 
 function AllTotesBySpaceId() {
-    const [totes, setTotes] = useState([]);
+
+    const [components, setComponents] = useState([]);
     const [props, setProps] = useState({});
     const [ShowSettings, setShowSettings] = useState(false);
     const location = useLocation();
@@ -19,7 +20,7 @@ function AllTotesBySpaceId() {
             const res = await axiosRequest(
                 'GET', `/tote/all/${location.state.space.id}`
             )
-            setTotes(res.data);
+            setComponents(res.data);
         } catch (error) {
             console.log(error);
         }
@@ -29,14 +30,14 @@ function AllTotesBySpaceId() {
         getAllTotes();
     }, [ShowSettings])
 
-    const handleEditClick = (tote) => {
+    const handleEditClick = (component) => {
         // Props for update details/page and to pass state/urls/tote object to update form
         setProps({
             setShowSettings:()=> {setShowSettings()},
-            spaceOrTote:{tote},
-            deleteUrl:`/tote/delete/${tote.id}`,
-            putUrl:`/tote/edit/${tote.id}/${tote.space.id}`,
-            backBtn: 'Back to totes'
+            userObject:{component},
+            deleteUrl:`/tote/delete/${component.id}`,
+            putUrl:`/tote/edit/${component.id}/${component.space.id}`,
+            backBtn: 'Back to Totes'
         });
         setShowSettings(true);
     }
@@ -61,17 +62,17 @@ function AllTotesBySpaceId() {
                     </Link>
                     <div className="row">
 
-                            {totes.map((tote) => (
-                                <div className="card shadow-lg bg-body rounded p-3 mb-5 w-50 mt-4 p-2" key={tote.id}>
+                            {components.map((component) => (
+                                <div className="card shadow-lg bg-body rounded p-3 mb-5 w-50 mt-4 p-2" key={component.id}>
                                     <Link 
                                         to='/allItemsByToteId' 
-                                        state={{ tote:tote }}
+                                        state={{ tote:component }}
                                     >
-                                        <div className="pt-2 text-center">{tote.name}</div>
+                                        <div className="pt-2 text-center">{component.name}</div>
                                         <div>
-                                            <img className="detailsImg img-fluid" src={tote.fileStackUrl} alt='image not available'/>                                    </div>
+                                            <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>                                    </div>
                                     </Link>
-                                    <Button onClick={()=> handleEditClick(tote)} title='EDIT TOTE' />
+                                    <Button onClick={()=> handleEditClick(component)} title='EDIT TOTE' />
                                 </div>
                             ))}
                     </div>

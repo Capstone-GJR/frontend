@@ -4,22 +4,22 @@ import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link} from "react-router-dom";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
-import UpdateSpace from '../update/UpdateSpace';
 import { axiosRequest } from '../../util/HelperFunctions';
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
 import {MdQrCodeScanner} from "react-icons/md";
 import SideNavbar from "../../navbar/SideNavbar";
+import UpdateSpaceTote from '../update/UpdateSpaceTote';
 
 function AllSpaces() {
 
-    const [spaces, setSpaces] = useState([]);
-    const [space, setSpace] = useState({});
+    const [components, setComponents] = useState([]);
+    const [props, setProps] = useState({});
     const [ShowSettings, setShowSettings] = useState(false);
 
     const getAllSpaces = async () => {
         try {
             const res = await axiosRequest('GET','/space/all');
-            setSpaces(res.data);
+            setComponents(res.data);
             console.log(res);
         } catch (err) {
             console.log(err);
@@ -30,17 +30,20 @@ function AllSpaces() {
         getAllSpaces();
     }, [ShowSettings])
 
-    const handleEditClick = (space) => {
-        setSpace(space);
+    const handleEditClick = (component) => {
+        setProps({
+            setShowSettings:()=> {setShowSettings()},
+            userObject:{component},
+            deleteUrl:`/space/delete/${component.id}`,
+            putUrl:`/space/edit/${component.id}`,
+            backBtn: 'Back to Spaces' 
+        })
         setShowSettings(true);
     }
 
     if (ShowSettings) {
         return (
-            <UpdateSpace
-                setShowSettings={setShowSettings}
-                space={space}
-            />
+            <UpdateSpaceTote props {...props}/>
         )
     } else {
         return (
@@ -59,19 +62,19 @@ function AllSpaces() {
                     <Button title="ADD SPACE"/>
                 </Link>
                 <div className="row ">
-                    {spaces.map((space) => (
-                        <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 " key={space.id}>
+                    {components.map((component) => (
+                        <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 " key={component.id}>
                             <Link 
                                 to='/allTotesBySpace'
-                                state={{ space:space }}
+                                state={{ space:component }}
                             >
-                                <div className="pt-2 text-center">{space.name}</div>
+                                <div className="pt-2 text-center">{component.name}</div>
                                 <div>
                                     {/*TODO: Adjust the image to be mobile responsive with card*/}
-                                    <img className="detailsImg img-fluid" src={space.fileStackUrl} alt='image not available'/>
+                                    <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
                                 </div>
                             </Link>
-                            <Button onClick={()=> handleEditClick(space)} title="EDIT SPACE" />
+                            <Button onClick={()=> handleEditClick(component)} title="EDIT SPACE" />
                         </div>
                     ))}
                 </div>

@@ -9,7 +9,6 @@ import Backdrop from "../modals/Backdrop";
 import { axiosRequest } from "../util/HelperFunctions";
 
 function EditForm(props){
-
     const [pickerIsOpen, setPickerIsOpen] = useState(false);
     const [uploadComplete, setUploadComplete] = useState(false);
     const [form, setForm] = useState({
@@ -23,7 +22,7 @@ function EditForm(props){
         const keys = Object.keys(form);
         keys.forEach(key => {
           if (form[key] === '') {
-            form[key] = props.spaceOrTote[key];
+            form[key] = props.userObject.component[key];
           }
         });
       }      
@@ -67,13 +66,12 @@ function EditForm(props){
         <Form>
             <NameField
                 type="text"
-                placeholder={props.spaceOrTote.name}
+                placeholder={props.userObject.component.name}
                 value={form.name}
                 onChange={(e) => setField("name", e.target.value)}
             />
             <ColorField
                 type="color"
-                placeholder={props.spaceOrTote.color}
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
@@ -95,7 +93,7 @@ function EditForm(props){
                     }
                     {/*FIXME: When closing the filePicker via it's built X button the backdrop does not close. Without the backdrop to run "closePicker," if you click the X instead of upload the useState does not change to false so picker keeps reshowing. */}
                     {pickerIsOpen && <Backdrop onClick={closePicker}/>}
-                </div>
+                 </div>
                 :
                 <div>
                     <img className="detailsImg" src={form.fileStackUrl} alt="image here"/>
@@ -103,7 +101,7 @@ function EditForm(props){
             }
             <KeywordsField
                 type="textarea"
-                placeholder={props.spaceOrTote.keywords}
+                placeholder={props.userObject.component.keywords}
                 value={form.keywords}
                 onChange={(e) => setField("keywords", e.target.value)}
             />
