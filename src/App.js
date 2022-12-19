@@ -28,7 +28,7 @@ import UpdateItem from "./components/pages/update/UpdateItem";
 
 function App() {
 
-  axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
+  axios.defaults.baseURL = "https://localhost:8080/api/";
 
     return (
         <Router>
@@ -41,7 +41,7 @@ function App() {
                 <Route path='/aboutUs' element={<AboutUs/>}/>
 
                 {/* Private Routes */}
-                <Route element={<PrivateRoutes />}>
+                {/*<Route element={<PrivateRoutes />}>*/}
                     {/*----User Related Paths----*/}
                     <Route path='/profile' element={<UserProfile/>}/>
                     <Route path='/updateUser' element={<UpdateUser/>}/>
@@ -65,7 +65,7 @@ function App() {
                     {/*---- Extra Features Path ----*/}
                     <Route path='/scan' element={<Scan />}/>
                     <Route path='/search' element={<Search />}/>
-                </Route>
+                {/*</Route>*/}
 
             </Routes>
         </Router>
