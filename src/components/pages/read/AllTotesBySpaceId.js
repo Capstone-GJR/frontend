@@ -67,7 +67,7 @@ function AllTotesBySpaceId() {
                                         <div>
                                             <img className="detailsImg img-fluid" src={tote.fileStackUrl} alt='image not available'/>                                    </div>
                                     </Link>
-                                    <Button onClick={()=> handleEditClick(tote)} title={'EDIT'} />
+                                    <Button onClick={()=> handleEditClick(tote)} title='EDIT TOTE' />
                                 </div>
                             ))}
                     </div>
