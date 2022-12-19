@@ -41,6 +41,7 @@ function LoginForm() {
             setForm({email: "", password: ""});
           })
           .catch((error) => {
+              console.log(error)
             const errorMsg = error.response.data;
             if(errorMsg === "Username not found") setEmailError(errorMsg)
             if(errorMsg === "Incorrect password provided") setPassError(errorMsg)
