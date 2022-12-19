@@ -28,7 +28,7 @@ import UpdateItem from "./components/pages/update/UpdateItem";
 
 function App() {
 
-  axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
+  axios.defaults.baseURL = "http://localhost:8080:8080/api/";
 
     return (
         <Router>
