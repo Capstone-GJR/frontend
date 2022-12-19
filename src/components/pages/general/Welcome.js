@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../buttons/Button';
+import LargeNavbar from "../../navbar/LargeNavbar";
 
 function Welcome() {
   return (
     <div className='container'>
-      <div className='row header' style={{marginBottom:"25em"}}>
+        <LargeNavbar />
+        <div className='row header' style={{marginBottom:"25em"}}>
         <div className='col text-center'>
           <h1>TRAQURA</h1>
         </div>
