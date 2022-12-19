@@ -37,6 +37,7 @@ function EditForm(data){
 
     const handleEditSubmit = async (e) => {
         e.preventDefault()
+        // TODO! Can break out into helper function
         const values = Object.values(form);
         const allEmpty = values.every(val => val === '');
 

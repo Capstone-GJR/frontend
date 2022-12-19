@@ -9,7 +9,8 @@ import EditForm from "../../forms/EditForm";
 function UpdateSpace(props) {
 
   const handleDeleteSubmit = async () => {
-    try {
+    try { 
+      // New helper function accepts method, url, and optional data
       const res = await axiosRequest('DELETE', `/space/delete/${props.space.id}`)
       console.log(res);
       props.setShowSettings(false);
@@ -17,12 +18,11 @@ function UpdateSpace(props) {
       console.log(error);
     }
   }
-  // Send object as props to dynamic Edit form
+  // Send object with userObj, axios url, and settings state as props so Edit form can be dynamic
   const data = {
-    space: props.space,
+    userObj: props.space,
     url: `/space/edit/${props.space.id}`,
     setShowSettings: props.setShowSettings,
-    userObj: props.space
   }
 
   return (
@@ -31,13 +31,28 @@ function UpdateSpace(props) {
       <TopNavbar pageName="Update Space"/>
       <SideNavbar/>
       <div className="pageContainer me-lg-3 ms-lg-auto pt-3 pb-5 mb-5 mt-5 mb-md-3 pb-md-3">
+        {/* Space Details */}
+        <h2>{props.space.name}</h2>
+        <div className="d-flex align-items-center">
+          <p className="m-0">Space color:</p>
+          <div 
+            style={{
+              backgroundColor:props.space.color, 
+              padding:25, 
+              marginLeft:15
+            }}>
+          </div>
+        </div>
+        <p>Keywords: {props.space.keywords}</p>
+        <p>Image</p>
+        <img 
+          style={{maxWidth:250}} 
+          src={props.space.fileStackUrl
+          }>
+        </img>
 
-        <p>{props.space.name}</p>
-        <p>{props.space.color}</p>
-        <p>{props.space.keywords}</p>
-        <p>{props.space.fileStackUrl}</p>
-        <p>{props.space.id}</p>
         <EditForm data {...data}/>
+
         <button onClick={() => props.setShowSettings(false)}>
           Back to Spaces
         </button>

@@ -10,9 +10,13 @@ import Backdrop from "../modals/Backdrop";
 import { axiosRequest } from "../util/HelperFunctions";
 
 function AddForm(data){
+
     const [pickerIsOpen, setPickerIsOpen] = useState(false)
     const [uploadComplete, setUploadComplete] = useState(false)
-    const [form, setForm] = useState({});    
+    const [form, setForm] = useState({
+        name:'',
+        keywords:''
+    });    
     const navigate = useNavigate(); 
 
     const setField = (field, value) => {
@@ -33,12 +37,14 @@ function AddForm(data){
 
     const handleAddSubmit = async (e) => {
         e.preventDefault()
+        // TODO! Can break out into helper function
         const values = Object.values(form);
         const allEmpty = values.every(val => val === '');
+        const hasEmptyField = values.some(val => val === '');
 
-        if (allEmpty){
-            // TODO error handling for trying to sumbit an empty add space form
-            console.log("all fields cant be left blank");
+        if (allEmpty || hasEmptyField){
+            // TODO! error handling for trying to sumbit an empty or partial empty form
+            console.log("fields left blank");
         } else {
             try {
                 const res = await axiosRequest(data.method, data.url, form);

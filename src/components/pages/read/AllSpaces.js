@@ -71,7 +71,7 @@ function AllSpaces() {
                                     <img className="detailsImg img-fluid" src={space.fileStackUrl} alt='image not available'/>
                                 </div>
                             </Link>
-                            <Button onClick={()=> handleEditClick(space)} title={`EDIT: ` + space.name} />
+                            <Button onClick={()=> handleEditClick(space)} title="EDIT SPACE" />
                         </div>
                     ))}
                 </div>
