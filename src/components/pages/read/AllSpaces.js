@@ -21,6 +21,7 @@ function AllSpaces() {
     const getUserSpaces = async () => {
         try {
             const response = await axios.get('/space/all', AuthZHeader())
+            console.log(response)
             setSpaces(response.data);
         } catch (error) {
             console.log(error);
