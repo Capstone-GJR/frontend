@@ -13,6 +13,7 @@ import {MdQrCodeScanner} from "react-icons/md";
 import SideNavbar from "../../navbar/SideNavbar";
 
 function AllSpaces() {
+    //ToDo: Display error message if unable to load data?
 
     const [spaces, setSpaces] = useState([]);
     const [space, setSpace] = useState({});

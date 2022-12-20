@@ -33,12 +33,12 @@ function LoginForm() {
   //           "password": form.password
   //         })
   //         .then((res) => {
-  //           // Private route to access private pages
-  //           localStorage.setItem("access_token", res.headers.authorization);
-  //           // Global axios defaults
-  //           axios.defaults.headers.common['Authorization'] = res.headers.authorization;
-  //           navigate("/allSpaces");
-  //           setForm({email: "", password: ""});
+            // Private route to access private pages
+            // localStorage.setItem("access_token", res.headers.authorization);
+            // // Global axios defaults
+            // axios.defaults.headers.common['Authorization'] = res.headers.authorization;
+            // navigate("/allSpaces");
+            // setForm({email: "", password: ""});
   //           console.log(res.data)
   //         })
   //         .catch((error) => {
@@ -59,6 +59,12 @@ function LoginForm() {
                   "password": form.password
               })
           console.log(res)
+          // Private route to access private pages
+          localStorage.setItem("access_token", res.headers.authorization);
+          // Global axios defaults
+          axios.defaults.headers.common['Authorization'] = res.headers.authorization;
+          navigate("/allSpaces");
+          setForm({email: "", password: ""});
       } catch (error) {
           console.log(error)
           const errorMsg = error.response.data;
