@@ -36,8 +36,9 @@ function AllItemsByToteId() {
             setShowSettings:()=> {setShowSettings()},
             userObject:{component},
             deleteUrl:`/item/delete/${component.id}`,
-            putUrl:`/item/${component.id}/${location.state.tote.id}`,
-            backBtn: 'Back to Items'
+            putUrl:`/item/edit/${component.id}/${location.state.tote.id}`,
+            backBtn: 'Back to Items',
+            componentType:'item'
         });
         setShowSettings(true);
     }
@@ -65,7 +66,10 @@ function AllItemsByToteId() {
                             <div className="card shadow-lg bg-body rounded p-3 mb-5 w-50 mt-4 p-2" key={component.id}>
                                
                                 <div className="pt-2 text-center">
-                                    {component.name}
+                                    <p>{component.name}</p>
+                                    <p>Value: ${component.value}</p>
+                                    <p>Keywords: {component.keywords}</p>
+                                    {component.checkedOut ? <p>Checked Out: YES</p> : <p>Checked Out: No</p>}
                                 </div>
                                 <div>
                                     <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>

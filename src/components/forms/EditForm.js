@@ -7,6 +7,7 @@ import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
 import Backdrop from "../modals/Backdrop";
 import { axiosRequest } from "../util/HelperFunctions";
+import FormInput from "./FormInput";
 
 function EditForm(props){
     const [pickerIsOpen, setPickerIsOpen] = useState(false);
@@ -99,6 +100,17 @@ function EditForm(props){
                     <img className="detailsImg" src={form.fileStackUrl} alt="image here"/>
                 </div>
             }
+
+            { props.componentType === 'item' && 
+                <FormInput
+                    type='number'
+                    label='Value'
+                    placeholder={props.userObject.component.value}
+                    value={form.value}
+                    onChange={(e)=> setField('value', e.target.value)}
+                />
+            }
+
             <KeywordsField
                 type="textarea"
                 placeholder={props.userObject.component.keywords}
