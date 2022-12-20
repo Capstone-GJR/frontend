@@ -28,49 +28,6 @@ export const axiosRequest = (method, url , form) => {
     }
 }
 
-
-export const axiosPost = async (url,form) => {
-    try {
-        const res = await axios.post(
-            url,
-            form,
-            AuthZHeader()
-        )
-        console.log(res);
-    } catch (err) {
-        console.log(err);
-    }
-}
-
-export const axiosPut = async (url, form) => {
-    try {
-        const res = await axios.put(
-            url,
-            form,
-            AuthZHeader()
-        )
-        console.log(res);
-        return res;
-    } catch (err) {
-        console.log(err);
-        return err
-    }
-}
-
-export const axiosDelete = async (url) => {
-    try {
-        const res = await axios.delete(
-            url,
-            AuthZHeader()
-        )
-        console.log(res);
-        return res;
-    } catch (err) {
-        console.log(err);
-        return err;
-    }
-}
-
 export const validateForm = (form) => {
     const { firstName, lastName, email } = form;
     const newErrors = {}

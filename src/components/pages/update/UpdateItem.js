@@ -3,7 +3,7 @@ import {useState} from "react";
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
-import {axiosDelete, axiosPut} from "../../util/HelperFunctions";
+import {axiosRequest} from "../../util/HelperFunctions";
 // import AddEditForm from "../../forms/AddEditForm";
 import Button from "../../buttons/Button";
 import Backdrop from "../../modals/Backdrop";
@@ -12,7 +12,7 @@ import SideNavbar from "../../navbar/SideNavbar";
 function UpdateItem(props) {
 
     const handleDeleteSubmit = async () => {
-        const res = await axiosDelete(`/item/delete/${props.item.id}`);
+        const res = await axiosRequest('DELETE', `/item/delete/${props.item.id}`)
         if (res.status === 204) {
             props.setShowSettings(false);
         } else {
