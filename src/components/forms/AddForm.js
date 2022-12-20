@@ -8,18 +8,21 @@ import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
 import Backdrop from "../modals/Backdrop";
 import { axiosRequest } from "../util/HelperFunctions";
+import FormInput from "./FormInput";
 
-function AddForm(data){
+function AddForm(props){
 
+    const navigate = useNavigate(); 
     const [pickerIsOpen, setPickerIsOpen] = useState(false)
     const [uploadComplete, setUploadComplete] = useState(false)
     const [form, setForm] = useState({
         name:'',
         keywords:''
     });    
-    const navigate = useNavigate(); 
 
     const setField = (field, value) => {
+        if(props.component === 'item') 
+            setForm({value:''});
         setForm({
             ...form,
             [field]:value
@@ -35,6 +38,20 @@ function AddForm(data){
         console.log(pickerIsOpen)
     }
 
+    const redirect = () => {
+        if(props.component === 'tote') {
+            navigate('/allTotesBySpace', {
+                state:{space:props.space}
+            });
+        } else if (props.component === 'item') {
+            navigate('/allItemsByToteId', {
+                state:{tote:props.tote}
+            })
+        } else {
+            navigate('/allSpaces');
+        }
+    }
+
     const handleAddSubmit = async (e) => {
         e.preventDefault()
         // TODO! Can break out into helper function
@@ -47,13 +64,9 @@ function AddForm(data){
             console.log("fields left blank");
         } else {
             try {
-                const res = await axiosRequest(data.method, data.url, form);
+                const res = await axiosRequest('POST', props.url, form);
                 console.log(res);
-                if(data.navPath === '/allTotesBySpace') {
-                    navigate('/allTotesBySpace', {state:{space:data.space}});
-                } else {
-                    navigate('/allSpaces');
-                }
+                redirect();
             } catch (error) {
                 console.log(error);
             }
@@ -68,11 +81,13 @@ function AddForm(data){
                 value={form.name}
                 onChange={(e) => setField("name", e.target.value)}
             />
+
             <ColorField
                 type="color"
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
+
             {!uploadComplete ?
                 <div className="picker">
                     <Button title='Choose Image' onClick={openPicker}/>
@@ -97,13 +112,29 @@ function AddForm(data){
                     <img className="detailsImg" src={form.fileStackUrl} alt="image here"/>
                 </div>
             }
+            
+            { props.component === 'item' && 
+                <FormInput
+                    type='number'
+                    label='Value'
+                    placeholder='Dollar Amount'
+                    value={form.value}
+                    onChange={(e)=> setField('value', e.target.value)}
+                />
+            }
+
             <KeywordsField
                 type="textarea"
                 placeholder='Keywords'
                 value={form.keywords}
                 onChange={(e) => setField("keywords", e.target.value)}
             />
-            <Button title="Submit" onClick={handleAddSubmit}></Button>
+            
+            <Button 
+                title="Submit" 
+                onClick={handleAddSubmit}
+                >
+            </Button>
         </Form>
     )
 }

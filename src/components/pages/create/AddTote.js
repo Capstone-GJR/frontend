@@ -7,9 +7,8 @@ import { useLocation } from 'react-router-dom';
 
 function AddTote() {
     const location = useLocation();
-    const data = {
-        navPath: '/allTotesBySpace',
-        method: 'POST',
+    const props = {
+        component: 'tote',
         url: `/tote/add/${location.state.space.id}`,
         space: location.state.space
     };
@@ -20,7 +19,7 @@ function AddTote() {
             <TopNavbar/>
             <div className="pageContainer">
                 <h1>Add Tote</h1>
-                <AddForm data {...data}/>
+                <AddForm props {...props}/>
             </div>
             <BottomNavbar/>
         </div>
