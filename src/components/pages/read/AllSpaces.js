@@ -8,7 +8,7 @@ import { axiosRequest } from '../../util/HelperFunctions';
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
 import {MdQrCodeScanner} from "react-icons/md";
 import SideNavbar from "../../navbar/SideNavbar";
-import UpdateSpaceTote from '../update/UpdateSpaceTote';
+import UpdateComponent from '../update/UpdateComponent';
 
 function AllSpaces() {
 
@@ -43,7 +43,7 @@ function AllSpaces() {
 
     if (ShowSettings) {
         return (
-            <UpdateSpaceTote props {...props}/>
+            <UpdateComponent props {...props}/>
         )
     } else {
         return (

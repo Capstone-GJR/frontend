@@ -6,7 +6,7 @@ import {axiosRequest} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
 import SideNavbar from "../../navbar/SideNavbar";
-import UpdateSpaceTote from '../update/UpdateSpaceTote';
+import UpdateComponent from '../update/UpdateComponent';
 
 function AllTotesBySpaceId() {
 
@@ -44,7 +44,7 @@ function AllTotesBySpaceId() {
 
     if (ShowSettings) {
         return (
-            <UpdateSpaceTote props {...props} />
+            <UpdateComponent props {...props} />
         )
     } else {
         return (
