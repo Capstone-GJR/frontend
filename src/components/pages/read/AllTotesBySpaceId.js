@@ -68,9 +68,12 @@ function AllTotesBySpaceId() {
                                         to='/allItemsByToteId' 
                                         state={{ tote:component }}
                                     >
-                                        <div className="pt-2 text-center">{component.name}</div>
+                                        <div className="pt-2 text-center">
+                                            {component.name}
+                                        </div>
                                         <div>
-                                            <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>                                    </div>
+                                            <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
+                                        </div>
                                     </Link>
                                     <Button onClick={()=> handleEditClick(component)} title='EDIT TOTE' />
                                 </div>

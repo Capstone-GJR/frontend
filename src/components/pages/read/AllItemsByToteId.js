@@ -35,6 +35,9 @@ function AllItemsByToteId() {
         setProps({
             setShowSettings:()=> {setShowSettings()},
             userObject:{component},
+            deleteUrl:`/item/delete/${component.id}`,
+            putUrl:`/item/${component.id}/${location.state.tote.id}`,
+            backBtn: 'Back to Items'
         });
         setShowSettings(true);
     }
@@ -58,28 +61,25 @@ function AllItemsByToteId() {
                         <Button title="ADD A ITEM"/>
                     </Link>
                     <div className="row">
-
-                            {components.map((component) => (
-                                <div className="card shadow-lg bg-body rounded p-3 mb-5 w-50 mt-4 p-2" key={component.id}>
-                                    <Link 
-                                        to='/allItemsByToteId' 
-                                        state={{ tote:component }}
-                                    >
-                                        <div className="pt-2 text-center">{component.name}</div>
-                                        <div>
-                                            <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>                                    </div>
-                                    </Link>
-                                    <Button onClick={()=> handleEditClick(component)} title='EDIT TOTE' />
+                        {components.map((component) => (
+                            <div className="card shadow-lg bg-body rounded p-3 mb-5 w-50 mt-4 p-2" key={component.id}>
+                               
+                                <div className="pt-2 text-center">
+                                    {component.name}
                                 </div>
-                            ))}
+                                <div>
+                                    <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
+                                </div>
+                                <Button onClick={()=> handleEditClick(component)} title='EDIT ITEM' />
+                                
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <BottomNavbar/> 
             </>
-    
         )
-    }
-    
+    }   
 }
 
 export default AllItemsByToteId
