@@ -6,7 +6,7 @@ import {Link, useLocation} from "react-router-dom";
 import axios from "axios";
 import {AuthZHeader} from "../../util/HelperFunctions";
 
-function AllItems(props) {
+function AllItemsByUserId(props) {
 
     const [items, setItems] = useState([]);
     const location = useLocation();
@@ -48,6 +48,6 @@ function AllItems(props) {
     )
 }
 
-export default AllItems
+export default AllItemsByUserId
 
 //TODO: Double check backend SQL statement

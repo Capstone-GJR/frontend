@@ -10,7 +10,7 @@ import Login from './components/pages/general/Login';
 import PrivateRoutes from './components/private_route/PrivateRoutes';
 import AllSpaces from './components/pages/read/AllSpaces';
 import AboutUs from "./components/pages/general/AboutUs";
-import AllItems from "./components/pages/read/AllItems";
+import AllItemsByUserId from "./components/pages/read/AllItemsByUserId";
 import AllTotesBySpaceId from "./components/pages/read/AllTotesBySpaceId";
 import UserProfile from "./components/pages/read/UserProfile";
 import Logout from './components/pages/general/Logout';
@@ -59,7 +59,7 @@ function App() {
                     <Route path='/allItemsByToteId' element={<AllItemsByToteId />}/>
                     <Route path='/itemDetails' element={<ItemDetails />}/>
                     <Route path='/item/add' element={<AddItem />}/>
-                    <Route path='/allItems' element={<AllItems />}/>
+                    <Route path='/allItems' element={<AllItemsByUserId />}/>
                     <Route path='/updateItem' element={<UpdateItem />}/>
 
                     {/*---- Extra Features Path ----*/}
