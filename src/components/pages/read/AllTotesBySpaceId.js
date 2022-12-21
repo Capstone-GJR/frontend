@@ -6,7 +6,7 @@ import {axiosRequest} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
 import SideNavbar from "../../navbar/SideNavbar";
-import UpdateSpaceTote from '../update/UpdateSpaceTote';
+import UpdateComponent from '../update/UpdateComponent';
 
 function AllTotesBySpaceId() {
 
@@ -44,7 +44,7 @@ function AllTotesBySpaceId() {
 
     if (ShowSettings) {
         return (
-            <UpdateSpaceTote props {...props} />
+            <UpdateComponent props {...props} />
         )
     } else {
         return (
@@ -68,9 +68,12 @@ function AllTotesBySpaceId() {
                                         to='/allItemsByToteId' 
                                         state={{ tote:component }}
                                     >
-                                        <div className="pt-2 text-center">{component.name}</div>
+                                        <div className="pt-2 text-center">
+                                            {component.name}
+                                        </div>
                                         <div>
-                                            <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>                                    </div>
+                                            <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
+                                        </div>
                                     </Link>
                                     <Button onClick={()=> handleEditClick(component)} title='EDIT TOTE' />
                                 </div>
