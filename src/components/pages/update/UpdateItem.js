@@ -7,7 +7,7 @@ import {axiosDelete, axiosPut} from "../../util/HelperFunctions";
 // import AddEditForm from "../../forms/AddEditForm";
 import Button from "../../buttons/Button";
 import Backdrop from "../../modals/Backdrop";
-import SideNavbar from "../../navbar/SideNavbar";
+
 
 function UpdateItem(props) {
 
