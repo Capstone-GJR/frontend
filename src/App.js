@@ -28,24 +28,18 @@ import UpdateItem from "./components/pages/update/UpdateItem";
 
 function App() {
 
-    axios.defaults.baseURL = "/api/";
+  axios.defaults.baseURL = "/api/";
 
     return (
         <Router>
             <Routes>
-                {/*TODO: QUESTION  -- whats the difference between defining the page as element vs */}
-                {/*
-                <Route path='/'>
-                    <AllMeetupsPage />
-                </Route
-                */}
                 {/* Public Routes */}
                 <Route path='/' element={<Welcome/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/logout' element={<Logout/>}/>
                 <Route path='/aboutUs' element={<AboutUs/>}/>
-                
+
                 {/* Private Routes */}
                 <Route element={<PrivateRoutes />}>
                     {/*----User Related Paths----*/}
@@ -71,7 +65,7 @@ function App() {
                     {/*---- Extra Features Path ----*/}
                     <Route path='/scan' element={<Scan />}/>
                     <Route path='/search' element={<Search />}/>
-                </Route>  
+                </Route>
 
             </Routes>
         </Router>

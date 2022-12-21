@@ -29,8 +29,8 @@ function AllItems(props) {
         <div>
             <LargeNavbar/>
             <TopNavbar/>
-            <h1>ALL ITEMS </h1>
-            <div className="pageContainer">
+            <div className="pageContainer mt-4">
+                <h1>ALL ITEMS </h1>
                 <div className="card mt-4 p-2 w-70">
                 {items.map((item) => (
                     <Link to='/itemDetails' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>
