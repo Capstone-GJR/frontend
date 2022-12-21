@@ -18,8 +18,8 @@ function AddItem(){
             <LargeNavbar />
             <TopNavbar/>
             <div className="pageContainer" >
-            <h1>Add Item</h1>
-            <AddForm props {...props} />
+                <h1>Add Item</h1>
+                <AddForm props {...props} />
             </div>
             <BottomNavbar/>
         </div>

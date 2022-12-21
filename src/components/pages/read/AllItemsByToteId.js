@@ -5,20 +5,22 @@ import {Link, useLocation} from 'react-router-dom';
 import { axiosRequest} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
-import UpdateItem from "../update/UpdateItem";
+import SideNavbar from '../../navbar/SideNavbar';
+import UpdateComponent from '../update/UpdateComponent';
 
 function AllItemsByToteId() {
 
-    const [items, setItems] = useState([]);
-    const [item, setItem] = useState([]);
+    const [components, setComponents] = useState([]);
+    const [props, setProps] = useState([]);
     const [ShowSettings, setShowSettings] = useState(false);
     const location = useLocation();
-    const endPoint = `/item/all/tote/${location.state.tote.id}`;
 
     const getAllItems = async () => {
         try {
-            const res = await axiosRequest('GET', endPoint)
-            setItems(res.data);
+            const res = await axiosRequest(
+                'GET', `/item/all/tote/${location.state.tote.id}`
+            )
+            setComponents(res.data);
             console.log(res.data);
         } catch (error) {
             console.log(error);
@@ -29,52 +31,59 @@ function AllItemsByToteId() {
         getAllItems();
     }, [ShowSettings])
 
-    const handleClick = (tote) => {
-        setItem(tote);
+    const handleEditClick = (component) => {
+        setProps({
+            setShowSettings:()=> {setShowSettings()},
+            userObject:{component},
+            deleteUrl:`/item/delete/${component.id}`,
+            putUrl:`/item/edit/${component.id}/${location.state.tote.id}`,
+            backBtn: 'Back to Items',
+            componentType:'item'
+        });
         setShowSettings(true);
     }
 
-
-    return (
-
-
-        <div>
-            {ShowSettings
-                ? <UpdateItem setShowSettings={setShowSettings} item={item}/> :
-                <div>
-                    <LargeNavbar/>
-                    <TopNavbar/>
-                    <div className="pageContainer">
-                        <h1>{location.state.tote.name}</h1>
-                        <Link 
-                            to='/item/add' 
-                            state={{ tote:location.state.tote }}
-                        >
-                            <Button title="ADD A ITEM"/>
-                        </Link>
+    if (ShowSettings) {
+        return (
+            <UpdateComponent props {...props} />
+        )
+    } else {
+        return (
+            <>
+               <LargeNavbar pageName="All Items"/>
+                <TopNavbar pageName="All Items"/>
+                <SideNavbar/>
+                <h1 className="mt-5 pt-5">{location.state.tote.name}</h1>
+                <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
+                    <Link 
+                        to='/item/add' 
+                        state={{ tote:location.state.tote }}
+                    >
+                        <Button title="ADD A ITEM"/>
+                    </Link>
                     <div className="row">
-                            {items.map((item) => (
-                                <div className="shadow bg-body rounded p-3 mb-5 card mt-4 p-2 w-50">
-                                        {/*-----*/}
-                                        <div onClick={() => handleClick(item)}>
-                                            <div className="pt-2 text-center">{item.name}</div>
-                                    <div key={item.id}>
-                                        <img className="detailsImg img-fluid" src={item.fileStackUrl} alt='image not available'/>
-                                            </div>
-                                        </div>
-                                        {/*    ----*/}
-                                    <Button onClick={() => handleClick(item)} title="VIEW DETAILS"/>
+                        {components.map((component) => (
+                            <div className="card shadow-lg bg-body rounded p-3 mb-5 w-50 mt-4 p-2" key={component.id}>
+                               
+                                <div className="pt-2 text-center">
+                                    <p>{component.name}</p>
+                                    <p>Value: ${component.value}</p>
+                                    <p>Keywords: {component.keywords}</p>
+                                    {component.checkedOut ? <p>Checked Out: YES</p> : <p>Checked Out: No</p>}
                                 </div>
-                            ))}
-                        </div>
+                                <div>
+                                    <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
+                                </div>
+                                <Button onClick={()=> handleEditClick(component)} title='EDIT ITEM' />
+                                
+                            </div>
+                        ))}
                     </div>
-
                 </div>
-            }
-
-        </div>
-
-    )
+                <BottomNavbar/> 
+            </>
+        )
+    }   
 }
 
 export default AllItemsByToteId
