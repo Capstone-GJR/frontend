@@ -1,49 +1,49 @@
-import axios from 'axios';
 import {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link} from "react-router-dom";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
-import UpdateSpace from '../update/UpdateSpace';
-import { AuthZHeader } from '../../util/HelperFunctions';
+import { axiosRequest } from '../../util/HelperFunctions';
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
-// import React from "@types/react";
 import {MdQrCodeScanner} from "react-icons/md";
 import SideNavbar from "../../navbar/SideNavbar";
+import UpdateSpaceTote from '../update/UpdateSpaceTote';
 
 function AllSpaces() {
 
-    const [spaces, setSpaces] = useState([]);
-    const [space, setSpace] = useState({});
+    const [components, setComponents] = useState([]);
+    const [props, setProps] = useState({});
     const [ShowSettings, setShowSettings] = useState(false);
 
-    const getUserSpaces = async () => {
+    const getAllSpaces = async () => {
         try {
-            const response = await axios.get('/space/all', AuthZHeader())
-            console.log(response)
-            setSpaces(response.data);
-        } catch (error) {
-            console.log(error);
+            const res = await axiosRequest('GET','/space/all');
+            setComponents(res.data);
+            console.log(res);
+        } catch (err) {
+            console.log(err);
         }
     }
 
     useEffect(() => {
-        getUserSpaces();
+        getAllSpaces();
     }, [ShowSettings])
 
-    const handleClick = (space) => {
-        setSpace(space);
+    const handleEditClick = (component) => {
+        setProps({
+            setShowSettings:()=> {setShowSettings()},
+            userObject:{component},
+            deleteUrl:`/space/delete/${component.id}`,
+            putUrl:`/space/edit/${component.id}`,
+            backBtn: 'Back to Spaces' 
+        })
         setShowSettings(true);
     }
 
     if (ShowSettings) {
         return (
-            <UpdateSpace
-                setShowSettings={setShowSettings}
-                space={space}
-                getUserSpaces={getUserSpaces}
-            />
+            <UpdateSpaceTote props {...props}/>
         )
     } else {
         return (
@@ -53,28 +53,28 @@ function AllSpaces() {
                 <SideNavbar/>
 
 
-                    {/*<h1 className="mt-5">All Spaces</h1>*/}
+                <h1 className="mt-5">All Spaces</h1>
 
                 <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
-                <Link className="mt-lg-2" to="/space/add">
+                <Link 
+                    className="mt-lg-2" 
+                    to="/space/add">
                     <Button title="ADD SPACE"/>
                 </Link>
                 <div className="row ">
-                    {spaces.map((space) => (
-                        <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 ">
-                            <Link to='/allTotesBySpace'
-                                state={{
-                                    space_id: `${space.id}`,
-                                    space_name: `${space.name}`
-                                }}>
-                                <div className="pt-2 text-center">{space.name}</div>
-                                <div  key={space.id}>
+                    {components.map((component) => (
+                        <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 " key={component.id}>
+                            <Link 
+                                to='/allTotesBySpace'
+                                state={{ space:component }}
+                            >
+                                <div className="pt-2 text-center">{component.name}</div>
+                                <div>
                                     {/*TODO: Adjust the image to be mobile responsive with card*/}
-                                    <img className="detailsImg img-fluid" src={space.fileStackUrl} alt='image not available'/>
+                                    <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
                                 </div>
                             </Link>
-                            <Button onClick={()=> handleClick(space)} title={`EDIT: ` + space.name} />
-
+                            <Button onClick={()=> handleEditClick(component)} title="EDIT SPACE" />
                         </div>
                     ))}
                 </div>

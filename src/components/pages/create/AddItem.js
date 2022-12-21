@@ -2,13 +2,16 @@ import React from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
-import AddEditForm from "../../forms/AddEditForm";
-import {axiosPost} from "../../util/HelperFunctions";
 import {useLocation} from "react-router-dom";
+import AddForm from '../../forms/AddForm';
 
-function AddItem(props){
+function AddItem(){
     const location = useLocation();
-    console.log("tote id: ",location.state.tote_id);
+    const props = {
+        component: 'item',
+        url:`/item/add/${location.state.tote.id}`,
+        tote: location.state.tote
+    };
 
     return (
         <div>
@@ -16,15 +19,11 @@ function AddItem(props){
             <TopNavbar/>
             <div className="pageContainer" >
             <h1>Add Item</h1>
-            <AddEditForm
-                request={axiosPost}
-                url={`/item/add/${location.state.tote_id}`}
-            />
+            <AddForm props {...props} />
             </div>
             <BottomNavbar/>
         </div>
-
     )
 }
 
-export default AddItem
+export default AddItem;
