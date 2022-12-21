@@ -58,7 +58,7 @@ function App() {
                     <Route path='/allItemsByToteId' element={<AllItemsByToteId />}/>
                     <Route path='/itemDetails' element={<ItemDetails />}/>
                     <Route path='/item/add' element={<AddItem />}/>
-                    <Route path='/allItems' element={<AllItems />}/>
+                    <Route path='/allItems' element={<AllItemsByUserId />}/>
 
                     {/*---- Extra Features Path ----*/}
                     <Route path='/scan' element={<Scan />}/>
