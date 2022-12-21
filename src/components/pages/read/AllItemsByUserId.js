@@ -6,7 +6,7 @@ import {Link, useLocation} from "react-router-dom";
 import axios from "axios";
 import {AuthZHeader} from "../../util/HelperFunctions";
 
-function AllItems(props) {
+function AllItemsByUserId(props) {
 
     const [items, setItems] = useState([]);
     const location = useLocation();
@@ -29,8 +29,8 @@ function AllItems(props) {
         <div>
             <LargeNavbar/>
             <TopNavbar/>
-            <h1>ALL ITEMS </h1>
-            <div className="pageContainer">
+            <div className="pageContainer mt-4">
+                <h1>ALL ITEMS </h1>
                 <div className="card mt-4 p-2 w-70">
                 {items.map((item) => (
                     <Link to='/itemDetails' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>
@@ -48,6 +48,6 @@ function AllItems(props) {
     )
 }
 
-export default AllItems
+export default AllItemsByUserId
 
 //TODO: Double check backend SQL statement

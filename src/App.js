@@ -10,7 +10,7 @@ import Login from './components/pages/general/Login';
 import PrivateRoutes from './components/private_route/PrivateRoutes';
 import AllSpaces from './components/pages/read/AllSpaces';
 import AboutUs from "./components/pages/general/AboutUs";
-import AllItems from "./components/pages/read/AllItems";
+import AllItemsByUserId from "./components/pages/read/AllItemsByUserId";
 import AllTotesBySpaceId from "./components/pages/read/AllTotesBySpaceId";
 import UserProfile from "./components/pages/read/UserProfile";
 import Logout from './components/pages/general/Logout';
@@ -27,24 +27,18 @@ import axios from "axios";
 
 function App() {
 
-    axios.defaults.baseURL = "/api/";
+  axios.defaults.baseURL = "/api/";
 
     return (
         <Router>
             <Routes>
-                {/*TODO: QUESTION  -- whats the difference between defining the page as element vs */}
-                {/*
-                <Route path='/'>
-                    <AllMeetupsPage />
-                </Route
-                */}
                 {/* Public Routes */}
                 <Route path='/' element={<Welcome/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/logout' element={<Logout/>}/>
                 <Route path='/aboutUs' element={<AboutUs/>}/>
-                
+
                 {/* Private Routes */}
                 <Route element={<PrivateRoutes />}>
                     {/*----User Related Paths----*/}
@@ -69,7 +63,7 @@ function App() {
                     {/*---- Extra Features Path ----*/}
                     <Route path='/scan' element={<Scan />}/>
                     <Route path='/search' element={<Search />}/>
-                </Route>  
+                </Route>
 
             </Routes>
         </Router>

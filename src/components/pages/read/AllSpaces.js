@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
@@ -36,7 +37,7 @@ function AllSpaces() {
             userObject:{component},
             deleteUrl:`/space/delete/${component.id}`,
             putUrl:`/space/edit/${component.id}`,
-            backBtn: 'Back to Spaces' 
+            backBtn: 'Back to Spaces'
         })
         setShowSettings(true);
     }
@@ -56,15 +57,15 @@ function AllSpaces() {
                 <h1 className="mt-5">All Spaces</h1>
 
                 <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
-                <Link 
-                    className="mt-lg-2" 
+                <Link
+                    className="mt-lg-2"
                     to="/space/add">
                     <Button title="ADD SPACE"/>
                 </Link>
                 <div className="row ">
                     {components.map((component) => (
                         <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 " key={component.id}>
-                            <Link 
+                            <Link
                                 to='/allTotesBySpace'
                                 state={{ space:component }}
                             >

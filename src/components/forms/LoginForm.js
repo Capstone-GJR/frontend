@@ -35,6 +35,7 @@ function LoginForm() {
           .then((res) => {
             // Private route to access private pages
             localStorage.setItem("access_token", res.headers.authorization);
+              console.log(res)
             // Global axios defaults
             axios.defaults.headers.common['Authorization'] = res.headers.authorization;
             navigate("/allSpaces");
