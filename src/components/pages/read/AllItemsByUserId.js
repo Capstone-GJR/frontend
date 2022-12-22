@@ -33,7 +33,7 @@ function AllItemsByUserId(props) {
             <SideNavbar/>
 
 
-            <div className="pageContainer mt-5 mb-5 pb-5 me-lg-0 ms-lg-auto mb-md-0">
+            <div className="pageContainer mt-5 mb-5 pb-5 me-lg-auto ms-lg-auto mb-md-0">
                 <form className="d-flex">
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                     <button className="btn btn-outline-success" type="submit">Search</button>
