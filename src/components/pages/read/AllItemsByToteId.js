@@ -1,80 +1,100 @@
 import React, {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
-import {Link, useLocation, useNavigate} from 'react-router-dom';
-import axios from 'axios';
-import {AuthZHeader} from '../../util/HelperFunctions';
+import {Link, useLocation} from 'react-router-dom';
+import { axiosRequest} from '../../util/HelperFunctions';
 import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
-import UpdateItem from "../update/UpdateItem";
+import SideNavbar from '../../navbar/SideNavbar';
+import UpdateComponent from '../update/UpdateComponent';
 
 function AllItemsByToteId() {
 
-    const [items, setItems] = useState([]);
-    const [item, setItem] = useState([]);
+    const [components, setComponents] = useState([]);
+    const [props, setProps] = useState([]);
     const [ShowSettings, setShowSettings] = useState(false);
     const location = useLocation();
-    const navigate = useNavigate();
-    const endPoint = `/item/all/tote/${location.state.tote_id}`;
 
-    const getItems = async () => {
+    const getAllItems = async () => {
         try {
-            const response = await axios.get(endPoint, AuthZHeader())
-            setItems(response.data);
-            console.log(response.data);
+            const res = await axiosRequest(
+                'GET', `/item/all/tote/${location.state.tote.id}`
+            )
+            setComponents(res.data);
+            console.log(res.data);
         } catch (error) {
             console.log(error);
         }
     }
+
     useEffect(() => {
-        getItems();
+        getAllItems();
     }, [ShowSettings])
 
-    const handleClick = (tote) => {
-        setItem(tote);
+     // Object to pass using useLocation for adding a new item to dynamic add page/add form
+     const stateObj = {
+        componentType: 'item',
+        addUrl: `/item/add/${location.state.tote.id}`,
+        tote: location.state.tote
+    }
+
+    // set props object to pass data to updating details/page and update form
+    const handleEditClick = (component) => {
+        setProps({
+            setShowSettings:()=> {setShowSettings()},
+            userObject:{component},
+            deleteUrl:`/item/delete/${component.id}`,
+            putUrl:`/item/edit/${component.id}/${location.state.tote.id}`,
+            backBtn: 'Back to Items',
+            componentType:'item'
+        });
         setShowSettings(true);
     }
 
-
-    return (
-
-
-        <div>
-            {ShowSettings
-                ? <UpdateItem setShowSettings={setShowSettings} item={item}/> :
-                <div>
-                    <LargeNavbar/>
-                    <TopNavbar/>
-                    <div className="pageContainer">
-                        <h1>{location.state.tote_name}</h1>
-                        <Link to='/item/add' state={{
-                            tote_id:location.state.tote_id
-                        }}>
-                            <Button title="ADD A ITEM"/>
-                        </Link>
+    if (ShowSettings) {
+        return (
+            <UpdateComponent props {...props} />
+        )
+    } else {
+        return (
+            <>
+               <LargeNavbar pageName="All Items"/>
+                <TopNavbar pageName="All Items"/>
+                <SideNavbar/>
+                <h1 className="mt-5 pt-2">{location.state.tote.name}</h1>
+                <div className="pageContainer mb-4 pb-3 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
+                    <Link
+                        className="mt-lg-2"
+                        to='/addComponent' 
+                        state={{ 
+                            stateObj:stateObj 
+                        }}
+                    >
+                        <Button title="ADD A ITEM"/>
+                    </Link>
                     <div className="row">
-                            {items.map((item) => (
-                                <div className="shadow bg-body rounded p-3 mb-5 card mt-4 p-2 w-50">
-                                        {/*-----*/}
-                                        <div onClick={() => handleClick(item)}>
-                                            <div className="pt-2 text-center">{item.name}</div>
-                                    <div key={item.id}>
-                                        <img className="detailsImg img-fluid" src={item.fileStackUrl} alt='image not available'/>
-                                            </div>
-                                        </div>
-                                        {/*    ----*/}
-                                    <Button onClick={() => handleClick(item)} title="VIEW DETAILS"/>
+                        {components.map((component) => (
+                            <div className="w-50 card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
+                               
+                                <div className="pt-2 text-center">
+                                    <p>{component.name}</p>
+                                    <p>Value: ${component.value}</p>
+                                    <p>Keywords: {component.keywords}</p>
+                                    {component.checkedOut ? <p>Checked Out: YES</p> : <p>Checked Out: No</p>}
                                 </div>
-                            ))}
-                        </div>
+                                <div>
+                                    <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
+                                </div>
+                                <Button onClick={()=> handleEditClick(component)} title='EDIT ITEM' />
+                                
+                            </div>
+                        ))}
                     </div>
-
                 </div>
-            }
-
-        </div>
-
-    )
+                <BottomNavbar/> 
+            </>
+        )
+    }   
 }
 
 export default AllItemsByToteId

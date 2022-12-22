@@ -9,6 +9,7 @@ import Button from '../../../buttons/Button';
 import axios from 'axios';
 import { AuthZHeader } from '../../../util/HelperFunctions';
 import CustomAlert from '../../../buttons/CustomAlert'
+import SideNavbar from "../../../navbar/SideNavbar";
 
 function UpdateUser(){
     const [showAlert, setShowAlert] = useState(false);
@@ -63,10 +64,10 @@ function UpdateUser(){
     
     return (
         <>
-            <LargeNavbar />
-            <TopNavbar/>
-            <div className='container'>
-                <h1 className='text-center m-3 p-5'>Update your Profile</h1>
+            <LargeNavbar pageName="Update Profile"/>
+            <TopNavbar pageName="Update Profile"/>
+            <SideNavbar />
+            <div className='container mb-5 me-lg-auto ms-lg-auto mt-5 pt-3'>
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
                         <FormInput

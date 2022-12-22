@@ -13,46 +13,18 @@ export const removeAuthZ = () => {
     return localStorage.removeItem("access_token");
 }
 
-
-export const axiosPost = async (url,form) => {
-    try {
-        const res = await axios.post(
-            url,
-            form,
-            AuthZHeader()
-        )
-        console.log(res);
-    } catch (err) {
-        console.log(err);
-    }
-}
-
-export const axiosPut = async (url, form) => {
-    try {
-        const res = await axios.put(
-            url,
-            form,
-            AuthZHeader()
-        )
-        console.log(res);
-        return res;
-    } catch (err) {
-        console.log(err);
-        return err
-    }
-}
-
-export const axiosDelete = async (url) => {
-    try {
-        const res = await axios.delete(
-            url,
-            AuthZHeader()
-        )
-        console.log(res);
-        return res;
-    } catch (err) {
-        console.log(err);
-        return err;
+export const axiosRequest = (method, url , form) => {
+    switch (method) {
+        case 'GET':
+            return axios.get(url, AuthZHeader());
+        case 'POST':
+            return axios.post(url, form, AuthZHeader());
+        case 'PUT':
+            return axios.put(url, form, AuthZHeader());
+        case 'DELETE':
+            return axios.delete(url, AuthZHeader());
+        default:
+            return Promise.reject(new Error(`Invalid HTTP method: ${method}`));
     }
 }
 

@@ -3,56 +3,91 @@ import Form from "react-bootstrap/Form";
 import NameField from "./input-fields/NameField";
 import ColorField from "./input-fields/ColorField";
 import KeywordsField from "./input-fields/KeywordsField";
-import ImageField from "./input-fields/ImageField";
 import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
-import Backdrop from "../modals/Backdrop";
+import Backdrop from "../Modals/Backdrop";
+import { axiosRequest } from "../util/HelperFunctions";
+import FormInput from "./FormInput";
 
-function AddEditForm(props){
+function AddForm(props){
 
-    const navigate = useNavigate();
-    const [form, setForm] = useState({});
+    const navigate = useNavigate(); 
+    const [pickerIsOpen, setPickerIsOpen] = useState(false)
+    const [uploadComplete, setUploadComplete] = useState(false)
+    const [form, setForm] = useState({
+        name:'',
+        keywords:''
+    });    
 
     const setField = (field, value) => {
+        if(props.componentType === 'item') 
+            setForm({value:''});
         setForm({
             ...form,
             [field]:value
         })
     }
 
-    const handleAddEditSubmit = async (e) => {
-        e.preventDefault()
-        await props.request(props.url, form);
-        // FIXME!! --FOR NAVIGATE-- Need to route to AllTotesBySpaceID, space ID is not being passed so axios cant fulfill promise on AllTotesbySpace
-        navigate('/allSpaces');
-        props.setShowSettings(false);
-    }
-    const [pickerIsOpen, setPickerIsOpen] = useState(false)
-    const closePicker =() => {
-        setPickerIsOpen(false)
-    }
+    const closePicker =() => setPickerIsOpen(false);
+    const hidePicker = () => setUploadComplete(true);
+
     function openPicker (e)  {
         e.preventDefault()
         setPickerIsOpen(true)
         console.log(pickerIsOpen)
     }
-    const [uploadComplete, setUploadComplete] = useState(false)
-    const hidePicker = () => {setUploadComplete(true)}
+
+    const redirect = () => {
+        if(props.componentType === 'tote') {
+            navigate('/allTotesBySpace', {
+                state:{space:props.space}
+            });
+        } else if (props.componentType === 'item') {
+            navigate('/allItemsByToteId', {
+                state:{tote:props.tote}
+            })
+        } else {
+            navigate('/allSpaces');
+        }
+    }
+
+    const handleAddSubmit = async (e) => {
+        e.preventDefault()
+        // TODO! Can break out into helper function
+        const values = Object.values(form);
+        const allEmpty = values.every(val => val === '');
+        const hasEmptyField = values.some(val => val === '');
+
+        if (allEmpty || hasEmptyField){
+            // TODO! error handling for trying to sumbit an empty or partial empty form
+            console.log("fields left blank");
+        } else {
+            try {
+                const res = await axiosRequest('POST', props.addUrl, form);
+                console.log(res);
+                redirect();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }
+    
     return (
         <Form>
             <NameField
                 type="text"
-                placeholder="Give It A Name"
+                placeholder='Name'
                 value={form.name}
                 onChange={(e) => setField("name", e.target.value)}
             />
+
             <ColorField
                 type="color"
-                placeholder="Choose A Color"
                 value={form.color}
                 onChange={(e) => setField("color", e.target.value)}
             />
+
             {!uploadComplete ?
                 <div className="picker">
                     <Button title='Choose Image' onClick={openPicker}/>
@@ -77,15 +112,31 @@ function AddEditForm(props){
                     <img className="detailsImg" src={form.fileStackUrl} alt="image here"/>
                 </div>
             }
+            
+            { props.componentType === 'item' && 
+                <FormInput
+                    type='number'
+                    label='Value'
+                    placeholder='Dollar Amount'
+                    value={form.value}
+                    onChange={(e)=> setField('value', e.target.value)}
+                />
+            }
+
             <KeywordsField
                 type="textarea"
-                placeholder="Add Keywords"
+                placeholder='Keywords'
                 value={form.keywords}
                 onChange={(e) => setField("keywords", e.target.value)}
             />
-            <Button title="Submit" onClick={handleAddEditSubmit}></Button>
+            
+            <Button 
+                title="Submit" 
+                onClick={handleAddSubmit}
+                >
+            </Button>
         </Form>
     )
 }
 
-export default AddEditForm
+export default AddForm;
