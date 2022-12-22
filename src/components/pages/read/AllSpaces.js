@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
@@ -31,13 +30,20 @@ function AllSpaces() {
         getAllSpaces();
     }, [ShowSettings])
 
+    // Object to pass using useLocation for adding a new space to dynamic add page/add form
+    const stateObj = {
+        componentType: 'space',
+        addUrl: `/space/add`
+    }
+
+    // set props object to pass data to updating details/page and update form
     const handleEditClick = (component) => {
         setProps({
             setShowSettings:()=> {setShowSettings()},
             userObject:{component},
             deleteUrl:`/space/delete/${component.id}`,
             putUrl:`/space/edit/${component.id}`,
-            backBtn: 'Back to Spaces'
+            backBtn: 'Back to Spaces',
         })
         setShowSettings(true);
     }
@@ -59,7 +65,11 @@ function AllSpaces() {
                 <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
                 <Link
                     className="mt-lg-2"
-                    to="/space/add">
+                    to="/addComponent"
+                    state={{
+                        stateObj:stateObj
+                    }}
+                    >
                     <Button title="ADD SPACE"/>
                 </Link>
                 <div className="row ">

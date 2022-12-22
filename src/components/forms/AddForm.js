@@ -21,7 +21,7 @@ function AddForm(props){
     });    
 
     const setField = (field, value) => {
-        if(props.component === 'item') 
+        if(props.componentType === 'item') 
             setForm({value:''});
         setForm({
             ...form,
@@ -39,11 +39,11 @@ function AddForm(props){
     }
 
     const redirect = () => {
-        if(props.component === 'tote') {
+        if(props.componentType === 'tote') {
             navigate('/allTotesBySpace', {
                 state:{space:props.space}
             });
-        } else if (props.component === 'item') {
+        } else if (props.componentType === 'item') {
             navigate('/allItemsByToteId', {
                 state:{tote:props.tote}
             })
@@ -64,7 +64,7 @@ function AddForm(props){
             console.log("fields left blank");
         } else {
             try {
-                const res = await axiosRequest('POST', props.url, form);
+                const res = await axiosRequest('POST', props.addUrl, form);
                 console.log(res);
                 redirect();
             } catch (error) {
@@ -113,7 +113,7 @@ function AddForm(props){
                 </div>
             }
             
-            { props.component === 'item' && 
+            { props.componentType === 'item' && 
                 <FormInput
                     type='number'
                     label='Value'

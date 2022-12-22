@@ -30,8 +30,15 @@ function AllTotesBySpaceId() {
         getAllTotes();
     }, [ShowSettings])
 
+     // Object to pass using useLocation for adding a new tote to dynamic add page/add form
+     const stateObj = {
+        componentType: 'tote',
+        addUrl: `/tote/add/${location.state.space.id}`,
+        space: location.state.space
+    }
+
+    // set props object to pass data to updating details/page and update form
     const handleEditClick = (component) => {
-        // Props for update details/page and to pass state/urls/tote object to update form
         setProps({
             setShowSettings:()=> {setShowSettings()},
             userObject:{component},
@@ -55,8 +62,10 @@ function AllTotesBySpaceId() {
                 <h1 className="mt-5 pt-5">{location.state.space.name}</h1>
                 <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
                     <Link 
-                        to='/tote/add' 
-                        state={{ space:location.state.space }}
+                        to='/addComponent' 
+                        state={{ 
+                            stateObj:stateObj 
+                        }}
                     >
                         <Button title="ADD A TOTE"/>
                     </Link>

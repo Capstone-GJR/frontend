@@ -31,6 +31,14 @@ function AllItemsByToteId() {
         getAllItems();
     }, [ShowSettings])
 
+     // Object to pass using useLocation for adding a new item to dynamic add page/add form
+     const stateObj = {
+        componentType: 'item',
+        addUrl: `/item/add/${location.state.tote.id}`,
+        tote: location.state.tote
+    }
+
+    // set props object to pass data to updating details/page and update form
     const handleEditClick = (component) => {
         setProps({
             setShowSettings:()=> {setShowSettings()},
@@ -56,8 +64,10 @@ function AllItemsByToteId() {
                 <h1 className="mt-5 pt-5">{location.state.tote.name}</h1>
                 <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
                     <Link 
-                        to='/item/add' 
-                        state={{ tote:location.state.tote }}
+                        to='/addComponent' 
+                        state={{ 
+                            stateObj:stateObj 
+                        }}
                     >
                         <Button title="ADD A ITEM"/>
                     </Link>
