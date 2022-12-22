@@ -50,9 +50,9 @@ function Profile(){
             <LargeNavbar />
             <TopNavbar/>
             <SideNavbar/>
-            <div className="container me-lg-0 pe-lg-0">
+            <div className="container me-lg-0 pe-lg-0 mt-lg-3">
                 <div className="pageContainer mb-5 pb-5 pb-5 me-lg-0 pe-lg-0 ms-lg-auto mb-md-0 d-flex justify-content-center">
-                    <h1 className="text-center mb-5">HELLO {profile.firstName}!!</h1>
+                    <h1 className="text-center mb-2">Hello {profile.firstName}!</h1>
                     <div className="row mb-5 mt-3 gy-4">
                         <div className="h3 m3">First Name: {profile.firstName}</div>
                         <div className="h3 m3">Last Name: {profile.lastName}</div>

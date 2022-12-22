@@ -59,8 +59,8 @@ function UpdatePassword(){
             <LargeNavbar />
             <TopNavbar/>
             <SideNavbar/>
-            <div className='container mt-5'>
-                <h2 className='text-center m-3'>Update your password</h2>
+            <div className='container mt-5 pt-3 me-lg-0 pe-lg-0'>
+                <h1 className='text-center m-3'>Update your password</h1>
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
                     <FormInput
