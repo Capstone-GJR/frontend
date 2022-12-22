@@ -59,7 +59,7 @@ function AllSpaces() {
                 <TopNavbar pageName="All Spaces"/>
                 <SideNavbar/>
 
-                <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
+                <div className="pageContainer mt-4 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
                 <Link
                     className="mt-lg-2"
                     to="/addComponent"

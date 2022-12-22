@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthZHeader, removeAuthZ } from "../../util/HelperFunctions";
 import CustomAlert from "../../buttons/CustomAlert";
 import ConfirmBox from "../../buttons/ConfirmBox";
+import SideNavbar from "../../navbar/SideNavbar";
 
 function Profile(){
     const [profile, setProfile] = useState({});
@@ -48,8 +49,9 @@ function Profile(){
         <>
             <LargeNavbar />
             <TopNavbar/>
-            <div className="container">
-                <div className="pageContainer d-flex justify-content-center">
+            <SideNavbar/>
+            <div className="container me-lg-0 pe-lg-0">
+                <div className="pageContainer mb-5 pb-5 pb-5 me-lg-0 pe-lg-0 ms-lg-auto mb-md-0 d-flex justify-content-center">
                     <h1 className="text-center mb-5">HELLO {profile.firstName}!!</h1>
                     <div className="row mb-5 mt-3 gy-4">
                         <div className="h3 m3">First Name: {profile.firstName}</div>

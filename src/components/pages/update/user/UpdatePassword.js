@@ -9,6 +9,7 @@ import { AuthZHeader, checkPassword } from '../../../util/HelperFunctions';
 import CustomAlert from '../../../buttons/CustomAlert';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import SideNavbar from "../../../navbar/SideNavbar";
 
 function UpdatePassword(){
     const [showAlert, setShowAlert] = useState(false);
@@ -57,7 +58,8 @@ function UpdatePassword(){
         <div>
             <LargeNavbar />
             <TopNavbar/>
-            <div className='container'>
+            <SideNavbar/>
+            <div className='container mt-5'>
                 <h2 className='text-center m-3'>Update your password</h2>
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>

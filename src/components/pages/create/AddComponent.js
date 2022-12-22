@@ -4,6 +4,7 @@ import AddForm from '../../forms/AddForm';
 import BottomNavbar from '../../navbar/BottomNavbar';
 import LargeNavbar from '../../navbar/LargeNavbar';
 import TopNavbar from '../../navbar/TopNavbar';
+import SideNavbar from "../../navbar/SideNavbar";
 
 const AddComponent = () => {
     const location = useLocation();
@@ -11,7 +12,8 @@ const AddComponent = () => {
     <>
         <LargeNavbar/>
         <TopNavbar/>
-        <div className="pageContainer">
+        <SideNavbar/>
+        <div className="pageContainer mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
             <h1>Add {location.state.stateObj.componentType}</h1>
             <AddForm props {...location.state.stateObj}/>
         </div>

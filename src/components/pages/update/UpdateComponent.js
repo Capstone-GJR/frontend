@@ -5,6 +5,7 @@ import BottomNavbar from '../../navbar/BottomNavbar';
 import SideNavbar from '../../navbar/SideNavbar';
 import TopNavbar from '../../navbar/TopNavbar';
 import LargeNavbar from '../../navbar/LargeNavbar';
+import Button from "../../buttons/Button";
 
 function UpdateComponent(props){
 
@@ -24,7 +25,7 @@ function UpdateComponent(props){
             <TopNavbar pageName="All Spaces"/>
             <SideNavbar/>
             {/*<div className="pt-3 pb-5 mb-5 mt-5 mb-md-3 pb-md-3">*/}
-            <div className="pageContainer p-3 me-lg-3 ms-lg-auto  pb-5 mb-5 mb-md-3 pb-md-3">
+            <div className="pageContainer p-3 mt-5 me-lg-3 ms-lg-auto  pb-5 mb-5 mb-md-3 pb-md-3">
                 <div>
                     <h2>{props.userObject.component.name}</h2>
                     <p>Keywords: {props.userObject.component.keywords}</p>
@@ -32,14 +33,17 @@ function UpdateComponent(props){
 
                 <EditForm props {...props} /> 
 
-                <button 
-                    onClick={() => props.setShowSettings(false)}>
-                    {props.backBtn}
-                </button>
-                <button 
-                    onClick={handleDeleteClick}>
-                    Delete
-                </button>
+                <Button
+                    title={props.backBtn}
+                    onClick={() => props.setShowSettings(false)}
+                />
+
+                <Button
+                    title="Delete"
+                    onClick={handleDeleteClick}
+                    width="w-50"
+                />
+
             </div>
             <BottomNavbar/>
         </>
