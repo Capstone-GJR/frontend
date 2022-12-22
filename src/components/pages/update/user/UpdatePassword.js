@@ -56,11 +56,10 @@ function UpdatePassword(){
 
     return (
         <div>
-            <LargeNavbar />
-            <TopNavbar/>
+            <LargeNavbar pageName="Update Password"/>
+            <TopNavbar pageName="Update Password"/>
             <SideNavbar/>
-            <div className='container mt-5 pt-3 me-lg-0 pe-lg-0'>
-                <h1 className='text-center m-3'>Update your password</h1>
+            <div className='container mt-5 pt-3 ms-lg-auto me-lg-auto'>
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
                     <FormInput

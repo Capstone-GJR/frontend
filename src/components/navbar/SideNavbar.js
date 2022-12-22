@@ -5,7 +5,7 @@ import {MdQrCodeScanner} from "react-icons/md";
 
 function SideNavbar(props){
     return(
-        <div id="sidebarMenu" className="collapse d-lg-block sidebar collapse bg-transparent w-25 position-fixed">
+        <div id="sidebarMenu" className="collapse d-lg-block sidebar collapse bg-transparent w-auto position-fixed">
             <div className="position-sticky">
                 <div className="list-group list-group-flush mx-3 mt-5">
                     <Link to="/allSpaces" className="text-decoration-none text-black">

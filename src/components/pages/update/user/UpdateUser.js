@@ -64,11 +64,10 @@ function UpdateUser(){
     
     return (
         <>
-            <LargeNavbar />
-            <TopNavbar/>
+            <LargeNavbar pageName="Update Profile"/>
+            <TopNavbar pageName="Update Profile"/>
             <SideNavbar />
-            <div className='container mb-5 me-lg-0 pe-lg-0'>
-                <h1 className='text-center m-3 p-5'>Update your Profile</h1>
+            <div className='container mb-5 me-lg-auto mt-5 pt-3'>
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
                         <FormInput

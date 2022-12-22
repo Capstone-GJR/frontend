@@ -7,10 +7,10 @@ import SideNavbar from "../../navbar/SideNavbar";
 function Scan(props){
     return (
         <div>
-            <LargeNavbar pageName=""/>
-            <TopNavbar/>
+            <LargeNavbar pageName="Scan"/>
+            <TopNavbar pageName="Scan"/>
             <SideNavbar/>
-            <h1>SCAN</h1>
+
             <div className="pageContainer mt-4 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0 text-center">
                 <h1>Feature coming soon!</h1>
                 <h3 className="mb-5">Please check back soon!</h3>
