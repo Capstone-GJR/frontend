@@ -69,9 +69,9 @@ function AllSpaces() {
                     >
                     <Button title="ADD A SPACE"/>
                 </Link>
-                <div className="row ">
+                <div className="row">
                     {components.map((component) => (
-                        <div className="w-50 card shadow bg-body rounded mb-5 mt-4 p-1 " key={component.id}>
+                        <div className="w-50 card shadow bg-body rounded mb-5 mt-4 p-1" key={component.id}>
                             <Link
                                 to='/allTotesBySpace'
                                 state={{ space:component }}
