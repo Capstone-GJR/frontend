@@ -29,7 +29,7 @@ function AllItemsByUserId(props) {
         <div>
             <LargeNavbar/>
             <TopNavbar/>
-            <div className="pageContainer mt-4">
+            <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
                 <h1>ALL ITEMS </h1>
                 <div className="card mt-4 p-2 w-70">
                 {items.map((item) => (
