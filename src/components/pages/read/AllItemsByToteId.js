@@ -38,6 +38,7 @@ function AllItemsByToteId() {
         tote: location.state.tote
     }
 
+    // set props object to pass data to updating details/page and update form
     const handleEditClick = (component) => {
         setProps({
             setShowSettings:()=> {setShowSettings()},

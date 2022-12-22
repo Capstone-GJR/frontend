@@ -113,7 +113,7 @@ function AddForm(props){
                 </div>
             }
             
-            { props.component === 'item' && 
+            { props.componentType === 'item' && 
                 <FormInput
                     type='number'
                     label='Value'
