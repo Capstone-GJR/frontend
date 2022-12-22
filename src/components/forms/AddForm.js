@@ -6,7 +6,7 @@ import KeywordsField from "./input-fields/KeywordsField";
 import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
-import Backdrop from "../Modals/Backdrop";
+import Backdrop from "../modals/Backdrop";
 import { axiosRequest } from "../util/HelperFunctions";
 import FormInput from "./FormInput";
 
