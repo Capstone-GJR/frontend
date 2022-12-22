@@ -24,8 +24,8 @@ function UpdateComponent(props){
             <LargeNavbar pageName="All Spaces"/>
             <TopNavbar pageName="All Spaces"/>
             <SideNavbar/>
-            {/*<div className="pt-3 pb-5 mb-5 mt-5 mb-md-3 pb-md-3">*/}
-            <div className="pageContainer p-3 mt-5 me-lg-3 ms-lg-auto  pb-5 mb-5 mb-md-3 pb-md-3">
+
+            <div className="pageContainer p-3 mt-5 me-lg-auto ms-lg-auto  pb-5 mb-5 mb-md-3 pb-md-3">
                 <div>
                     <h2>{props.userObject.component.name}</h2>
                     <p>Keywords: {props.userObject.component.keywords}</p>

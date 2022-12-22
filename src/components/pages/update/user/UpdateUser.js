@@ -67,7 +67,7 @@ function UpdateUser(){
             <LargeNavbar pageName="Update Profile"/>
             <TopNavbar pageName="Update Profile"/>
             <SideNavbar />
-            <div className='container mb-5 me-lg-auto mt-5 pt-3'>
+            <div className='container mb-5 me-lg-auto ms-lg-auto mt-5 pt-3'>
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
                         <FormInput

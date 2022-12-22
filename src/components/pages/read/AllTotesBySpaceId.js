@@ -60,7 +60,7 @@ function AllTotesBySpaceId() {
                 <TopNavbar pageName="All Totes"/>
                 <SideNavbar/>
                 <h1 className="mt-5 pt-2">{location.state.space.name}</h1>
-                <div className="pageContainer mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
+                <div className="pageContainer mb-5 pb-5 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
                     <Link
                         className="mt-lg-2"
                         to='/addComponent' 
