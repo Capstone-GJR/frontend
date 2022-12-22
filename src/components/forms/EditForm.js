@@ -5,7 +5,7 @@ import ColorField from "./input-fields/ColorField";
 import KeywordsField from "./input-fields/KeywordsField";
 import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
-import Backdrop from "../modals/Backdrop";
+import Backdrop from "../Modals/Backdrop";
 import { axiosRequest } from "../util/HelperFunctions";
 import FormInput from "./FormInput";
 
