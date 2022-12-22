@@ -11,7 +11,7 @@ import { axiosRequest } from "../util/HelperFunctions";
 import FormInput from "./FormInput";
 
 function AddForm(props){
-
+    
     const navigate = useNavigate(); 
     const [pickerIsOpen, setPickerIsOpen] = useState(false)
     const [uploadComplete, setUploadComplete] = useState(false)
@@ -64,7 +64,7 @@ function AddForm(props){
             console.log("fields left blank");
         } else {
             try {
-                const res = await axiosRequest('POST', props.url, form);
+                const res = await axiosRequest('POST', props.addUrl, form);
                 console.log(res);
                 redirect();
             } catch (error) {

@@ -16,7 +16,6 @@ import UserProfile from "./components/pages/read/UserProfile";
 import Logout from './components/pages/general/Logout';
 import UpdateUser from './components/pages/update/user/UpdateUser';
 import UpdatePassword from './components/pages/update/user/UpdatePassword';
-import AddSpace from "./components/pages/create/AddSpace";
 import AllItemsByToteId from "./components/pages/read/AllItemsByToteId";
 import AddItem from "./components/pages/create/AddItem";
 import ItemDetails from "./components/pages/read/ItemDetails";
@@ -24,6 +23,7 @@ import AddTote from './components/pages/create/AddTote';
 import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
 import axios from "axios";
+import AddComponent from './components/pages/create/AddComponent';
 
 function App() {
 
@@ -45,10 +45,10 @@ function App() {
                     <Route path='/profile' element={<UserProfile/>}/>
                     <Route path='/updateUser' element={<UpdateUser/>}/>
                     <Route path='/updatePassword' element={<UpdatePassword/>}/>
+                    <Route path='/addComponent' element={<AddComponent/>}/>
 
                     {/*---- Spaces Paths ----*/}
                     <Route path='/allSpaces' element={<AllSpaces/>}/>
-                    <Route path='/space/add' element={<AddSpace/>}/>
 
                     {/*---- Totes Paths ----*/}
                     <Route path='/allTotesBySpace' element={<AllTotesBySpaceId/>}/>
