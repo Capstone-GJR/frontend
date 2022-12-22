@@ -74,7 +74,7 @@ function AllSpaces() {
                 </Link>
                 <div className="row ">
                     {components.map((component) => (
-                        <div className="col-5 card shadow bg-body rounded p-3 ms-4 me-4 mb-5 mt-4 p-2 " key={component.id}>
+                        <div className="w-50 card shadow bg-body rounded mb-5 mt-4 p-1 " key={component.id}>
                             <Link
                                 to='/allTotesBySpace'
                                 state={{ space:component }}

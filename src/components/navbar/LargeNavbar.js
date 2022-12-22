@@ -13,7 +13,7 @@ function LargeNavbar(props) {
 
         <nav className="navbar d-none d-sm-block d-md-block navbar-expand-md navbar-dark bg-dark fixed-top">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/allSpaces">
+                <Link className="navbar-brand me-0" to="/allSpaces">
                     {/*TODO: Consider changing the route for this link. Should it go to the about us page maybe?*/}
                     Traqura
                 </Link>
@@ -22,7 +22,7 @@ function LargeNavbar(props) {
                         aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse m-0" id="navCollapse">
+                <div className="collapse navbar-collapse w-auto" id="navCollapse">
                     <div className="dropdown ms-auto">
                         <button className="btn btn-dark btn-outline-light dropdown-toggle" type="button"
                                 id="dropdownMenuButton1"
