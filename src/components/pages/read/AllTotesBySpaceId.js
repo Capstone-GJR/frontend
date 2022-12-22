@@ -61,7 +61,8 @@ function AllTotesBySpaceId() {
                 <SideNavbar/>
                 <h1 className="mt-5 pt-2">{location.state.space.name}</h1>
                 <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
-                    <Link 
+                    <Link
+                        className="mt-lg-2"
                         to='/addComponent' 
                         state={{ 
                             stateObj:stateObj 

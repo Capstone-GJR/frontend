@@ -59,9 +59,6 @@ function AllSpaces() {
                 <TopNavbar pageName="All Spaces"/>
                 <SideNavbar/>
 
-
-                <h1 className="mt-5">All Spaces</h1>
-
                 <div className="pageContainer mt-5 pt-5 mb-5 pb-5 me-lg-3 ms-lg-auto mb-md-0">
                 <Link
                     className="mt-lg-2"
@@ -70,7 +67,7 @@ function AllSpaces() {
                         stateObj:stateObj
                     }}
                     >
-                    <Button title="ADD SPACE"/>
+                    <Button title="ADD A SPACE"/>
                 </Link>
                 <div className="row ">
                     {components.map((component) => (
