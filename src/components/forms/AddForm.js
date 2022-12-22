@@ -11,7 +11,7 @@ import { axiosRequest } from "../util/HelperFunctions";
 import FormInput from "./FormInput";
 
 function AddForm(props){
-    
+
     const navigate = useNavigate(); 
     const [pickerIsOpen, setPickerIsOpen] = useState(false)
     const [uploadComplete, setUploadComplete] = useState(false)
@@ -21,7 +21,7 @@ function AddForm(props){
     });    
 
     const setField = (field, value) => {
-        if(props.component === 'item') 
+        if(props.componentType === 'item') 
             setForm({value:''});
         setForm({
             ...form,
@@ -39,11 +39,11 @@ function AddForm(props){
     }
 
     const redirect = () => {
-        if(props.component === 'tote') {
+        if(props.componentType === 'tote') {
             navigate('/allTotesBySpace', {
                 state:{space:props.space}
             });
-        } else if (props.component === 'item') {
+        } else if (props.componentType === 'item') {
             navigate('/allItemsByToteId', {
                 state:{tote:props.tote}
             })

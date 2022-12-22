@@ -1,6 +1,10 @@
 import React from 'react';
 import { axiosRequest } from '../../util/HelperFunctions';
 import EditForm from '../../forms/EditForm';
+import BottomNavbar from '../../navbar/BottomNavbar';
+import SideNavbar from '../../navbar/SideNavbar';
+import TopNavbar from '../../navbar/TopNavbar';
+import LargeNavbar from '../../navbar/LargeNavbar';
 
 function UpdateComponent(props){
 
@@ -16,6 +20,9 @@ function UpdateComponent(props){
       
     return (
         <>
+            <LargeNavbar pageName="All Spaces"/>
+            <TopNavbar pageName="All Spaces"/>
+            <SideNavbar/>
             {/*<div className="pt-3 pb-5 mb-5 mt-5 mb-md-3 pb-md-3">*/}
             <div className="pageContainer p-3 me-lg-3 ms-lg-auto  pb-5 mb-5 mb-md-3 pb-md-3">
                 <div>
@@ -34,6 +41,7 @@ function UpdateComponent(props){
                     Delete
                 </button>
             </div>
+            <BottomNavbar/>
         </>
     )
 }

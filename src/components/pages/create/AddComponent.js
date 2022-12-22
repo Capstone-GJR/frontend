@@ -7,7 +7,6 @@ import TopNavbar from '../../navbar/TopNavbar';
 
 const AddComponent = () => {
     const location = useLocation();
-    console.log(location.state.stateObj);
   return (
     <>
         <LargeNavbar/>

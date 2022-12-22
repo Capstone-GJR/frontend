@@ -19,7 +19,6 @@ import UpdatePassword from './components/pages/update/user/UpdatePassword';
 import AllItemsByToteId from "./components/pages/read/AllItemsByToteId";
 import AddItem from "./components/pages/create/AddItem";
 import ItemDetails from "./components/pages/read/ItemDetails";
-import AddTote from './components/pages/create/AddTote';
 import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
 import axios from "axios";
@@ -52,7 +51,6 @@ function App() {
 
                     {/*---- Totes Paths ----*/}
                     <Route path='/allTotesBySpace' element={<AllTotesBySpaceId/>}/>
-                    <Route path='/tote/add' element={<AddTote />}/>
 
                     {/*---- Item Paths ----*/}
                     <Route path='/allItemsByToteId' element={<AllItemsByToteId />}/>

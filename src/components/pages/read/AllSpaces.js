@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {useEffect, useState} from 'react';
 import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
@@ -37,6 +36,7 @@ function AllSpaces() {
         addUrl: `/space/add`
     }
 
+    // set props object to pass data to updating details/page and update form
     const handleEditClick = (component) => {
         setProps({
             setShowSettings:()=> {setShowSettings()},
@@ -50,13 +50,7 @@ function AllSpaces() {
 
     if (ShowSettings) {
         return (
-            <>
-                <LargeNavbar pageName="All Spaces"/>
-                <TopNavbar pageName="All Spaces"/>
-                <SideNavbar/>
-                <UpdateComponent props {...props}/>
-                <BottomNavbar/>
-            </>
+            <UpdateComponent props {...props}/>
         )
     } else {
         return (
