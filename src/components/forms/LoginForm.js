@@ -49,7 +49,7 @@ function LoginForm() {
   }
 
   return (
-    <Form>
+    <Form className="text-center">
         <Form.Group className="mb-4" controlId="email">
             <Form.Control 
               className="p-3 inputText" 
