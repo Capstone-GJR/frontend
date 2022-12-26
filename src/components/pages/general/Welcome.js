@@ -6,7 +6,6 @@ import LargeNavbar from "../../navbar/LargeNavbar";
 function Welcome() {
   return (
     <div className='container'>
-        <LargeNavbar />
         <div className='row header' style={{marginBottom:"25em"}}>
         <div className='col text-center'>
           <h1>TRAQURA</h1>
