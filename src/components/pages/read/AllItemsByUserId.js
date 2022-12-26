@@ -33,7 +33,7 @@ function AllItemsByUserId(props) {
             <SideNavbar/>
 
 
-            <div className="pageContainer mt-5 mb-5 pb-5 me-lg-auto ms-lg-auto mb-md-0">
+            <div className="pageContainer mb-4 pb-3 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
                 <form className="d-flex">
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                     <button className="btn btn-outline-success" type="submit">Search</button>
@@ -44,7 +44,7 @@ function AllItemsByUserId(props) {
                             <Link to='/itemDetails' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>
                                 <div className="pt-2 text-center">{item.name}</div>
                                 <div className='p-4 m-3' key={item.id}>
-                                    <img className="detailsImg" src={item.fileStackUrl} alt='image not available'/>
+                                    <img className="detailsImg img-fluid" src={item.fileStackUrl} alt='image not available'/>
                                 </div>
                             </Link>
                         </div>
