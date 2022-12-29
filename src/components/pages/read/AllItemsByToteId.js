@@ -80,7 +80,6 @@ function AllItemsByToteId() {
                                     <p>{component.name}</p>
                                     <p>Value: ${component.value}</p>
                                     <p>Keywords: {component.keywords}</p>
-                                    {component.checkedOut ? <p>Checked Out: YES</p> : <p>Checked Out: No</p>}
                                 </div>
                                 <div>
                                     <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>

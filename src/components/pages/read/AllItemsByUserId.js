@@ -6,55 +6,77 @@ import {Link, useLocation} from "react-router-dom";
 import axios from "axios";
 import {AuthZHeader, axiosRequest} from "../../util/HelperFunctions";
 import SideNavbar from "../../navbar/SideNavbar";
+import UpdateComponent from "../update/UpdateComponent";
+import Button from "../../buttons/Button";
 
-function AllItemsByUserId(props) {
+function AllItemsByUserId() {
 
-    const [items, setItems] = useState([]);
+    const [components, setComponents] = useState([]);
+    const [ShowSettings, setShowSettings] = useState(false);
+    const [props, setProps] = useState([]);
     const location = useLocation();
-    const endPoint = `/item/all`;
+
+    const getItems = async () => {
+        try {
+            const res = await axiosRequest('GET', `/item/all`)
+            setComponents(res.data);
+            console.log(res.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     useEffect(() => {
-        const getItems = async () => {
-            try {
-                const response = await axiosRequest('GET',`/item/all`)
-                setItems(response.data);
-                console.log(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        }
         getItems();
     }, [])
 
-    return (
-        <div>
-            <LargeNavbar pageName="All Items"/>
-            <TopNavbar pageName="All Items"/>
-            <SideNavbar/>
+    // set props object to pass data to updating details/page and update form
+    const handleEditClick = (component) => {
+        setProps({
+            setShowSettings:()=> {setShowSettings()},
+            userObject:{component},
+            deleteUrl:`/item/delete/${component.id}`,
+            putUrl:`/item/edit/${component.id}/${component.tote.id}`,
+            // FIXME: How do we get this button to return to the all items by user page, right now it returns to the all items in tote (of the tote it is in.
+            backBtn: 'Back to Items',
+            componentType:'item'
+        });
+        setShowSettings(true);
+    }
 
+    if (ShowSettings) {
+        return (
+            <UpdateComponent props {...props} />
+        )
+    } else {
+        return (
+            <>
+                <LargeNavbar pageName="All Items"/>
+                <TopNavbar pageName="All Items"/>
+                <SideNavbar/>
+                <div className="pageContainer mb-4 pb-3 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
+                    <div className="row">
+                        {components.map((component) => (
+                            <div className="w-50 card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
 
-            <div className="pageContainer mb-4 pb-3 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
-                <form className="d-flex">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                <div className="row">
-                    {items.map((item) => (
-                        <div className="w-50 card shadow bg-body rounded mb-5 mt-4 p-2">
-                            <Link to='/itemDetails' state={{item_id: `${item.id}`, item_name: `${item.name}`}}>
-                                <div className="pt-2 text-center">{item.name}</div>
-                                <div className='p-4 m-3' key={item.id}>
-                                    <img className="detailsImg img-fluid" src={item.fileStackUrl} alt='image not available'/>
+                                <div className="pt-2 text-center">
+                                    <p>{component.name}</p>
+                                    <p>Value: ${component.value}</p>
+                                    <p>Keywords: {component.keywords}</p>
                                 </div>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            <BottomNavbar/>
-        </div>
+                                <div>
+                                    <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
+                                </div>
+                                <Button onClick={()=> handleEditClick(component)} title='EDIT ITEM' />
 
-    )
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <BottomNavbar/>
+            </>
+        )
+    }
 }
 
 export default AllItemsByUserId
