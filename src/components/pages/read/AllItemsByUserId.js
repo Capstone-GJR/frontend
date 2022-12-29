@@ -55,17 +55,20 @@ function AllItemsByUserId() {
                 <TopNavbar pageName="All Items"/>
                 <SideNavbar/>
                 <div className="pageContainer mb-4 pb-3 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
+                    <h1 className="mt-5 pt-2">ALL ITEMS</h1>
                     <div className="row">
                         {components.map((component) => (
                             <div className="w-50 card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
-
                                 <div className="pt-2 text-center">
-                                    <p>{component.name}</p>
+                                    <h5>{component.name}</h5>
+                                </div>
+                                <div className="pt-2">
+                                    <img className="detailsImg img-fluid" src={component.fileStackUrl}
+                                         alt='image not available'/>
+                                </div>
+                                <div className="pt-2 text-center">
                                     <p>Value: ${component.value}</p>
                                     <p>Keywords: {component.keywords}</p>
-                                </div>
-                                <div>
-                                    <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
                                 </div>
                                 <Button onClick={()=> handleEditClick(component)} title='EDIT ITEM' />
 
