@@ -14,7 +14,6 @@ function LargeNavbar(props) {
         <nav className="navbar d-none d-sm-block d-md-block navbar-expand-md navbar-dark bg-dark fixed-top">
             <div className="container-fluid">
                 <Link className="navbar-brand me-0" to="/allSpaces">
-                    {/*TODO: Consider changing the route for this link. Should it go to the about us page maybe?*/}
                     Traqura
                 </Link>
                 <PageNameHeader pageName={props.pageName}/>

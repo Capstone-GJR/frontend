@@ -58,7 +58,7 @@ function ItemDetails(props) {
                                 of {spaceDetails.name}</div>
                         </div>
                         <div>
-                            {/*TODO: Have these buttons like to UpdateItem*/}
+                            {/*TODO: Have these buttons link to UpdateItem*/}
                             <Button onClick={() => handleClick(itemDetails)} title={`EDIT: ` + itemDetails.name}/>
                             <ConfirmBox
                                 btnTitle="DELETE ITEM"

@@ -58,5 +58,3 @@ function AllItemsByUserId(props) {
 }
 
 export default AllItemsByUserId
-
-//TODO: Double check backend SQL statement
