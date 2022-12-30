@@ -30,13 +30,6 @@ function Search(props) {
     }, [])
 
 
-    //     const handleSearchSubmit = (e) => {
-    //     e.preventDefault()
-    //     const searchResults = components.filter(component => {
-    //         return component.keywords.toLowerCase().includes(searchTerm.toLowerCase())
-    //     })
-    //     setFilteredResults(searchResults)
-    // }
     const handleSearchSubmit = (e) => {
         e.preventDefault()
         const searchResults = components.filter(component => {
