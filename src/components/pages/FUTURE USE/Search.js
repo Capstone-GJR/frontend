@@ -47,11 +47,6 @@ function Search(props) {
         setFilteredResults(searchResults)
     }
 
-    const handleSearchSubmit = (e) => {
-        e.preventDefault()
-        search(e)
-    }
-
     return (
         <div>
             <LargeNavbar pageName="Search"/>
@@ -60,14 +55,13 @@ function Search(props) {
             <div className="pageContainer text-center">
                 <h4>Search for an item by keyword, name, or location name.</h4>
                 <div className='row'>
-                    <Form onSubmit={handleSearchSubmit}>
+                    <Form>
                         <FormInput
                             type='text'
                             placeholder='Enter a keyword, name, or location'
                             value={searchTerm}
                             onChange={search}
                         />
-                        <Button type='submit' title='SEARCH' />
                     </Form>
                 </div>
                 <div className="row">
