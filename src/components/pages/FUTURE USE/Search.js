@@ -35,7 +35,7 @@ function Search(props) {
     const handleSearchSubmit = (e) => {
         e.preventDefault()
         const searchResults = components.filter(component => {
-            return component.keywords.toLowerCase().includes(searchTerm.toLowerCase()) || component.name.toLowerCase().includes(searchTerm.toLowerCase())
+            return component.keywords.toLowerCase().includes(searchTerm.toLowerCase()) || component.name.toLowerCase().includes(searchTerm.toLowerCase()) || component.tote.name.toLowerCase().includes(searchTerm.toLowerCase()) || component.tote.space.name.toLowerCase().includes(searchTerm.toLowerCase())
         })
         setFilteredResults(searchResults)
     }
