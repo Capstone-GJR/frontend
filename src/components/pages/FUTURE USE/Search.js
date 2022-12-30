@@ -8,6 +8,8 @@ import Button from "../../buttons/Button";
 import Form from "react-bootstrap/Form";
 import FormInput from "../../forms/FormInput";
 
+//FIXME: As is, you would not be able to edit an item from this section only to view them.
+
 function Search(props) {
 
     const [components, setComponents] = useState([]);
@@ -29,13 +31,25 @@ function Search(props) {
         getItems();
     }, [])
 
+    // const search = (e) => {
+    //     setSearchTerm(e.target.value)
+    //     searchResults()
+    // }
 
-        const handleSearchSubmit = (e) => {
-        e.preventDefault()
+    const search = (e) => {
+            setSearchTerm(e.target.value)
         const searchResults = components.filter(component => {
-            return component.keywords.toLowerCase().includes(searchTerm.toLowerCase())
-        })
+        return component.keywords.toLowerCase().includes(searchTerm.toLowerCase())
+            || component.name.toLowerCase().includes(searchTerm.toLowerCase())
+            || component.tote.name.toLowerCase().includes(searchTerm.toLowerCase())
+            || component.tote.space.name.toLowerCase().includes(searchTerm.toLowerCase())
+            })
         setFilteredResults(searchResults)
+    }
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault()
+        search(e)
     }
 
     return (
@@ -44,15 +58,14 @@ function Search(props) {
             <TopNavbar/>
             <SideNavbar/>
             <div className="pageContainer text-center">
-                <h1>Search for an item by Keyword</h1>
-                {/*<Button title='search' onClick={searchFunction}/>*/}
+                <h4>Search for an item by keyword, name, or location name.</h4>
                 <div className='row'>
                     <Form onSubmit={handleSearchSubmit}>
                         <FormInput
                             type='text'
-                            placeholder='Enter a keyword to find an item'
+                            placeholder='Enter a keyword, name, or location'
                             value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={search}
                         />
                         <Button type='submit' title='SEARCH' />
                     </Form>
@@ -70,6 +83,8 @@ function Search(props) {
                             <div className="pt-2 text-center">
                                 <p>Value: ${result.value}</p>
                                 <p>Keywords: {result.keywords}</p>
+                                <p>Tote Location: {result.tote.name}</p>
+                                <p>Space Location: {result.tote.space.name}</p>
                             </div>
                         </div>
                     ))}
