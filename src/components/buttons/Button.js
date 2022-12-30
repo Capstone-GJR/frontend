@@ -9,6 +9,7 @@ function Button(props) {
       className={btn.button}
       // button default color is blue
       style={{backgroundColor: props.color}}
+      type={props.type}
       >
       <p className={btn.title}>
         <span className={btn.barlowFont}>{props.title}</span>

@@ -3,6 +3,7 @@ import TopNavbar from "../../navbar/TopNavbar";
 import BottomNavbar from "../../navbar/BottomNavbar";
 import LargeNavbar from "../../navbar/LargeNavbar";
 import SideNavbar from "../../navbar/SideNavbar";
+import SearchBar from "../../forms/SearchBar";
 
 function Search(props){
     return (
@@ -11,8 +12,8 @@ function Search(props){
             <TopNavbar/>
             <SideNavbar/>
             <div className="pageContainer text-center">
-                <h1>Feature coming soon!</h1>
-                <h3 className="mb-5">Please check back soon!</h3>
+                <h1>Search for an item by Keyword</h1>
+                <SearchBar />
             </div>
             <BottomNavbar/>
         </div>
