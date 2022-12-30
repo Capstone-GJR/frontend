@@ -35,20 +35,48 @@ function LoginForm() {
           .then((res) => {
             // Private route to access private pages
             localStorage.setItem("access_token", res.headers.authorization);
+              console.log(res)
             // Global axios defaults
             axios.defaults.headers.common['Authorization'] = res.headers.authorization;
             navigate("/allSpaces");
             setForm({email: "", password: ""});
+            console.log(res.data)
           })
           .catch((error) => {
+              console.log(error)
             const errorMsg = error.response.data;
             if(errorMsg === "Username not found") setEmailError(errorMsg)
             if(errorMsg === "Incorrect password provided") setPassError(errorMsg)
           })
   }
 
+  // const handleSubmit = async (e) => {
+  //     e.preventDefault();
+  //     try {
+  //         const res = await axios
+  //             .post
+  //             ('/authenticate', {
+  //                 "email": form.email,
+  //                 "password": form.password
+  //             })
+  //         console.log(res)
+  //         // Private route to access private pages
+  //         localStorage.setItem("access_token", res.headers.authorization);
+  //         // Global axios defaults
+  //         axios.defaults.headers.common['Authorization'] = res.headers.authorization;
+  //         navigate("/allSpaces");
+  //         setForm({email: "", password: ""});
+  //     } catch (error) {
+  //         console.log(error)
+  //         const errorMsg = error.response.data;
+  //         if(errorMsg === "Username not found") setEmailError(errorMsg)
+  //         if(errorMsg === "Incorrect password provided") setPassError(errorMsg)
+  //     }
+  // }
+
+
   return (
-    <Form>
+    <Form className="text-center">
         <Form.Group className="mb-4" controlId="email">
             <Form.Control 
               className="p-3 inputText" 
