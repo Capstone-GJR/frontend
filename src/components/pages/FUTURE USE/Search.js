@@ -31,11 +31,6 @@ function Search(props) {
         getItems();
     }, [])
 
-    // const search = (e) => {
-    //     setSearchTerm(e.target.value)
-    //     searchResults()
-    // }
-
     const search = (e) => {
             setSearchTerm(e.target.value)
         const searchResults = components.filter(component => {
@@ -47,11 +42,6 @@ function Search(props) {
         setFilteredResults(searchResults)
     }
 
-    const handleSearchSubmit = (e) => {
-        e.preventDefault()
-        search(e)
-    }
-
     return (
         <div>
             <LargeNavbar pageName="Search"/>
@@ -60,7 +50,7 @@ function Search(props) {
             <div className="pageContainer text-center">
                 <h4>Search for an item by keyword, name, or location name.</h4>
                 <div className='row'>
-                    <Form onSubmit={handleSearchSubmit}>
+                    <Form>
                         <FormInput
                             type='text'
                             placeholder='Enter a keyword, name, or location'
