@@ -31,11 +31,6 @@ function Search(props) {
         getItems();
     }, [])
 
-    // const search = (e) => {
-    //     setSearchTerm(e.target.value)
-    //     searchResults()
-    // }
-
     const search = (e) => {
             setSearchTerm(e.target.value)
         const searchResults = components.filter(component => {
