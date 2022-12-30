@@ -60,7 +60,7 @@ function AddForm(props){
         const hasEmptyField = values.some(val => val === '');
 
         if (allEmpty || hasEmptyField){
-            // TODO! error handling for trying to sumbit an empty or partial empty form
+            // TODO! error handling for trying to submit an empty or partial empty form
             console.log("fields left blank");
         } else {
             try {

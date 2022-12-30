@@ -79,7 +79,6 @@ function AllSpaces() {
                             >
                                 <div className="pt-2 text-center">{component.name}</div>
                                 <div>
-                                    {/*TODO: Adjust the image to be mobile responsive with card*/}
                                     <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
                                 </div>
                             </Link>

@@ -12,5 +12,5 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-//TODO: QUESTION: What is the React.Strict? why do we use this instead of react-router-dom
+//TODO: On login ---
+//    error handling/message for if no username exists?
