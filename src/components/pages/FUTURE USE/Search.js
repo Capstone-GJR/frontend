@@ -31,13 +31,25 @@ function Search(props) {
         getItems();
     }, [])
 
+    // const search = (e) => {
+    //     setSearchTerm(e.target.value)
+    //     searchResults()
+    // }
+
+    const search = (e) => {
+            setSearchTerm(e.target.value)
+        const searchResults = components.filter(component => {
+        return component.keywords.toLowerCase().includes(searchTerm.toLowerCase())
+            || component.name.toLowerCase().includes(searchTerm.toLowerCase())
+            || component.tote.name.toLowerCase().includes(searchTerm.toLowerCase())
+            || component.tote.space.name.toLowerCase().includes(searchTerm.toLowerCase())
+            })
+        setFilteredResults(searchResults)
+    }
 
     const handleSearchSubmit = (e) => {
         e.preventDefault()
-        const searchResults = components.filter(component => {
-            return component.keywords.toLowerCase().includes(searchTerm.toLowerCase()) || component.name.toLowerCase().includes(searchTerm.toLowerCase()) || component.tote.name.toLowerCase().includes(searchTerm.toLowerCase()) || component.tote.space.name.toLowerCase().includes(searchTerm.toLowerCase())
-        })
-        setFilteredResults(searchResults)
+        search(e)
     }
 
     return (
@@ -46,15 +58,14 @@ function Search(props) {
             <TopNavbar/>
             <SideNavbar/>
             <div className="pageContainer text-center">
-                <h1>Search for an item by Keyword</h1>
-                {/*<Button title='search' onClick={searchFunction}/>*/}
+                <h4>Search for an item by keyword, name, or location name.</h4>
                 <div className='row'>
                     <Form onSubmit={handleSearchSubmit}>
                         <FormInput
                             type='text'
-                            placeholder='Enter a keyword to find an item'
+                            placeholder='Enter a keyword, name, or location'
                             value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={search}
                         />
                         <Button type='submit' title='SEARCH' />
                     </Form>
