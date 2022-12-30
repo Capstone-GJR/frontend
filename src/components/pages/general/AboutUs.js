@@ -85,7 +85,7 @@ function AboutUs() {
                     </h3>
                     <div className="pt-2">
                         <img className="detailsImg img-fluid rounded"
-                             src="https://.com/ZuU3G1mMSOqsUx7c8Kui"
+                             src="https://cdn.filestackcontent.com/YHoYce6yTZKF74PpnzDy"
                              alt='Ramaj Johnson'/>
                     </div>
                     <div className="d-flex items-center justify-between max-w-[330px] m-auto py-4 g-4">
@@ -108,7 +108,7 @@ function AboutUs() {
                         </div>
                         <div
                             className="contactButton m-3">
-                            <a href="mailto:ramaj@ramaj.com">
+                            <a href="mailto:Rjohnson3795@gmail.com">
                                 <AiOutlineMail/>
                             </a>
                         </div>
