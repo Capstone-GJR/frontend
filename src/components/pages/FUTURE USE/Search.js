@@ -8,6 +8,8 @@ import Button from "../../buttons/Button";
 import Form from "react-bootstrap/Form";
 import FormInput from "../../forms/FormInput";
 
+//FIXME: As is, you would not be able to edit an item from this section only to view them.
+
 function Search(props) {
 
     const [components, setComponents] = useState([]);
@@ -70,6 +72,8 @@ function Search(props) {
                             <div className="pt-2 text-center">
                                 <p>Value: ${result.value}</p>
                                 <p>Keywords: {result.keywords}</p>
+                                <p>Tote Location: {result.tote.name}</p>
+                                <p>Space Location: {result.tote.space.name}</p>
                             </div>
                         </div>
                     ))}
