@@ -73,7 +73,7 @@ function AllTotesBySpaceId() {
                     <div className="row">
 
                             {components.map((component) => (
-                                <div className="w-50 card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
+                                <div className="col-10 col-md-5 ms-auto me-auto card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
                                     <Link 
                                         to='/allItemsByToteId' 
                                         state={{ tote:component }}

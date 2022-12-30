@@ -57,7 +57,6 @@ function Search(props) {
                             value={searchTerm}
                             onChange={search}
                         />
-                        <Button type='submit' title='SEARCH' />
                     </Form>
                 </div>
                 <div className="row">
