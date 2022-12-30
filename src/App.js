@@ -17,7 +17,6 @@ import Logout from './components/pages/general/Logout';
 import UpdateUser from './components/pages/update/user/UpdateUser';
 import UpdatePassword from './components/pages/update/user/UpdatePassword';
 import AllItemsByToteId from "./components/pages/read/AllItemsByToteId";
-import ItemDetails from "./components/pages/read/ItemDetails";
 import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
 import axios from "axios";
@@ -53,7 +52,6 @@ function App() {
 
                     {/*---- Item Paths ----*/}
                     <Route path='/allItemsByToteId' element={<AllItemsByToteId />}/>
-                    <Route path='/itemDetails' element={<ItemDetails />}/>
                     <Route path='/allItems' element={<AllItemsByUserId />}/>
 
                     {/*---- Extra Features Path ----*/}
