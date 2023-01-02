@@ -24,7 +24,7 @@ import AddComponent from './components/pages/create/AddComponent';
 
 function App() {
 
-    axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
+    axios.defaults.baseURL = "/api/";
 
     return (
         <Router>
