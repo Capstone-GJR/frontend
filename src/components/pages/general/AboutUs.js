@@ -79,7 +79,7 @@ function AboutUs() {
                         </div>
                     </div>
                 </div>
-                <div id="ramaj" className="col-11 col-md-10 col-lg-4 card ms-auto me-auto shadow bg-body rounded mb-5 mt-4 p-2 align-items-center">
+                <div id="ramaj" className="col-11 col-md-10 col-lg-3 card ms-auto me-auto shadow bg-body rounded mb-5 mt-4 p-2 align-items-center">
                     <h3 className="pt-2 text-center">
                         Ramaj Johnson
                     </h3>
