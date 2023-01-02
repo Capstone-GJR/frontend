@@ -32,6 +32,10 @@ a {
     text-decoration: none;
     color: black;
 }
+a:hover {
+    color: #395159;
+    opacity: .8
+}
 
 /* Placeholder font */
 .inputText::placeholder {
@@ -90,22 +94,6 @@ h1,h2,h3,h4,h5 {
 
 .detailsImg {
     max-height: 250px;
-
-}
-.editModal {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    background-color: white;
-    padding: 1rem;
-    text-align: center;
-    width: 50%;
-    max-width: 700px;
-    height: 70vh;
-    z-index: 10;
-    position: fixed;
-    top: 15vh;
-    margin: auto;
-    left: calc(25%);
 }
 
 .contactButton {

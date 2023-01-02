@@ -50,31 +50,6 @@ function LoginForm() {
           })
   }
 
-  // const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     try {
-  //         const res = await axios
-  //             .post
-  //             ('/authenticate', {
-  //                 "email": form.email,
-  //                 "password": form.password
-  //             })
-  //         console.log(res)
-  //         // Private route to access private pages
-  //         localStorage.setItem("access_token", res.headers.authorization);
-  //         // Global axios defaults
-  //         axios.defaults.headers.common['Authorization'] = res.headers.authorization;
-  //         navigate("/allSpaces");
-  //         setForm({email: "", password: ""});
-  //     } catch (error) {
-  //         console.log(error)
-  //         const errorMsg = error.response.data;
-  //         if(errorMsg === "Username not found") setEmailError(errorMsg)
-  //         if(errorMsg === "Incorrect password provided") setPassError(errorMsg)
-  //     }
-  // }
-
-
   return (
     <Form className="text-center">
         <Form.Group className="mb-4" controlId="email">
@@ -104,11 +79,6 @@ function LoginForm() {
                 {passError}
               </Form.Control.Feedback>
         </Form.Group>
-
-        <Link to='#' className='customLink'>
-            <p className='grayText'>Forgot password?</p>
-        </Link>
-
         <Button title="LOGIN" onClick={handleSubmit} />
     </Form>
   )

@@ -5,7 +5,7 @@ import Button from "../../buttons/Button";
 function Welcome() {
   return (
     <div className="container pgContainer">
-      <h1>TRAQURA</h1>
+        <h1>TRAQURA</h1>
 
       <div className="responsiveFs maxWidth600 m-auto text-center">
         Traqura is the smart(er) solution for home inventory and personal
