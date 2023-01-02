@@ -37,7 +37,6 @@ function App() {
                 <Route path='/aboutUs' element={<AboutUs/>}/>
 
                 {/* Private Routes */}
-                {/*<Route element={<PrivateRoutes />}>*/}
                     {/*----User Related Paths----*/}
                     <Route path='/profile' element={<UserProfile/>}/>
                     <Route path='/updateUser' element={<UpdateUser/>}/>

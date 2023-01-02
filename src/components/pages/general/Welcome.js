@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../../buttons/Button";
-
+//ToDO: If logged in, then hide login and register buttons. OR redirect to allSpaces
 function Welcome() {
   return (
     <div className="container pgContainer">
