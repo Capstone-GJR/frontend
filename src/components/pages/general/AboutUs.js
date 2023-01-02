@@ -1,16 +1,22 @@
 import React from 'react'
 import {FaGithub, FaLinkedinIn} from "react-icons/fa";
 import {AiOutlineMail} from "react-icons/ai"
+import {Link} from "react-router-dom";
+import Button from "../../buttons/Button";
 
 function AboutUs() {
 
     return (
         <div className='container'>
-            <div className='row p-3'>
+            <div className='row p-2'>
                 <h1>ABOUT US</h1>
             </div>
             <div className="row mt-3 mb-3 w-auto">
-                <p className="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam consequuntur cumque dignissimos dolore harum ipsum minima temporibus tenetur veritatis. Ipsum itaque nihil officiis vero voluptate. At aut in voluptates.</p>
+                <p className="text-center fs-5">Traqura is the smart(er) solution for home inventory and personal organization. This web app allows users to transform their mobile device into a powerful inventory management tool where they can catalogue their items, their value, and track them via self-assigned locations, storage components, and (optional) QR codes.</p>
+            </div>
+
+            <div className='row mt-5'>
+                <h1 className="text-uppercase">The Developers</h1>
             </div>
             <div className='row'>
             <div id="developerCards" className='d-lg-flex justify-content-lg-evenly'>
@@ -120,6 +126,13 @@ function AboutUs() {
                     </div>
                 </div>
             </div>
+            </div>
+            <div className='row justify-content-center my-2'>
+                <div className='col col-md-8 col-lg-6 ms-auto me-auto'>
+                    <Link to='/'>
+                        <Button title="HOME"/>
+                    </Link>
+                </div>
             </div>
         </div>
     )
