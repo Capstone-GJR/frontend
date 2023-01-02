@@ -6,7 +6,9 @@ function AboutUs() {
 
     return (
         <div className='container'>
-            <div className='row p-3'><h1>ABOUT US</h1></div>
+            <div className='row p-3'>
+                <h1>ABOUT US</h1>
+            </div>
             <div className="row mt-3 mb-3 w-auto">
                 <p className="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam consequuntur cumque dignissimos dolore harum ipsum minima temporibus tenetur veritatis. Ipsum itaque nihil officiis vero voluptate. At aut in voluptates.</p>
             </div>
