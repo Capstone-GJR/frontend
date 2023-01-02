@@ -56,6 +56,15 @@ h1,h2,h3,h4,h5 {
     justify-content: space-evenly;
 }
 
+.pgContainer {
+    min-height: 95vh;
+    margin: 0 auto;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
+}
+
 .margin-0-Auto {
     margin: 0 auto;
 }
@@ -98,4 +107,14 @@ h1,h2,h3,h4,h5 {
     border-radius: 9999px;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     padding: 1.25rem;
+}
+
+.responsiveFs {
+    font-size: large;
+}
+
+@media (max-width: 350px) {
+    .responsiveFs {
+        font-size: medium;
+    }
 }
