@@ -12,7 +12,7 @@ function AboutUs() {
                 <h1>ABOUT US</h1>
             </div>
             <div className="row mt-3 mb-3 w-auto">
-                <p className="text-center fs-5">Traqura is the smart(er) solution for home inventory and personal organization. This web app allows users to transform their mobile device into a powerful inventory management tool where they can catalogue their items, their value, and track them via self-assigned locations, storage components, and (optional) QR codes.</p>
+                <p className="text-center fs-5">Traqura is the smart(er) solution for home inventory and personal organization. This web app allows users to transform their mobile device into a powerful inventory management tool where they can catalogue their items, their value, and track them via self-assigned locations and totes</p>
             </div>
 
             <div className='row mt-5'>
