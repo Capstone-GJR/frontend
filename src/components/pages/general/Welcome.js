@@ -12,21 +12,21 @@ function Welcome() {
         </div>
       </div>
       <div className='row justify-content-center my-2'>
-        <div className='col col-lg-6'>
+        <div className='col col-md-8 col-lg-6 ms-auto me-auto'>
           <Link to='/login'>
             <Button title="LOGIN" />
           </Link>
         </div>
       </div>
       <div className='row justify-content-center my-2'>
-        <div className='col col-lg-6'>
+        <div className='col col-md-8 col-lg-6 ms-auto me-auto'>
           <Link to='/register'>
             <Button title="REGISTER"  />
           </Link>
         </div>
       </div>
         <div className='row justify-content-center my-2'>
-            <div className='col col-lg-6'>
+            <div className='col col-md-8 col-lg-6 ms-auto me-auto'>
                 <Link to='/aboutus'>
                     <Button title="ABOUT US"  />
                 </Link>

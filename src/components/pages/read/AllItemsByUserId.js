@@ -57,7 +57,6 @@ function AllItemsByUserId() {
                 <SideNavbar/>
                 <div className="pageContainer mb-4 pb-3 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
                     <h1 className="mt-5 pt-2">ALL ITEMS</h1>
-
                     <div className="row">
                         {components.map((component) => (
                             <div className="col-10 col-md-5 ms-auto me-auto card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
