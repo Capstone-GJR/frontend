@@ -21,6 +21,11 @@ h1 {
     font-size: 3.75rem;
     margin-top: .5em;
 }
+@media (max-width: 320px) {
+h1 {
+        font-size: 3.00rem;
+    }
+}
 a {
     text-align: center;
     font-size: 1.25rem;

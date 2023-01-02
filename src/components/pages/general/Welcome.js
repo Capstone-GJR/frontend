@@ -7,7 +7,7 @@ function Welcome() {
     <div className="container pgContainer">
       <h1>TRAQURA</h1>
 
-      <div className="responsiveFs maxWidth600 m-auto">
+      <div className="responsiveFs maxWidth600 m-auto text-center">
         Traqura is the smart(er) solution for home inventory and personal
         organization. This web app allows users to transform their mobile device
         into a powerful inventory management tool where they can catalogue their
