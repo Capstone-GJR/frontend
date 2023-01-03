@@ -54,9 +54,8 @@ function UpdatePassword(){
 
     return (
         <div>
-            <div className='container mt-5 pt-3 ms-lg-auto me-lg-auto'>
-                <Navbar />
-                <div className='maxWidth600 margin-0-Auto'>
+                <div className='pgContainer maxWidth600'>
+                    <h1 className="mb-4" >Change your password.</h1>
                     <Form>
                     <FormInput
                             label="Current Password"
@@ -99,7 +98,7 @@ function UpdatePassword(){
                     alertHeading="Password change unsuccessful, try again!"
                 />
             </div>
-        </div>
+
     )
 }
 
