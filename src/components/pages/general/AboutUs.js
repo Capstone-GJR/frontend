@@ -6,21 +6,16 @@ import Navbar from '../../ui/Navbar';
 function AboutUs() {
 
     return (
-        <div className='container'>
-            <Navbar />
-            <div className='row p-2 mt-5'>
-                <h1>ABOUT US</h1>
-            </div>
-            <div className="row mt-3 mb-3 w-auto">
-                <p className="text-center fs-5">Traqura is the smart(er) solution for home inventory and personal organization. This web app allows users to transform their mobile device into a powerful inventory management tool where they can catalogue their items, their value, and track them via self-assigned locations and totes.</p>
-            </div>
-
-            <div className='row mt-5'>
-                <h1 className="text-uppercase">The Developers</h1>
-            </div>
+        <div className='pgContainer'>
+            <h1>ABOUT US</h1>
+            <p className="text-center fs-5">
+                Traqura is the smart(er) solution for home inventory and personal organization. This web app allows users to transform their mobile device into a powerful inventory management tool where they can catalogue their items, their value, and track them via self-assigned locations and totes.
+            </p>
+            <h1>THE DEVELOPERS</h1>
             <div className='row'>
                 <div id="developerCards" className='d-lg-flex justify-content-lg-evenly'>
-                    <div id="greg" className="col-11 col-md-10 maxWidthCard card ms-auto me-auto shadow bg-body rounded mb-5 mt-4 p-2 align-items-center">
+                    <div id="greg"
+                         className="col-11 col-md-10 maxWidthCard card ms-auto me-auto shadow bg-body rounded mb-5 mt-4 p-2 align-items-center">
                         <h3 className="pt-2 text-center">
                             Greg Rodriguez Jr.
                         </h3>
@@ -55,7 +50,8 @@ function AboutUs() {
                             </div>
                         </div>
                     </div>
-                    <div id="jenny" className="col-11 col-md-10 maxWidthCard card ms-auto me-auto shadow bg-body rounded mb-5 mt-4 p-2 align-items-center">
+                    <div id="jenny"
+                         className="col-11 col-md-10 maxWidthCard card ms-auto me-auto shadow bg-body rounded mb-5 mt-4 p-2 align-items-center">
                         <h3 className="pt-2 text-center">
                             Jenny Austin
                         </h3>
@@ -90,7 +86,8 @@ function AboutUs() {
                             </div>
                         </div>
                     </div>
-                    <div id="ramaj" className="col-11 col-md-10 maxWidthCard card ms-auto me-auto shadow bg-body rounded mb-5 mt-4 p-2 align-items-center">
+                    <div id="ramaj"
+                         className="col-11 col-md-10 maxWidthCard card ms-auto me-auto shadow bg-body rounded mb-5 mt-4 p-2 align-items-center">
                         <h3 className="pt-2 text-center">
                             Ramaj Johnson
                         </h3>

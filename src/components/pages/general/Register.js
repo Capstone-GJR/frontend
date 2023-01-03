@@ -4,7 +4,7 @@ import RegisterForm from "../../forms/RegisterForm";
 
 function Register() {
     return (
-        <div className="container pgContainer maxWidth600">
+        <div className="pgContainer maxWidth600">
             <h1>TRAQURA</h1>
             <h6 className="my-4">SIGN UP FOR A NEW ACCOUNT</h6>
             <RegisterForm/>
