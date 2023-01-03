@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import TopNavbar from "../../navbar/TopNavbar";
-import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link, useLocation} from 'react-router-dom';
 import {axiosRequest} from '../../util/HelperFunctions';
-import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
-import SideNavbar from '../../navbar/SideNavbar';
 import UpdateComponent from '../update/UpdateComponent';
+import Navbar from '../../ui/Navbar';
 
 function AllItemsByToteId() {
 
@@ -60,9 +57,6 @@ function AllItemsByToteId() {
     } else {
         return (
             <>
-                <LargeNavbar pageName="All Items"/>
-                <TopNavbar pageName="All Items"/>
-                <SideNavbar/>
                 <div className="pageContainer mb-4 pb-3 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
                     <h1 className="mt-5 pt-2">{location.state.tote.name}</h1>
                     <Link
@@ -91,12 +85,10 @@ function AllItemsByToteId() {
                                 </div>
 
                                 <Button onClick={() => handleEditClick(component)} title='EDIT ITEM'/>
-
                             </div>
                         ))}
                     </div>
                 </div>
-                <BottomNavbar/>
             </>
         )
     }

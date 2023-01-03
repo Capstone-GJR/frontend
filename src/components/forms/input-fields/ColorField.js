@@ -6,7 +6,7 @@ function ColorField(props){
     return (
         <Form.Group className="mb-4 " controlId="color">
             <Form.Label>Color</Form.Label>
-            <Form.Control className="p-3 inputText w-50"
+            <Form.Control className="p-3 inputText w-50 maxWidthInput"
                           type={props.type}
                           placeholder={props.placeholder}
                           value={props.value}

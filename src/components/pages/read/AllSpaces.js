@@ -1,14 +1,9 @@
 import {useEffect, useState} from 'react';
-import TopNavbar from "../../navbar/TopNavbar";
-import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link} from "react-router-dom";
-import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
 import { axiosRequest } from '../../util/HelperFunctions';
-import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
-import {MdQrCodeScanner} from "react-icons/md";
-import SideNavbar from "../../navbar/SideNavbar";
 import UpdateComponent from '../update/UpdateComponent';
+import Navbar from '../../ui/Navbar'
 
 function AllSpaces() {
     //ToDo: Display error message if unable to load data?
@@ -56,13 +51,9 @@ function AllSpaces() {
     } else {
         return (
             <div>
-                <LargeNavbar pageName="All Spaces"/>
-                <TopNavbar pageName="All Spaces"/>
-                <SideNavbar/>
-
-                <div className="pageContainer mt-4 pt-5 mb-5 pb-5 me-lg-auto ms-lg-auto mb-md-0">
+                <div className="pgContainer">
+                    <h1>ALL SPACES</h1>
                 <Link
-                    className="mt-lg-2"
                     to="/addComponent"
                     state={{
                         stateObj:stateObj
@@ -70,7 +61,7 @@ function AllSpaces() {
                     >
                     <Button title="ADD A SPACE"/>
                 </Link>
-                <div className="row">
+                <div className="d-flex flex-wrap">
                     {components.map((component) => (
                         <div className="col-10 col-md-5 ms-auto me-auto card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
                             <Link
@@ -87,7 +78,6 @@ function AllSpaces() {
                     ))}
                 </div>
                 </div>
-                <BottomNavbar/>
             </div>
         )
     }

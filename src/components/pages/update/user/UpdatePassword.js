@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import TopNavbar from "../../../navbar/TopNavbar";
-import BottomNavbar from "../../../navbar/BottomNavbar";
-import LargeNavbar from "../../../navbar/LargeNavbar";
 import { Form } from 'react-bootstrap';
 import FormInput from '../../../forms/FormInput';
 import Button from '../../../buttons/Button';
@@ -9,7 +6,8 @@ import { AuthZHeader, checkPassword } from '../../../util/HelperFunctions';
 import CustomAlert from '../../../buttons/CustomAlert';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import SideNavbar from "../../../navbar/SideNavbar";
+import Navbar from '../../../ui/Navbar';
+
 
 function UpdatePassword(){
     const [showAlert, setShowAlert] = useState(false);
@@ -56,11 +54,8 @@ function UpdatePassword(){
 
     return (
         <div>
-            <LargeNavbar pageName="Update Password"/>
-            <TopNavbar pageName="Update Password"/>
-            <SideNavbar/>
-            <div className='container mt-5 pt-3 ms-lg-auto me-lg-auto'>
-                <div className='maxWidth600 margin-0-Auto'>
+                <div className='pgContainer maxWidth600'>
+                    <h1 className="mb-4" >Change your password.</h1>
                     <Form>
                     <FormInput
                             label="Current Password"
@@ -103,8 +98,7 @@ function UpdatePassword(){
                     alertHeading="Password change unsuccessful, try again!"
                 />
             </div>
-            <BottomNavbar/>
-        </div>
+
     )
 }
 

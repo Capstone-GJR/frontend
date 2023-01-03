@@ -1,13 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import TopNavbar from "../../navbar/TopNavbar";
-import BottomNavbar from "../../navbar/BottomNavbar";
-import LargeNavbar from "../../navbar/LargeNavbar";
-import {Link, useLocation} from "react-router-dom";
-import axios from "axios";
-import {AuthZHeader, axiosRequest} from "../../util/HelperFunctions";
-import SideNavbar from "../../navbar/SideNavbar";
+import {useLocation} from "react-router-dom";
+import {axiosRequest} from "../../util/HelperFunctions";
 import UpdateComponent from "../update/UpdateComponent";
 import Button from "../../buttons/Button";
+import Navbar from '../../ui/Navbar';
 
 function AllItemsByUserId() {
 
@@ -52,9 +48,6 @@ function AllItemsByUserId() {
     } else {
         return (
             <>
-                <LargeNavbar pageName="All Items"/>
-                <TopNavbar pageName="All Items"/>
-                <SideNavbar/>
                 <div className="pageContainer mb-4 pb-3 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
                     <h1 className="mt-5 pt-2">ALL ITEMS</h1>
                     <div className="row">
@@ -77,7 +70,6 @@ function AllItemsByUserId() {
                         ))}
                     </div>
                 </div>
-                <BottomNavbar/>
             </>
         )
     }

@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import TopNavbar from "../../navbar/TopNavbar";
-import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link, useLocation} from "react-router-dom";
 import {axiosRequest} from '../../util/HelperFunctions';
-import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
-import SideNavbar from "../../navbar/SideNavbar";
 import UpdateComponent from '../update/UpdateComponent';
+import Navbar from '../../ui/Navbar';
 
 function AllTotesBySpaceId() {
 
@@ -56,9 +53,6 @@ function AllTotesBySpaceId() {
     } else {
         return (
             <div>
-                <LargeNavbar pageName="All Totes"/>
-                <TopNavbar pageName="All Totes"/>
-                <SideNavbar/>
                 <h1 className="mt-5 pt-2">{location.state.space.name}</h1>
                 <div className="pageContainer mb-5 pb-5 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
                     <Link
@@ -90,7 +84,6 @@ function AllTotesBySpaceId() {
                             ))}
                     </div>
                 </div>
-                <BottomNavbar/>
             </div>
         )
     }
