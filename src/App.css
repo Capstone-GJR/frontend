@@ -68,7 +68,7 @@ h1,h2,h3,h4,h5, h6 {
 .pgContainer {
     min-height: 95vh;
     margin: 0 auto;
-    padding: 1em;
+    padding: 3em 1em 1em 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
