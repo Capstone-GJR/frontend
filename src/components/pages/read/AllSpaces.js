@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import Button from "../../buttons/Button";
 import { axiosRequest } from '../../util/HelperFunctions';
 import UpdateComponent from '../update/UpdateComponent';
+import Navbar from '../../ui/Navbar'
 
 function AllSpaces() {
     //ToDo: Display error message if unable to load data?
@@ -51,6 +52,7 @@ function AllSpaces() {
         return (
             <div>
                 <div className="pageContainer mt-4 pt-5 mb-5 pb-5 me-lg-auto ms-lg-auto mb-md-0">
+                <Navbar />
                 <Link
                     className="mt-lg-2"
                     to="/addComponent"

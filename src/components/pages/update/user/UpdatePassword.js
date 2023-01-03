@@ -6,6 +6,7 @@ import { AuthZHeader, checkPassword } from '../../../util/HelperFunctions';
 import CustomAlert from '../../../buttons/CustomAlert';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../../ui/Navbar';
 
 
 function UpdatePassword(){
@@ -54,6 +55,7 @@ function UpdatePassword(){
     return (
         <div>
             <div className='container mt-5 pt-3 ms-lg-auto me-lg-auto'>
+                <Navbar />
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
                     <FormInput

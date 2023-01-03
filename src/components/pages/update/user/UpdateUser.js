@@ -6,6 +6,7 @@ import Button from '../../../buttons/Button';
 import axios from 'axios';
 import { AuthZHeader } from '../../../util/HelperFunctions';
 import CustomAlert from '../../../buttons/CustomAlert'
+import Navbar from '../../../ui/Navbar';
 
 
 function UpdateUser(){
@@ -62,6 +63,7 @@ function UpdateUser(){
     return (
         <>
             <div className='container mb-5 me-lg-auto ms-lg-auto mt-5 pt-3'>
+                <Navbar />
                 <div className='maxWidth600 margin-0-Auto'>
                     <Form>
                         <FormInput
