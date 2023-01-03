@@ -15,10 +15,10 @@ function FormInput({
 
   return (
     <Form.Group  
-      className="my-3" 
+      className="mb-3"
       controlId={id}
     >
-      <Form.Label className="p-1 mx-3">{label}</Form.Label>
+      <Form.Label className="mx-1">{label}</Form.Label>
       <Form.Control className="p-3 inputText" 
         type={type} 
         placeholder={placeholder} 
