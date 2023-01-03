@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const Navbar = props => {
 
     return (
+        <div className="pb-5">
         <nav className="navbar navbar-dark bg-dark fixed-top">
             <div className='container-fluid'>
                 <a className="navbar-brand" href="/">Traqura</a>
@@ -64,6 +65,7 @@ const Navbar = props => {
                 </div>
             </div>
         </nav>
+        </div>
     );
 
 

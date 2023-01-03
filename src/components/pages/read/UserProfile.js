@@ -50,7 +50,7 @@ function Profile(){
                     <div className="d-flex-col">
                         <div className="h3 m-3"><b>First Name: </b> {profile.firstName}</div>
                         <div className="h3 m-3"><b>Last Name: </b> {profile.lastName}</div>
-                        <div className="h3 m-3"><b>email: </b> {profile.email}</div>
+                        <div className="h3 m-3"><b>Email: </b> {profile.email}</div>
                 </div>
                 <div>
                     <CustomAlert
