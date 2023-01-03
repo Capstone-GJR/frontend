@@ -21,6 +21,7 @@ const AllTheThings = props => {
                 componentType='space'
                 axiosUrl={`/space/all`}
                 locationStateObj={spaceLocationStateObj}
+                imgLinkTo='/allTotesBySpace'
 
             />
             {/*<AllView*/}
