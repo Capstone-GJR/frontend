@@ -21,6 +21,7 @@ import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
 import axios from "axios";
 import AddComponent from './components/pages/create/AddComponent';
+import AllTheThings from "./components/pages/read/AllTheThings";
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
 
                     {/*---- Spaces Paths ----*/}
                     <Route path='/allSpaces' element={<AllSpaces/>}/>
+                    <Route path='/allTheThings' element={<AllTheThings />}/>
 
                     {/*---- Totes Paths ----*/}
                     <Route path='/allTotesBySpace' element={<AllTotesBySpaceId/>}/>
