@@ -1,5 +1,9 @@
 import AllView from "../../AllView";
 
+const locationStateObj = {
+    componentType: 'space',
+    addUrl: `/space/add`
+}
 
 function AllSpaces() {
   return (
@@ -7,6 +11,7 @@ function AllSpaces() {
       componentType="space"
       axiosUrl="/space/all"
       imgLinkTo="/allTotesBySpace"
+      locationsStateObj={{locationStateObj}}
       />
   )
 }

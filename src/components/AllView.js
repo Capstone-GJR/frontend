@@ -27,10 +27,11 @@ const AllView = props => {
     }, [ShowSettings])
 
     // Object to pass using useLocation for adding a new space to dynamic add page/add form
-    const stateObj = {
-        componentType: `${componentType}`,
-        addUrl: `/${componentType}/add`
-    }
+    // const stateObj = {
+    //     componentType: `${componentType}`,
+    //     addUrl: `/${componentType}/add`,
+    // `${componentType}`: `${location.state.componentType}`
+    // }
 
     // set props object to pass data to updating details/page and update form
     const handleEditClick = (component) => {
@@ -57,9 +58,7 @@ const AllView = props => {
                     <Link
                         className="mt-lg-2"
                         to="/addComponent"
-                        state={{
-                            stateObj: stateObj
-                        }}
+                        state={props.locationStateObj}
                     >
                         <Button title={`ADD A ${componentTypeUC}`}/>
                     </Link>
