@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useLocation} from "react-router-dom";
-import axios from "axios";
-import {AuthZHeader, axiosRequest} from "../../util/HelperFunctions";
+import {useLocation} from "react-router-dom";
+import {axiosRequest} from "../../util/HelperFunctions";
 import UpdateComponent from "../update/UpdateComponent";
 import Button from "../../buttons/Button";
+import Navbar from '../../ui/Navbar';
 
 function AllItemsByUserId() {
 
@@ -49,6 +49,7 @@ function AllItemsByUserId() {
         return (
             <>
                 <div className="pageContainer mb-4 pb-3 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
+                    <Navbar />
                     <h1 className="mt-5 pt-2">ALL ITEMS</h1>
                     <div className="row">
                         {components.map((component) => (

@@ -2,6 +2,7 @@ import React from 'react';
 import { axiosRequest } from '../../util/HelperFunctions';
 import EditForm from '../../forms/EditForm';
 import Button from "../../buttons/Button";
+import Navbar from '../../ui/Navbar';
 
 function UpdateComponent(props){
 
@@ -18,6 +19,8 @@ function UpdateComponent(props){
     return (
         <>
             <div className="pageContainer p-3 mt-5 me-lg-auto ms-lg-auto  pb-5 mb-5 mb-md-3 pb-md-3">
+                <Navbar />
+                <div>
                 <div className="ms-auto me-auto">
                     <h2>{props.userObject.component.name}</h2>
                     <p >Keywords: {props.userObject.component.keywords}</p>

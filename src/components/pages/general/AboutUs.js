@@ -1,13 +1,14 @@
 import React from 'react'
 import {FaGithub, FaLinkedinIn} from "react-icons/fa";
 import {AiOutlineMail} from "react-icons/ai"
-import {Link} from "react-router-dom";
-import Button from "../../buttons/Button";
+import Navbar from '../../ui/Navbar';
 
 function AboutUs() {
 
     return (
         <div className='container'>
+            <Navbar />
+            <div className='row p-2'>
             <div className='row p-2 mt-5'>
                 <h1>ABOUT US</h1>
             </div>
@@ -126,13 +127,6 @@ function AboutUs() {
                     </div>
                 </div>
             </div>
-            </div>
-            <div className='row justify-content-center my-2'>
-                <div className='col col-md-8 col-lg-6 ms-auto me-auto'>
-                    <Link to='/'>
-                        <Button title="HOME"/>
-                    </Link>
-                </div>
             </div>
         </div>
     )

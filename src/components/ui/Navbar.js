@@ -1,6 +1,7 @@
 import "./Navbar.css"
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
 import React from "react";
+import { Link } from "react-router-dom";
 
 //TODO: Adjust navbar for large screen size.
 
@@ -23,40 +24,40 @@ const Navbar = props => {
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-center flex-grow-1">
                             <li className="nav-item">
-                                <a className="nav-link" href="/allSpaces">
+                                <Link className="nav-link" to="/allSpaces">
                                     <CiBoxes size={20}/>
                                     <p>Spaces</p>
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/allItems">
+                                <Link className="nav-link" to="/allItems">
                                     <CiShoppingTag size={20}/>
                                     <p>All Items</p>
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/search">
+                                <Link className="nav-link" to="/search">
                                     <CiSearch size={20}/>
                                     <p>Search</p>
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/Profile">
+                                <Link className="nav-link" to="/Profile">
                                     <CiUser size={20}/>
                                     <p>Profile</p>
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/logout">
+                                <Link className="nav-link" to="/logout">
                                     <CiUser size={20}/>
                                     <p onClick={() => localStorage.removeItem("access_token")}>Log out</p>
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/aboutUs">
+                                <Link className="nav-link" to="/aboutUs">
                                     <CiUser size={20}/>
                                     <p>About us</p>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

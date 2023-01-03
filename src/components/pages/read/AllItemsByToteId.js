@@ -3,6 +3,7 @@ import {Link, useLocation} from 'react-router-dom';
 import {axiosRequest} from '../../util/HelperFunctions';
 import Button from "../../buttons/Button";
 import UpdateComponent from '../update/UpdateComponent';
+import Navbar from '../../ui/Navbar';
 
 function AllItemsByToteId() {
 
@@ -57,6 +58,7 @@ function AllItemsByToteId() {
         return (
             <>
                 <div className="pageContainer mb-4 pb-3 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
+                    <Navbar />
                     <h1 className="mt-5 pt-2">{location.state.tote.name}</h1>
                     <Link
                         className="mt-lg-2"
