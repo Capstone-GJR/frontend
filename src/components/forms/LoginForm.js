@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import Form from "react-bootstrap/Form";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../buttons/Button';
 
 function LoginForm() {
