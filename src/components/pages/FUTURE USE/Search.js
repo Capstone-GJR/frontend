@@ -43,10 +43,8 @@ function Search(props) {
   return (
     <div className="pgContainer">
       <div className="partialPgContainer">
-
       <h1>SEARCH</h1>
       <h4>Search for an item by keyword, name, or location name.</h4>
-
           <Form>
             <FormInput
                 type="text"
@@ -56,7 +54,6 @@ function Search(props) {
             />
           </Form>
         </div>
-
 
       <div className="">
         {filterResults.map((result) => (
