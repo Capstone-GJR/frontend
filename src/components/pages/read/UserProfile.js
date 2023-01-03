@@ -1,14 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState} from "react";
-import LargeNavbar from "../../navbar/LargeNavbar";
-import TopNavbar from "../../navbar/TopNavbar";
-import BottomNavbar from "../../navbar/BottomNavbar";
 import Button from "../../buttons/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthZHeader, removeAuthZ } from "../../util/HelperFunctions";
 import CustomAlert from "../../buttons/CustomAlert";
 import ConfirmBox from "../../buttons/ConfirmBox";
-import SideNavbar from "../../navbar/SideNavbar";
+
 
 function Profile(){
     const [profile, setProfile] = useState({});
@@ -47,9 +44,6 @@ function Profile(){
 
     return (
         <>
-            <LargeNavbar pageName="Profile"/>
-            <TopNavbar/>
-            <SideNavbar/>
             <div className="container me-lg-0 pe-lg-0 mt-lg-3">
                 <div className="pageContainer mb-5 pb-5 pb-5 me-lg-auto pe-lg-0 ms-lg-auto mb-md-0 d-flex justify-content-center">
                     <h1 className="text-center mb-2">Hello {profile.firstName}!</h1>
@@ -86,7 +80,6 @@ function Profile(){
                 </div>
             </div>
             </div>
-            <BottomNavbar/>
         </>
     )
 } // Profile function

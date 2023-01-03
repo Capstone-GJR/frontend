@@ -1,8 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import TopNavbar from "../../navbar/TopNavbar";
-import BottomNavbar from "../../navbar/BottomNavbar";
-import LargeNavbar from "../../navbar/LargeNavbar";
-import SideNavbar from "../../navbar/SideNavbar";
 import {axiosRequest} from "../../util/HelperFunctions";
 import Button from "../../buttons/Button";
 import Form from "react-bootstrap/Form";
@@ -44,9 +40,6 @@ function Search(props) {
 
     return (
         <div>
-            <LargeNavbar pageName="Search"/>
-            <TopNavbar/>
-            <SideNavbar/>
             <div className="pageContainer text-center">
                 <h4>Search for an item by keyword, name, or location name.</h4>
                 <div className='row'>
@@ -79,7 +72,6 @@ function Search(props) {
                     ))}
                 </div>
             </div>
-            <BottomNavbar/>
         </div>
 
     )

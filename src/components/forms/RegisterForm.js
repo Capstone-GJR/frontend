@@ -4,6 +4,7 @@ import Button from "../buttons/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+//TODO: Error Handling for if email is already in use
 function RegisterForm() {
   const navigate = useNavigate();
   const [form, setForm] = 
@@ -84,7 +85,7 @@ function RegisterForm() {
   return (
     <Form>
       <Form.Group className="mb-3" controlId="firstName">
-        <Form.Label className="p-1 mx-3" >FIRST NAME</Form.Label>
+        <Form.Label className="mx-1" >FIRST NAME</Form.Label>
         <Form.Control 
           className="p-3 inputText" 
           type="text" 
@@ -99,9 +100,9 @@ function RegisterForm() {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="lastName">
-        <Form.Label className="p-1 mx-3" >LAST NAME</Form.Label>
+        <Form.Label className="mx-1" >LAST NAME</Form.Label>
         <Form.Control 
-          className="p-3 inputText" 
+          className="p-3 inputText"
           type="text" 
           placeholder="last name" 
           value={form.lastName}
@@ -114,7 +115,7 @@ function RegisterForm() {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="email">
-        <Form.Label className="p-1 mx-3" >EMAIL</Form.Label>
+        <Form.Label className="mx-1" >EMAIL</Form.Label>
         <Form.Control 
           className="p-3 inputText" 
           type="email" 
@@ -129,7 +130,7 @@ function RegisterForm() {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="password">
-        <Form.Label className="p-1 mx-3">PASSWORD</Form.Label>
+        <Form.Label className="mx-1">PASSWORD</Form.Label>
         <Form.Control 
           className="p-3 inputText" 
           type="password" 
@@ -144,7 +145,7 @@ function RegisterForm() {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="password2">
-        <Form.Label className="p-1 mx-3">CONFIRM PASSWORD</Form.Label>
+        <Form.Label className="mx-1">CONFIRM PASSWORD</Form.Label>
         <Form.Control 
           className="p-3 inputText" 
           type="password" 

@@ -24,7 +24,7 @@ import AddComponent from './components/pages/create/AddComponent';
 
 function App() {
 
-    axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
+    axios.defaults.baseURL = "/api/";
 
     return (
         <Router>
@@ -37,7 +37,6 @@ function App() {
                 <Route path='/aboutUs' element={<AboutUs/>}/>
 
                 {/* Private Routes */}
-                {/*<Route element={<PrivateRoutes />}>*/}
                     {/*----User Related Paths----*/}
                     <Route path='/profile' element={<UserProfile/>}/>
                     <Route path='/updateUser' element={<UpdateUser/>}/>
