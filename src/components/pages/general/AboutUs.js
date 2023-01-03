@@ -26,7 +26,7 @@ function AboutUs() {
                         </div>
                         <div className="d-flex items-center justify-between max-w-[330px] py-4 g-4">
                             <div
-                                className="contactButton m-3 m-lg-2">
+                                className="contactButton m-2 m-lg-2">
                                 <a target="_blank"
                                    rel="noreferrer"
                                    href="https://www.linkedin.com/in/gregrodriguezjr/"
@@ -35,7 +35,7 @@ function AboutUs() {
                                 </a>
                             </div>
                             <div
-                                className="contactButton m-3 m-lg-2">
+                                className="contactButton m-2 m-lg-2">
                                 <a target="_blank"
                                    rel="noreferrer"
                                    href="https://www.github.com/GregRodriguezJr">
@@ -43,7 +43,7 @@ function AboutUs() {
                                 </a>
                             </div>
                             <div
-                                className="contactButton m-3 m-lg-2">
+                                className="contactButton m-2 m-lg-2">
                                 <a href="mailto:greg.rodriguez@outlook.com">
                                     <AiOutlineMail/>
                                 </a>
@@ -62,7 +62,7 @@ function AboutUs() {
                         </div>
                         <div className="d-flex items-center justify-between max-w-[330px] m-auto py-4 g-4">
                             <div
-                                className="contactButton m-3 m-lg-2">
+                                className="contactButton m-2 m-lg-2">
                                 <a target="_blank"
                                    rel="noreferrer"
                                    href="https://www.linkedin.com/in/jennynicoleaustin/"
@@ -71,7 +71,7 @@ function AboutUs() {
                                 </a>
                             </div>
                             <div
-                                className="contactButton m-3 m-lg-2">
+                                className="contactButton m-2 m-lg-2">
                                 <a target="_blank"
                                    rel="noreferrer"
                                    href="https://www.github.com/jennynicoleaustin">
@@ -79,7 +79,7 @@ function AboutUs() {
                                 </a>
                             </div>
                             <div
-                                className="contactButton m-3 m-lg-2">
+                                className="contactButton m-2 m-lg-2">
                                 <a href="mailto:jennynicoleaustin@gmail.com">
                                     <AiOutlineMail/>
                                 </a>
@@ -98,7 +98,7 @@ function AboutUs() {
                         </div>
                         <div className="d-flex items-center justify-between max-w-[330px] m-auto py-4 g-4">
                             <div
-                                className="contactButton m-3 m-lg-2">
+                                className="contactButton m-2 m-lg-2">
                                 <a target="_blank"
                                    rel="noreferrer"
                                    href="https://www.linkedin.com/in/ramajjohnson/"
@@ -107,7 +107,7 @@ function AboutUs() {
                                 </a>
                             </div>
                             <div
-                                className="contactButton m-3 m-lg-2">
+                                className="contactButton m-2 m-lg-2">
                                 <a target="_blank"
                                    rel="noreferrer"
                                    href="https://www.github.com/ShivaSamadhi">
@@ -115,7 +115,7 @@ function AboutUs() {
                                 </a>
                             </div>
                             <div
-                                className="contactButton m-3 m-lg-2">
+                                className="contactButton m-2 m-lg-2">
                                 <a href="mailto:Rjohnson3795@gmail.com">
                                     <AiOutlineMail/>
                                 </a>
