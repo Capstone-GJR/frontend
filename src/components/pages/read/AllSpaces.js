@@ -1,13 +1,7 @@
 import {useEffect, useState} from 'react';
-import TopNavbar from "../../navbar/TopNavbar";
-import BottomNavbar from "../../navbar/BottomNavbar";
 import {Link} from "react-router-dom";
-import LargeNavbar from "../../navbar/LargeNavbar";
 import Button from "../../buttons/Button";
 import { axiosRequest } from '../../util/HelperFunctions';
-import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
-import {MdQrCodeScanner} from "react-icons/md";
-import SideNavbar from "../../navbar/SideNavbar";
 import UpdateComponent from '../update/UpdateComponent';
 
 function AllSpaces() {
@@ -56,10 +50,6 @@ function AllSpaces() {
     } else {
         return (
             <div>
-                <LargeNavbar pageName="All Spaces"/>
-                <TopNavbar pageName="All Spaces"/>
-                <SideNavbar/>
-
                 <div className="pageContainer mt-4 pt-5 mb-5 pb-5 me-lg-auto ms-lg-auto mb-md-0">
                 <Link
                     className="mt-lg-2"
@@ -87,7 +77,6 @@ function AllSpaces() {
                     ))}
                 </div>
                 </div>
-                <BottomNavbar/>
             </div>
         )
     }
