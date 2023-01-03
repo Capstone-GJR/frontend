@@ -51,10 +51,9 @@ function AllSpaces() {
     } else {
         return (
             <div>
-                <div className="pageContainer mt-4 pt-5 mb-5 pb-5 me-lg-auto ms-lg-auto mb-md-0">
-                <Navbar />
+                <div className="pgContainer">
+                    <h1>ALL SPACES</h1>
                 <Link
-                    className="mt-lg-2"
                     to="/addComponent"
                     state={{
                         stateObj:stateObj
@@ -62,7 +61,7 @@ function AllSpaces() {
                     >
                     <Button title="ADD A SPACE"/>
                 </Link>
-                <div className="row">
+                <div className="d-flex flex-wrap">
                     {components.map((component) => (
                         <div className="col-10 col-md-5 ms-auto me-auto card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
                             <Link

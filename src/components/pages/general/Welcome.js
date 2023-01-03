@@ -6,7 +6,6 @@ import Navbar from "../../ui/Navbar";
 function Welcome() {
   return (
     <div className="pgContainer">
-        <Navbar />
         <h1>TRAQURA</h1>
 
       <div className="responsiveFs maxWidth600 m-auto text-center">

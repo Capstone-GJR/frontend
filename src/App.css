@@ -21,9 +21,9 @@ h1 {
     font-size: 3.75rem;
     margin-top: .5em;
 }
-@media (max-width: 320px) {
+@media (max-width: 375px) {
 h1 {
-        font-size: 3.00rem;
+        font-size: 2.75rem;
     }
 }
 a {
@@ -68,17 +68,24 @@ h1,h2,h3,h4,h5, h6 {
 .pgContainer {
     min-height: 95vh;
     margin: 0 auto;
-    padding: 1em;
+    padding: 3em 1em 1em 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    overflow: auto;
 }
 
 .margin-0-Auto {
     margin: 0 auto;
 }
+.partialPgContainer {
+    margin: 0 auto;
+    padding: 3em 1em 1em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 600px;
 
+}
 .maxWidth600 {
     max-width: 600px;
 }

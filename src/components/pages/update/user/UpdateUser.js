@@ -61,10 +61,8 @@ function UpdateUser(){
     }
     
     return (
-        <>
-            <div className='container mb-5 me-lg-auto ms-lg-auto mt-5 pt-3'>
-                <Navbar />
-                <div className='maxWidth600 margin-0-Auto'>
+            <div className='pgContainer maxWidth600'>
+                <h1 className="mb-5" >Edit {defaultFname}'s Profile!</h1>
                     <Form>
                         <FormInput
                             label="FIRST NAME"
@@ -91,10 +89,11 @@ function UpdateUser(){
                             onChange={(e) => setField("email", e.target.value)}
                             isInvalid={!!inputErrors}
                         />
-                        <Button title='SUBMIT EDIT' onClick={handleSubmit} />
-                        <Link to='/profile'><Button title='RETURN TO PROFILE' /></Link>
+                        <div className="mt-4">
+                            <Button title='SUBMIT EDIT' onClick={handleSubmit} />
+                            <Link to='/profile'><Button title='RETURN TO PROFILE' /></Link>
+                        </div>
                     </Form>
-                </div>
                 <CustomAlert
                     showAlert={showAlert}
                     alertVariant="success"
@@ -105,8 +104,8 @@ function UpdateUser(){
                     alertVariant="danger"
                     alertHeading="Something went wrong, please try again!"
                 />
-            </div>
-        </>
+                </div>
+
     )
 }
 

@@ -45,7 +45,6 @@ function Profile() {
 
     return (
             <div className="pgContainer maxWidth600">
-                <Navbar/>
                 <h1>Hello {profile.firstName}!</h1>
                 <div className="d-flex-col">
                     <div className="h3 m-3"><b>First Name: </b> {profile.firstName}</div>

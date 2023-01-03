@@ -41,20 +41,21 @@ function Search(props) {
   };
 
   return (
-    <div className="pageContainer text-center">
-      <Navbar />
+    <div className="pgContainer">
+      <div className="partialPgContainer">
+      <h1>SEARCH</h1>
       <h4>Search for an item by keyword, name, or location name.</h4>
-      <div className="row">
-        <Form>
-          <FormInput
-            type="text"
-            placeholder="Enter a keyword, name, or location"
-            value={searchTerm}
-            onChange={search}
-          />
-        </Form>
-      </div>
-      <div className="row">
+          <Form>
+            <FormInput
+                type="text"
+                placeholder="Enter a keyword, name, or location"
+                value={searchTerm}
+                onChange={search}
+            />
+          </Form>
+        </div>
+
+      <div className="">
         {filterResults.map((result) => (
           <div
             className="w-50 card shadow bg-body rounded mb-5 mt-4 p-2"
