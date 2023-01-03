@@ -81,11 +81,6 @@ function EditForm(props){
                 value={form.name}
                 onChange={(e) => setField("name", e.target.value)}
             />
-            <ColorField
-                type="color"
-                value={form.color}
-                onChange={(e) => setField("color", e.target.value)}
-            />
             {!uploadComplete ?
                 <div className="picker">
                     <Button title='Choose Image' onClick={openPicker}/>

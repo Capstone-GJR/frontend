@@ -1,7 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
 import AddForm from '../../forms/AddForm';
-import Navbar from '../../ui/Navbar';
 
 
 const AddComponent = () => {
