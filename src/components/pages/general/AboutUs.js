@@ -8,7 +8,7 @@ function AboutUs() {
 
     return (
         <div className='container'>
-            <div className='row p-2'>
+            <div className='row p-2 mt-5'>
                 <h1>ABOUT US</h1>
             </div>
             <div className="row mt-3 mb-3 w-auto">
