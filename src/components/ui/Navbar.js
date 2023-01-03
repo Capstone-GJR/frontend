@@ -11,7 +11,7 @@ const Navbar = props => {
         <div className="pb-5">
         <nav className="navbar navbar-dark bg-dark fixed-top">
             <div className='container-fluid'>
-                <a className="navbar-brand" href="/">Traqura</a>
+                <a className="navbar-brand" href="/allSpaces">Traqura</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                     <span className="navbar-toggler-icon"></span>
