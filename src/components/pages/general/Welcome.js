@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../../buttons/Button";
+import Navbar from "../../ui/Navbar";
 //ToDO: If logged in, then hide login and register buttons. OR redirect to allSpaces
 function Welcome() {
   return (
-    <div className="container pgContainer">
+    <div className="pgContainer">
+        <Navbar />
         <h1>TRAQURA</h1>
 
       <div className="responsiveFs maxWidth600 m-auto text-center">
