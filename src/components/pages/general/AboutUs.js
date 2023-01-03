@@ -20,7 +20,7 @@ function AboutUs() {
             </div>
             <div className='row'>
             <div id="developerCards" className='d-lg-flex justify-content-lg-evenly'>
-                <div id="greg" className="col-11 col-md-10 maxWidthCard  card ms-auto me-auto shadow bg-body rounded mb-5 mt-4 p-2 align-items-center">
+                <div id="greg" className="col-11 col-md-10 maxWidthCard card ms-auto me-auto shadow bg-body rounded mb-5 mt-4 p-2 align-items-center">
                     <h3 className="pt-2 text-center">
                         Greg Rodriguez Jr.
                     </h3>

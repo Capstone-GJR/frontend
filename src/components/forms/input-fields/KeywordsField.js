@@ -6,7 +6,7 @@ function KeywordsField(props){
     return (
         <Form.Group className="mb-4" controlId="color">
             <Form.Label>Keywords</Form.Label>
-            <Form.Control className="p-3 inputText"
+            <Form.Control className="p-3 inputText maxWidthInput"
                           type={props.type}
                           placeholder={props.placeholder}
                           value={props.value}
