@@ -35,7 +35,7 @@ function RegisterForm() {
     })
   }
   
-  const validateForm = () => {
+  const validateForm = (emailMsg) => {
     const { firstName, lastName, email, password, password2 } = form;
     const newErrors = {}
 
@@ -45,6 +45,7 @@ function RegisterForm() {
     else if (!password || password === '') newErrors.password = blankErrorMsg
     else if (!password2 || password2 === '') newErrors.password2 = blankErrorMsg
     else if (password !== password2) newErrors.password2 = "Passwords do not match"
+    else if(emailMsg) newErrors.email = emailMsg
 
     return newErrors
   }
@@ -78,6 +79,9 @@ function RegisterForm() {
       })
       .catch((error) => {
         console.log(error);
+        if(error.response.data.message === "The email is already in use") {
+          setErrors({email:error.response.data.message});
+        }
       });
     }
   }
