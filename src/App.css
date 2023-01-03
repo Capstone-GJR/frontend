@@ -88,6 +88,9 @@ h1,h2,h3,h4,h5, h6 {
 .maxWidth600 {
     max-width: 600px;
 }
+.m-w-900 {
+    max-width: 1200px;
+}
 
 .backdrop {
     position: fixed;
@@ -108,10 +111,6 @@ h1,h2,h3,h4,h5, h6 {
     max-width: 325px;
 }
 
-.maxWidthInput{
-    max-width: 600px;
-}
-
 .contactButton {
     border-radius: 9999px;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -126,4 +125,31 @@ h1,h2,h3,h4,h5, h6 {
     .responsiveFs {
         font-size: medium;
     }
+}
+
+.componentCard {
+    width: 350px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.26);
+    transition: 0.3s;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 8px;
+}
+.componentCard img{
+    max-width: 100%;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+@media (max-width: 320px) {
+    .componentCard {
+        width: 248px;
+    }
+}
+
+.componentCard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
 }

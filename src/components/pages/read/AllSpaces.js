@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import Button from "../../buttons/Button";
 import { axiosRequest } from '../../util/HelperFunctions';
 import UpdateComponent from '../update/UpdateComponent';
-import Navbar from '../../ui/Navbar'
 
 function AllSpaces() {
     //ToDo: Display error message if unable to load data?
@@ -51,7 +50,7 @@ function AllSpaces() {
     } else {
         return (
             <div>
-                <div className="pgContainer">
+                <div className="pgContainer m-w-900">
                     <h1>ALL SPACES</h1>
                 <Link
                     to="/addComponent"
@@ -61,16 +60,16 @@ function AllSpaces() {
                     >
                     <Button title="ADD A SPACE"/>
                 </Link>
-                <div className="d-flex flex-wrap">
+                <div className="d-flex flex-wrap justify-content-evenly">
                     {components.map((component) => (
-                        <div className="col-10 col-md-5 ms-auto me-auto card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
+                        <div className="componentCard" key={component.id}>
                             <Link
                                 to='/allTotesBySpace'
                                 state={{ space:component }}
                             >
                                 <div className="pt-2 text-center">{component.name}</div>
-                                <div>
-                                    <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
+                                <div className="">
+                                    <img src={component.fileStackUrl} alt='image not available'/>
                                 </div>
                             </Link>
                             <Button onClick={()=> handleEditClick(component)} title="EDIT SPACE" />
