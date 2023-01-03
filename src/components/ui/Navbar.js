@@ -9,6 +9,7 @@ const Navbar = props => {
     return (
         <nav className="navbar navbar-dark bg-dark fixed-top">
             <div className='container-fluid'>
+
                 <a className="navbar-brand border border-secondary rounded ps-3 pe-3" href="/allSpaces">
                     <strong>T</strong>
                 </a>

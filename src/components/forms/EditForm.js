@@ -63,18 +63,23 @@ function EditForm(props){
         setPickerIsOpen(true)
     }
 
+    const handleDeleteClick = async () => {
+        try {
+            const res = await axiosRequest('DELETE', props.deleteUrl);
+            console.log(res);
+            props.setShowSettings(false);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
-        <Form className="ms-auto me-auto w-75">
+        <Form>
             <NameField
                 type="text"
                 placeholder={props.userObject.component.name}
                 value={form.name}
                 onChange={(e) => setField("name", e.target.value)}
-            />
-            <ColorField
-                type="color"
-                value={form.color}
-                onChange={(e) => setField("color", e.target.value)}
             />
             {!uploadComplete ?
                 <div className="picker">
@@ -118,6 +123,15 @@ function EditForm(props){
                 onChange={(e) => setField("keywords", e.target.value)}
             />
             <Button title="Submit" onClick={handleEditSubmit}></Button>
+            <Button
+                title={props.backBtn}
+                onClick={() => props.setShowSettings(false)}
+            />
+            <Button
+                title="Delete"
+                onClick={handleDeleteClick}
+                width="w-75"
+            />
         </Form>
     )
 }
