@@ -75,7 +75,15 @@ h1,h2,h3,h4,h5, h6 {
     flex-direction: column;
     justify-content: space-evenly;
     max-width: 600px;
-
+}
+.pageContainer{
+    min-height: 95vh;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .maxWidth600 {
     max-width: 600px;
