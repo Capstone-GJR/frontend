@@ -23,9 +23,10 @@ h1 {
 }
 @media (max-width: 375px) {
 h1 {
-        font-size: 2.75rem;
+        font-size: 2.5rem;
     }
 }
+
 a {
     text-align: center;
     font-size: 1.25rem;
@@ -54,16 +55,6 @@ h1,h2,h3,h4,h5, h6 {
     text-align: center;
 }
 
-/* Main page container */
-.pageContainer{
-    min-height: 95vh;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
 
 .pgContainer {
     min-height: 95vh;
