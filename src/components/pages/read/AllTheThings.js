@@ -21,16 +21,16 @@ const AllTheThings = props => {
                 componentType='space'
                 axiosUrl={`/space/all`}
                 locationStateObj={spaceLocationStateObj}
-                imgLinkTo="/allTotesBySpace"
+
             />
             {/*<AllView*/}
             {/*    pageName="allTotesBySpaceId"*/}
             {/*    componentType='tote'*/}
-            {/*    axiosUrl={`/tote/all/${location.state.space.id}`}*/}
+            {/*    axiosUrl={`/tote/all/${location.state.parent.id}`}*/}
             {/*    locationStateObj={{*/}
             {/*        componentType: 'tote',*/}
-            {/*        addUrl: `/tote/add/${location.state.space.id}`,*/}
-            {/*        space: location.state.space*/}
+            {/*        addUrl: `/tote/add/${location.state.parent.id}`,*/}
+            {/*        space: location.state.parent*/}
             {/*    }}*/}
             {/*    imgLinkTo='/allItemsByToteId'*/}
             {/*/>*/}

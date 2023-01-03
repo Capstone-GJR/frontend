@@ -62,7 +62,7 @@ const AllView = props => {
                                  key={component.id}>
                                 <Link
                                     to={props.imgLinkTo}
-                                    state={`{${componentType}: ${component}}`}
+                                    state={`{parent: ${component}}`}
                                 >
                                     <div className="pt-2 text-center">{component.name}</div>
                                     <div>
