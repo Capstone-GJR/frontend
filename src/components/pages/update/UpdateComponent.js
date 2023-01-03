@@ -15,30 +15,27 @@ function UpdateComponent(props){
             console.log(err);
         }
     }
-      
+
     return (
         <>
-            <div className="pageContainer p-3 mt-5 me-lg-auto ms-lg-auto  pb-5 mb-5 mb-md-3 pb-md-3">
+            <div className="pageContainer  p-3 mt-5 me-lg-auto ms-lg-auto pb-5 mb-5 mb-md-3 pb-md-3">
                 <Navbar />
-                <div>
-                <div className="ms-auto me-auto">
+                <div className="m-auto">
                     <h2>{props.userObject.component.name}</h2>
-                    <p >Keywords: {props.userObject.component.keywords}</p>
+                    <p>Keywords: {props.userObject.component.keywords}</p>
                 </div>
 
-                <EditForm props {...props} /> 
+                <EditForm props {...props} />
 
                 <Button
-                    className="ms-auto me-auto"
                     title={props.backBtn}
                     onClick={() => props.setShowSettings(false)}
                 />
 
                 <Button
-                    className="m-auto"
                     title="Delete"
                     onClick={handleDeleteClick}
-                    width="w-50"
+                    width="w-75"
                 />
 
             </div>

@@ -74,7 +74,7 @@ function AddForm(props){
     }
     
     return (
-        <Form className="m-auto w-100">
+        <Form className="m-auto w-75">
             <NameField
                 type="text"
                 placeholder='Name'

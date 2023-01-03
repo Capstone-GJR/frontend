@@ -64,7 +64,7 @@ function EditForm(props){
     }
 
     return (
-        <Form className="m-auto w-100">
+        <Form className="ms-auto me-auto w-75">
             <NameField
                 type="text"
                 placeholder={props.userObject.component.name}
