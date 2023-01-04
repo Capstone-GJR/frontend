@@ -1,99 +1,85 @@
-import React, {useEffect, useState} from 'react';
-import TopNavbar from "../../navbar/TopNavbar";
-import BottomNavbar from "../../navbar/BottomNavbar";
-import {Link, useLocation} from "react-router-dom";
-import {axiosRequest} from '../../util/HelperFunctions';
-import LargeNavbar from "../../navbar/LargeNavbar";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { axiosRequest } from "../../util/HelperFunctions";
 import Button from "../../buttons/Button";
-import SideNavbar from "../../navbar/SideNavbar";
-import UpdateComponent from '../update/UpdateComponent';
+import UpdateComponent from "../update/UpdateComponent";
 
 function AllTotesBySpaceId() {
+  const [components, setComponents] = useState([]);
+  const [props, setProps] = useState({});
+  const [ShowSettings, setShowSettings] = useState(false);
+  const location = useLocation();
 
-    const [components, setComponents] = useState([]);
-    const [props, setProps] = useState({});
-    const [ShowSettings, setShowSettings] = useState(false);
-    const location = useLocation();
-
-    const getAllTotes = async () => {
-        try {
-            const res = await axiosRequest(
-                'GET', `/tote/all/${location.state.space.id}`
-            )
-            setComponents(res.data);
-        } catch (error) {
-            console.log(error);
-        }
+  const getAllTotes = async () => {
+    try {
+      const res = await axiosRequest(
+        "GET",
+        `/tote/all/${location.state.space.id}`
+      );
+      setComponents(res.data);
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    useEffect(() => {
-        getAllTotes();
-    }, [ShowSettings])
+  useEffect(() => {
+    getAllTotes();
+  }, [ShowSettings]);
 
-     // Object to pass using useLocation for adding a new tote to dynamic add page/add form
-     const stateObj = {
-        componentType: 'tote',
-        addUrl: `/tote/add/${location.state.space.id}`,
-        space: location.state.space
-    }
+  // Object to pass using useLocation for adding a new tote to dynamic add page/add form
+  const stateObj = {
+    componentType: "tote",
+    addUrl: `/tote/add/${location.state.space.id}`,
+    space: location.state.space,
+  };
 
-    // set props object to pass data to updating details/page and update form
-    const handleEditClick = (component) => {
-        setProps({
-            setShowSettings:()=> {setShowSettings()},
-            userObject:{component},
-            deleteUrl:`/tote/delete/${component.id}`,
-            putUrl:`/tote/edit/${component.id}/${component.space.id}`,
-            backBtn: 'Back to Totes'
-        });
-        setShowSettings(true);
-    }
+  // set props object to pass data to updating details/page and update form
+  const handleEditClick = (component) => {
+    setProps({
+      setShowSettings: () => {
+        setShowSettings();
+      },
+      userObject: { component },
+      deleteUrl: `/tote/delete/${component.id}`,
+      putUrl: `/tote/edit/${component.id}/${component.space.id}`,
+      backBtn: "Back to Totes",
+    });
+    setShowSettings(true);
+  };
 
-    if (ShowSettings) {
-        return (
-            <UpdateComponent props {...props} />
-        )
-    } else {
-        return (
-            <div>
-                <LargeNavbar pageName="All Totes"/>
-                <TopNavbar pageName="All Totes"/>
-                <SideNavbar/>
-                <h1 className="mt-5 pt-2">{location.state.space.name}</h1>
-                <div className="pageContainer mb-5 pb-5 me-lg-auto ms-lg-auto mb-md-0 mt-lg-3 pt-lg-3">
-                    <Link
-                        className="mt-lg-2"
-                        to='/addComponent' 
-                        state={{ 
-                            stateObj:stateObj 
-                        }}
-                    >
-                        <Button title="ADD A TOTE"/>
-                    </Link>
-                    <div className="row">
-
-                            {components.map((component) => (
-                                <div className="col-10 col-md-5 ms-auto me-auto card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
-                                    <Link 
-                                        to='/allItemsByToteId' 
-                                        state={{ tote:component }}
-                                    >
-                                        <div className="pt-2 text-center">
-                                            {component.name}
-                                        </div>
-                                        <div>
-                                            <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
-                                        </div>
-                                    </Link>
-                                    <Button onClick={()=> handleEditClick(component)} title='EDIT TOTE' />
-                                </div>
-                            ))}
-                    </div>
-                </div>
-                <BottomNavbar/>
+  if (ShowSettings) {
+    return <UpdateComponent props {...props} />;
+  } else {
+    return (
+      <div className="pgContainer m-w-900">
+        <h2>{location.state.space.name.toUpperCase()}</h2>
+        <div className="text-center">
+          <Link
+            to="/addComponent"
+            state={{
+              stateObj: stateObj,
+            }}
+          >
+            <Button title="ADD A TOTE" />
+          </Link>
+        </div>
+        <div className="cardWrapper">
+          {components.map((component) => (
+            <div className="componentCard" key={component.id}>
+              <h4>{component.name}</h4>
+              <Link to="/allItemsByToteId" state={{ tote: component }}>
+                <img src={component.fileStackUrl} alt="image not available" />
+              </Link>
+              <Button
+                onClick={() => handleEditClick(component)}
+                title="EDIT TOTE"
+              />
             </div>
-        )
-    }
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default AllTotesBySpaceId;

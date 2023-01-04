@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import TopNavbar from "../../../navbar/TopNavbar";
-import BottomNavbar from "../../../navbar/BottomNavbar";
-import LargeNavbar from "../../../navbar/LargeNavbar";
 import FormInput from '../../../forms/FormInput';
 import { Form } from 'react-bootstrap';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
@@ -9,7 +6,8 @@ import Button from '../../../buttons/Button';
 import axios from 'axios';
 import { AuthZHeader } from '../../../util/HelperFunctions';
 import CustomAlert from '../../../buttons/CustomAlert'
-import SideNavbar from "../../../navbar/SideNavbar";
+import Navbar from '../../../ui/Navbar';
+
 
 function UpdateUser(){
     const [showAlert, setShowAlert] = useState(false);
@@ -63,12 +61,8 @@ function UpdateUser(){
     }
     
     return (
-        <>
-            <LargeNavbar pageName="Update Profile"/>
-            <TopNavbar pageName="Update Profile"/>
-            <SideNavbar />
-            <div className='container mb-5 me-lg-auto ms-lg-auto mt-5 pt-3'>
-                <div className='maxWidth600 margin-0-Auto'>
+            <div className='pgContainer maxWidth600'>
+                <h1 className="mb-5" >Edit {defaultFname}'s Profile!</h1>
                     <Form>
                         <FormInput
                             label="FIRST NAME"
@@ -95,10 +89,11 @@ function UpdateUser(){
                             onChange={(e) => setField("email", e.target.value)}
                             isInvalid={!!inputErrors}
                         />
-                        <Button title='SUBMIT EDIT' onClick={handleSubmit} />
-                        <Link to='/profile'><Button title='RETURN TO PROFILE' /></Link>
+                        <div className="mt-4">
+                            <Button title='SUBMIT EDIT' onClick={handleSubmit} />
+                            <Link to='/profile'><Button title='RETURN TO PROFILE' /></Link>
+                        </div>
                     </Form>
-                </div>
                 <CustomAlert
                     showAlert={showAlert}
                     alertVariant="success"
@@ -109,9 +104,8 @@ function UpdateUser(){
                     alertVariant="danger"
                     alertHeading="Something went wrong, please try again!"
                 />
-            </div>
-            <BottomNavbar/>
-        </>
+                </div>
+
     )
 }
 

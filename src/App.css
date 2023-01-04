@@ -1,4 +1,4 @@
-
+/*Style*/
 body {
     font-family: 'Playfair Display', serif;
 }
@@ -18,14 +18,28 @@ h1,h2,h3,h4,h5 {
 }
 /* Main header */
 h1 {
-    font-size: 3.75rem;
+    font-size: 3.5rem;
     margin-top: .5em;
 }
+@media (max-width: 375px) {
+h1 {
+        font-size: 2.5rem;
+    }
+}
+h2{
+    font-size: 2.5rem;
+    margin-top: .5em;
+}
+
 a {
     text-align: center;
     font-size: 1.25rem;
     text-decoration: none;
     color: black;
+}
+a:hover {
+    color: #395159;
+    opacity: .8
 }
 
 /* Placeholder font */
@@ -41,11 +55,31 @@ input[type=text] {
     font-size: 1.15rem;
 }
 
-h1,h2,h3,h4,h5 {
+h1,h2,h3,h4,h5,h6 {
     text-align: center;
 }
 
-/* Main page container */
+
+.pgContainer {
+    min-height: 95vh;
+    margin: 0 auto;
+    padding: 3em 1em 1em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.margin-0-Auto {
+    margin: 0 auto;
+}
+.partialPgContainer {
+    margin: 0 auto;
+    padding: 3em 1em 1em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 600px;
+}
 .pageContainer{
     min-height: 95vh;
     max-width: 800px;
@@ -55,13 +89,11 @@ h1,h2,h3,h4,h5 {
     flex-direction: column;
     justify-content: space-evenly;
 }
-
-.margin-0-Auto {
-    margin: 0 auto;
-}
-
 .maxWidth600 {
     max-width: 600px;
+}
+.m-w-900 {
+    max-width: 1200px;
 }
 
 .backdrop {
@@ -76,20 +108,59 @@ h1,h2,h3,h4,h5 {
 
 .detailsImg {
     max-height: 250px;
+}
+
+.maxWidthCard{
+    min-width: auto;
+    max-width: 325px;
+}
+
+.contactButton {
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    padding: 1.25rem;
+}
+
+.responsiveFs {
+    font-size: large;
+}
+
+@media (max-width: 350px) {
+    .responsiveFs {
+        font-size: medium;
+    }
+}
+.cardWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.componentCard {
+    width: 350px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.26);
+    transition: 0.3s;
+    border-radius: 10px;
+    padding: 12px;
+    margin: .5em;
+}
+.componentCard img{
+    border-radius: 10px;
+    padding: 4px;
+    width: max(100%);
+    height: max(17em);
+    object-fit: cover;
+    object-position: 50% 50%;
+    margin: .5em 0;
 
 }
-.editModal {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    background-color: white;
-    padding: 1rem;
-    text-align: center;
-    width: 50%;
-    max-width: 700px;
-    height: 70vh;
-    z-index: 10;
-    position: fixed;
-    top: 15vh;
-    margin: auto;
-    left: calc(25%);
+
+@media (max-width: 320px) {
+    .componentCard {
+        width: 248px;
+    }
+}
+
+.componentCard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
 }
