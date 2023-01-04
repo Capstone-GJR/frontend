@@ -23,37 +23,37 @@ const NavbarLink = props => {
                     </div>
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-center flex-grow-1">
-                            <li className="nav-item">
+                            <li className="nav-item" data-bs-dismiss="offcanvas">
                                 <Link className="nav-link" to="/allSpaces">
                                     <CiBoxes size={20}/>
                                     <p>Spaces</p>
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item" data-bs-dismiss="offcanvas">
                                 <Link className="nav-link" to="/allItems">
                                     <CiShoppingTag size={20}/>
                                     <p>All Items</p>
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item" data-bs-dismiss="offcanvas">
                                 <Link className="nav-link" to="/search">
                                     <CiSearch size={20}/>
                                     <p>Search</p>
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item" data-bs-dismiss="offcanvas">
                                 <Link className="nav-link" to="/Profile">
                                     <CiUser size={20}/>
                                     <p>Profile</p>
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item" data-bs-dismiss="offcanvas">
                                 <Link className="nav-link" to="/logout">
                                     <CiUser size={20}/>
                                     <p onClick={() => localStorage.removeItem("access_token")}>Log out</p>
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item" data-bs-dismiss="offcanvas">
                                 <Link className="nav-link" to="/aboutUs">
                                     <CiUser size={20}/>
                                     <p>About us</p>
