@@ -21,6 +21,8 @@ import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
 import axios from "axios";
 import AddComponent from './components/pages/create/AddComponent';
+import Layout from "./components/ui/Layout";
+import PageNotFound from "./components/ui/PageNotFound";
 
 function App() {
 
@@ -29,25 +31,22 @@ function App() {
     return (
         <Router>
             <Routes>
-                {/* Public Routes */}
-                <Route path='/' element={<Welcome/>}/>
-                <Route path='/register' element={<Register/>}/>
-                <Route path='/login' element={<Login/>}/>
-                <Route path='/logout' element={<Logout/>}/>
-                <Route path='/aboutUs' element={<AboutUs/>}/>
-
-                {/* Private Routes */}
-                <Route element={<PrivateRoutes />}>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Welcome />} />
+                    <Route path='/register' element={<Register/>}/>
+                    <Route path='/login' element={<Login/>}/>
+                    <Route path='/logout' element={<Logout/>}/>
+                    <Route path='/aboutUs' element={<AboutUs/>}/>
                     {/*----User Related Paths----*/}
                     <Route path='/profile' element={<UserProfile/>}/>
                     <Route path='/updateUser' element={<UpdateUser/>}/>
                     <Route path='/updatePassword' element={<UpdatePassword/>}/>
                     <Route path='/addComponent' element={<AddComponent/>}/>
 
-                    {/*---- Spaces Paths ----*/}
+                    {/*/!*---- Spaces Paths ----*!/*/}
                     <Route path='/allSpaces' element={<AllSpaces/>}/>
 
-                    {/*---- Totes Paths ----*/}
+                    {/*/!*---- Totes Paths ----*!/*/}
                     <Route path='/allTotesBySpace' element={<AllTotesBySpaceId/>}/>
 
                     {/*---- Item Paths ----*/}
@@ -57,8 +56,10 @@ function App() {
                     {/*---- Extra Features Path ----*/}
                     <Route path='/scan' element={<Scan />}/>
                     <Route path='/search' element={<Search />}/>
-                </Route>
+                    {/*---- When no page matching route is found ----*/}
+                    <Route path="*" element={<PageNotFound />} />
 
+                </Route>
             </Routes>
         </Router>
     );
