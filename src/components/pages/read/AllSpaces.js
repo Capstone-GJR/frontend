@@ -1,9 +1,8 @@
 import {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import Button from "../../buttons/Button";
-import { axiosRequest } from '../../util/HelperFunctions';
+import {axiosRequest} from '../../util/HelperFunctions';
 import UpdateComponent from '../update/UpdateComponent';
-import Navbar from '../../ui/Navbar'
 
 function AllSpaces() {
     //ToDo: Display error message if unable to load data?
@@ -14,7 +13,7 @@ function AllSpaces() {
 
     const getAllSpaces = async () => {
         try {
-            const res = await axiosRequest('GET','/space/all');
+            const res = await axiosRequest('GET', '/space/all');
             setComponents(res.data);
             console.log(res);
         } catch (err) {
@@ -35,10 +34,12 @@ function AllSpaces() {
     // set props object to pass data to updating details/page and update form
     const handleEditClick = (component) => {
         setProps({
-            setShowSettings:()=> {setShowSettings()},
-            userObject:{component},
-            deleteUrl:`/space/delete/${component.id}`,
-            putUrl:`/space/edit/${component.id}`,
+            setShowSettings: () => {
+                setShowSettings()
+            },
+            userObject: {component},
+            deleteUrl: `/space/delete/${component.id}`,
+            putUrl: `/space/edit/${component.id}`,
             backBtn: 'Back to Spaces',
         })
         setShowSettings(true);
@@ -50,36 +51,35 @@ function AllSpaces() {
         )
     } else {
         return (
-            <div>
-                <div className="pgContainer">
-                    <h1>ALL SPACES</h1>
-                <Link
-                    to="/addComponent"
-                    state={{
-                        stateObj:stateObj
-                    }}
+                <div className="pgContainer m-w-900">
+                    <h2>ALL SPACES</h2>
+                    <div className="text-center">
+                    <Link
+                        to="/addComponent"
+                        state={{
+                            stateObj: stateObj
+                        }}
                     >
-                    <Button title="ADD A SPACE"/>
-                </Link>
-                <div className="d-flex flex-wrap">
-                    {components.map((component) => (
-                        <div className="col-10 col-md-5 ms-auto me-auto card shadow bg-body rounded mb-5 mt-4 p-2" key={component.id}>
-                            <Link
-                                to='/allTotesBySpace'
-                                state={{ space:component }}
-                            >
-                                <div className="pt-2 text-center">{component.name}</div>
-                                <div>
-                                    <img className="detailsImg img-fluid" src={component.fileStackUrl} alt='image not available'/>
-                                </div>
-                            </Link>
-                            <Button onClick={()=> handleEditClick(component)} title="EDIT SPACE" />
-                        </div>
-                    ))}
+                        <Button title="ADD A SPACE"/>
+                    </Link>
+                    </div>
+                    <div className="cardWrapper">
+                        {components.map((component) => (
+                            <div className="componentCard" key={component.id}>
+                                <h4>{component.name}</h4>
+                                <Link
+                                    to='/allTotesBySpace'
+                                    state={{space: component}}
+                                >
+                                    <img src={component.fileStackUrl} alt='image not available'/>
+                                </Link>
+                                <Button onClick={() => handleEditClick(component)} title="EDIT SPACE"/>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                </div>
-            </div>
         )
     }
 }
+
 export default AllSpaces
