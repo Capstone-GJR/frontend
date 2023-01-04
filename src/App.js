@@ -1,13 +1,12 @@
 import './App.css';
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
+    BrowserRouter as Router,
+    Routes,
+    Route, BrowserRouter, RouterProvider, createBrowserRouter, createRoutesFromElements,
 } from 'react-router-dom'
 import Welcome from './components/pages/general/Welcome';
 import Register from './components/pages/general/Register';
 import Login from './components/pages/general/Login';
-import PrivateRoutes from './components/private_route/PrivateRoutes';
 import AllSpaces from './components/pages/read/AllSpaces';
 import AboutUs from "./components/pages/general/AboutUs";
 import AllItemsByUserId from "./components/pages/read/AllItemsByUserId";
@@ -28,11 +27,10 @@ function App() {
 
     axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
 
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Welcome />} />
+    let router = createBrowserRouter(
+        createRoutesFromElements(
+                <Route element={<Layout/>}>
+                    <Route path="/" element={<Welcome/>}/>
                     <Route path='register' element={<Register/>}/>
                     <Route path='login' element={<Login/>}/>
                     <Route path='logout' element={<Logout/>}/>
@@ -50,19 +48,21 @@ function App() {
                     <Route path='allTotesBySpace' element={<AllTotesBySpaceId/>}/>
 
                     {/*---- Item Paths ----*/}
-                    <Route path='allItemsByToteId' element={<AllItemsByToteId />}/>
-                    <Route path='allItems' element={<AllItemsByUserId />}/>
+                    <Route path='allItemsByToteId' element={<AllItemsByToteId/>}/>
+                    <Route path='allItems' element={<AllItemsByUserId/>}/>
 
                     {/*---- Extra Features Path ----*/}
-                    <Route path='scan' element={<Scan />}/>
-                    <Route path='search' element={<Search />}/>
+                    <Route path='scan' element={<Scan/>}/>
+                    <Route path='search' element={<Search/>}/>
                     {/*---- When no page matching route is found ----*/}
-                    <Route path="*" element={<PageNotFound />} />
+                    <Route path="*" element={<PageNotFound/>}/>
 
                 </Route>
-            </Routes>
-        </Router>
+            ))
 
+
+    return (
+        <RouterProvider router={router}/>
     );
 };
 
