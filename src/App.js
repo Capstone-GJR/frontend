@@ -21,6 +21,8 @@ import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
 import axios from "axios";
 import AddComponent from './components/pages/create/AddComponent';
+import Layout from "./components/ui/Layout";
+import PageNotFound from "./components/ui/PageNotFound";
 
 function App() {
 
