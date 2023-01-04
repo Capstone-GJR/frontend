@@ -5,11 +5,14 @@ import React from "react";
 const PageNotFound = props => {
 
     return (
-        <div className='pgContainer'>
-            <h1>OH NO SOMETHING WENT WRONG!</h1>
+        <div className='pgContainer maxWidth600'>
+            <h1>Whoops, we can't seem to find that page!</h1>
             <Link to="/allSpaces">
                 <Button title="ALL SPACES" />
             </Link>
+            <Link to="/">
+            <Button title="HOME" />
+        </Link>
             <Link to="/aboutus">
                 <Button title="ABOUT US" />
             </Link>
