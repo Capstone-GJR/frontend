@@ -10,10 +10,7 @@ import Navbar from "./components/ui/Navbar";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <>
             <App/>
-        </>
-
     </React.StrictMode>
 );
 //TODO: On login ---
