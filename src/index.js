@@ -22,12 +22,14 @@ import AllItemsByToteId from "./components/pages/read/AllItemsByToteId";
 import AllItemsByUserId from "./components/pages/read/AllItemsByUserId";
 import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
-import PageNotFound from "./components/ui/PageNotFound";
+import PageNotFound from "./components/pages/error pages/PageNotFound";
 import axios from "axios";
+import GeneralError from "./components/pages/error pages/GeneralError";
 // TODO: Configure for redirect based on login
 let router = createBrowserRouter(
     createRoutesFromElements(
-        <Route element={<Layout/>}>
+        <Route element={<Layout/>}
+        errorElement={<GeneralError/>}>
             <Route path="/" element={<Welcome/>}/>
             <Route path='register' element={<Register/>}/>
             <Route path='login' element={<Login/>}/>
