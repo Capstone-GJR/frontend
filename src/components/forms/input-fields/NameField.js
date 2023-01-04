@@ -6,7 +6,7 @@ function NameField(props){
     return (
         <Form.Group className="mb-4" controlId="name">
             <Form.Label>Name</Form.Label>
-            <Form.Control className="p-3 inputText"
+            <Form.Control className="p-3 inputText maxWidthInput"
                           type={props.type}
                           placeholder={props.placeholder}
                           value={props.value}
