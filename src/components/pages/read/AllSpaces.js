@@ -53,6 +53,7 @@ function AllSpaces() {
         return (
                 <div className="pgContainer m-w-900">
                     <h2>ALL SPACES</h2>
+                    <div className="text-center">
                     <Link
                         to="/addComponent"
                         state={{
@@ -61,6 +62,7 @@ function AllSpaces() {
                     >
                         <Button title="ADD A SPACE"/>
                     </Link>
+                    </div>
                     <div className="cardWrapper">
                         {components.map((component) => (
                             <div className="componentCard" key={component.id}>

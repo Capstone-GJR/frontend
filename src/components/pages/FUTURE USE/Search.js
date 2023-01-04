@@ -3,6 +3,7 @@ import { axiosRequest } from "../../util/HelperFunctions";
 import Form from "react-bootstrap/Form";
 import FormInput from "../../forms/FormInput";
 import Navbar from "../../ui/Navbar";
+import Button from "../../buttons/Button";
 
 //FIXME: As is, you would not be able to edit an item from this section only to view them.
 
@@ -55,28 +56,20 @@ function Search(props) {
           </Form>
         </div>
 
-      <div className="">
+      <div className="cardWrapper">
         {filterResults.map((result) => (
           <div
-            className="w-50 card shadow bg-body rounded mb-5 mt-4 p-2"
+            className="componentCard"
             key={result.id}
           >
-            <div className="pt-2 text-center">
               <h5>{result.name}</h5>
-            </div>
-            <div className="pt-2">
               <img
                 className="detailsImg img-fluid"
                 src={result.fileStackUrl}
                 alt="image not available"
               />
-            </div>
-            <div className="pt-2 text-center">
-              <p>Value: ${result.value}</p>
-              <p>Keywords: {result.keywords}</p>
-              <p>Tote Location: {result.tote.name}</p>
-              <p>Space Location: {result.tote.space.name}</p>
-            </div>
+            <h5>Tote: {result.tote.name}
+              <br/>Space: {result.tote.space.name}</h5>
           </div>
         ))}
       </div>
