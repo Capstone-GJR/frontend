@@ -49,9 +49,8 @@ function AllItemsByUserId() {
         )
     } else {
         return (
-
             <div className="pgContainer m-w-900">
-                <h1>ALL ITEMS</h1>
+                <h2>ALL ITEMS</h2>
                 <div className="cardWrapper">
                     {components.map((component) => (
                         <div className="componentCard" key={component.id}>
@@ -65,7 +64,6 @@ function AllItemsByUserId() {
                     ))}
                 </div>
             </div>
-
         )
     }
 }
