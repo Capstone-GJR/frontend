@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 //TODO: Adjust navbar for large screen size.
 
-const Navbar = props => {
+const NavbarLink = props => {
 
     return (
         <nav className="navbar navbar-dark bg-dark fixed-top">
@@ -68,4 +68,4 @@ const Navbar = props => {
 
 
 }; // Navbar
-export default Navbar;
+export default NavbarLink;
