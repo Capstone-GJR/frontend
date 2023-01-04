@@ -1,5 +1,5 @@
 import React from 'react'
-import {FaGithub, FaLinkedinIn} from "react-icons/fa";
+import {FaGithub, FaLinkedinIn, FaUserGraduate} from "react-icons/fa";
 import {AiOutlineMail} from "react-icons/ai"
 import Navbar from '../../ui/Navbar';
 
@@ -44,8 +44,16 @@ function AboutUs() {
                             </div>
                             <div
                                 className="contactButton m-2 m-lg-2">
-                                <a href="mailto:greg.rodriguez@outlook.com">
+                                <a href="mailto:greg.rodriguez@outlook.com?subject=User Feedback for Greg Rodriguez">
                                     <AiOutlineMail/>
+                                </a>
+                            </div>
+                            <div
+                                className="contactButton m-2 m-lg-2">
+                                <a target="_blank"
+                                   rel="noreferrer"
+                                   href="https://alumni.codeup.com/students/1668">
+                                    <FaUserGraduate/>
                                 </a>
                             </div>
                         </div>
@@ -80,8 +88,16 @@ function AboutUs() {
                             </div>
                             <div
                                 className="contactButton m-2 m-lg-2">
-                                <a href="mailto:jennynicoleaustin@gmail.com">
+                                <a href="mailto:jennynicoleaustin@gmail.com?subject=User Feedback for Jenny Austin">
                                     <AiOutlineMail/>
+                                </a>
+                            </div>
+                            <div
+                                className="contactButton m-2 m-lg-2">
+                                <a target="_blank"
+                                   rel="noreferrer"
+                                   href="https://alumni.codeup.com/students/1654">
+                                    <FaUserGraduate/>
                                 </a>
                             </div>
                         </div>
@@ -116,8 +132,16 @@ function AboutUs() {
                             </div>
                             <div
                                 className="contactButton m-2 m-lg-2">
-                                <a href="mailto:Rjohnson3795@gmail.com">
+                                <a href="mailto:Rjohnson3795@gmail.com?subject=User Feedback for Ramaj Johnson">
                                     <AiOutlineMail/>
+                                </a>
+                            </div>
+                            <div
+                                className="contactButton m-2 m-lg-2">
+                                <a target="_blank"
+                                   rel="noreferrer"
+                                   href="https://alumni.codeup.com/students/1658">
+                                    <FaUserGraduate/>
                                 </a>
                             </div>
                         </div>
