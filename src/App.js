@@ -33,29 +33,29 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Welcome />} />
-                    <Route path='/register' element={<Register/>}/>
-                    <Route path='/login' element={<Login/>}/>
-                    <Route path='/logout' element={<Logout/>}/>
-                    <Route path='/aboutUs' element={<AboutUs/>}/>
+                    <Route path='register' element={<Register/>}/>
+                    <Route path='login' element={<Login/>}/>
+                    <Route path='logout' element={<Logout/>}/>
+                    <Route path='aboutUs' element={<AboutUs/>}/>
                     {/*----User Related Paths----*/}
-                    <Route path='/profile' element={<UserProfile/>}/>
-                    <Route path='/updateUser' element={<UpdateUser/>}/>
-                    <Route path='/updatePassword' element={<UpdatePassword/>}/>
-                    <Route path='/addComponent' element={<AddComponent/>}/>
+                    <Route path='profile' element={<UserProfile/>}/>
+                    <Route path='updateUser' element={<UpdateUser/>}/>
+                    <Route path='updatePassword' element={<UpdatePassword/>}/>
+                    <Route path='addComponent' element={<AddComponent/>}/>
 
                     {/*/!*---- Spaces Paths ----*!/*/}
-                    <Route path='/allSpaces' element={<AllSpaces/>}/>
+                    <Route path='allSpaces' element={<AllSpaces/>}/>
 
                     {/*/!*---- Totes Paths ----*!/*/}
-                    <Route path='/allTotesBySpace' element={<AllTotesBySpaceId/>}/>
+                    <Route path='allTotesBySpace' element={<AllTotesBySpaceId/>}/>
 
                     {/*---- Item Paths ----*/}
-                    <Route path='/allItemsByToteId' element={<AllItemsByToteId />}/>
-                    <Route path='/allItems' element={<AllItemsByUserId />}/>
+                    <Route path='allItemsByToteId' element={<AllItemsByToteId />}/>
+                    <Route path='allItems' element={<AllItemsByUserId />}/>
 
                     {/*---- Extra Features Path ----*/}
-                    <Route path='/scan' element={<Scan />}/>
-                    <Route path='/search' element={<Search />}/>
+                    <Route path='scan' element={<Scan />}/>
+                    <Route path='search' element={<Search />}/>
                     {/*---- When no page matching route is found ----*/}
                     <Route path="*" element={<PageNotFound />} />
 
