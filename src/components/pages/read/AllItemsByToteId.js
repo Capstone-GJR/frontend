@@ -3,7 +3,6 @@ import {Link, useLocation} from 'react-router-dom';
 import {axiosRequest} from '../../util/HelperFunctions';
 import Button from "../../buttons/Button";
 import UpdateComponent from '../update/UpdateComponent';
-import Navbar from '../../ui/Navbar';
 
 function AllItemsByToteId() {
 
