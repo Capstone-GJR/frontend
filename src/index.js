@@ -24,7 +24,7 @@ import Scan from "./components/pages/FUTURE USE/Scan";
 import Search from "./components/pages/FUTURE USE/Search";
 import PageNotFound from "./components/ui/PageNotFound";
 import axios from "axios";
-
+// TODO: Configure for redirect based on login
 let router = createBrowserRouter(
     createRoutesFromElements(
         <Route element={<Layout/>}>
