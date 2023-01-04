@@ -27,7 +27,8 @@ import axios from "axios";
 // TODO: Configure for redirect based on login
 let router = createBrowserRouter(
     createRoutesFromElements(
-        <Route element={<Layout/>}>
+        <Route element={<Layout/>}
+               errorElement={<PageNotFound/>}>
             <Route path="/" element={<Welcome/>}/>
             <Route path='register' element={<Register/>}/>
             <Route path='login' element={<Login/>}/>
@@ -60,8 +61,8 @@ let router = createBrowserRouter(
 axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
 
 
-    ReactDOM.createRoot(document.getElementById("root")).render(
-        <React.StrictMode>
-            <RouterProvider router={router}/>
-        </React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <RouterProvider router={router}/>
+    </React.StrictMode>
 );
