@@ -62,7 +62,8 @@ function EditForm(props){
         setPickerIsOpen(true)
     }
 
-    const handleDeleteClick = async () => {
+    const handleDeleteClick = async (e) => {
+        e.preventDefault()
         try {
             const res = await axiosRequest('DELETE', props.deleteUrl);
             console.log(res);
