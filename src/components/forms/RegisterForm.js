@@ -21,6 +21,7 @@ function RegisterForm() {
   const regex = /\S+@\S+\.\S+/;
   const blankErrorMsg = 'Field can not be blank';
   const emailErrorMsg = 'Please enter a valid email';
+  const passwordLengthError = 'Password must be at least 8 characters'
 
   // Function to set form values from user input
   const setField = (field, value) => {
@@ -42,6 +43,7 @@ function RegisterForm() {
     if(!firstName || firstName === '') newErrors.firstName = blankErrorMsg
     else if (!lastName || lastName === '') newErrors.lastName = blankErrorMsg
     else if (!email || email === '' || !regex.test(email)) newErrors.email = emailErrorMsg
+    else if (password.trim().length < 8) newErrors.password = passwordLengthError
     else if (!password || password === '') newErrors.password = blankErrorMsg
     else if (!password2 || password2 === '') newErrors.password2 = blankErrorMsg
     else if (password !== password2) newErrors.password2 = "Passwords do not match"
