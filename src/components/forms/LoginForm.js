@@ -1,10 +1,13 @@
-import axios from 'axios';
-import React, { useState } from 'react'
+ import axios from 'axios';
+import React, {useContext, useState} from 'react'
 import Form from "react-bootstrap/Form";
 import { useNavigate } from 'react-router-dom';
 import Button from '../buttons/Button';
+ import AuthContext from "../../storage/auth-context";
 
 function LoginForm() {
+    const authCtx = useContext(AuthContext)
+
   const [emailError, setEmailError] = useState("");
   const [passError, setPassError] = useState("");
   const navigate = useNavigate();
@@ -41,6 +44,7 @@ function LoginForm() {
             navigate("/allSpaces");
             setForm({email: "", password: ""});
             console.log(res.data)
+              authCtx.onLogin()
           })
           .catch((error) => {
               console.log(error)

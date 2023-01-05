@@ -1,11 +1,15 @@
 import "./Navbar.css"
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
-import React from "react";
+import React, {useContext} from "react";
 import {Link} from "react-router-dom";
+import AuthContext from "../../storage/auth-context";
 
 //TODO: Adjust navbar for large screen size.
 
+
 const NavbarLink = props => {
+    const authCtx = useContext(AuthContext)
+
 
     return (
         <nav className="navbar navbar-dark bg-dark fixed-top">
@@ -49,7 +53,7 @@ const NavbarLink = props => {
                                     <p>Profile</p>
                                 </Link>
                             </li>
-                            <li className="nav-item" data-bs-dismiss="offcanvas">
+                            <li id="logout" className="nav-item" data-bs-dismiss="offcanvas" onClick={authCtx.onLogout}>
                                 <Link className="nav-link" to="/logout">
                                     <CiUser size={20}/>
                                     <p onClick={() => localStorage.removeItem("access_token")}>Log out</p>
