@@ -27,6 +27,7 @@ function Search(props) {
   }, []);
 
   const search = (e) => {
+    e.preventDefault()
     setSearchTerm(e.target.value);
     const searchResults = components.filter((component) => {
       return (
@@ -46,12 +47,13 @@ function Search(props) {
       <div className="partialPgContainer">
       <h1>SEARCH</h1>
       <h4>Search for an item by keyword, name, or location name.</h4>
-          <Form>
+          <Form onSubmit={(e) => e.preventDefault()}>
             <FormInput
                 type="text"
                 placeholder="Enter a keyword, name, or location"
                 value={searchTerm}
                 onChange={search}
+                onEnter
             />
           </Form>
         </div>

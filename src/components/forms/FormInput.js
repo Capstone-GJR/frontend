@@ -9,7 +9,7 @@ function FormInput({
                        value,
                        onChange,
                        isInvalid,
-                       errorMsg
+                       errorMsg,
                    }) {
 
     return (
