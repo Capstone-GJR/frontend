@@ -43,7 +43,7 @@ function AllItemsByToteId() {
             userObject: {component},
             deleteUrl: `/item/delete/${component.id}`,
             putUrl: `/item/edit/${component.id}/${location.state.tote.id}`,
-            backBtn: 'Back to Items',
+            backBtn: `Back to ${component.tote.name}`,
             componentType: 'item'
         });
         setShowSettings(true);
@@ -73,7 +73,7 @@ function AllItemsByToteId() {
                             <h4>{component.name}</h4>
                             <img src={component.fileStackUrl}
                                  alt='image not available'/>
-                            <h5>Tote: {component.tote.name}
+                            <h5>{component.tote.name}
                                 <br/>Space: {component.tote.space.name}</h5>
                             <Button onClick={() => handleEditClick(component)} title='EDIT ITEM'/>
                         </div>

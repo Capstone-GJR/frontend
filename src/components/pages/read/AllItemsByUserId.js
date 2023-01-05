@@ -36,7 +36,7 @@ function AllItemsByUserId() {
             deleteUrl: `/item/delete/${component.id}`,
             putUrl: `/item/edit/${component.id}/${component.tote.id}`,
             // FIXME: How do we get this button to return to the all items by user page, right now it returns to the all items in tote (of the tote it is in.
-            backBtn: 'Back to Items',
+            backBtn: `Back to All Items`,
             componentType: 'item'
         });
         setShowSettings(true);

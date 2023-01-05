@@ -42,7 +42,7 @@ function AllTotesBySpaceId() {
       userObject: { component },
       deleteUrl: `/tote/delete/${component.id}`,
       putUrl: `/tote/edit/${component.id}/${component.space.id}`,
-      backBtn: "Back to Totes",
+      backBtn: `Back to ${component.space.name}`,
     });
     setShowSettings(true);
   };
@@ -60,7 +60,7 @@ function AllTotesBySpaceId() {
               stateObj: stateObj,
             }}
           >
-            <Button title="ADD A TOTE" />
+            <Button title="ADD" />
           </Link>
         </div>
         <div className="cardWrapper">
@@ -72,7 +72,7 @@ function AllTotesBySpaceId() {
               </Link>
               <Button
                 onClick={() => handleEditClick(component)}
-                title="EDIT TOTE"
+                title="EDIT"
               />
             </div>
           ))}

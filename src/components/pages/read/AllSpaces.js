@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import Button from "../../buttons/Button";
 import {axiosRequest} from '../../util/HelperFunctions';
 import UpdateComponent from '../update/UpdateComponent';
@@ -57,8 +57,10 @@ function AllSpaces() {
                     <Link
                         to="/addComponent"
                         state={{
-                            stateObj: stateObj
-                        }}
+                                componentType: 'space',
+                                addUrl: `/space/add`,
+                            }
+                        }
                     >
                         <Button title="ADD A SPACE"/>
                     </Link>

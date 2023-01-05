@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import NameField from "./input-fields/NameField";
-import ColorField from "./input-fields/ColorField";
 import KeywordsField from "./input-fields/KeywordsField";
 import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
