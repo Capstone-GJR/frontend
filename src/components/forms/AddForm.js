@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import NameField from "./input-fields/NameField";
 import ColorField from "./input-fields/ColorField";
-import KeywordsField from "./input-fields/KeywordsField";
+import TagsField from "./input-fields/TagsField";
 import {useNavigate} from "react-router-dom";
 import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
@@ -17,7 +17,7 @@ function AddForm(props){
     const [uploadComplete, setUploadComplete] = useState(false)
     const [form, setForm] = useState({
         name:'',
-        keywords:''
+        tags:''
     });    
 
     const setField = (field, value) => {
@@ -117,11 +117,11 @@ function AddForm(props){
                 />
             }
 
-            <KeywordsField
+            <TagsField
                 type="textarea"
-                placeholder='Keywords'
-                value={form.keywords}
-                onChange={(e) => setField("keywords", e.target.value)}
+                placeholder='Tags'
+                value={form.tags}
+                onChange={(e) => setField("tags", e.target.value)}
             />
             
             <Button 

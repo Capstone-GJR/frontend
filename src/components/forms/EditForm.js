@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import NameField from "./input-fields/NameField";
-import KeywordsField from "./input-fields/KeywordsField";
+import TagsField from "./input-fields/TagsField";
 import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
 import Backdrop from "../modals/Backdrop";
@@ -15,7 +15,7 @@ function EditForm(props){
         name:'',
         color:'',
         fileStackUrl:'',
-        keywords: ''
+        tags: ''
     });
 
     const setDefaultValues = () => {
@@ -116,11 +116,11 @@ function EditForm(props){
                 />
             }
 
-            <KeywordsField
+            <TagsField
                 type="textarea"
-                placeholder={props.userObject.component.keywords}
-                value={form.keywords}
-                onChange={(e) => setField("keywords", e.target.value)}
+                placeholder={props.userObject.component.tags}
+                value={form.tags}
+                onChange={(e) => setField("tags", e.target.value)}
             />
             <Button title="Submit" onClick={handleEditSubmit}></Button>
             <Button

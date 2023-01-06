@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import Form from "react-bootstrap/Form";
 
 
-function KeywordsField(props){
+function TagsField(props){
     return (
         <Form.Group className="mb-4" controlId="color">
-            <Form.Label>Keywords</Form.Label>
+            <Form.Label>Tags</Form.Label>
             <Form.Control className="p-3 inputText maxWidthInput"
                           type={props.type}
                           placeholder={props.placeholder}
@@ -20,4 +20,4 @@ function KeywordsField(props){
     )
 }
 
-export default KeywordsField
+export default TagsField
