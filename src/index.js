@@ -24,44 +24,48 @@ import Search from "./components/pages/general/Search";
 import PageNotFound from "./components/pages/error pages/PageNotFound";
 import axios from "axios";
 import GeneralError from "./components/pages/error pages/GeneralError";
+import PrivateRoutes from "./components/private_route/PrivateRoutes";
 // TODO: Configure for redirect based on login
 let router = createBrowserRouter(
     createRoutesFromElements(
         <Route element={<Layout/>}
-        errorElement={<GeneralError/>}>
+               errorElement={<GeneralError/>}>
             <Route path="/" element={<Welcome/>}/>
             <Route path='register' element={<Register/>}/>
             <Route path='login' element={<Login/>}/>
             <Route path='logout' element={<Logout/>}/>
             <Route path='aboutUs' element={<AboutUs/>}/>
-            {/*----User Related Paths----*/}
-            <Route path='profile' element={<UserProfile/>}/>
-            <Route path='updateUser' element={<UpdateUser/>}/>
-            <Route path='updatePassword' element={<UpdatePassword/>}/>
-            <Route path='addComponent' element={<AddComponent/>}/>
-
-            {/*/!*---- Spaces Paths ----*!/*/}
-            <Route path='allSpaces' element={<AllSpaces/>}/>
-
-            {/*/!*---- Totes Paths ----*!/*/}
-            <Route path='allTotesBySpace' element={<AllTotesBySpaceId/>}/>
-
-            {/*---- Item Paths ----*/}
-            <Route path='allItemsByToteId' element={<AllItemsByToteId/>}/>
-            <Route path='allItems' element={<AllItemsByUserId/>}/>
-
-            {/*---- Extra Features Path ----*/}
-            <Route path='search' element={<Search/>}/>
-            {/*---- When no page matching route is found ----*/}
             <Route path="*" element={<PageNotFound/>}/>
 
+            <Route element={<PrivateRoutes/>}>
+
+                {/*----User Related Paths----*/}
+                <Route path='profile' element={<UserProfile/>}/>
+                <Route path='updateUser' element={<UpdateUser/>}/>
+                <Route path='updatePassword' element={<UpdatePassword/>}/>
+                <Route path='addComponent' element={<AddComponent/>}/>
+
+                {/*/!*---- Spaces Paths ----*!/*/}
+                <Route path='allSpaces' element={<AllSpaces/>}/>
+
+                {/*/!*---- Totes Paths ----*!/*/}
+                <Route path='allTotesBySpace' element={<AllTotesBySpaceId/>}/>
+
+                {/*---- Item Paths ----*/}
+                <Route path='allItemsByToteId' element={<AllItemsByToteId/>}/>
+                <Route path='allItems' element={<AllItemsByUserId/>}/>
+
+                {/*---- Extra Features Path ----*/}
+                <Route path='search' element={<Search/>}/>
+                {/*---- When no page matching route is found ----*/}
+            </Route>
         </Route>
     ))
 axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
 
 
-    ReactDOM.createRoot(document.getElementById("root")).render(
-        <React.StrictMode>
-            <RouterProvider router={router}/>
-        </React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <RouterProvider router={router}/>
+    </React.StrictMode>
 );
