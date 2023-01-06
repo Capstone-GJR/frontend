@@ -1,7 +1,7 @@
 import React from "react";
 import { FaGithub, FaLinkedinIn, FaUserGraduate } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
-import design from "../../../assets/design.png";
+import BsCarousel from "../../ui/BsCarousel";
 
 function AboutUs() {
   return (
@@ -163,11 +163,13 @@ function AboutUs() {
         items, their value, and track them via self-assigned locations and
         totes.
       </p>
-      <div className="py-2 py-lg-5">
+      <div className="py-5">
         <h3 className="py-3 py-lg-5">DEVELOPMENT PROCESS</h3>
-        <p className="text-center">Desiging</p>
-        <img src={design} className="img-fluid p-1 p-lg-5"/>
+        <div className="m-w-900 m-auto shadow">
+         <BsCarousel />
+        </div>
       </div>
+        
     </div>
   );
 }
