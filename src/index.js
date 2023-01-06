@@ -20,8 +20,7 @@ import AllSpaces from "./components/pages/read/AllSpaces";
 import AllTotesBySpaceId from "./components/pages/read/AllTotesBySpaceId";
 import AllItemsByToteId from "./components/pages/read/AllItemsByToteId";
 import AllItemsByUserId from "./components/pages/read/AllItemsByUserId";
-import Scan from "./components/pages/FUTURE USE/Scan";
-import Search from "./components/pages/FUTURE USE/Search";
+import Search from "./components/pages/general/Search";
 import PageNotFound from "./components/pages/error pages/PageNotFound";
 import axios from "axios";
 import GeneralError from "./components/pages/error pages/GeneralError";
@@ -52,7 +51,6 @@ let router = createBrowserRouter(
             <Route path='allItems' element={<AllItemsByUserId/>}/>
 
             {/*---- Extra Features Path ----*/}
-            <Route path='scan' element={<Scan/>}/>
             <Route path='search' element={<Search/>}/>
             {/*---- When no page matching route is found ----*/}
             <Route path="*" element={<PageNotFound/>}/>

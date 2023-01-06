@@ -5,7 +5,6 @@ import {Link, useNavigate} from "react-router-dom";
 import {AuthZHeader, removeAuthZ} from "../../util/HelperFunctions";
 import CustomAlert from "../../buttons/CustomAlert";
 import ConfirmBox from "../../buttons/ConfirmBox";
-import Navbar from "../../ui/Navbar";
 
 
 function Profile() {

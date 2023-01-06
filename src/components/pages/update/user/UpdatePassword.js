@@ -6,7 +6,6 @@ import { AuthZHeader, checkPassword } from '../../../util/HelperFunctions';
 import CustomAlert from '../../../buttons/CustomAlert';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../../ui/Navbar';
 
 
 function UpdatePassword(){

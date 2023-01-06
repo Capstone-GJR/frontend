@@ -1,7 +1,6 @@
 import React from 'react'
 import {FaGithub, FaLinkedinIn, FaUserGraduate} from "react-icons/fa";
 import {AiOutlineMail} from "react-icons/ai"
-import Navbar from '../../ui/Navbar';
 
 function AboutUs() {
 

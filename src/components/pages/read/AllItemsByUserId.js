@@ -3,7 +3,6 @@ import {useLocation} from "react-router-dom";
 import {axiosRequest} from "../../util/HelperFunctions";
 import UpdateComponent from "../update/UpdateComponent";
 import Button from "../../buttons/Button";
-import Navbar from '../../ui/Navbar';
 
 function AllItemsByUserId() {
 

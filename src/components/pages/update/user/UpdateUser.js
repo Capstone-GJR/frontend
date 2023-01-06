@@ -6,7 +6,6 @@ import Button from '../../../buttons/Button';
 import axios from 'axios';
 import { AuthZHeader } from '../../../util/HelperFunctions';
 import CustomAlert from '../../../buttons/CustomAlert'
-import Navbar from '../../../ui/Navbar';
 
 
 function UpdateUser(){
