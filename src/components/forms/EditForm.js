@@ -5,32 +5,32 @@ import KeywordsField from "./input-fields/KeywordsField";
 import Button from "../buttons/Button";
 import {PickerOverlay} from "filestack-react";
 import Backdrop from "../modals/Backdrop";
-import { axiosRequest } from "../util/HelperFunctions";
+import {axiosRequest} from "../util/HelperFunctions";
 import FormInput from "./FormInput";
 
-function EditForm(props){
+function EditForm(props) {
     const [pickerIsOpen, setPickerIsOpen] = useState(false);
     const [uploadComplete, setUploadComplete] = useState(false);
     const [form, setForm] = useState({
-        name:'',
-        color:'',
-        fileStackUrl:'',
+        name: '',
+        color: '',
+        fileStackUrl: '',
         keywords: ''
     });
 
     const setDefaultValues = () => {
         const keys = Object.keys(form);
         keys.forEach(key => {
-          if (form[key] === '') {
-            form[key] = props.userObject.component[key];
-          }
+            if (form[key] === '') {
+                form[key] = props.userObject.component[key];
+            }
         });
-      }      
+    }
 
     const setField = (field, value) => {
         setForm({
             ...form,
-            [field]:value
+            [field]: value
         })
     }
 
@@ -40,7 +40,7 @@ function EditForm(props){
         const values = Object.values(form);
         const allEmpty = values.every(val => val === '');
 
-        if (allEmpty){
+        if (allEmpty) {
             // TODO! handle error messaging
             console.log("all fields cant be left blank");
         } else {
@@ -54,10 +54,10 @@ function EditForm(props){
             }
         }
     }
-    const closePicker =() => setPickerIsOpen(false);
+    const closePicker = () => setPickerIsOpen(false);
     const hidePicker = () => setUploadComplete(true);
 
-    function openPicker (e)  {
+    function openPicker(e) {
         e.preventDefault()
         setPickerIsOpen(true)
     }
@@ -99,20 +99,20 @@ function EditForm(props){
                     }
                     {/*FIXME: When closing the filePicker via it's built X button the backdrop does not close. Without the backdrop to run "closePicker," if you click the X instead of upload the useState does not change to false so picker keeps reshowing. */}
                     {pickerIsOpen && <Backdrop onClick={closePicker}/>}
-                 </div>
+                </div>
                 :
                 <div>
                     <img className="detailsImg" src={form.fileStackUrl} alt="image here"/>
                 </div>
             }
 
-            { props.componentType === 'item' && 
+            {props.componentType === 'item' &&
                 <FormInput
                     type='number'
                     label='Value'
                     placeholder={props.userObject.component.value}
                     value={form.value}
-                    onChange={(e)=> setField('value', e.target.value)}
+                    onChange={(e) => setField('value', e.target.value)}
                 />
             }
 
