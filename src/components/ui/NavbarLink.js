@@ -1,18 +1,38 @@
 import "./Navbar.css"
 import {CiBoxes, CiSearch, CiShoppingTag, CiUser} from "react-icons/ci";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 //TODO: Adjust navbar for large screen size.
 
 const NavbarLink = props => {
 
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+    const checkLoggedIn = () => {
+        if (localStorage.getItem("access_token") !== null) {
+            setIsLoggedIn(true)
+        }
+    }
+
+    useEffect(() => {
+        checkLoggedIn();
+    }, []);
+
     return (
         <nav className="navbar navbar-dark bg-dark fixed-top">
             <div className='container-fluid'>
-                <a className="navbar-brand border border-secondary rounded ps-3 pe-3" href="/allSpaces">
-                    <strong>T</strong>
-                </a>
+                { !isLoggedIn &&
+                    (<a className="navbar-brand border border-secondary rounded ps-3 pe-3" href="/aboutUs">
+                        <strong>T</strong>
+                    </a>)
+                }
+                { isLoggedIn &&
+                    (<a className="navbar-brand border border-secondary rounded ps-3 pe-3" href="/allSpaces">
+                        <strong>T</strong>
+                    </a>)
+                }
+
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                     <span className="navbar-toggler-icon"></span>
