@@ -8,7 +8,9 @@ function AboutUs() {
         <div className='pgContainer'>
             <h1>ABOUT US</h1>
             <p className="text-center fs-5">
-                Traqura is the smart(er) solution for home inventory and personal organization. This web app allows users to transform their mobile device into a powerful inventory management tool where they can catalogue their items, their value, and track them via self-assigned locations and totes.
+                Traqura is the smart(er) solution for home inventory and personal organization. This web app allows
+                users to transform their mobile device into a powerful inventory management tool where they can
+                catalogue their items, their value, and track them via self-assigned locations and totes.
             </p>
             <h1>THE DEVELOPERS</h1>
             <div className='row'>
