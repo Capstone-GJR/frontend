@@ -155,7 +155,7 @@ function AboutUs() {
           </div>
         </div>
       </div>
-      <h3 className="py-2 py-lg-4">ABOUT US</h3>
+      <h2 className="py-2 py-lg-5">ABOUT TRAQURA</h2>
       <p className="text-center fs-5 m-auto m-w-1200">
         Traqura is the smart(er) solution for home inventory and personal
         organization. This web app allows users to transform their mobile device
@@ -164,9 +164,11 @@ function AboutUs() {
         totes.
       </p>
       <div className="py-5">
-        <h3 className="py-3 py-lg-5">DEVELOPMENT PROCESS</h3>
-        <div className="m-w-900 m-auto shadow">
-         <BsCarousel />
+        <h2 className="py-3 py-lg-5">DEVELOPMENT PROCESS</h2>
+        <div className="m-w-900 m-auto">
+            <div className="mx-md-5 shadow">
+                <BsCarousel />
+            </div>
         </div>
       </div>
         
