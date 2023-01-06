@@ -24,6 +24,7 @@ import Search from "./components/pages/general/Search";
 import PageNotFound from "./components/pages/error pages/PageNotFound";
 import axios from "axios";
 import GeneralError from "./components/pages/error pages/GeneralError";
+import {AuthContextProvider} from "./storage/auth-context";
 // TODO: Configure for redirect based on login
 let router = createBrowserRouter(
     createRoutesFromElements(
@@ -62,6 +63,8 @@ axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <RouterProvider router={router}/>
+        <AuthContextProvider>
+            <RouterProvider router={router}/>
+        </AuthContextProvider>
     </React.StrictMode>
 );
