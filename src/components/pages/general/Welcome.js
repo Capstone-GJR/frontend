@@ -5,9 +5,9 @@ import Button from "../../buttons/Button";
 function Welcome() {
   return (
     <div className="pgContainer">
-        <h1>TRAQURA</h1>
+      <h1>TRAQURA</h1>
 
-      <div className="responsiveFs maxWidth600 m-auto text-center">
+      <div className="responsiveFs m-w-600 m-auto text-center">
         Traqura is the smart(er) solution for home inventory and personal
         organization. This web app allows users to transform their mobile device
         into a powerful inventory management tool where they can catalogue their

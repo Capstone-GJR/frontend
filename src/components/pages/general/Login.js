@@ -4,7 +4,7 @@ import LoginForm from "../../forms/LoginForm";
 
 function Login() {
   return (
-    <div className="pgContainer maxWidth600">
+    <div className="pgContainer m-w-600">
       <Link to="/">
         <h1>TRAQURA</h1>
       </Link>

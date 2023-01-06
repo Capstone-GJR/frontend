@@ -1,11 +1,12 @@
 import React from "react";
 import { FaGithub, FaLinkedinIn, FaUserGraduate } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
+import design from "../../../assets/design.png";
 
 function AboutUs() {
   return (
     <div className="pgContainer">
-      <h1>THE DEVELOPERS</h1>
+      <h2 className="py-2 py-lg-4">THE DEVELOPERS</h2>
       <div className="row">
         <div
           id="developerCards"
@@ -154,14 +155,19 @@ function AboutUs() {
           </div>
         </div>
       </div>
-      <h1>ABOUT US</h1>
-      <p className="text-center fs-5">
+      <h3 className="py-2 py-lg-4">ABOUT US</h3>
+      <p className="text-center fs-5 m-auto m-w-1200">
         Traqura is the smart(er) solution for home inventory and personal
         organization. This web app allows users to transform their mobile device
         into a powerful inventory management tool where they can catalogue their
         items, their value, and track them via self-assigned locations and
         totes.
       </p>
+      <div className="py-2 py-lg-5">
+        <h3 className="py-3 py-lg-5">DEVELOPMENT PROCESS</h3>
+        <p className="text-center">Desiging</p>
+        <img src={design} className="img-fluid p-1 p-lg-5"/>
+      </div>
     </div>
   );
 }

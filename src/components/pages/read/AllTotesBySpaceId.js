@@ -51,7 +51,7 @@ function AllTotesBySpaceId() {
     return <UpdateComponent props {...props} />;
   } else {
     return (
-      <div className="pgContainer m-w-900">
+      <div className="pgContainer m-w-1200">
         <h2>{location.state.space.name.toUpperCase()}</h2>
         <div className="text-center">
           <Link

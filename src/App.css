@@ -89,10 +89,13 @@ h1,h2,h3,h4,h5,h6 {
     flex-direction: column;
     justify-content: space-evenly;
 }
-.maxWidth600 {
+.m-w-600 {
     max-width: 600px;
 }
 .m-w-900 {
+    max-width: 900px;
+}
+.m-w-1200 {
     max-width: 1200px;
 }
 
