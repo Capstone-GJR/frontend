@@ -28,7 +28,7 @@ import GeneralError from "./components/pages/error pages/GeneralError";
 let router = createBrowserRouter(
     createRoutesFromElements(
         <Route element={<Layout/>}
-        errorElement={<GeneralError/>}>
+               errorElement={<GeneralError/>}>
             <Route path="/" element={<Welcome/>}/>
             <Route path='register' element={<Register/>}/>
             <Route path='login' element={<Login/>}/>
@@ -60,8 +60,8 @@ let router = createBrowserRouter(
 axios.defaults.baseURL = "https://traqura.xyz:8080/api/";
 
 
-    ReactDOM.createRoot(document.getElementById("root")).render(
-        <React.StrictMode>
-            <RouterProvider router={router}/>
-        </React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <RouterProvider router={router}/>
+    </React.StrictMode>
 );
