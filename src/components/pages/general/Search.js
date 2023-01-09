@@ -30,7 +30,7 @@ function Search(props) {
     setSearchTerm(e.target.value);
     const searchResults = components.filter((component) => {
       return (
-        component.keywords.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        component.tags.toLowerCase().includes(searchTerm.toLowerCase()) ||
         component.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         component.tote.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         component.tote.space.name
@@ -45,11 +45,11 @@ function Search(props) {
     <div className="pgContainer">
       <div className="partialPgContainer">
       <h1>SEARCH</h1>
-      <h4>Search for an item by keyword, name, or location name.</h4>
+      <h4>Search for an item by tag, name, or location name.</h4>
           <Form onSubmit={(e) => e.preventDefault()}>
             <FormInput
                 type="text"
-                placeholder="Enter a keyword, name, or location"
+                placeholder="Enter a tag, name, or location"
                 value={searchTerm}
                 onChange={search}
                 onEnter
