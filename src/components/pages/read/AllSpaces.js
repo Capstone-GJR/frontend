@@ -56,11 +56,7 @@ function AllSpaces() {
                     <div className="text-center">
                     <Link
                         to="/addComponent"
-                        state={{
-                                componentType: 'space',
-                                addUrl: `/space/add`,
-                            }
-                        }
+                        state={{stateObj}}
                     >
                         <Button title="ADD A SPACE"/>
                     </Link>
