@@ -10,7 +10,7 @@ const AuthContext = React.createContext({
 export const AuthContextProvider = (props) => {
     const [token, setToken] = useState(null);
 
-    // !!token converts the truthy of falsy value to an actual boolen
+    // !!token converts the truthy of falsy value to an actual boolean
     const userIsLoggedIn = !!token;
 
     const loginHandler = (token) => {
